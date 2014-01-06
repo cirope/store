@@ -1,0 +1,9 @@
+<h2><%= @organization %></h2>
+
+<p>
+  <strong><%= Organization.human_attribute_name 'subdomain' %></strong>:
+  <%= @organization.subdomain %>
+</p>
+
+<%= link_to_edit edit_organization_path(@organization) %> |
+<%= link_to_index organizations_path %>

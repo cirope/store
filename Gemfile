@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'bcrypt-ruby'
 gem 'simple_form'
+gem 'paper_trail'
 gem 'rack-mini-profiler'
 
 gem 'unicorn'

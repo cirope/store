@@ -5,11 +5,17 @@ es:
 
   activerecord:
     models:
+      organization:
+        one: 'Organización'
+        other: 'Organizaciones'
       user:
         one: 'Usuario'
         other: 'Usuarios'
 
     attributes:
+      organization:
+        name: 'Nombre'
+        subdomain: 'Subdominio'
       user:
         name: 'Nombre'
         lastname: 'Apellido'

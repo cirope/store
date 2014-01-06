@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829225354) do
+ActiveRecord::Schema.define(version: 20140106023027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "organizations", force: true do |t|
+    t.string   "name",                     null: false
+    t.string   "subdomain",                null: false
+    t.integer  "lock_version", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name",                               null: false
@@ -32,5 +40,18 @@ ActiveRecord::Schema.define(version: 20130829225354) do
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token", unique: true, using: :btree
+
+  create_table "versions", force: true do |t|
+    t.integer  "item_id",         null: false
+    t.string   "item_type",       null: false
+    t.integer  "organization_id"
+    t.string   "event",           null: false
+    t.integer  "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_id", "item_type"], name: "index_versions_on_item_id_and_item_type", using: :btree
+  add_index "versions", ["organization_id"], name: "index_versions_on_organization_id", using: :btree
 
 end

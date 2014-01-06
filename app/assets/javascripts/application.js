@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require turbolinks_events
 //= require bootstrap
+//= require organizations
 //= require password_resets
 //= require profiles
 //= require users

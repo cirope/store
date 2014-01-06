@@ -1,4 +1,6 @@
 Store::Application.routes.draw do
+  resources :organizations
+
   # Sessions
   get 'login', to: 'sessions#new', as: 'login'
   post 'sessions', to: 'sessions#create', as: 'sessions'

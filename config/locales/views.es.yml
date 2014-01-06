@@ -13,19 +13,24 @@ es:
     logout: 'Salir'
     show: 'Ver'
 
-  sessions:
-    new:
-      title: 'Ingreso'
-      log_in: 'Ingresar'
-      email: 'Correo'
-      password: 'Contraseña'
-      remember_me: 'Recordarme'
-      forgot_password: '¿Olvidaste tu contraseña?'
+  organizations:
     create:
-      invalid: 'Tu correo y/o contraseña no están bien =('
-      logged_in: 'Bienvenido'
+      success: 'Organización creada correctamente'
     destroy:
-      logged_out: 'Hasta la próxima'
+      success: 'Organización eliminada'
+    edit:
+      title: 'Editar organización'
+    index:
+      new: 'Nueva organización'
+      title: 'Listado de organizaciones'
+      empty_html: 'No hay organizaciones, puede crear una con el botón <span class="label label-info">Nueva organización</span>'
+    new:
+      title: 'Crear organización'
+    show:
+      title: 'Ver organización'
+    update:
+      success: 'Organización actualizada correctamente'
+      stale_object_error: 'No se pudo actualizar la organización, revise los datos e inténtelo nuevamente'
 
   password_resets:
     edit:
@@ -49,6 +54,20 @@ es:
       submit: 'Actualizar mis datos'
     update:
       success: 'Tus datos se actualizaron correctamente'
+
+  sessions:
+    new:
+      title: 'Ingreso'
+      log_in: 'Ingresar'
+      email: 'Correo'
+      password: 'Contraseña'
+      remember_me: 'Recordarme'
+      forgot_password: '¿Olvidaste tu contraseña?'
+    create:
+      invalid: 'Tu correo y/o contraseña no están bien =('
+      logged_in: 'Bienvenido'
+    destroy:
+      logged_out: 'Hasta la próxima'
 
   users:
     create:
