@@ -6,5 +6,5 @@ before_install:
   - sudo apt-get install -qq nodejs
 before_script:
   - 'cp config/application.travis.yml config/application.yml'
-  - "psql -c 'create database x0y0_test;' -U postgres"
+  - "psql -c 'create database store_test;' -U postgres"
   - 'bundle exec rake db:migrate'
