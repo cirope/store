@@ -54,7 +54,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :lastname, :email, :password, :password_confirmation, :lock_version)
+    params.require(:user).permit(
+      :name, :lastname, :email, :password, :password_confirmation, :lock_version,
+      relations_attributes: [:id, :organization_id, :_destroy]
+    )
   end
   alias_method :resource_params, :user_params
 

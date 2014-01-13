@@ -14,6 +14,15 @@ class OrganizationsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:organizations)
   end
 
+  test 'should filtered index' do
+    xhr :get, :index, q: @organization.name, format: :json
+    assert_response :success
+
+    organizations = JSON.parse(@response.body)
+    assert_equal 1, organizations.size
+    assert_equal @organization.name, organizations.first['name']
+  end
+
   test 'should get new' do
     get :new
     assert_response :success

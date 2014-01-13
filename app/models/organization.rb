@@ -9,4 +9,7 @@ class Organization < ActiveRecord::Base
 
   strip_fields :name, :subdomain
   downcase_fields :subdomain
+
+  has_many :relations, dependent: :destroy
+  has_many :users, through: :relations
 end

@@ -2,13 +2,30 @@
   <%= f.error_notification %>
 
   <fieldset>
-    <div class="form-inputs">
-      <%= f.input :name, input_html: { autofocus: true } %>
-      <%= f.input :lastname %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.input :password_confirmation %>
-      <%= f.input :lock_version, as: :hidden %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-inputs">
+          <%= f.input :name, input_html: { autofocus: true } %>
+          <%= f.input :lastname %>
+          <%= f.input :email %>
+          <%= f.input :password %>
+          <%= f.input :password_confirmation %>
+          <%= f.input :lock_version, as: :hidden %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <h3><%= Organization.model_name.human(count: 0) %></h3>
+        <div class="form-inputs">
+          <div id="relations">
+            <%= f.simple_fields_for :relations, user_relations do |j_f| %>
+              <%= render 'relations/relation', f: j_f %>
+            <% end %>
+
+            <%= link_to_add_fields t('users.new.relation'), f, :relations %>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="form-actions">

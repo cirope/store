@@ -70,4 +70,17 @@ class OrganizationTest < ActiveSupport::TestCase
       Organization.by_subdomain 'wrong'
     end
   end
+
+  test 'search' do
+    organizations = Organization.search query: @organization.name
+
+    assert organizations.present?
+    assert organizations.all? { |o| o.name =~ /#{@organization.name}/ }
+  end
+
+  test 'empty search' do
+    organizations = Organization.search query: 'empty search'
+
+    assert organizations.empty?
+  end
 end

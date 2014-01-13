@@ -82,6 +82,7 @@ es:
       empty_html: 'No hay usuarios, puede crear uno con el botón <span class="label label-info">Nuevo usuario</span>'
     new:
       title: 'Crear usuario'
+      relation: 'Agregar asociación'
     show:
       title: 'Ver usuario'
     update:

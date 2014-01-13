@@ -8,6 +8,9 @@ es:
       organization:
         one: 'Organización'
         other: 'Organizaciones'
+      relation:
+        one: 'Relación'
+        other: 'Relaciones'
       user:
         one: 'Usuario'
         other: 'Usuarios'
@@ -16,6 +19,9 @@ es:
       organization:
         name: 'Nombre'
         subdomain: 'Subdominio'
+      relation:
+        organization_id: 'Organización'
+        user_id: 'Usuario'
       user:
         name: 'Nombre'
         lastname: 'Apellido'

@@ -7,7 +7,7 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations
   def index
-    @organizations = Organization.all
+    @organizations = Organization.search query: params[:q], limit: request.xhr?
   end
 
   # GET /organizations/1

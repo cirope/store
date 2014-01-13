@@ -7,6 +7,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'bcrypt-ruby'
@@ -20,10 +21,15 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano-rbenv', '>= 2.0'
+  gem 'capistrano-rbenv'
   gem 'unicorn-rails'
 end
 
 group :doc do
   gem 'sdoc', require: false
+end
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
 end

@@ -12,9 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
 //= require turbolinks
 //= require turbolinks_events
 //= require bootstrap
+//= require effect_helper
+//= require dynamic_form
+//= require autocomplete
 //= require organizations
 //= require password_resets
 //= require profiles
