@@ -26,8 +26,17 @@ class SessionsControllerTest < ActionController::TestCase
     assert_equal @user.id, current_user.id
   end
 
-  test 'should not create a new session' do
+  test 'should not create a new session with wrong password' do
     post :create, { email: @user.email, password: 'wrong' }
+
+    assert_response :success
+    assert_nil current_user
+  end
+
+  test 'should not create a new session with wrong organization' do
+    @request.host = "#{organizations(:iso).subdomain}.lvh.me"
+
+    post :create, { email: @user.email, password: '123' }
 
     assert_response :success
     assert_nil current_user

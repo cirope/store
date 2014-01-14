@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = scope
   end
 
   # GET /users/1
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = scope.new
   end
 
   # GET /users/1/edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @title = t 'users.new.title'
-    @user = User.new(user_params)
+    @user = scope.new create_user_params
 
     create_and_respond
   end
@@ -45,8 +45,12 @@ class UsersController < ApplicationController
 
   private
 
+  def scope
+    current_organization ? User.current : User.all
+  end
+
   def set_user
-    @user = User.find params[:id]
+    @user = scope.find params[:id]
   end
 
   def set_title
@@ -60,6 +64,14 @@ class UsersController < ApplicationController
     )
   end
   alias_method :resource_params, :user_params
+
+  def create_user_params
+    if current_organization
+      user_params.merge relations_attributes: [ organization_id: current_organization.id ]
+    else
+      user_params
+    end
+  end
 
   def resource
     @user

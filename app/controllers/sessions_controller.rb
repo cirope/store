@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     @title = t 'sessions.new.title'
-    user = User.find_by email: params[:email]
+    user = scope.find_by email: params[:email]
 
     if user && user.authenticate(params[:password])
       store_auth_token user
@@ -24,6 +24,10 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def scope
+    current_organization ? User.current : User.all
+  end
 
   def default_url
     use_launchpad? ? launchpad_url : dashboard_url

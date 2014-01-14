@@ -1,7 +1,8 @@
 Store::Application.configure do
   config.action_mailer.default_url_options = {
     host: APPLICATION['host'],
-    protocol: (Rails.env.production? ? 'https' : 'http')
+    protocol: (Rails.env.production? ? 'https' : 'http'),
+    subdomain: 'www'
   }
   config.action_mailer.default_url_options[:port] = 3000 if Rails.env.development?
 
