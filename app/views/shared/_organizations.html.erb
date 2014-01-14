@@ -1,0 +1,15 @@
+<li class="dropdown<%= ' active' if controller_name == 'launchpad' %>">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <%= current_organization || t('menu.admin') %>
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu">
+    <% if current_organization %>
+      <li><%= link_to t('menu.admin'), organizations_url(subdomain: 'www') %></li>
+    <% end %>
+    <% organizations = current_user.organizations.to_a - [current_organization] %>
+    <% organizations.each do |organization| %>
+      <li><%= link_to organization, dashboard_for(organization) %></li>
+    <% end %>
+  </ul>
+</li>

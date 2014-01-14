@@ -1,5 +1,7 @@
 Store::Application.routes.draw do
-  resources :organizations
+  # Dashboard and launchpad
+  get '/launchpad', to: 'launchpad#index', as: 'launchpad'
+  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
 
   # Sessions
   get 'login', to: 'sessions#new', as: 'login'
@@ -11,8 +13,9 @@ Store::Application.routes.draw do
   patch 'profile', to: 'profiles#update'
 
   # Resources
-  resources :users
+  resources :organizations
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :users
 
   root 'sessions#new'
 end

@@ -1,6 +1,9 @@
 es:
   app_name: 'Almacén'
 
+  menu:
+    admin: 'Administración'
+
   messages:
     confirmation: '¿Está seguro?'
     not_authorized: 'Debe ingresar para ver el contenido'
@@ -12,6 +15,11 @@ es:
     loading: 'Cargando...'
     logout: 'Salir'
     show: 'Ver'
+
+  dashboard:
+    index:
+      title: 'Tablero'
+      greeting_html: 'Hola %{user}'
 
   organizations:
     create:

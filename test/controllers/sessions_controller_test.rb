@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
   setup do
-    @user = users(:franco)
+    @user = users :franco
   end
 
   test 'should get new' do
@@ -10,10 +10,19 @@ class SessionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should create a new session' do
+  test 'should create a new session and redirect to dashboard' do
     post :create, { email: @user.email, password: '123' }
 
-    assert_redirected_to users_url
+    assert_redirected_to dashboard_url
+    assert_equal @user.id, current_user.id
+  end
+
+  test 'should create a new session and redirect to launchpad' do
+    @user.relations.create! organization_id: organizations(:iso).id
+
+    post :create, { email: @user.email, password: '123' }
+
+    assert_redirected_to launchpad_url
     assert_equal @user.id, current_user.id
   end
 
@@ -25,7 +34,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test 'should get destroy' do
-    cookies[:auth_token] = @user.auth_token
+    cookies.encrypted[:auth_token] = @user.auth_token
 
     assert_not_nil current_user
 

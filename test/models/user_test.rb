@@ -47,4 +47,9 @@ class UserTest < ActiveSupport::TestCase
     assert_error @user, :lastname, :too_long, count: 255
     assert_error @user, :email, :too_long, count: 255
   end
+
+  test 'by auth token' do
+    assert_nil User.by_auth_token('wrong')
+    assert_equal @user, User.by_auth_token(@user.auth_token)
+  end
 end

@@ -17,6 +17,8 @@
  *= require autocomplete
  *= require icons
  *= require forms
+ *= require dashboard
+ *= require launchpad
  *= require organizations
  *= require password_resets
  *= require profiles

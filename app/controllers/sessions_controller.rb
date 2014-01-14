@@ -19,21 +19,27 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete :auth_token
+    cookies.delete :auth_token, domain: COOKIES_DOMAIN
     redirect_to root_url, notice: t('.logged_out')
   end
 
   private
 
   def default_url
-    users_url
+    use_launchpad? ? launchpad_url : dashboard_url
+  end
+
+  def use_launchpad?
+    current_organization.blank? && current_user.organizations.count > 1
   end
 
   def store_auth_token user
+    cookie = { value: user.auth_token, domain: COOKIES_DOMAIN }
+
     if params[:remember_me]
-      cookies.permanent[:auth_token] = user.auth_token
+      cookies.permanent.encrypted[:auth_token] = cookie
     else
-      cookies[:auth_token] = user.auth_token
+      cookies.encrypted[:auth_token] = cookie
     end
   end
 end

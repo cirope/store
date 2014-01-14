@@ -8,9 +8,22 @@ class ActionDispatch::IntegrationTest
 
   setup do
     Capybara.default_driver = :poltergeist
+    Capybara.server_port    = '54163'
+    Capybara.app_host       = 'http://www.lvh.me:54163'
+  end
+
+  teardown do
+    DatabaseCleaner.clean
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
   end
 
   def login user = users(:franco)
-    page.driver.set_cookie 'auth_token', user.auth_token
+    visit login_path
+
+    fill_in 'email', with: user.email
+    fill_in 'password', with: '123'
+
+    click_button I18n.t('sessions.new.log_in')
   end
 end

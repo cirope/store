@@ -19,6 +19,8 @@
 //= require effect_helper
 //= require dynamic_form
 //= require autocomplete
+//= require dashboard
+//= require launchpad
 //= require organizations
 //= require password_resets
 //= require profiles
