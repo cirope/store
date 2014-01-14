@@ -1,4 +1,4 @@
-module States::Scopes
+module Organizations::Scoped
   extend ActiveSupport::Concern
 
   included do
