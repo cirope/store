@@ -14,6 +14,10 @@ class ActiveSupport::TestCase
       model.errors.generate_message(attribute, type, options)
     )
   end
+
+  def set_current_organization organization = organizations(:cirope)
+    Organization.current_id = organization.id
+  end
 end
 
 class ActionController::TestCase
