@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class OrganizationsHelperTest < ActionView::TestCase
+class AccountsHelperTest < ActionView::TestCase
   test 'admin subdomain' do
     request.subdomain = 'test'
 

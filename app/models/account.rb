@@ -1,11 +1,11 @@
-class Organization < ActiveRecord::Base
+class Account < ActiveRecord::Base
   include Attributes::Strip
   include Attributes::Downcase
   include Auditable
-  include Organizations::Current
-  include Organizations::Overrides
-  include Organizations::Scopes
-  include Organizations::Validation
+  include Accounts::Current
+  include Accounts::Overrides
+  include Accounts::Scopes
+  include Accounts::Validation
 
   strip_fields :name, :subdomain
   downcase_fields :subdomain

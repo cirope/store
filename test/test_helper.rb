@@ -15,8 +15,8 @@ class ActiveSupport::TestCase
     )
   end
 
-  def set_current_organization organization = organizations(:cirope)
-    Organization.current_id = organization.id
+  def set_current_account account = accounts(:cirope)
+    Account.current_id = account.id
   end
 end
 

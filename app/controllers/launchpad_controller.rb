@@ -3,6 +3,6 @@ class LaunchpadController < ApplicationController
 
   def index
     @title = t '.title'
-    @organizations = current_user.organizations
+    @accounts = current_user.accounts
   end
 end

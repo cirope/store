@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   private
 
   def scope
-    current_organization ? User.current : User.all
+    current_account ? User.current : User.all
   end
 
   def default_url
@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
   end
 
   def use_launchpad?
-    current_organization.blank? && current_user.organizations.count > 1
+    current_account.blank? && current_user.accounts.count > 1
   end
 
   def store_auth_token user

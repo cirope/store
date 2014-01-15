@@ -13,13 +13,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:users)
   end
 
-  test 'should get organization index' do
-    with_organization
+  test 'should get account index' do
+    with_account
 
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
-    assert assigns(:users).all? { |u| u.organizations.include?(@organization) }
+    assert assigns(:users).all? { |u| u.accounts.include?(@account) }
   end
 
   test 'should get new' do
@@ -41,10 +41,10 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to user_url(assigns(:user))
   end
 
-  test 'should create user in current organization' do
-    with_organization
+  test 'should create user in current account' do
+    with_account
 
-    assert_difference '@organization.users.count' do
+    assert_difference '@account.users.count' do
       post :create, user: {
         name: @user.name,
         lastname: @user.lastname,
@@ -82,8 +82,8 @@ class UsersControllerTest < ActionController::TestCase
 
   private
 
-    def with_organization
-      @organization = organizations :cirope
-      @request.host = "#{@organization.subdomain}.lvh.me"
+    def with_account
+      @account = accounts :cirope
+      @request.host = "#{@account.subdomain}.lvh.me"
     end
 end

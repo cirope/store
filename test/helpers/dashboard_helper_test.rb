@@ -2,8 +2,8 @@ require 'test_helper'
 
 class DashboardHelperTest < ActionView::TestCase
   test 'dashboard for' do
-    organization = organizations :cirope
+    account = accounts :cirope
 
-    assert_match /#{organization.subdomain}/, dashboard_for(organization)
+    assert_match /#{account.subdomain}/, dashboard_for(account)
   end
 end

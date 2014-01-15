@@ -4,12 +4,12 @@
   <%= mail_to @user.email %>
 </p>
 
-<% unless @user.organizations.empty? %>
-  <h3><%= Organization.model_name.human count: @user.organizations.count %></h3>
+<% unless @user.accounts.empty? %>
+  <h3><%= Account.model_name.human count: @user.accounts.count %></h3>
 
   <ul>
-    <% @user.organizations.each do |organization| %>
-      <li><%= organization %></li>
+    <% @user.accounts.each do |account| %>
+      <li><%= account %></li>
     <% end %>
   </ul>
 <% end %>

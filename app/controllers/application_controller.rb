@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :scope_current_organization
+  before_action :scope_current_account
 
   def user_for_paper_trail
     current_user.try :id
@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
     end
     helper_method :current_user
 
-    def current_organization
-      @current_organization ||= Organization.by_subdomain request.subdomains.first
+    def current_account
+      @current_account ||= Account.by_subdomain request.subdomains.first
     end
-    helper_method :current_organization
+    helper_method :current_account
 
     def authorize
       Rack::MiniProfiler.authorize_request if current_user.try :is_admin?
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       redirect_to login_url, alert: t('messages.not_authorized') unless current_user
     end
 
-    def scope_current_organization
-      Organization.current_id = current_organization.try(:id)
+    def scope_current_account
+      Account.current_id = current_account.try(:id)
     end
 end

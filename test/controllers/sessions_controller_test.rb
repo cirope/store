@@ -18,7 +18,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test 'should create a new session and redirect to launchpad' do
-    @user.relations.create! organization_id: organizations(:iso).id
+    @user.relations.create! account_id: accounts(:iso).id
 
     post :create, { email: @user.email, password: '123' }
 
@@ -33,8 +33,8 @@ class SessionsControllerTest < ActionController::TestCase
     assert_nil current_user
   end
 
-  test 'should not create a new session with wrong organization' do
-    @request.host = "#{organizations(:iso).subdomain}.lvh.me"
+  test 'should not create a new session with wrong account' do
+    @request.host = "#{accounts(:iso).subdomain}.lvh.me"
 
     post :create, { email: @user.email, password: '123' }
 

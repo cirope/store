@@ -1,4 +1,4 @@
-module Organizations::Validation
+module Accounts::Validation
   extend ActiveSupport::Concern
 
   included do

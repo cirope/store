@@ -1,4 +1,4 @@
-module Organizations::Scopes
+module Accounts::Scopes
   extend ActiveSupport::Concern
 
   module ClassMethods
@@ -10,9 +10,9 @@ module Organizations::Scopes
 
     def search query: nil, limit: false
       if query.present?
-        result = Organization.where 'name ILIKE ?', "%#{query.strip}%"
+        result = Account.where 'name ILIKE ?', "%#{query.strip}%"
       else
-        result = Organization.all
+        result = Account.all
       end
 
       limit ? result.limit(10) : result

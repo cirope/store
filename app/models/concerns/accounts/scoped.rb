@@ -1,4 +1,4 @@
-module Cities::Scopes
+module Accounts::Scoped
   extend ActiveSupport::Concern
 
   included do

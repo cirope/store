@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def scope
-    current_organization ? User.current : User.all
+    current_account ? User.current : User.all
   end
 
   def set_user
@@ -60,14 +60,14 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :name, :lastname, :email, :password, :password_confirmation, :lock_version,
-      relations_attributes: [:id, :organization_id, :_destroy]
+      relations_attributes: [:id, :account_id, :_destroy]
     )
   end
   alias_method :resource_params, :user_params
 
   def create_user_params
-    if current_organization
-      user_params.merge relations_attributes: [ organization_id: current_organization.id ]
+    if current_account
+      user_params.merge relations_attributes: [ account_id: current_account.id ]
     else
       user_params
     end

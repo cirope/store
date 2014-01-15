@@ -5,9 +5,9 @@ es:
 
   activerecord:
     models:
-      organization:
-        one: 'Organización'
-        other: 'Organizaciones'
+      account:
+        one: 'Cuenta'
+        other: 'Cuentas'
       relation:
         one: 'Relación'
         other: 'Relaciones'
@@ -16,11 +16,11 @@ es:
         other: 'Usuarios'
 
     attributes:
-      organization:
+      account:
         name: 'Nombre'
         subdomain: 'Subdominio'
       relation:
-        organization_id: 'Organización'
+        account_id: 'Cuenta'
         user_id: 'Usuario'
       user:
         name: 'Nombre'

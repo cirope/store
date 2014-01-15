@@ -1,4 +1,4 @@
-module Organizations::Overrides
+module Accounts::Overrides
   extend ActiveSupport::Concern
 
   def to_s
