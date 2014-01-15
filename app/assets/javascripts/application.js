@@ -20,7 +20,6 @@
 //= require dynamic_form
 //= require autocomplete
 //= require accounts
-//= require dashboard
 //= require launchpad
 //= require password_resets
 //= require profiles

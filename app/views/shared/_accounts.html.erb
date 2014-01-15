@@ -9,7 +9,7 @@
     <% end %>
     <% accounts = current_user.accounts.to_a - [current_account] %>
     <% accounts.each do |account| %>
-      <li><%= link_to account, dashboard_for(account) %></li>
+      <li><%= link_to account, '#' %></li>
     <% end %>
   </ul>
 </li>

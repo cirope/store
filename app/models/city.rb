@@ -1,8 +1,8 @@
 class City < ActiveRecord::Base
+  include Accounts::Scoped
   include Attributes::Strip
   include Auditable
   include Cities::Validation
-  include Accounts::Scoped
 
   strip_fields :name, :zip_code
 

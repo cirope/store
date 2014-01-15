@@ -6,19 +6,19 @@ class RelationTest < ActiveSupport::TestCase
   end
 
   test 'blank attributes' do
-    @relation.account = nil
+    @relation.organization_id = nil
 
     assert @relation.invalid?
-    assert_error @relation, :account, :blank
+    assert_error @relation, :organization_id, :blank
   end
 
   test 'unique attributes' do
     relation = Relation.new(
-      account_id: @relation.account_id,
+      organization_id: @relation.organization_id,
       user_id: @relation.user_id
     )
 
     assert relation.invalid?
-    assert_error relation, :account_id, :taken
+    assert_error relation, :organization_id, :taken
   end
 end

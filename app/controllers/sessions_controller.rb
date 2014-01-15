@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete :auth_token, domain: COOKIES_DOMAIN
-    redirect_to root_url, notice: t('.logged_out')
+    redirect_to root_url(subdomain: 'www'), notice: t('.logged_out')
   end
 
   private
@@ -30,11 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def default_url
-    use_launchpad? ? launchpad_url : dashboard_url
-  end
-
-  def use_launchpad?
-    current_account.blank? && current_user.accounts.count > 1
+    launchpad_url subdomain: current_user.account_subdomain
   end
 
   def store_auth_token user

@@ -7,7 +7,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts
   def index
-    @accounts = Account.search query: params[:q], limit: request.xhr?
+    @accounts = Account.all
   end
 
   # GET /accounts/1

@@ -10,6 +10,6 @@ class Account < ActiveRecord::Base
   strip_fields :name, :subdomain
   downcase_fields :subdomain
 
-  has_many :relations, dependent: :destroy
-  has_many :users, through: :relations
+  has_many :organizations, dependent: :destroy
+  has_many :users, dependent: :destroy
 end

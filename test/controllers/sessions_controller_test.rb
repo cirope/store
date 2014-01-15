@@ -10,19 +10,13 @@ class SessionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'should create a new session and redirect to dashboard' do
-    post :create, { email: @user.email, password: '123' }
-
-    assert_redirected_to dashboard_url
-    assert_equal @user.id, current_user.id
-  end
-
   test 'should create a new session and redirect to launchpad' do
-    @user.relations.create! account_id: accounts(:iso).id
+    organization = Organization.create!(name: 'new', account_id: @user.account_id)
+    @user.relations.create! organization_id: organization.id
 
     post :create, { email: @user.email, password: '123' }
 
-    assert_redirected_to launchpad_url
+    assert_redirected_to launchpad_url(subdomain: @user.account_subdomain)
     assert_equal @user.id, current_user.id
   end
 
@@ -49,7 +43,7 @@ class SessionsControllerTest < ActionController::TestCase
 
     delete :destroy
 
-    assert_redirected_to root_url
+    assert_redirected_to root_url(subdomain: 'www')
     assert_nil current_user
   end
 

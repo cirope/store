@@ -7,9 +7,9 @@ class ActionDispatch::IntegrationTest
   require 'capybara/poltergeist'
 
   setup do
-    Capybara.default_driver = :poltergeist
-    Capybara.server_port    = '54163'
-    Capybara.app_host       = 'http://www.lvh.me:54163'
+    Capybara.default_driver  = :poltergeist
+    Capybara.server_port     = '54163'
+    Capybara.app_host        = 'http://www.lvh.me:54163'
   end
 
   teardown do
@@ -18,7 +18,10 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 
-  def login user = users(:franco)
+  def login user: users(:franco), account: accounts(:cirope)
+    Capybara.app_host = "http://#{account.subdomain}.lvh.me:54163"
+    Account.current_id = account.id
+
     visit login_path
 
     fill_in 'email', with: user.email

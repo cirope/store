@@ -1,21 +1,26 @@
 Store::Application.routes.draw do
-  # Dashboard and launchpad
-  get '/launchpad', to: 'launchpad#index', as: 'launchpad'
-  get '/dashboard', to: 'dashboard#index', as: 'dashboard'
-
   # Sessions
   get 'login', to: 'sessions#new', as: 'login'
   post 'sessions', to: 'sessions#create', as: 'sessions'
   delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  # Profiles
-  get 'profile', to: 'profiles#edit', as: 'profile'
-  patch 'profile', to: 'profiles#update'
-
-  # Resources
-  resources :accounts
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :users
+
+  constraints AdminSubdomain do
+    resources :accounts
+  end
+
+  constraints AccountSubdomain do
+    # Launchpad
+    get '/launchpad', to: 'launchpad#index', as: 'launchpad'
+
+    # Profiles
+    get 'profile', to: 'profiles#edit', as: 'profile'
+    patch 'profile', to: 'profiles#update'
+
+    resources :users
+    resources :organizations
+  end
 
   root 'sessions#new'
 end

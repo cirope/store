@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114205208) do
+ActiveRecord::Schema.define(version: 20140115151525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,15 +36,24 @@ ActiveRecord::Schema.define(version: 20140114205208) do
   add_index "cities", ["account_id"], name: "index_cities_on_account_id", using: :btree
   add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
-  create_table "relations", force: true do |t|
+  create_table "organizations", force: true do |t|
+    t.string   "name",       null: false
     t.integer  "account_id", null: false
-    t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "relations", ["account_id", "user_id"], name: "index_relations_on_account_id_and_user_id", unique: true, using: :btree
-  add_index "relations", ["account_id"], name: "index_relations_on_account_id", using: :btree
+  add_index "organizations", ["account_id"], name: "index_organizations_on_account_id", using: :btree
+
+  create_table "relations", force: true do |t|
+    t.integer  "organization_id", null: false
+    t.integer  "user_id",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relations", ["organization_id", "user_id"], name: "index_relations_on_organization_id_and_user_id", unique: true, using: :btree
+  add_index "relations", ["organization_id"], name: "index_relations_on_organization_id", using: :btree
   add_index "relations", ["user_id"], name: "index_relations_on_user_id", using: :btree
 
   create_table "states", force: true do |t|
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(version: 20140114205208) do
     t.string   "lastname",                           null: false
     t.string   "email",                              null: false
     t.string   "password_digest",                    null: false
+    t.integer  "account_id",                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auth_token",                         null: false
@@ -69,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140114205208) do
     t.integer  "lock_version",           default: 0, null: false
   end
 
+  add_index "users", ["account_id"], name: "index_users_on_account_id", using: :btree
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token", unique: true, using: :btree

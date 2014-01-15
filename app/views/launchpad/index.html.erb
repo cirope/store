@@ -1,9 +1,9 @@
-<% @accounts.each_slice(2) do |accounts| %>
+<% @organizations.each_slice(2) do |organizations| %>
   <div class="row">
-    <% accounts.each do |account| %>
+    <% organizations.each do |organization| %>
       <div class="col-md-6">
         <div class="well">
-          <h3><%= link_to account, dashboard_for(account) %></h3>
+          <h3><%= link_to organization, '#' %></h3>
         </div>
       </div>
     <% end %>

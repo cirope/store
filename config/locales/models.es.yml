@@ -8,6 +8,9 @@ es:
       account:
         one: 'Cuenta'
         other: 'Cuentas'
+      organization:
+        one: 'Organización'
+        other: 'Organizaciones'
       relation:
         one: 'Relación'
         other: 'Relaciones'
@@ -19,6 +22,8 @@ es:
       account:
         name: 'Nombre'
         subdomain: 'Subdominio'
+      organization:
+        name: 'Nombre'
       relation:
         account_id: 'Cuenta'
         user_id: 'Usuario'

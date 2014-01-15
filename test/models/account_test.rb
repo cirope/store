@@ -70,17 +70,4 @@ class AccountTest < ActiveSupport::TestCase
       Account.by_subdomain 'wrong'
     end
   end
-
-  test 'search' do
-    accounts = Account.search query: @account.name
-
-    assert accounts.present?
-    assert accounts.all? { |o| o.name =~ /#{@account.name}/ }
-  end
-
-  test 'empty search' do
-    accounts = Account.search query: 'empty search'
-
-    assert accounts.empty?
-  end
 end

@@ -7,8 +7,8 @@ class UsersTest < ActionDispatch::IntegrationTest
     visit new_user_path
     fill_in_new_user
 
-    add_account accounts(:cirope), 1
-    add_account accounts(:iso), 2
+    add_organization organizations(:cirope_sa), 1
+    add_organization organizations(:cirope_inc), 2
 
     assert_difference 'User.count' do
       assert_difference 'Relation.count', 2 do
@@ -19,7 +19,7 @@ class UsersTest < ActionDispatch::IntegrationTest
 
   test 'should remove user relations' do
     user = users(:franco)
-    user.relations.create! account_id: accounts(:iso).id
+    user.relations.create! organization_id: Organization.create!(name: 'New').id
 
     login
 
@@ -44,19 +44,17 @@ class UsersTest < ActionDispatch::IntegrationTest
       fill_in 'user_password_confirmation', with: '123456'
     end
 
-    def add_account account, index
+    def add_organization organization, index
       # Must be removed before the next search, forcing the new "creation"
       page.execute_script("$('.ui-autocomplete').html('')")
 
-      if index > 1 && page.has_no_css?("#relations fieldset:nth-child(#{index})")
-        click_link I18n.t('users.new.relation')
-      end
+      click_link I18n.t('users.new.relation') if index > 1
 
       within "#relations fieldset:nth-child(#{index})" do
-        input_id = find('input[name$="[account]"]')[:id]
-        page.execute_script "$('##{input_id}').focus().val('#{account.name}').keydown()"
+        input_id = find('input[name$="[organization]"]')[:id]
+        page.execute_script "$('##{input_id}').focus().val('#{organization.name}').keydown()"
       end
 
-      find('.ui-autocomplete li.ui-menu-item a').click
+      find('.ui-autocomplete li.ui-menu-item').click
     end
 end

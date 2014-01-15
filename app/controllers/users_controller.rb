@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @title = t 'users.new.title'
-    @user = scope.new create_user_params
+    @user = scope.new user_params
 
     create_and_respond
   end
@@ -60,18 +60,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :name, :lastname, :email, :password, :password_confirmation, :lock_version,
-      relations_attributes: [:id, :account_id, :_destroy]
+      relations_attributes: [:id, :organization_id, :_destroy]
     )
   end
   alias_method :resource_params, :user_params
-
-  def create_user_params
-    if current_account
-      user_params.merge relations_attributes: [ account_id: current_account.id ]
-    else
-      user_params
-    end
-  end
 
   def resource
     @user

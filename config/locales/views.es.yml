@@ -35,10 +35,28 @@ es:
       success: 'Cuenta actualizada correctamente'
       stale_object_error: 'No se pudo actualizar la cuenta, revise los datos e inténtelo nuevamente'
 
-  dashboard:
+  launchpad:
     index:
       title: 'Tablero'
-      greeting_html: 'Hola %{user}'
+
+  organizations:
+    create:
+      success: 'Organización creada correctamente'
+    destroy:
+      success: 'Organización eliminada'
+    edit:
+      title: 'Editar organización'
+    index:
+      new: 'Nueva organización'
+      title: 'Listado de organizaciones'
+      empty_html: 'No hay organizaciones, puede crear una con el botón <span class="label label-info">Nueva organización</span>'
+    new:
+      title: 'Crear organización'
+    show:
+      title: 'Ver organización'
+    update:
+      success: 'Organización actualizada correctamente'
+      stale_object_error: 'No se pudo actualizar la organización, revise los datos e inténtelo nuevamente'
 
   password_resets:
     edit:

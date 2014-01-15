@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   include Users::Scopes
   include Users::Validation
 
+  delegate :subdomain, to: :account, prefix: true
+
   strip_fields :name, :lastname, :email
   downcase_fields :email
+
+  belongs_to :account
 end

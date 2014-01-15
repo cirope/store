@@ -13,15 +13,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:users)
   end
 
-  test 'should get account index' do
-    with_account
-
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:users)
-    assert assigns(:users).all? { |u| u.accounts.include?(@account) }
-  end
-
   test 'should get new' do
     get :new
     assert_response :success
@@ -29,22 +20,6 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'should create user' do
     assert_difference 'User.count' do
-      post :create, user: {
-        name: @user.name,
-        lastname: @user.lastname,
-        email: 'new@user.com',
-        password: '123',
-        password_confirmation: '123'
-      }
-    end
-
-    assert_redirected_to user_url(assigns(:user))
-  end
-
-  test 'should create user in current account' do
-    with_account
-
-    assert_difference '@account.users.count' do
       post :create, user: {
         name: @user.name,
         lastname: @user.lastname,
@@ -79,11 +54,4 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to users_url
   end
-
-  private
-
-    def with_account
-      @account = accounts :cirope
-      @request.host = "#{@account.subdomain}.lvh.me"
-    end
 end
