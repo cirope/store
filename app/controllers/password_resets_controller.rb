@@ -5,7 +5,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     @title = t 'password_resets.new.title'
-    user = User.find_by email: params[:email]
+    user = scope.find_by email: params[:email]
 
     if user
       user.prepare_password_reset
@@ -20,12 +20,12 @@ class PasswordResetsController < ApplicationController
 
   def edit
     @title = t '.title'
-    @user = User.find_by! password_reset_token: params[:id]
+    @user = scope.find_by! password_reset_token: params[:id]
   end
 
   def update
     @title = t 'password_resets.edit.title'
-    @user = User.find_by! password_reset_token: params[:id]
+    @user = scope.find_by! password_reset_token: params[:id]
 
     if @user.password_reset_sent_at < 2.hours.ago
       redirect_to new_password_reset_path, alert: t('.expired')
@@ -37,6 +37,10 @@ class PasswordResetsController < ApplicationController
   end
 
   private
+
+  def scope
+    User.unscoped
+  end
 
   def user_params
     params.require(:user).permit(:password, :password_confirmation)

@@ -18,7 +18,7 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 
-  def login user: users(:franco), account: accounts(:cirope)
+  def login user: unscoped_user(:franco), account: accounts(:cirope)
     Capybara.app_host = "http://#{account.subdomain}.lvh.me:54163"
     Account.current_id = account.id
 

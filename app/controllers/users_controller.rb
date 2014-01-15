@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = scope
+    @users = User.all
   end
 
   # GET /users/1
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = scope.new
+    @user = User.new
   end
 
   # GET /users/1/edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @title = t 'users.new.title'
-    @user = scope.new user_params
+    @user = User.new user_params
 
     create_and_respond
   end
@@ -45,12 +45,8 @@ class UsersController < ApplicationController
 
   private
 
-  def scope
-    current_account ? User.current : User.all
-  end
-
   def set_user
-    @user = scope.find params[:id]
+    @user = User.find params[:id]
   end
 
   def set_title

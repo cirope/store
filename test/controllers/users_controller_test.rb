@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
-    @user = users(:john)
+    @user = unscoped_user :john
 
     login
   end
@@ -19,7 +19,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'should create user' do
-    assert_difference 'User.count' do
+    assert_difference 'User.unscoped.count' do
       post :create, user: {
         name: @user.name,
         lastname: @user.lastname,

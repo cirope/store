@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   private
 
   def scope
-    current_account ? User.current : User.all
+    current_account ? User : User.unscoped
   end
 
   def default_url

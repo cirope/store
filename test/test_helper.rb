@@ -18,10 +18,14 @@ class ActiveSupport::TestCase
   def set_current_account account = accounts(:cirope)
     Account.current_id = account.id
   end
+
+  def unscoped_user user
+    User.unscoped.scoping { users user }
+  end
 end
 
 class ActionController::TestCase
-  def login user: users(:franco), account: accounts(:cirope)
+  def login user: unscoped_user(:franco), account: accounts(:cirope)
     @request.host = "#{account.subdomain}.lvh.me"
     cookies.encrypted[:auth_token] = user.auth_token
   end

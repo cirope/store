@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PasswordResetsControllerTest < ActionController::TestCase
   setup do
-    @user = users :franco
+    @user = unscoped_user :franco
   end
 
   test 'should get new' do
