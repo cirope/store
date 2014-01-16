@@ -15,12 +15,10 @@
     <% if current_user %>
       <nav class="collapse navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
-          <%= render 'shared/accounts' if current_user.organizations.count > 1 %>
           <% if admin_subdomain? %>
             <%= menu_item_for Account, accounts_path %>
           <% else %>
-            <%= menu_item_for User, users_path %>
-            <%= menu_item_for Organization, organizations_path %>
+            <%= render 'shared/submenu/admin' %>
           <% end %>
         </ul>
 
