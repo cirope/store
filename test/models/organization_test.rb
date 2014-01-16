@@ -2,18 +2,16 @@ require 'test_helper'
 
 class OrganizationTest < ActiveSupport::TestCase
   def setup
-    set_current_account
-
     @organization = organizations :cirope_sa
   end
 
   test 'blank attributes' do
     @organization.name = ''
-    @organization.account_id = nil
+    @organization.account = nil
 
     assert @organization.invalid?
     assert_error @organization, :name, :blank
-    assert_error @organization, :account_id, :blank
+    assert_error @organization, :account, :blank
   end
 
   test 'unique attributes' do

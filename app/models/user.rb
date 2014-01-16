@@ -14,6 +14,4 @@ class User < ActiveRecord::Base
 
   strip_fields :name, :lastname, :email
   downcase_fields :email
-
-  belongs_to :account
 end

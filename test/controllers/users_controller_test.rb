@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
-    @user = unscoped_user :john
+    @user = users :john
 
     login
   end

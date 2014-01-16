@@ -3,9 +3,7 @@ require 'test_helper'
 class OrganizationsControllerTest < ActionController::TestCase
 
   setup do
-    set_current_account
-
-    @organization = organizations(:cirope_sa)
+    @organization = organizations :cirope_sa
 
     login
   end

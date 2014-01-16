@@ -2,9 +2,7 @@ require 'test_helper'
 
 class StateTest < ActiveSupport::TestCase
   def setup
-    set_current_account
-
-    @state = states(:mendoza)
+    @state = states :mendoza
   end
 
   test 'blank attributes' do
@@ -17,7 +15,7 @@ class StateTest < ActiveSupport::TestCase
   end
 
   test 'unique attributes' do
-    state = State.new name: @state.name
+    state = State.new @state.dup.attributes
 
     assert state.invalid?
     assert_error state, :name, :taken

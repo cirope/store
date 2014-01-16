@@ -7,5 +7,8 @@ class City < ActiveRecord::Base
   strip_fields :name, :zip_code
 
   belongs_to :state
-  belongs_to :account
+
+  def to_s
+    name
+  end
 end

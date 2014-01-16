@@ -8,6 +8,9 @@ es:
       account:
         one: 'Cuenta'
         other: 'Cuentas'
+      customer:
+        one: 'Cliente'
+        other: 'Clientes'
       organization:
         one: 'Organización'
         other: 'Organizaciones'
@@ -22,6 +25,11 @@ es:
       account:
         name: 'Nombre'
         subdomain: 'Subdominio'
+      customer:
+        tax_id: 'CUIT'
+        name: 'Nombre'
+        address: 'Dirección'
+        city: 'Ciudad'
       organization:
         name: 'Nombre'
       relation:

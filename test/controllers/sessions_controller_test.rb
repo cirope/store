@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
   setup do
-    @user = unscoped_user :franco
+    @user = users :franco
   end
 
   test 'should get new' do

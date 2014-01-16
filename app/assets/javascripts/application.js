@@ -20,7 +20,9 @@
 //= require dynamic_form
 //= require autocomplete
 //= require accounts
+//= require customers
 //= require launchpad
+//= require organizations
 //= require password_resets
 //= require profiles
 //= require users

@@ -2,31 +2,24 @@ require 'test_helper'
 
 class CityTest < ActiveSupport::TestCase
   def setup
-    set_current_account
-
-    @city = cities(:rivadavia)
+    @city = cities :rivadavia
   end
 
   test 'blank attributes' do
     @city.name = ''
     @city.zip_code = ''
-    @city.state = nil
+    @city.state_id = nil
     @city.account = nil
 
     assert @city.invalid?
     assert_error @city, :name, :blank
     assert_error @city, :zip_code, :blank
-    assert_error @city, :state, :blank
+    assert_error @city, :state_id, :blank
     assert_error @city, :account, :blank
   end
 
   test 'unique attributes' do
-    city = City.new(
-      name: @city.name,
-      zip_code: @city.zip_code,
-      account_id: @city.account_id,
-      state_id: @city.state_id
-    )
+    city = City.new @city.dup.attributes
 
     assert city.invalid?
     assert_error city, :name, :taken

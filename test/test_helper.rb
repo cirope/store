@@ -9,23 +9,20 @@ class ActiveSupport::TestCase
 
   fixtures :all
 
+  setup do
+    Account.current_id = accounts(:cirope).id
+  end
+
   def assert_error model, attribute, type, options = {}
     assert model.errors[attribute].include?(
       model.errors.generate_message(attribute, type, options)
     )
   end
-
-  def set_current_account account = accounts(:cirope)
-    Account.current_id = account.id
-  end
-
-  def unscoped_user user
-    User.unscoped.scoping { users user }
-  end
 end
 
 class ActionController::TestCase
-  def login user: unscoped_user(:franco), account: accounts(:cirope)
+  def login user: users(:franco), account: accounts(:cirope)
+    Account.current_id = account.id
     @request.host = "#{account.subdomain}.lvh.me"
     cookies.encrypted[:auth_token] = user.auth_token
   end

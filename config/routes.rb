@@ -1,4 +1,5 @@
 Store::Application.routes.draw do
+
   # Sessions
   get 'login', to: 'sessions#new', as: 'login'
   post 'sessions', to: 'sessions#create', as: 'sessions'
@@ -18,6 +19,8 @@ Store::Application.routes.draw do
     get 'profile', to: 'profiles#edit', as: 'profile'
     patch 'profile', to: 'profiles#update'
 
+    # Resorces
+    resources :customers
     resources :users
     resources :organizations
   end

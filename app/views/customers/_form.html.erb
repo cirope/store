@@ -1,0 +1,15 @@
+<%= simple_form_for(@customer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :tax_id, input_html: { autofocus: true } %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.association :city, collection: states, as: :grouped_select, group_method: :cities %>
+    <%= f.input :lock_version, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>
