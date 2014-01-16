@@ -1,0 +1,27 @@
+<% if @items.empty? %>
+  <%= render 'shared/empty_index', message: t('.empty_html') %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Item.human_attribute_name 'code' %></th>
+        <th><%= Item.human_attribute_name 'name' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.code %></td>
+          <td><%= item.name %></td>
+          <td><%= link_to_show item %></td>
+          <td><%= link_to_edit edit_item_path(item) %></td>
+          <td><%= link_to_destroy item %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to_new new_item_path, class: 'btn btn-primary' %>

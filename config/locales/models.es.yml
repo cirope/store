@@ -11,6 +11,9 @@ es:
       customer:
         one: 'Cliente'
         other: 'Clientes'
+      item:
+        one: 'Artículo'
+        other: 'Artículos'
       organization:
         one: 'Organización'
         other: 'Organizaciones'
@@ -30,6 +33,9 @@ es:
         name: 'Nombre'
         address: 'Dirección'
         city: 'Ciudad'
+      item:
+        code: 'Código'
+        name: 'Nombre'
       organization:
         name: 'Nombre'
       relation:

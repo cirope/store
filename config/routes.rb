@@ -21,6 +21,7 @@ Store::Application.routes.draw do
 
     # Resorces
     resources :customers
+    resources :items
     resources :users
     resources :organizations
   end

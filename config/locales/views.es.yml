@@ -54,6 +54,25 @@ es:
       success: 'Cliente actualizado correctamente'
       stale_object_error: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
 
+  items:
+    create:
+      success: 'Artículo creado correctamente'
+    destroy:
+      success: 'Artículo eliminado'
+    edit:
+      title: 'Editar artículo'
+    index:
+      new: 'Nuevo artículo'
+      title: 'Listado de artículos'
+      empty_html: 'No hay artículos, puede crear uno con el botón <span class="label label-info">Nuevo artículo</span>'
+    new:
+      title: 'Crear artículo'
+    show:
+      title: 'Ver artículo'
+    update:
+      success: 'Artículo actualizado correctamente'
+      stale_object_error: 'No se pudo actualizar el artículo, revise los datos e inténtelo nuevamente'
+
   launchpad:
     index:
       title: 'Tablero'
