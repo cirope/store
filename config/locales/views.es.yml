@@ -54,6 +54,25 @@ es:
       success: 'Cliente actualizado correctamente'
       stale_object_error: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
 
+  invoices:
+    create:
+      success: 'Factura creada correctamente'
+    destroy:
+      success: 'Factura eliminada'
+    edit:
+      title: 'Editar factura'
+    index:
+      new: 'Nueva factura'
+      title: 'Listado de facturas'
+      empty_html: 'No hay facturas, puede crear una con el botón <span class="label label-info">Nueva factura</span>'
+    new:
+      title: 'Crear factura'
+    show:
+      title: 'Ver factura'
+    update:
+      success: 'Factura actualizada correctamente'
+      stale_object_error: 'No se pudo actualizar la factura, revise los datos e inténtelo nuevamente'
+
   items:
     create:
       success: 'Artículo creado correctamente'

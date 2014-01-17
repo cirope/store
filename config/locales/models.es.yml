@@ -11,6 +11,9 @@ es:
       customer:
         one: 'Cliente'
         other: 'Clientes'
+      invoice:
+        one: 'Factura'
+        other: 'Facturas'
       item:
         one: 'Artículo'
         other: 'Artículos'
@@ -33,6 +36,9 @@ es:
         name: 'Nombre'
         address: 'Dirección'
         city: 'Ciudad'
+      invoice:
+        number: 'Número'
+        customer: 'Cliente'
       item:
         code: 'Código'
         name: 'Nombre'

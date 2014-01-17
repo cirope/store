@@ -23,7 +23,9 @@ Store::Application.routes.draw do
     resources :customers
     resources :items
     resources :users
-    resources :organizations
+    resources :organizations do
+      resources :invoices
+    end
   end
 
   root 'sessions#new'

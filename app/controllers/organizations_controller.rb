@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
   include Responder
 
   before_action :authorize
-  before_action :set_organization, only:  [:show, :edit, :update, :destroy]
+  before_action :set_organization, only: [:show, :edit, :update, :destroy]
   before_action :set_title, only: [:index, :show, :new, :edit]
 
   # GET /organizations

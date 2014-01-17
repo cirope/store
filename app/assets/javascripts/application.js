@@ -21,6 +21,7 @@
 //= require autocomplete
 //= require accounts
 //= require customers
+//= require invoices
 //= require items
 //= require launchpad
 //= require organizations
