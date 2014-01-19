@@ -7,9 +7,11 @@ class ItemTest < ActiveSupport::TestCase
 
   test 'blank attributes' do
     @item.code = ''
+    @item.name = ''
 
     assert @item.invalid?
     assert_error @item, :code, :blank
+    assert_error @item, :name, :blank
   end
 
   test 'unique attributes' do

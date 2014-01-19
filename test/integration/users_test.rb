@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class UsersTest < ActionDispatch::IntegrationTest
+  include EntitiesTestHelper
+
   test 'should create a new user with relations' do
     login
 
@@ -19,8 +21,7 @@ class UsersTest < ActionDispatch::IntegrationTest
 
   test 'should remove user relations' do
     user = users(:franco)
-    user.relations.create! organization_id: Organization.create!(name: 'New').id
-
+    user.relations.create! organization_id: Organization.create!(generic_entity_attributes).id
     login
 
     visit edit_user_path(user)

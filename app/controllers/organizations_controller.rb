@@ -54,7 +54,8 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    params.require(:organization).permit :name, :lock_version
+    params.require(:organization).permit :lock_version,
+      entity_attributes: [:id, :tax_id, :tax_situation, :name, :address, :city_id]
   end
   alias_method :resource_params, :organization_params
 

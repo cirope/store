@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
+  include EntitiesTestHelper
+
   setup do
     @user = users :franco
   end
@@ -11,7 +13,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test 'should create a new session and redirect to launchpad' do
-    organization = Organization.create!(name: 'new', account_id: @user.account_id)
+    organization = Organization.create! generic_entity_attributes
     @user.relations.create! organization_id: organization.id
 
     post :create, { email: @user.email, password: '123' }

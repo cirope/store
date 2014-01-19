@@ -1,11 +1,5 @@
 cirope_sa:
-  name: Cirope S.A.
   account: cirope
 
 cirope_inc:
-  name: Cirope Inc.
   account: cirope
-
-iso_org:
-  name: Iso.org
-  account: iso

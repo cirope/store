@@ -11,6 +11,9 @@ es:
       customer:
         one: 'Cliente'
         other: 'Clientes'
+      entity:
+        one: 'Entidad'
+        other: 'Entidades'
       invoice:
         one: 'Factura'
         other: 'Facturas'
@@ -32,7 +35,9 @@ es:
         name: 'Nombre'
         subdomain: 'Subdominio'
       customer:
+      entity:
         tax_id: 'CUIT'
+        tax_situation: 'Situación frente al IVA'
         name: 'Nombre'
         address: 'Dirección'
         city: 'Ciudad'

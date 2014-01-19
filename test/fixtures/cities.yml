@@ -4,6 +4,12 @@ rivadavia:
   state: mendoza
   account: cirope
 
+godoy_cruz:
+  name: Godoy Cruz
+  zip_code: 5501
+  state: mendoza
+  account: cirope
+
 mar_del_plata:
   name: Mar del Plata
   zip_code: 7600

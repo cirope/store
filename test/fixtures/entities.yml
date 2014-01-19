@@ -1,0 +1,26 @@
+cirope_sa:
+  name: Cirope S.A.
+  tax_id: 30-71171887-3
+  tax_situation: responsible
+  address: Alem 2920
+  city: godoy_cruz
+  invoiceable: cirope_sa (Organization)
+  account: cirope
+
+cirope_inc:
+  name: Cirope Inc.
+  tax_id: 30-71171887-4
+  tax_situation: responsible
+  address: Alem 2920
+  city: godoy_cruz
+  invoiceable: cirope_inc (Organization)
+  account: cirope
+
+havanna:
+  name: Havanna S.A.
+  tax_id: 33-69723504-9
+  tax_situation: responsible
+  address: Alverti 1701
+  city: mar_del_plata
+  invoiceable: havanna (Customer)
+  account: cirope

@@ -1,7 +1,8 @@
 class Organization < ActiveRecord::Base
   include Accounts::Scoped
+  include Auditable
+  include Invoiceable
   include Organizations::Scopes
-  include Organizations::Validation
 
   has_many :invoices, dependent: :destroy
 

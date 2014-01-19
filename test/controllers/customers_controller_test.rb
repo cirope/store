@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class CustomersControllerTest < ActionController::TestCase
+  include EntitiesTestHelper
+
   setup do
     @customer = customers :havanna
 
@@ -20,12 +22,7 @@ class CustomersControllerTest < ActionController::TestCase
 
   test 'should create customer' do
     assert_difference('Customer.count') do
-      post :create, customer: {
-        tax_id: '123',
-        name: 'Chichilo',
-        address: 'Centro Comercial Puerto Local 17 ',
-        city_id: cities(:mar_del_plata).id
-      }
+      post :create, customer: { entity_attributes: generic_entity_attributes }
     end
 
     assert_redirected_to customer_url(assigns(:customer))
@@ -42,7 +39,9 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test 'should update customer' do
-    patch :update, id: @customer, customer: { name: 'Updated' }
+    patch :update, id: @customer, customer: {
+      entity_attributes: { id: @customer.entity.id, name: 'Updated' }
+    }
     assert_redirected_to customer_url(assigns(:customer))
   end
 

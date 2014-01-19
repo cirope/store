@@ -37,10 +37,6 @@ ActiveRecord::Schema.define(version: 20140117010129) do
   add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
   create_table "customers", force: true do |t|
-    t.string   "tax_id",                   null: false
-    t.string   "name",                     null: false
-    t.text     "address"
-    t.integer  "city_id"
     t.integer  "account_id",               null: false
     t.integer  "lock_version", default: 0, null: false
     t.datetime "created_at"
@@ -48,9 +44,25 @@ ActiveRecord::Schema.define(version: 20140117010129) do
   end
 
   add_index "customers", ["account_id"], name: "index_customers_on_account_id", using: :btree
-  add_index "customers", ["city_id"], name: "index_customers_on_city_id", using: :btree
-  add_index "customers", ["name"], name: "index_customers_on_name", using: :btree
-  add_index "customers", ["tax_id"], name: "index_customers_on_tax_id", using: :btree
+
+  create_table "entities", force: true do |t|
+    t.string   "tax_id",           null: false
+    t.string   "name",             null: false
+    t.string   "tax_situation",    null: false
+    t.text     "address"
+    t.integer  "city_id",          null: false
+    t.integer  "invoiceable_id"
+    t.string   "invoiceable_type"
+    t.integer  "account_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entities", ["account_id"], name: "index_entities_on_account_id", using: :btree
+  add_index "entities", ["city_id"], name: "index_entities_on_city_id", using: :btree
+  add_index "entities", ["invoiceable_id", "invoiceable_type"], name: "index_entities_on_invoiceable_id_and_invoiceable_type", using: :btree
+  add_index "entities", ["name"], name: "index_entities_on_name", using: :btree
+  add_index "entities", ["tax_id"], name: "index_entities_on_tax_id", using: :btree
 
   create_table "invoices", force: true do |t|
     t.integer  "number",                      null: false
@@ -81,7 +93,6 @@ ActiveRecord::Schema.define(version: 20140117010129) do
   add_index "items", ["name"], name: "index_items_on_name", using: :btree
 
   create_table "organizations", force: true do |t|
-    t.string   "name",                     null: false
     t.integer  "account_id",               null: false
     t.integer  "lock_version", default: 0, null: false
     t.datetime "created_at"

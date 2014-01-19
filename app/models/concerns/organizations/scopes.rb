@@ -2,7 +2,7 @@ module Organizations::Scopes
   extend ActiveSupport::Concern
 
   included do
-    scope :ordered, -> { order("#{table_name}.name") }
+    scope :ordered, -> { includes(:entity).order("#{Entity.table_name}.name") }
   end
 
   module ClassMethods
@@ -10,7 +10,7 @@ module Organizations::Scopes
       result = Organization.ordered
 
       if query.present?
-        result = result.where "#{table_name}.name ILIKE ?", "%#{query.strip}%"
+        result = result.where "#{Entity.table_name}.name ILIKE ?", "%#{query.strip}%"
       end
 
       limit ? result.limit(10) : result

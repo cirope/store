@@ -34,3 +34,4 @@ end
 
 # Custom extensions
 require_relative 'extensions/integration_test'
+require_relative 'extensions/entities_test_helper'

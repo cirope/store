@@ -1,17 +1,4 @@
-<h2><%= @customer %></h2>
-
-<p>
-  <strong><%= Customer.human_attribute_name 'tax_id' %></strong>:
-  <%= @customer.tax_id %>
-</p>
-<p>
-  <strong><%= Customer.human_attribute_name 'address' %></strong>:
-  <%= @customer.address %>
-</p>
-<p>
-  <strong><%= Customer.human_attribute_name 'city' %></strong>:
-  <%= @customer.city %>
-</p>
+<%= render @customer.entity %>
 
 <%= link_to_edit edit_customer_path(@customer) %> |
 <%= link_to_index customers_path %>

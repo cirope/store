@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class OrganizationsControllerTest < ActionController::TestCase
+  include EntitiesTestHelper
 
   setup do
     @organization = organizations :cirope_sa
@@ -30,7 +31,7 @@ class OrganizationsControllerTest < ActionController::TestCase
 
   test 'should create organization' do
     assert_difference('Organization.count') do
-      post :create, organization: { name: 'New' }
+      post :create, organization: { entity_attributes: generic_entity_attributes }
     end
 
     assert_redirected_to organization_url(assigns(:organization))
@@ -47,7 +48,9 @@ class OrganizationsControllerTest < ActionController::TestCase
   end
 
   test 'should update organization' do
-    patch :update, id: @organization, organization: { name: 'Updated' }
+    patch :update, id: @organization, organization: {
+      entity_attributes: { id: @organization.entity.id, name: 'Updated' }
+    }
     assert_redirected_to organization_url(assigns(:organization))
   end
 

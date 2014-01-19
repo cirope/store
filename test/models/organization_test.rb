@@ -6,26 +6,10 @@ class OrganizationTest < ActiveSupport::TestCase
   end
 
   test 'blank attributes' do
-    @organization.name = ''
     @organization.account = nil
 
     assert @organization.invalid?
-    assert_error @organization, :name, :blank
     assert_error @organization, :account, :blank
-  end
-
-  test 'unique attributes' do
-    organization = Organization.new @organization.dup.attributes
-
-    assert organization.invalid?
-    assert_error organization, :name, :taken
-  end
-
-  test 'attributes length' do
-    @organization.name = 'abcde' * 52
-
-    assert @organization.invalid?
-    assert_error @organization, :name, :too_long, count: 255
   end
 
   test 'search' do
