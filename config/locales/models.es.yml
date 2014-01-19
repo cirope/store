@@ -37,7 +37,7 @@ es:
       customer:
       entity:
         tax_id: 'CUIT'
-        tax_situation: 'Situación frente al IVA'
+        tax_condition: 'Condición respecto al IVA'
         name: 'Nombre'
         address: 'Dirección'
         city: 'Ciudad'

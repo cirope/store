@@ -1,7 +1,7 @@
 <%= f.simple_fields_for :entity do |ef| %>
   <%= ef.input :name, input_html: { autofocus: true } %>
   <%= ef.input :tax_id %>
-  <%= ef.input :tax_situation %>
+  <%= ef.input :tax_condition, collection: tax_conditions %>
   <%= ef.input :address, as: :string %>
   <%= ef.association :city, collection: states, as: :grouped_select, group_method: :cities, prompt: true %>
 <% end %>

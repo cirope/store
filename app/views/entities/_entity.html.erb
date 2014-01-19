@@ -5,8 +5,8 @@
   <%= entity.tax_id %>
 </p>
 <p>
-  <strong><%= Entity.human_attribute_name 'tax_situation' %></strong>:
-  <%= entity.tax_situation %>
+  <strong><%= Entity.human_attribute_name 'tax_condition' %></strong>:
+  <%= t "entities.conditions.#{entity.tax_condition}" %>
 </p>
 <p>
   <strong><%= Entity.human_attribute_name 'address' %></strong>:

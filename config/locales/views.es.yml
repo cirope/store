@@ -54,6 +54,14 @@ es:
       success: 'Cliente actualizado correctamente'
       stale_object_error: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
 
+  entities:
+    conditions:
+      responsible: 'Responsable inscripto'
+      mono_tax: 'Monotributista'
+      exempt: 'Exento'
+      not_responsible: 'No alcanzado o no responsable'
+      final_consumer: 'Consumidor final'
+
   invoices:
     create:
       success: 'Factura creada correctamente'

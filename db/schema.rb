@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140117010129) do
   create_table "entities", force: true do |t|
     t.string   "tax_id",           null: false
     t.string   "name",             null: false
-    t.string   "tax_situation",    null: false
+    t.string   "tax_condition",    null: false
     t.text     "address"
     t.integer  "city_id",          null: false
     t.integer  "invoiceable_id"

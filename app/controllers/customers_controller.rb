@@ -55,7 +55,7 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit :lock_version,
-      entity_attributes: [:id, :tax_id, :tax_situation, :name, :address, :city_id]
+      entity_attributes: [:id, :tax_id, :tax_condition, :name, :address, :city_id]
   end
   alias_method :resource_params, :customer_params
 

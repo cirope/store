@@ -3,7 +3,7 @@ module Invoiceable
 
   included do
     delegate :tax_id,        :tax_id=,
-             :tax_situation, :tax_situation=,
+             :tax_condition, :tax_condition=,
              :name,          :name=,
              :address,       :address=,
              :city,          :city=,

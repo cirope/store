@@ -3,7 +3,7 @@ class CreateEntities < ActiveRecord::Migration
     create_table :entities do |t|
       t.string :tax_id, null: false
       t.string :name, null: false
-      t.string :tax_situation, null: false
+      t.string :tax_condition, null: false
       t.text :address
       t.references :city, null: false, index: true
       t.references :invoiceable, polymorphic: true, index: true

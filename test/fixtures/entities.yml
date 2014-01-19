@@ -1,7 +1,7 @@
 cirope_sa:
   name: Cirope S.A.
   tax_id: 30-71171887-3
-  tax_situation: responsible
+  tax_condition: <%= Entity::TAX_CONDITIONS.first %>
   address: Alem 2920
   city: godoy_cruz
   invoiceable: cirope_sa (Organization)
@@ -10,7 +10,7 @@ cirope_sa:
 cirope_inc:
   name: Cirope Inc.
   tax_id: 30-71171887-4
-  tax_situation: responsible
+  tax_condition: <%= Entity::TAX_CONDITIONS.first %>
   address: Alem 2920
   city: godoy_cruz
   invoiceable: cirope_inc (Organization)
@@ -19,7 +19,7 @@ cirope_inc:
 havanna:
   name: Havanna S.A.
   tax_id: 33-69723504-9
-  tax_situation: responsible
+  tax_condition: <%= Entity::TAX_CONDITIONS.first %>
   address: Alverti 1701
   city: mar_del_plata
   invoiceable: havanna (Customer)
