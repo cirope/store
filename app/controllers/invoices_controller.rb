@@ -59,7 +59,7 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_params
-    params.require(:invoice).permit :number, :customer_id, :lock_version
+    params.require(:invoice).permit :customer_id, :lock_version
   end
   alias_method :resource_params, :invoice_params
 

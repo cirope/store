@@ -1,6 +1,7 @@
 class Invoice < ActiveRecord::Base
   include Accounts::Scoped
   include Auditable
+  include Invoices::Number
   include Invoices::Validation
 
   belongs_to :customer

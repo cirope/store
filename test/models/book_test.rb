@@ -25,4 +25,14 @@ class BookTest < ActiveSupport::TestCase
     assert @book.invalid?
     assert_error @book, :last_used_number, :not_a_number
   end
+
+  test 'next available number' do
+    assert_equal @book.last_used_number.next, @book.next_available_number
+  end
+
+  test 'next number' do
+    assert_difference '@book.reload.last_used_number', 1 do
+      assert @book.last_used_number.next, @book.next_number
+    end
+  end
 end

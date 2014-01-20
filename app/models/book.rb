@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
   include Accounts::Scoped
   include Attributes::Strip
   include Auditable
+  include Books::NextNumber
   include Books::Validation
 
   strip_fields :kind

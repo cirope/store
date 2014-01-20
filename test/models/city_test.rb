@@ -19,7 +19,7 @@ class CityTest < ActiveSupport::TestCase
   end
 
   test 'unique attributes' do
-    city = City.new @city.dup.attributes
+    city = @city.dup
 
     assert city.invalid?
     assert_error city, :name, :taken

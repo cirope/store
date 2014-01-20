@@ -19,7 +19,7 @@ class EntityTest < ActiveSupport::TestCase
   end
 
   test 'unique attributes' do
-    entity = Entity.new @entity.dup.attributes
+    entity = @entity.dup
 
     assert entity.invalid?
     assert_error entity, :tax_id, :taken

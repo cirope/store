@@ -15,10 +15,10 @@ class ItemTest < ActiveSupport::TestCase
   end
 
   test 'unique attributes' do
-    @item = Item.new @item.dup.attributes
+    item = @item.dup
 
-    assert @item.invalid?
-    assert_error @item, :code, :taken
+    assert item.invalid?
+    assert_error item, :code, :taken
   end
 
   test 'attributes length' do

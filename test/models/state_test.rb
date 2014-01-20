@@ -15,7 +15,7 @@ class StateTest < ActiveSupport::TestCase
   end
 
   test 'unique attributes' do
-    state = State.new @state.dup.attributes
+    state = @state.dup
 
     assert state.invalid?
     assert_error state, :name, :taken

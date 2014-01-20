@@ -23,7 +23,6 @@ class InvoicesControllerTest < ActionController::TestCase
   test 'should create invoice' do
     assert_difference('Invoice.count') do
       post :create, book_id: @book, invoice: {
-        number: '2',
         customer_id: customers(:havanna).id
       }
     end
