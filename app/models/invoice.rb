@@ -4,7 +4,7 @@ class Invoice < ActiveRecord::Base
   include Invoices::Validation
 
   belongs_to :customer
-  belongs_to :organization
+  belongs_to :book
 
   def to_s
     number.to_s

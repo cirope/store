@@ -35,6 +35,25 @@ es:
       success: 'Cuenta actualizada correctamente'
       stale_object_error: 'No se pudo actualizar la cuenta, revise los datos e inténtelo nuevamente'
 
+  books:
+    create:
+      success: 'Talonario creado correctamente'
+    destroy:
+      success: 'Talonario eliminado'
+    edit:
+      title: 'Editar talonario'
+    index:
+      new: 'Nuevo talonario'
+      title: 'Listado de talonarios'
+      empty_html: 'No hay talonarios, puede crear uno con el botón <span class="label label-info">Nuevo talonario</span>'
+    new:
+      title: 'Crear talonario'
+    show:
+      title: 'Ver talonario'
+    update:
+      success: 'Talonario actualizado correctamente'
+      stale_object_error: 'No se pudo actualizar el talonario, revise los datos e inténtelo nuevamente'
+
   customers:
     create:
       success: 'Cliente creado correctamente'

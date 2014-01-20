@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117010129) do
+ActiveRecord::Schema.define(version: 20140120153348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20140117010129) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "books", force: true do |t|
+    t.string   "kind",                         null: false
+    t.integer  "last_used_number", default: 0, null: false
+    t.integer  "organization_id",              null: false
+    t.integer  "account_id",                   null: false
+    t.integer  "lock_version",     default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "books", ["account_id"], name: "index_books_on_account_id", using: :btree
+  add_index "books", ["organization_id"], name: "index_books_on_organization_id", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "name",       null: false
@@ -65,19 +78,19 @@ ActiveRecord::Schema.define(version: 20140117010129) do
   add_index "entities", ["tax_id"], name: "index_entities_on_tax_id", using: :btree
 
   create_table "invoices", force: true do |t|
-    t.integer  "number",                      null: false
+    t.integer  "number",                   null: false
     t.integer  "customer_id"
-    t.integer  "organization_id",             null: false
-    t.integer  "account_id",                  null: false
-    t.integer  "lock_version",    default: 0, null: false
+    t.integer  "book_id",                  null: false
+    t.integer  "account_id",               null: false
+    t.integer  "lock_version", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "invoices", ["account_id"], name: "index_invoices_on_account_id", using: :btree
+  add_index "invoices", ["book_id"], name: "index_invoices_on_book_id", using: :btree
   add_index "invoices", ["customer_id"], name: "index_invoices_on_customer_id", using: :btree
   add_index "invoices", ["number"], name: "index_invoices_on_number", using: :btree
-  add_index "invoices", ["organization_id"], name: "index_invoices_on_organization_id", using: :btree
 
   create_table "items", force: true do |t|
     t.string   "code"

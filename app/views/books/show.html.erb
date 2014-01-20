@@ -1,0 +1,9 @@
+<h2><%= @book %></h2>
+
+<p>
+  <strong><%= Book.human_attribute_name 'last_used_number' %></strong>:
+  <%= @book.last_used_number %>
+</p>
+
+<%= link_to_edit edit_book_path(@book) %> |
+<%= link_to_index organization_books_path(@organization) %>

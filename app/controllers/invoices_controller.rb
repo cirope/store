@@ -2,13 +2,13 @@ class InvoicesController < ApplicationController
   include Responder
 
   before_action :authorize
-  before_action :set_organization
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  before_action :set_book
   before_action :set_title, only: [:index, :show, :new, :edit]
 
   # GET /invoices
   def index
-    @invoices = @organization.invoices
+    @invoices = @book.invoices
   end
 
   # GET /invoices/1
@@ -17,7 +17,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/new
   def new
-    @invoice = @organization.invoices.new
+    @invoice = @book.invoices.new
   end
 
   # GET /invoices/1/edit
@@ -27,7 +27,7 @@ class InvoicesController < ApplicationController
   # POST /invoices
   def create
     @title = t 'invoices.new.title'
-    @invoice = @organization.invoices.new invoice_params
+    @invoice = @book.invoices.new invoice_params
 
     create_and_respond
   end
@@ -46,12 +46,12 @@ class InvoicesController < ApplicationController
 
   private
 
-  def set_organization
-    @organization = Organization.find params[:organization_id]
+  def set_invoice
+    @invoice = Invoice.find params[:id]
   end
 
-  def set_invoice
-    @invoice = @organization.invoices.find params[:id]
+  def set_book
+    @book = @invoice ? @invoice.book : Book.find(params[:book_id])
   end
 
   def set_title
@@ -66,18 +66,14 @@ class InvoicesController < ApplicationController
   def resource
     @invoice
   end
-
-  def organization_invoice
-    [@organization, @invoice]
-  end
-  alias_method :after_create_url, :organization_invoice
-  alias_method :after_update_url, :organization_invoice
+  alias_method :after_create_url, :resource
+  alias_method :after_update_url, :resource
 
   def edit_resource_url
-    edit_organization_invoice_url @organization, @invoice
+    edit_invoice_url @invoice
   end
 
   def after_destroy_url
-    organization_invoices_url @organization
+    book_invoices_url @book
   end
 end

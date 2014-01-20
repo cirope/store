@@ -1,5 +1,5 @@
 first_sale:
   number: 1
   customer: havanna
-  organization: cirope_sa
+  book: cirope_sa_a
   account: cirope

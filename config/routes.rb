@@ -23,8 +23,13 @@ Store::Application.routes.draw do
     resources :customers
     resources :items
     resources :users
+
+    resources :books, only: [] do
+      resources :invoices, shallow: true
+    end
+
     resources :organizations do
-      resources :invoices
+      resources :books, shallow: true
     end
   end
 

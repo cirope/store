@@ -20,6 +20,7 @@
 //= require dynamic_form
 //= require autocomplete
 //= require accounts
+//= require books
 //= require customers
 //= require invoices
 //= require items
