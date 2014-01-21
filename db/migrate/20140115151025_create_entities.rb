@@ -5,9 +5,11 @@ class CreateEntities < ActiveRecord::Migration
       t.string :name, null: false
       t.string :tax_condition, null: false
       t.text :address
-      t.references :city, null: false, index: true
       t.references :invoiceable, polymorphic: true, index: true
+      t.references :city, null: false, index: true
+      t.foreign_key :cities, options: FOREIGN_KEY_OPTIONS
       t.references :account, null: false, index: true
+      t.foreign_key :accounts, options: FOREIGN_KEY_OPTIONS
 
       t.timestamps
     end

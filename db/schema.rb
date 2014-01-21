@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 20140120153348) do
     t.string   "name",             null: false
     t.string   "tax_condition",    null: false
     t.text     "address"
-    t.integer  "city_id",          null: false
     t.integer  "invoiceable_id"
     t.string   "invoiceable_type"
+    t.integer  "city_id",          null: false
     t.integer  "account_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -165,5 +165,31 @@ ActiveRecord::Schema.define(version: 20140120153348) do
 
   add_index "versions", ["account_id"], name: "index_versions_on_account_id", using: :btree
   add_index "versions", ["item_id", "item_type"], name: "index_versions_on_item_id_and_item_type", using: :btree
+
+  add_foreign_key "books", "accounts", name: "books_account_id_fk", dependent: :restrict
+  add_foreign_key "books", "organizations", name: "books_organization_id_fk", dependent: :restrict
+
+  add_foreign_key "cities", "accounts", name: "cities_account_id_fk", dependent: :restrict
+  add_foreign_key "cities", "states", name: "cities_state_id_fk", dependent: :restrict
+
+  add_foreign_key "customers", "accounts", name: "customers_account_id_fk", dependent: :restrict
+
+  add_foreign_key "entities", "accounts", name: "entities_account_id_fk", dependent: :restrict
+  add_foreign_key "entities", "cities", name: "entities_city_id_fk", dependent: :restrict
+
+  add_foreign_key "invoices", "accounts", name: "invoices_account_id_fk", dependent: :restrict
+  add_foreign_key "invoices", "books", name: "invoices_book_id_fk", dependent: :restrict
+  add_foreign_key "invoices", "customers", name: "invoices_customer_id_fk", dependent: :restrict
+
+  add_foreign_key "items", "accounts", name: "items_account_id_fk", dependent: :restrict
+
+  add_foreign_key "organizations", "accounts", name: "organizations_account_id_fk", dependent: :restrict
+
+  add_foreign_key "relations", "organizations", name: "relations_organization_id_fk", dependent: :restrict
+  add_foreign_key "relations", "users", name: "relations_user_id_fk", dependent: :restrict
+
+  add_foreign_key "states", "accounts", name: "states_account_id_fk", dependent: :restrict
+
+  add_foreign_key "users", "accounts", name: "users_account_id_fk", dependent: :restrict
 
 end
