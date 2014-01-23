@@ -54,4 +54,17 @@ class ItemTest < ActiveSupport::TestCase
     assert @item.valid?
     assert_in_delta 12.34, @item.price, 2 ** -20
   end
+
+  test 'search' do
+    items = Item.search query: @item.name
+
+    assert items.present?
+    assert items.all? { |o| o.name =~ /#{@item.name}/ }
+  end
+
+  test 'empty search' do
+    items = Item.search query: 'empty search'
+
+    assert items.empty?
+  end
 end

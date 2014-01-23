@@ -21,9 +21,12 @@ class ReceiptsControllerTest < ActionController::TestCase
   end
 
   test 'should create receipt' do
-    assert_difference('Receipt.count') do
+    assert_difference ['Receipt.count', 'ReceiptItem.count'] do
       post :create, book_id: @book, receipt: {
-        customer_id: customers(:havanna).id
+        customer_id: customers(:havanna).id,
+        receipt_items_attributes: [
+          { item_id: items(:candy).id, quantity: '5' }
+        ]
       }
     end
 

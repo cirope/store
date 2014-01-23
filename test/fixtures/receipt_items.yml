@@ -2,3 +2,8 @@ one_candy:
   item: candy
   quantity: 1
   receipt: first_receipt
+
+one_chocolate:
+  item: chocolate
+  quantity: 1
+  receipt: first_receipt

@@ -4,3 +4,10 @@ candy:
   price: 0.59
   unit: piece
   account: cirope
+
+chocolate:
+  code: 124
+  name: Chocolate
+  price: 1.29
+  unit: piece
+  account: cirope

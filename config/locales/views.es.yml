@@ -178,6 +178,7 @@ es:
       empty_html: 'No hay remitos, puede crear uno con el botón <span class="label label-info">Nuevo remito</span>'
     new:
       title: 'Crear remito'
+      item: 'Agregar artículo'
     show:
       title: 'Ver remito'
     update:

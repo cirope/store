@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.all
+    @items = Item.search query: params[:q], limit: request.xhr?
   end
 
   # GET /items/1

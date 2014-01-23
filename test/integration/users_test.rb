@@ -46,9 +46,6 @@ class UsersTest < ActionDispatch::IntegrationTest
     end
 
     def add_organization organization, index
-      # Must be removed before the next search, forcing the new "creation"
-      page.execute_script("$('.ui-autocomplete').html('')")
-
       click_link I18n.t('users.new.relation') if index > 1
 
       within "#relations fieldset:nth-child(#{index})" do

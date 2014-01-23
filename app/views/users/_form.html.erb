@@ -15,11 +15,11 @@
       </div>
 
       <div class="col-md-6">
-        <h3><%= Organization.model_name.human(count: 0) %></h3>
+        <h4><%= Organization.model_name.human count: 0 %></h4>
         <div class="form-inputs">
           <div id="relations">
-            <%= f.simple_fields_for :relations, user_relations do |j_f| %>
-              <%= render 'relations/relation', f: j_f %>
+            <%= f.simple_fields_for :relations, user_relations do |rf| %>
+              <%= render 'relations/relation', f: rf %>
             <% end %>
 
             <%= link_to_add_fields t('users.new.relation'), f, :relations %>

@@ -4,6 +4,15 @@
   <div class="form-inputs">
     <%= f.association :customer, prompt: true, input_html: { autofocus: true } %>
     <%= f.input :lock_version, as: :hidden %>
+
+    <h4><%= Item.model_name.human count: 0 %></h4>
+    <div id="receipt_items">
+      <%= f.simple_fields_for :receipt_items, receipt_items do |rif| %>
+        <%= render 'receipt_items/receipt_item', f: rif %>
+      <% end %>
+
+      <%= link_to_add_fields t('receipts.new.item'), f, :receipt_items %>
+    </div>
   </div>
 
   <div class="form-actions">

@@ -1,0 +1,12 @@
+<fieldset class="row receipt_item">
+  <div class="col-md-8">
+    <%= f.input :item, as: :autocomplete, label: false, url: items_path %>
+  </div>
+  <div class="col-md-2">
+    <%= f.input :quantity, as: :string, label: false %>
+  </div>
+  <div class="col-md-2 nested-actions">
+    <%= f.input :id, as: :hidden %>
+    <%= link_to_remove_nested_item f %>
+  </div>
+</fieldset>

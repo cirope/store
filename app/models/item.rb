@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
   include Attributes::Strip
   include Auditable
   include Items::Validation
+  include Items::Scopes
 
   strip_fields :code, :name
 
