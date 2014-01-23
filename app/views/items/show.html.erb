@@ -1,4 +1,13 @@
 <h2><%= @item %></h2>
 
+<p>
+  <strong><%= Item.human_attribute_name 'unit' %></strong>:
+  <%= @item.unit %>
+</p>
+<p>
+  <strong><%= Item.human_attribute_name 'price' %></strong>:
+  <%= number_to_currency @item.price %>
+</p>
+
 <%= link_to_edit edit_item_path(@item) %> |
 <%= link_to_index items_path %>

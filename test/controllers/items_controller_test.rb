@@ -23,7 +23,9 @@ class ItemsControllerTest < ActionController::TestCase
     assert_difference('Item.count') do
       post :create, item: {
         code: '321',
-        name: 'Chocolate'
+        name: 'Chocolate',
+        price: '12,34',
+        unit: 'piece'
       }
     end
 

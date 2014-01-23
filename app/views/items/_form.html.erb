@@ -4,6 +4,8 @@
   <div class="form-inputs">
     <%= f.input :code, input_html: { autofocus: true } %>
     <%= f.input :name %>
+    <%= f.input :price, as: :string %>
+    <%= f.input :unit %>
     <%= f.input :lock_version, as: :hidden %>
   </div>
 

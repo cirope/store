@@ -53,6 +53,8 @@ es:
       item:
         code: 'Código'
         name: 'Nombre'
+        price: 'Precio'
+        unit: 'Unidad'
       organization:
         name: 'Nombre'
       relation:

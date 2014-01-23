@@ -1,4 +1,6 @@
 candy:
   code: 123
   name: Candy
+  price: 0.59
+  unit: piece
   account: cirope

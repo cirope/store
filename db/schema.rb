@@ -94,9 +94,11 @@ ActiveRecord::Schema.define(version: 20140120153348) do
 
   create_table "items", force: true do |t|
     t.string   "code"
-    t.string   "name",                     null: false
-    t.integer  "account_id",               null: false
-    t.integer  "lock_version", default: 0, null: false
+    t.string   "name",                                              null: false
+    t.decimal  "price",        precision: 15, scale: 2,             null: false
+    t.string   "unit",                                              null: false
+    t.integer  "account_id",                                        null: false
+    t.integer  "lock_version",                          default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

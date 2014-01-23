@@ -3,6 +3,8 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :code
       t.string :name, null: false
+      t.decimal :price, null: false, precision: 15, scale: 2
+      t.string :unit, null: false
       t.references :account, null: false, index: true
       t.integer :lock_version, null: false, default: 0
 

@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit :code, :name, :lock_version
+    params.require(:item).permit :code, :name, :price, :unit, :lock_version
   end
   alias_method :resource_params, :item_params
 
