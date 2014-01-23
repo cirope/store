@@ -29,6 +29,9 @@ es:
       receipt:
         one: 'Remito'
         other: 'Remitos'
+      receipt_item:
+        one: 'Línea de remito'
+        other: 'Líneas de remito'
       relation:
         one: 'Relación'
         other: 'Relaciones'
@@ -63,6 +66,9 @@ es:
       receipt:
         number: 'Número'
         customer: 'Cliente'
+      receipt_item:
+        item: 'Artículo'
+        quantity: 'Cantidad'
       relation:
         account_id: 'Cuenta'
         user_id: 'Usuario'
