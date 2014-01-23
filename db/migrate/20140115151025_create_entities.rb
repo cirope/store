@@ -7,9 +7,7 @@ class CreateEntities < ActiveRecord::Migration
       t.text :address
       t.references :invoiceable, polymorphic: true, index: true
       t.references :city, null: false, index: true
-      t.foreign_key :cities, options: FOREIGN_KEY_OPTIONS
       t.references :account, null: false, index: true
-      t.foreign_key :accounts, options: FOREIGN_KEY_OPTIONS
 
       t.timestamps
     end

@@ -4,9 +4,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :kind, null: false
       t.integer :last_used_number, null: false, default: 0
       t.references :organization, null: false, index: true
-      t.foreign_key :organizations, options: FOREIGN_KEY_OPTIONS
       t.references :account, null: false, index: true
-      t.foreign_key :accounts, options: FOREIGN_KEY_OPTIONS
       t.integer :lock_version, null: false, default: 0
 
       t.timestamps
