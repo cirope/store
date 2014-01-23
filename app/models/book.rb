@@ -9,6 +9,7 @@ class Book < ActiveRecord::Base
 
   belongs_to :organization
   has_many :invoices, dependent: :destroy
+  has_many :receipts, dependent: :destroy
 
   def to_s
     kind

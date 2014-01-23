@@ -1,8 +1,8 @@
-class Invoice < ActiveRecord::Base
+class Receipt < ActiveRecord::Base
   include Accounts::Scoped
   include Auditable
   include Books::Numerable
-  include Invoices::Validation
+  include Receipts::Validation
 
   belongs_to :customer
 

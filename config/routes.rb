@@ -26,6 +26,7 @@ Store::Application.routes.draw do
 
     resources :books, only: [] do
       resources :invoices, shallow: true
+      resources :receipts, shallow: true
     end
 
     resources :organizations do

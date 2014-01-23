@@ -1,6 +1,6 @@
-class CreateInvoices < ActiveRecord::Migration
+class CreateReceipts < ActiveRecord::Migration
   def change
-    create_table :invoices do |t|
+    create_table :receipts do |t|
       t.integer :number, null: false
       t.references :customer, null: false, index: true
       t.references :book, null: false, index: true
@@ -10,6 +10,6 @@ class CreateInvoices < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :invoices, :number
+    add_index :receipts, :number
   end
 end

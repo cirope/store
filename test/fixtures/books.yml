@@ -3,3 +3,9 @@ cirope_sa_a:
   last_used_number: 1
   organization: cirope_sa
   account: cirope
+
+cirope_sa_x:
+  kind: X
+  last_used_number: 1
+  organization: cirope_sa
+  account: cirope

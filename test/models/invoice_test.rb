@@ -7,9 +7,11 @@ class InvoiceTest < ActiveSupport::TestCase
 
   test 'blank attributes' do
     @invoice.number = ''
+    @invoice.customer = nil
 
     assert @invoice.invalid?
     assert_error @invoice, :number, :blank
+    assert_error @invoice, :customer, :blank
   end
 
   test 'unique attributes' do

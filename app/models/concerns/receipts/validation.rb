@@ -1,4 +1,4 @@
-module Invoices::Validation
+module Receipts::Validation
   extend ActiveSupport::Concern
 
   included do

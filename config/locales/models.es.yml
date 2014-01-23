@@ -26,6 +26,9 @@ es:
       organization:
         one: 'Organización'
         other: 'Organizaciones'
+      receipt:
+        one: 'Remito'
+        other: 'Remitos'
       relation:
         one: 'Relación'
         other: 'Relaciones'
@@ -57,6 +60,9 @@ es:
         unit: 'Unidad'
       organization:
         name: 'Nombre'
+      receipt:
+        number: 'Número'
+        customer: 'Cliente'
       relation:
         account_id: 'Cuenta'
         user_id: 'Usuario'

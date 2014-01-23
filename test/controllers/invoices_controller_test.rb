@@ -41,9 +41,7 @@ class InvoicesControllerTest < ActionController::TestCase
   end
 
   test 'should update invoice' do
-    patch :update, id: @invoice, invoice: {
-      number: '2'
-    }
+    patch :update, id: @invoice, invoice: { number: '2' }
     assert_redirected_to invoice_url(assigns(:invoice))
   end
 

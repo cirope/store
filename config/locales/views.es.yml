@@ -165,6 +165,25 @@ es:
     update:
       success: 'Tus datos se actualizaron correctamente'
 
+  receipts:
+    create:
+      success: 'Remito creado correctamente'
+    destroy:
+      success: 'Remito eliminado'
+    edit:
+      title: 'Editar remito'
+    index:
+      new: 'Nuevo remito'
+      title: 'Listado de remitos'
+      empty_html: 'No hay remitos, puede crear uno con el botón <span class="label label-info">Nuevo remito</span>'
+    new:
+      title: 'Crear remito'
+    show:
+      title: 'Ver remito'
+    update:
+      success: 'Remito actualizado correctamente'
+      stale_object_error: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'
+
   sessions:
     new:
       title: 'Ingreso'

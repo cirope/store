@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120153348) do
+ActiveRecord::Schema.define(version: 20140123150227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20140120153348) do
 
   create_table "invoices", force: true do |t|
     t.integer  "number",                   null: false
-    t.integer  "customer_id"
+    t.integer  "customer_id",              null: false
     t.integer  "book_id",                  null: false
     t.integer  "account_id",               null: false
     t.integer  "lock_version", default: 0, null: false
@@ -115,6 +115,21 @@ ActiveRecord::Schema.define(version: 20140120153348) do
   end
 
   add_index "organizations", ["account_id"], name: "index_organizations_on_account_id", using: :btree
+
+  create_table "receipts", force: true do |t|
+    t.integer  "number",                   null: false
+    t.integer  "customer_id",              null: false
+    t.integer  "book_id",                  null: false
+    t.integer  "account_id",               null: false
+    t.integer  "lock_version", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "receipts", ["account_id"], name: "index_receipts_on_account_id", using: :btree
+  add_index "receipts", ["book_id"], name: "index_receipts_on_book_id", using: :btree
+  add_index "receipts", ["customer_id"], name: "index_receipts_on_customer_id", using: :btree
+  add_index "receipts", ["number"], name: "index_receipts_on_number", using: :btree
 
   create_table "relations", force: true do |t|
     t.integer  "organization_id", null: false
