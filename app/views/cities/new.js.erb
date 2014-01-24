@@ -1,0 +1,3 @@
+$('[data-remote][href="<%= new_city_path %>"]').closest('.form-group').attr(
+  'data-show-after-create-city', true
+).hide().before('<%= j render('cities/form') %>');
