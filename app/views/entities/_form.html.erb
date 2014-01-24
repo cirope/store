@@ -1,7 +1,19 @@
 <%= f.simple_fields_for :entity do |ef| %>
   <%= ef.input :name, input_html: { autofocus: true } %>
-  <%= ef.input :tax_id %>
-  <%= ef.input :tax_condition, collection: tax_conditions %>
-  <%= ef.input :address, as: :string %>
-  <%= ef.association :city, collection: states, as: :grouped_select, group_method: :cities, prompt: true %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= ef.input :tax_id %>
+    </div>
+    <div class="col-md-6">
+      <%= ef.input :tax_condition, collection: tax_conditions, prompt: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= ef.input :address, as: :string %>
+    </div>
+    <div class="col-md-6">
+      <%= ef.association :city, label: city_label, collection: states, as: :grouped_select, group_method: :cities, prompt: true %>
+    </div>
+  </div>
 <% end %>

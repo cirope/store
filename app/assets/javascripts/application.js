@@ -19,8 +19,10 @@
 //= require effect_helper
 //= require dynamic_form
 //= require autocomplete
+//= require ajax
 //= require accounts
 //= require books
+//= require cities
 //= require customers
 //= require invoices
 //= require items

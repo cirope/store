@@ -1,11 +1,19 @@
-<% @organizations.each_slice(2) do |organizations| %>
-  <div class="row">
-    <% organizations.each do |organization| %>
-      <div class="col-md-6">
-        <div class="well">
-          <h3><%= link_to organization, '#' %></h3>
-        </div>
-      </div>
-    <% end %>
+<% if @organizations.empty? %>
+  <div class="alert alert-warning">
+    <%= t '.empty' %>
   </div>
+
+  <%= link_to t('organizations.index.new'), new_organization_path, class: 'btn btn-primary' %>
+<% else %>
+  <% @organizations.each_slice(2) do |organizations| %>
+    <div class="row">
+      <% organizations.each do |organization| %>
+        <div class="col-md-6">
+          <div class="well">
+            <h3><%= link_to organization, '#' %></h3>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

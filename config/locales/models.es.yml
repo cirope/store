@@ -11,6 +11,9 @@ es:
       book:
         one: 'Talonario'
         other: 'Talonarios'
+      city:
+        one: 'Ciudad'
+        other: 'Ciudades'
       customer:
         one: 'Cliente'
         other: 'Clientes'
@@ -35,6 +38,9 @@ es:
       relation:
         one: 'Relación'
         other: 'Relaciones'
+      state:
+        one: 'Provincia'
+        other: 'Provincias'
       user:
         one: 'Usuario'
         other: 'Usuarios'
@@ -46,6 +52,10 @@ es:
       book:
         kind: 'Tipo'
         last_used_number: 'Último número utilizado'
+      city:
+        name: 'Nombre'
+        zip_code: 'Código postal'
+        state: 'Provincia'
       customer:
       entity:
         tax_id: 'CUIT'
@@ -62,6 +72,8 @@ es:
         price: 'Precio'
         unit: 'Unidad'
       organization:
+        name: 'Nombre'
+      state:
         name: 'Nombre'
       receipt:
         number: 'Número'

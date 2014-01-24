@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(version: 20140123161628) do
   add_index "books", ["organization_id"], name: "index_books_on_organization_id", using: :btree
 
   create_table "cities", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "zip_code",   null: false
-    t.integer  "state_id",   null: false
-    t.integer  "account_id", null: false
+    t.string   "name",                     null: false
+    t.string   "zip_code",                 null: false
+    t.integer  "state_id",                 null: false
+    t.integer  "account_id",               null: false
+    t.integer  "lock_version", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

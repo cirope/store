@@ -54,6 +54,25 @@ es:
       success: 'Talonario actualizado correctamente'
       stale_object_error: 'No se pudo actualizar el talonario, revise los datos e inténtelo nuevamente'
 
+  cities:
+    create:
+      success: 'Ciudad creada correctamente'
+    destroy:
+      success: 'Ciudad eliminada'
+    edit:
+      title: 'Editar ciudad'
+    index:
+      new: 'Nueva ciudad'
+      title: 'Listado de ciudades'
+      empty_html: 'No hay ciudades, puede crear una con el botón <span class="label label-info">Nueva ciudad</span>'
+    new:
+      title: 'Crear ciudad'
+    show:
+      title: 'Ver ciudad'
+    update:
+      success: 'Ciudad actualizada correctamente'
+      stale_object_error: 'No se pudo actualizar la ciudad, revise los datos e inténtelo nuevamente'
+
   customers:
     create:
       success: 'Cliente creado correctamente'
@@ -74,6 +93,8 @@ es:
       stale_object_error: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
 
   entities:
+    new:
+      city: 'Agregar nueva ciudad'
     conditions:
       responsible: 'Responsable inscripto'
       mono_tax: 'Monotributista'
@@ -121,6 +142,7 @@ es:
 
   launchpad:
     index:
+      empty: 'Hola, para empezar cree una organización'
       title: 'Tablero'
 
   organizations:

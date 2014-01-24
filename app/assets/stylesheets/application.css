@@ -19,6 +19,7 @@
  *= require forms
  *= require accounts
  *= require books
+ *= require cities
  *= require customers
  *= require invoices
  *= require items

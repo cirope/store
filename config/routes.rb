@@ -20,6 +20,7 @@ Store::Application.routes.draw do
     patch 'profile', to: 'profiles#update'
 
     # Resorces
+    resources :cities
     resources :customers
     resources :items
     resources :users
