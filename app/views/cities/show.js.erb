@@ -1,0 +1,7 @@
+$('#modal').on('hidden.bs.modal', function(e) {
+  $('#modal').remove();
+}).modal('hide');
+
+$('select[data-update-after-city-change]').html(
+  '<%= j option_groups_from_collection_for_select(states, :cities, :name, :id, :name, @city.id) %>'
+);

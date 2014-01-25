@@ -155,8 +155,9 @@ ActiveRecord::Schema.define(version: 20140123161628) do
   add_index "relations", ["user_id"], name: "index_relations_on_user_id", using: :btree
 
   create_table "states", force: true do |t|
-    t.string   "name",       null: false
-    t.integer  "account_id", null: false
+    t.string   "name",                     null: false
+    t.integer  "account_id",               null: false
+    t.integer  "lock_version", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

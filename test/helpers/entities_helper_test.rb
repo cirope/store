@@ -14,4 +14,17 @@ class EntitiesHelperTest < ActionView::TestCase
     assert_kind_of String, label
     assert_match /<a .*>/, label
   end
+
+  test 'city select' do
+    simple_fields_for(Entity.new) do |f|
+      assert_match /<select/, city_select(f)
+    end
+  end
+
+  private
+
+    # Stub of state helper method
+    def states_and_cities
+      State.ordered.includes :cities
+    end
 end

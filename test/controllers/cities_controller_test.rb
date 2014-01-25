@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class CitiesControllerTest < ActionController::TestCase
-
   setup do
     @city = cities :rivadavia
     @state = @city.state
@@ -23,7 +22,7 @@ class CitiesControllerTest < ActionController::TestCase
   test 'should get new as js' do
     xhr :get, :new, format: :js
     assert_response :success
-    assert_template 'cities/new', format: :js
+    assert_template layout: nil
   end
 
   test 'should create city' do
@@ -39,6 +38,12 @@ class CitiesControllerTest < ActionController::TestCase
   test 'should show city' do
     get :show, id: @city
     assert_response :success
+  end
+
+  test 'should show city as js' do
+    xhr :get, :show, id: @city, format: :js
+    assert_response :success
+    assert_template layout: nil
   end
 
   test 'should get edit' do

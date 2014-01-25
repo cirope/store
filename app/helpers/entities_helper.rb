@@ -7,6 +7,18 @@ module EntitiesHelper
     raw city_text_label << ' ' << add_city_link
   end
 
+  def city_select form
+    form.association(
+      :city,
+      label: city_label,
+      collection: states_and_cities,
+      as: :grouped_select,
+      group_method: :cities,
+      prompt: true,
+      input_html: { data: { update_after_city_change: true } }
+    )
+  end
+
   private
 
     def city_text_label

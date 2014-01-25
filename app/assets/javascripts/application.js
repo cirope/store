@@ -31,4 +31,5 @@
 //= require password_resets
 //= require profiles
 //= require receipts
+//= require states
 //= require users

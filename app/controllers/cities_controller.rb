@@ -45,28 +45,28 @@ class CitiesController < ApplicationController
 
   private
 
-  def set_city
-    @city = City.find params[:id]
-  end
+    def set_city
+      @city = City.find params[:id]
+    end
 
-  def set_title
-    @title = t '.title'
-  end
+    def set_title
+      @title = t '.title'
+    end
 
-  def city_params
-    params.require(:city).permit :name, :zip_code, :state_id, :lock_version
-  end
-  alias_method :resource_params, :city_params
+    def city_params
+      params.require(:city).permit :name, :zip_code, :state_id, :lock_version
+    end
+    alias_method :resource_params, :city_params
 
-  def resource
-    @city
-  end
-  alias_method :after_create_url, :resource
-  alias_method :after_update_url, :resource
+    def resource
+      @city
+    end
+    alias_method :after_create_url, :resource
+    alias_method :after_update_url, :resource
 
-  def edit_resource_url
-    edit_city_url @city
-  end
+    def edit_resource_url
+      edit_city_url @city
+    end
 
-  alias_method :after_destroy_url, :cities_url
+    alias_method :after_destroy_url, :cities_url
 end

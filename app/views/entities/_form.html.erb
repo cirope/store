@@ -13,7 +13,7 @@
       <%= ef.input :address, as: :string %>
     </div>
     <div class="col-md-6">
-      <%= ef.association :city, label: city_label, collection: states, as: :grouped_select, group_method: :cities, prompt: true %>
+      <%= city_select ef %>
     </div>
   </div>
 <% end %>

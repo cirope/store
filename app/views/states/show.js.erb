@@ -1,0 +1,8 @@
+$('form.new_state').remove();
+
+$('#city_state_id').html(
+  '<%= j options_from_collection_for_select(states, :id, :name, @state.id) %>'
+);
+
+$('#modal .modal-title').text('<%= j t('cities.new.title') %>');
+$('form.new_city, form.edit_city').show().find('[autofocus]').focus();

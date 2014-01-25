@@ -1,0 +1,4 @@
+$('form.new_state').remove();
+$('form.new_city, form.edit_city').hide().after('<%= j render('form') %>');
+$('form.new_state [autofocus]').focus();
+$('#modal .modal-title').text('<%= j @title %>');

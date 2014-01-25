@@ -1,5 +1,4 @@
 Store::Application.routes.draw do
-
   # Sessions
   get 'login', to: 'sessions#new', as: 'login'
   post 'sessions', to: 'sessions#create', as: 'sessions'
@@ -23,6 +22,7 @@ Store::Application.routes.draw do
     resources :cities
     resources :customers
     resources :items
+    resources :states
     resources :users
 
     resources :books, only: [] do

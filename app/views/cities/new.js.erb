@@ -1,3 +1,9 @@
-$('[data-remote][href="<%= new_city_path %>"]').closest('.form-group').attr(
-  'data-show-after-create-city', true
-).hide().before('<%= j render('cities/form') %>');
+$('#modal').modal('hide').remove();
+
+$('body').append(
+  '<%= j render('shared/modal', title: @title, body: render('cities/form')) %>'
+);
+
+$('#modal').on('shown.bs.modal', function(e) {
+  $(this).find('[autofocus]').focus();
+}).modal('show');
