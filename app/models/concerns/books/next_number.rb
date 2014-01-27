@@ -6,8 +6,21 @@ module Books::NextNumber
   end
 
   def next_number
-    increment! :last_used_number
+    with_lock do
+      increment! :last_used_number
 
-    last_used_number
+      @_last_requested_number = last_used_number
+    end
+  end
+
+  def return_number
+    with_lock do
+      if @_last_requested_number == reload.last_used_number
+        decrement! :last_used_number
+      else
+        lock! false
+        raise RuntimeError, 'Unretornable book number'
+      end
+    end
   end
 end
