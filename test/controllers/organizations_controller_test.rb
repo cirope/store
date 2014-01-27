@@ -34,7 +34,7 @@ class OrganizationsControllerTest < ActionController::TestCase
       post :create, organization: { entity_attributes: generic_entity_attributes }
     end
 
-    assert_redirected_to organization_url(assigns(:organization))
+    assert_redirected_to launchpad_url
   end
 
   test 'should show organization' do
@@ -51,7 +51,7 @@ class OrganizationsControllerTest < ActionController::TestCase
     patch :update, id: @organization, organization: {
       entity_attributes: { id: @organization.entity.id, name: 'Updated' }
     }
-    assert_redirected_to organization_url(assigns(:organization))
+    assert_redirected_to launchpad_url
   end
 
   test 'should destroy organization' do
@@ -59,6 +59,6 @@ class OrganizationsControllerTest < ActionController::TestCase
       delete :destroy, id: @organization
     end
 
-    assert_redirected_to organizations_path
+    assert_redirected_to launchpad_url
   end
 end

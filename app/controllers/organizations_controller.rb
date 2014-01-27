@@ -62,12 +62,12 @@ class OrganizationsController < ApplicationController
   def resource
     @organization
   end
-  alias_method :after_create_url, :resource
-  alias_method :after_update_url, :resource
+  alias_method :after_create_url, :launchpad_url
+  alias_method :after_update_url, :launchpad_url
 
   def edit_resource_url
     edit_organization_url @organization
   end
 
-  alias_method :after_destroy_url, :organizations_url
+  alias_method :after_destroy_url, :launchpad_url
 end

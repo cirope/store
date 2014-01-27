@@ -28,7 +28,7 @@ class BooksControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to book_url(assigns(:book))
+    assert_redirected_to launchpad_url
   end
 
   test 'should show book' do
@@ -43,7 +43,7 @@ class BooksControllerTest < ActionController::TestCase
 
   test 'should update book' do
     patch :update, id: @book, book: { kind: 'B' }
-    assert_redirected_to book_url(assigns(:book))
+    assert_redirected_to launchpad_url
   end
 
   test 'should destroy book' do
@@ -51,6 +51,6 @@ class BooksControllerTest < ActionController::TestCase
       delete :destroy, id: @book
     end
 
-    assert_redirected_to organization_books_path(@organization)
+    assert_redirected_to launchpad_url
   end
 end

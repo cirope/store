@@ -66,14 +66,12 @@ class BooksController < ApplicationController
   def resource
     @book
   end
-  alias_method :after_create_url, :resource
-  alias_method :after_update_url, :resource
+  alias_method :after_create_url, :launchpad_url
+  alias_method :after_update_url, :launchpad_url
 
   def edit_resource_url
     edit_book_url @book
   end
 
-  def after_destroy_url
-    organization_books_url @organization
-  end
+  alias_method :after_destroy_url, :launchpad_url
 end
