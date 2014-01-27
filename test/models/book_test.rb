@@ -35,4 +35,22 @@ class BookTest < ActiveSupport::TestCase
       assert @book.last_used_number.next, @book.next_number
     end
   end
+
+  test 'return number' do
+    last_used_number = @book.next_number
+
+    @book.return_number
+
+    assert_equal last_used_number.pred, @book.reload.last_used_number
+  end
+
+  test 'can not return number' do
+    book = Book.find @book.id
+
+    @book.next_number
+    last_used_number = book.next_number
+
+    assert_raise(RuntimeError) { @book.return_number }
+    assert_equal last_used_number, @book.reload.last_used_number
+  end
 end
