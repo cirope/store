@@ -11,4 +11,16 @@ class UsersHelperTest < ActionView::TestCase
     assert_equal 1, user_relations.size
     assert user_relations.all?(&:new_record?)
   end
+
+  test 'render organization list' do
+    @user = users :franco
+
+    assert_match /<ul/, render_organization_list
+  end
+
+  test 'should not render organization list' do
+    @user = User.new
+
+    assert render_organization_list.blank?
+  end
 end

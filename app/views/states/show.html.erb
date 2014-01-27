@@ -1,13 +1,6 @@
 <h2><%= @state %></h2>
 
-<% unless @state.cities.empty? %>
-  <h4 class="text-muted"><%= City.model_name.human count: 0 %></h4>
-  <ul>
-    <% @state.cities.each do |city| %>
-      <li><%= city %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render_city_list %>
 
 <%= link_to_edit edit_state_path(@state) %> |
 <%= link_to_index states_path %>

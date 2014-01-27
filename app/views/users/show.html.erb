@@ -4,15 +4,7 @@
   <%= mail_to @user.email %>
 </p>
 
-<% unless @user.organizations.empty? %>
-  <h3><%= Organization.model_name.human count: @user.organizations.count %></h3>
-
-  <ul>
-    <% @user.organizations.each do |organization| %>
-      <li><%= organization %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render_organization_list %>
 
 <%= link_to_edit edit_user_path(@user) %> |
 <%= link_to_index users_path %>

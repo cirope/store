@@ -7,13 +7,13 @@
 <% else %>
   <% @organizations.each_slice(2) do |organizations| %>
     <div class="row">
-      <% organizations.each do |organization| %>
-        <div class="col-md-6">
-          <div class="well">
-            <h3><%= link_to organization, '#' %></h3>
-          </div>
-        </div>
-      <% end %>
+      <%= render partial: 'organization', collection: organizations %>
     </div>
   <% end %>
+
+  <hr />
+
+  <p>
+    <%= link_to t('organizations.index.new'), new_organization_path, class: 'btn btn-primary' %>
+  </p>
 <% end %>

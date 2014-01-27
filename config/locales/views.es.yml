@@ -146,6 +146,8 @@ es:
     index:
       empty: 'Hola, para empezar cree una organización'
       title: 'Tablero'
+    organization:
+      empty_books_html: 'No hay talonarios para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario</span>'
 
   organizations:
     create:
@@ -160,6 +162,7 @@ es:
       empty_html: 'No hay organizaciones, puede crear una con el botón <span class="label label-info">Nueva organización</span>'
     new:
       title: 'Crear organización'
+      book: 'Crear talonario'
     show:
       title: 'Ver organización'
     update:
