@@ -25,6 +25,8 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
 
     visit edit_receipt_path(receipt)
 
+    page.find('#receipt_items fieldset:nth-child(1)').hover
+
     within '#receipt_items fieldset:nth-child(1)' do
       find('a[data-dynamic-form-event="hideItem"]').click
     end
@@ -37,7 +39,11 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
   private
 
     def fill_in_new_receipt
-      select customers(:havanna).name, from: 'receipt_customer_id'
+      customer = customers(:havanna)
+
+      page.execute_script "$('#receipt_customer').focus().val('#{customer.name}').keydown()"
+
+      find('.ui-autocomplete li.ui-menu-item').click
     end
 
     def add_item item, index

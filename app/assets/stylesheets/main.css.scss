@@ -13,3 +13,10 @@ body {
   line-height: 40px;
   z-index: 1100;
 }
+
+.panel .form-control {
+  border-width: 0px 0px 2px 0px;
+  border-style: dotted;
+  box-shadow: none !important;
+  border-radius: 0px;
+}

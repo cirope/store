@@ -4,4 +4,8 @@ module ReceiptsHelper
 
     @receipt.receipt_items
   end
+
+  def receipt_number
+    @receipt.persisted? ? @receipt.number : @book.next_available_number
+  end
 end

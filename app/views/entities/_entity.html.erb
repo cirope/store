@@ -1,18 +1,17 @@
-<h2><%= entity %></h2>
-
-<p>
-  <strong><%= Entity.human_attribute_name 'tax_id' %></strong>:
-  <%= entity.tax_id %>
-</p>
-<p>
-  <strong><%= Entity.human_attribute_name 'tax_condition' %></strong>:
-  <%= t "entities.conditions.#{entity.tax_condition}" %>
-</p>
-<p>
-  <strong><%= Entity.human_attribute_name 'address' %></strong>:
-  <%= entity.address %>
-</p>
-<p>
-  <strong><%= Entity.human_attribute_name 'city' %></strong>:
-  <%= entity.city %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <h4><%= entity %></h4>
+  </div>
+  <div class="col-md-6">
+    <dl class="small text-muted">
+      <dt><%= Entity.human_attribute_name 'tax_id' %></dt>
+      <dd><%= entity.tax_id %></dd>
+      <dt><%= Entity.human_attribute_name 'tax_condition' %></dt>
+      <dd><%= t "entities.conditions.#{entity.tax_condition}" %></dd>
+      <dt><%= Entity.human_attribute_name 'address' %></dt>
+      <dd><%= entity.address %></dd>
+      <dt><%= Entity.human_attribute_name 'city' %></dt>
+      <dd><%= entity.city %></dd>
+    </dl>
+  </div>
+</div>

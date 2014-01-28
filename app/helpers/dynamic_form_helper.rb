@@ -14,7 +14,8 @@ module DynamicFormHelper
     out << link_to(
       remove_icon, '#',
       title: t('navigation.destroy'),
-      data: remove_field_data(form)
+      data: remove_field_data(form),
+      class: 'text-danger'
     )
 
     raw out

@@ -49,3 +49,5 @@ jQuery ($) ->
     input.data('ui-autocomplete')._renderItem = Autocomplete.renderItem
 
     input.attr 'data-observed', true
+
+  $('[autofocus]:first').focus()

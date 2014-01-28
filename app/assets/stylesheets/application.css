@@ -17,6 +17,7 @@
  *= require autocomplete
  *= require icons
  *= require forms
+ *= require row_controls
  *= require accounts
  *= require books
  *= require cities

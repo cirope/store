@@ -1,4 +1,4 @@
-module Organizations::Scopes
+module Entities::Searchable
   extend ActiveSupport::Concern
 
   included do
@@ -7,7 +7,7 @@ module Organizations::Scopes
 
   module ClassMethods
     def search query: nil, limit: false
-      result = Organization.ordered
+      result = ordered
 
       if query.present?
         result = result.where "#{Entity.table_name}.name ILIKE ?", "%#{query.strip}%"

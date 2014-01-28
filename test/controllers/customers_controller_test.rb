@@ -15,6 +15,15 @@ class CustomersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:customers)
   end
 
+  test 'should filtered index' do
+    xhr :get, :index, q: @customer.name, format: :json
+    assert_response :success
+
+    customers = JSON.parse(@response.body)
+    assert_equal 1, customers.size
+    assert_equal @customer.name, customers.first['name']
+  end
+
   test 'should get new' do
     get :new
     assert_response :success

@@ -1,35 +1,35 @@
 <%= simple_form_for @user do |f| %>
   <%= f.error_notification %>
 
-  <fieldset>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-inputs">
-          <%= f.input :name, input_html: { autofocus: true } %>
-          <%= f.input :lastname %>
-          <%= f.input :email %>
-          <%= f.input :password %>
-          <%= f.input :password_confirmation %>
-          <%= f.input :lock_version, as: :hidden %>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <h4><%= Organization.model_name.human count: 0 %></h4>
-        <div class="form-inputs">
-          <div id="relations">
-            <%= f.simple_fields_for :relations, user_relations do |rf| %>
-              <%= render 'relations/relation', f: rf %>
-            <% end %>
-
-            <%= link_to_add_fields t('users.new.relation'), f, :relations %>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-inputs">
+        <%= f.input :name, input_html: { autofocus: true } %>
+        <%= f.input :lastname %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <%= f.input :lock_version, as: :hidden %>
       </div>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, class: 'btn-primary' %>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= Organization.model_name.human count: 0 %></h3>
+        </div>
+        <div id="relations" class="panel-body">
+          <%= f.simple_fields_for :relations, user_relations do |rf| %>
+            <%= render 'relations/relation', f: rf %>
+          <% end %>
+
+          <%= link_to_add_fields t('users.new.relation'), f, :relations %>
+        </div>
+      </div>
     </div>
-  </fieldset>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
 <% end %>

@@ -1,9 +1,7 @@
-<fieldset class="row relation">
-  <div class="col-md-10">
-    <%= f.input :organization, as: :autocomplete, label: false, url: organizations_path %>
-  </div>
-  <div class="col-md-2 nested-actions">
-    <%= f.input :id, as: :hidden %>
+<fieldset class="relation">
+  <%= f.input :id, as: :hidden %>
+  <%= f.input :organization, as: :autocomplete, label: false, url: organizations_path %>
+  <div class="row-controls">
     <%= link_to_remove_nested_item f %>
   </div>
 </fieldset>

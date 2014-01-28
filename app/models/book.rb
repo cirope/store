@@ -7,7 +7,7 @@ class Book < ActiveRecord::Base
 
   strip_fields :kind
 
-  belongs_to :organization
+  include Books::Organization
   has_many :invoices, dependent: :destroy
   has_many :receipts, dependent: :destroy
 
