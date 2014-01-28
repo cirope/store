@@ -22,4 +22,14 @@ class ReceiptsHelperTest < ActionView::TestCase
 
     assert_equal @receipt.number, receipt_number
   end
+
+  test 'receipt date' do
+    @receipt = Receipt.new
+
+    assert_equal Date.today, receipt_date
+
+    @receipt = receipts :first_receipt
+
+    assert_equal @receipt.created_at.to_date, receipt_date
+  end
 end

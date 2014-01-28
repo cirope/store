@@ -211,6 +211,7 @@ es:
     update:
       success: 'Remito actualizado correctamente'
       stale_object_error: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'
+    header: 'Documento no válido como factura'
 
   sessions:
     new:
