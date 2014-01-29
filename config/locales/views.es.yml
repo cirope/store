@@ -206,6 +206,7 @@ es:
     new:
       title: 'Crear remito'
       item: 'Agregar artículo'
+      customer: 'Agregar nuevo cliente'
     show:
       title: 'Ver remito'
     update:

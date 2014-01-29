@@ -1,8 +1,14 @@
-$('form.new_state').remove();
+if ($('#modal form').length == 1) { // If is the only form (called from new entities for example
+  $('#modal').on('hidden.bs.modal', function(e) {
+    $('#modal').remove();
+  }).modal('hide');
+} else {
+  $('form.new_state').remove();
+
+  $('#modal .modal-title').text('<%= j t('cities.new.title') %>');
+  $('#modal form:last').show().find('[autofocus]').focus();
+}
 
 $('#city_state_id').html(
   '<%= j options_from_collection_for_select(states, :id, :name, @state.id) %>'
 );
-
-$('#modal .modal-title').text('<%= j t('cities.new.title') %>');
-$('form.new_city, form.edit_city').show().find('[autofocus]').focus();

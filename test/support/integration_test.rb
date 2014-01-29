@@ -6,6 +6,7 @@ class ActionDispatch::IntegrationTest
 
   require 'capybara/poltergeist'
 
+
   setup do
     Capybara.default_driver  = :poltergeist
     Capybara.server_port     = '54163'
@@ -13,7 +14,6 @@ class ActionDispatch::IntegrationTest
   end
 
   teardown do
-    DatabaseCleaner.clean
     Capybara.reset_sessions!
     Capybara.use_default_driver
   end

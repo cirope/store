@@ -12,4 +12,10 @@ module ReceiptsHelper
   def receipt_date
     @receipt.persisted? ? @receipt.created_at.to_date : Date.today
   end
+
+  def add_customer_link
+    link_to new_customer_path, title: t('receipts.new.customer'), data: { remote: true } do
+      content_tag :span, nil, class: 'glyphicon glyphicon-plus-sign'
+    end
+  end
 end

@@ -1,0 +1,9 @@
+$('#modal').modal('hide').remove();
+
+$('body').append(
+  '<%= j render('shared/modal', title: @title, body: render('customers/form')) %>'
+);
+
+$('#modal').on('shown.bs.modal', function(e) {
+  $(this).find('[autofocus]').focus();
+}).modal('show');

@@ -1,4 +1,12 @@
-$('form.new_state').remove();
-$('form.new_city, form.edit_city').hide().after('<%= j render('form') %>');
-$('form.new_state [autofocus]').focus();
-$('#modal .modal-title').text('<%= j @title %>');
+if ($('#modal').length) {
+  $('#modal form.new_state').remove();
+  $('#modal form').hide();
+  $('#modal .modal-title').text('<%= j @title %>');
+  $('#modal .modal-body').append('<%= j render('form') %>');
+} else {
+  $('body').append('<%= j render('shared/modal', title: @title, body: render('form')) %>');
+}
+
+$('#modal').on('shown.bs.modal', function(e) {
+  $(this).find('[autofocus]').focus();
+}).modal('show');

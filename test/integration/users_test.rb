@@ -26,9 +26,9 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     visit edit_user_path(user)
 
-    page.find('#relations fieldset').hover
+    page.find('#relations fieldset:nth-child(1)').hover
 
-    within '#relations fieldset' do
+    within '#relations fieldset:nth-child(1)' do
       find('a[data-dynamic-form-event="hideItem"]').click
     end
 
