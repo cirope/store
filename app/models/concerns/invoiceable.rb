@@ -8,6 +8,7 @@ module Invoiceable
              :address,       :address=,
              :city,          :city=,
              :city_id,       :city_id=,
+             :issuable_receipts,
              to: :entity
 
     validates :entity, presence: true

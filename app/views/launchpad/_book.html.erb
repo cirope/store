@@ -1,5 +1,11 @@
 <div class="col-sm-4">
-  <div class="well text-center">
-    <h4><%= link_to book, new_book_receipt_path(book) %></h4>
-  </div>
+  <%= link_to new_book_receipt_path(book), class: 'btn btn-default btn-block' do %>
+    <h4>
+      <span class="glyphicon glyphicon-file"></span>
+      <%= book %>
+      <small>
+        <%= book.next_available_number %>
+      </small>
+    </h4>
+  <% end %>
 </div>

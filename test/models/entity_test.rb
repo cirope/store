@@ -43,4 +43,9 @@ class EntityTest < ActiveSupport::TestCase
     assert @entity.invalid?
     assert_error @entity, :tax_condition, :inclusion
   end
+
+  test 'issuable receipts' do
+    assert_equal Entity::ISSUABLE_RECEIPTS[@entity.tax_condition],
+      @entity.issuable_receipts
+  end
 end

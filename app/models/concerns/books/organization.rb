@@ -3,6 +3,7 @@ module Books::Organization
 
   included do
     delegate :entity, to: :organization, prefix: true
+
     belongs_to :organization
   end
 end

@@ -3,11 +3,11 @@ class Book < ActiveRecord::Base
   include Attributes::Strip
   include Auditable
   include Books::NextNumber
+  include Books::Organization
   include Books::Validation
 
   strip_fields :kind
 
-  include Books::Organization
   has_many :invoices, dependent: :destroy
   has_many :receipts, dependent: :destroy
 

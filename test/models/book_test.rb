@@ -19,6 +19,13 @@ class BookTest < ActiveSupport::TestCase
     assert_error @book, :kind, :too_long, count: 255
   end
 
+  test 'attributes inclusion' do
+    @book.kind = 'Y'
+
+    assert @book.invalid?
+    assert_error @book, :kind, :inclusion
+  end
+
   test 'numeric attributes' do
     @book.last_used_number = '12x'
 
