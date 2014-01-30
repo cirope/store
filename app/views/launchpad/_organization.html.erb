@@ -6,9 +6,7 @@
 
     <div class="panel-body">
       <% if organization.books.empty? %>
-        <div class="alert alert-warning">
-          <%= t '.empty_books_html' %>
-        </div>
+        <p><%= t '.empty_books_html' %></p>
       <% else %>
         <% organization.books.each_slice(3) do |books| %>
           <div class="row">
@@ -17,8 +15,11 @@
         <% end %>
       <% end %>
     </div>
-    <div class="panel-footer">
-      <%= link_to t('organizations.new.book'), new_organization_book_path(organization), class: 'btn btn-sm btn-default' %>
+    <div class="panel-footer clearfix">
+      <%= link_to new_organization_book_path(organization), class: 'btn btn-sm btn-default pull-right' do %>
+        <span class="glyphicon glyphicon-book"></span>
+        <%= t 'organizations.new.book' %>
+      <% end %>
     </div>
   </div>
 </div>
