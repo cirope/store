@@ -183,7 +183,7 @@ DEPENDENCIES
   pg
   poltergeist
   rack-mini-profiler
-  rails (= 4.0.2)
+  rails (~> 4.0.2)
   sass-rails
   sdoc
   simple_form
