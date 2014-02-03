@@ -1,13 +1,24 @@
-Autocomplete =
-  source: (input, request, response) ->
-    jQuery.ajax
-      url: input.data('autocompleteUrl')
-      dataType: 'json'
-      data: { q: request.term }
-      success: (data) ->
-        response jQuery.map data, (item) -> Autocomplete.renderResponse item
+class Autocomplete
+  constructor: (@input) ->
+    @idInput = $ @input.data('autocompleteIdTarget')
 
-  renderResponse: (item) ->
+    @_init()
+
+  _init: ->
+    @input.autocomplete
+      source: (request, response) => @_source request, response
+      type: 'get'
+      minLength: @input.data('autocompleteMinLength')
+      select: (event, ui) => @_selected event, ui
+
+    @input.change => @idInput.val undefined unless @input.val().trim()
+
+    @_rewriteRenderItem()
+    @_markAsObserved()
+
+  _markAsObserved: -> @input.attr 'data-observed', true
+
+  _renderResponse: (item) ->
     content = $ '<div></div>'
     item.label ||= item.name
 
@@ -16,36 +27,30 @@ Autocomplete =
 
     label: content.html(), value: item.label, item: item
 
-  selected: (input, event, ui) ->
+  _rewriteRenderItem: ->
+    @input.data('ui-autocomplete')._renderItem = (ul, item) ->
+      $('<li></li>').append($('<a></a>').html(item.label)).appendTo ul
+
+  _selected: (event, ui) ->
     selected = ui.item
 
-    input.val selected.value
-    input.data 'item', selected.item
-    $(input.data('autocompleteIdTarget')).val selected.item.id
+    @input.val selected.value
+    @input.data 'item', selected.item
+    @idInput.val selected.item.id
 
-    input.trigger type: 'autocomplete:update', input: input, item: selected.item
+    @input.trigger type: 'update.autocomplete', input: @input, item: selected.item
 
     false
 
-  renderItem: (ul, item) ->
-    $('<li></li>').append($('<a></a>').html(item.label)).appendTo ul
-
+  _source: (request, response) ->
+    jQuery.ajax
+      url: @input.data('autocompleteUrl')
+      dataType: 'json'
+      data: { q: request.term }
+      success: (data) =>
+        response jQuery.map data, (item) => @_renderResponse item
 
 jQuery ($) ->
-  $(document).on 'change', 'input[data-autocomplete-url]', ->
-    if /^\s*$/.test($(this).val())
-      $($(this).data('autocompleteIdTarget')).val ''
+  selector = 'input[data-autocomplete-url]:not([data-observed])'
 
-  $(document).on 'focus', 'input[data-autocomplete-url]:not([data-observed])', ->
-    input = $(this)
-
-    input.autocomplete
-      source: (request, response) -> Autocomplete.source input, request, response
-      type: 'get'
-      minLength: input.data('autocompleteMinLength')
-      select: (event, ui) -> Autocomplete.selected input, event, ui
-      open: -> $('.ui-menu').css 'width', input.outerWidth()
-
-    input.data('ui-autocomplete')._renderItem = Autocomplete.renderItem
-
-    input.attr 'data-observed', true
+  $(document).on 'focus', selector, -> new Autocomplete $(this)
