@@ -23,6 +23,9 @@ es:
       invoice:
         one: 'Factura'
         other: 'Facturas'
+      invoice_item:
+        one: 'Línea de factura'
+        other: 'Líneas de factura'
       item:
         one: 'Artículo'
         other: 'Artículos'
@@ -66,6 +69,10 @@ es:
       invoice:
         number: 'Número'
         customer: 'Cliente'
+      invoice_item:
+        item: 'Artículo'
+        quantity: 'Cantidad'
+        price: 'Precio'
       item:
         code: 'Código'
         name: 'Nombre'

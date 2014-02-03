@@ -1,4 +1,4 @@
-module Receipts::Customer
+module Invoices::Customer
   extend ActiveSupport::Concern
 
   included do

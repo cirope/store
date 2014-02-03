@@ -1,9 +1,41 @@
-<h2><%= @invoice %></h2>
+<%= render 'header' %>
 
-<p>
-  <strong><%= Invoice.human_attribute_name 'customer' %></strong>:
-  <%= @invoice.customer %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= Invoice.human_attribute_name 'customer' %></h3>
+  </div>
+  <div class="panel-body">
+    <%= render @invoice.customer_entity %>
+  </div>
+</div>
+
+<% unless @invoice.invoice_items.empty? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= Item.model_name.human count: 0 %></h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th><%= InvoiceItem.human_attribute_name 'item' %></th>
+            <th><%= InvoiceItem.human_attribute_name 'quantity' %></th>
+            <th><%= InvoiceItem.human_attribute_name 'price' %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @invoice.invoice_items.each do |invoice_item| %>
+            <tr>
+              <td><%= invoice_item.item %></td>
+              <td><%= invoice_item.quantity %></td>
+              <td><%= invoice_item.price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
 
 <%= link_to_edit edit_invoice_path(@invoice) %> |
 <%= link_to_index book_invoices_path(@book) %>

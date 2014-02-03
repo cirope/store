@@ -88,6 +88,7 @@ es:
       empty_html: 'No hay clientes, puede crear uno con el botón <span class="label label-info">Nuevo cliente</span>'
     new:
       title: 'Crear cliente'
+      customer: 'Agregar nuevo cliente'
     show:
       title: 'Ver cliente'
     update:
@@ -117,11 +118,13 @@ es:
       empty_html: 'No hay facturas, puede crear una con el botón <span class="label label-info">Nueva factura</span>'
     new:
       title: 'Crear factura'
+      item: 'Agregar artículo'
     show:
       title: 'Ver factura'
     update:
       success: 'Factura actualizada correctamente'
       stale_object_error: 'No se pudo actualizar la factura, revise los datos e inténtelo nuevamente'
+    header: 'Factura'
 
   items:
     create:
@@ -206,7 +209,6 @@ es:
     new:
       title: 'Crear remito'
       item: 'Agregar artículo'
-      customer: 'Agregar nuevo cliente'
     show:
       title: 'Ver remito'
     update:

@@ -2,9 +2,12 @@ class Invoice < ActiveRecord::Base
   include Accounts::Scoped
   include Auditable
   include Books::Numerable
+  include Invoices::Customer
   include Invoices::Validation
 
-  belongs_to :customer
+  has_many :invoice_items, dependent: :destroy
+
+  accepts_nested_attributes_for :invoice_items, allow_destroy: true, reject_if: :all_blank
 
   def to_s
     number.to_s

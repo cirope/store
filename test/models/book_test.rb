@@ -60,4 +60,12 @@ class BookTest < ActiveSupport::TestCase
     assert_raise(RuntimeError) { @book.return_number }
     assert_equal last_used_number, @book.reload.last_used_number
   end
+
+  test 'kind class' do
+    assert_equal Invoice, @book.kind_class
+
+    @book = books :cirope_sa_x
+
+    assert_equal Receipt, @book.kind_class
+  end
 end

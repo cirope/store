@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123161628) do
+ActiveRecord::Schema.define(version: 20140130140428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,18 @@ ActiveRecord::Schema.define(version: 20140123161628) do
   add_index "entities", ["name"], name: "index_entities_on_name", using: :btree
   add_index "entities", ["tax_id"], name: "index_entities_on_tax_id", using: :btree
 
+  create_table "invoice_items", force: true do |t|
+    t.integer  "item_id"
+    t.decimal  "quantity",   precision: 10, scale: 2, null: false
+    t.decimal  "price",      precision: 15, scale: 2, null: false
+    t.integer  "invoice_id",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invoice_items", ["invoice_id"], name: "index_invoice_items_on_invoice_id", using: :btree
+  add_index "invoice_items", ["item_id"], name: "index_invoice_items_on_item_id", using: :btree
+
   create_table "invoices", force: true do |t|
     t.integer  "number",                   null: false
     t.integer  "customer_id",              null: false
@@ -118,9 +130,9 @@ ActiveRecord::Schema.define(version: 20140123161628) do
   add_index "organizations", ["account_id"], name: "index_organizations_on_account_id", using: :btree
 
   create_table "receipt_items", force: true do |t|
-    t.integer  "item_id",    null: false
-    t.decimal  "quantity",   null: false
-    t.integer  "receipt_id", null: false
+    t.integer  "item_id",                             null: false
+    t.decimal  "quantity",   precision: 10, scale: 2, null: false
+    t.integer  "receipt_id",                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

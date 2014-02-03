@@ -1,0 +1,11 @@
+one_candy:
+  item: candy
+  quantity: 1
+  price: 0.59
+  invoice: first_sale
+
+one_chocolate:
+  item: chocolate
+  quantity: 1
+  price: 1.29
+  invoice: first_sale

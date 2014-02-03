@@ -32,8 +32,4 @@ class ReceiptsHelperTest < ActionView::TestCase
 
     assert_equal @receipt.created_at.to_date, receipt_date
   end
-
-  test 'add customer link' do
-    assert_match /#{I18n.t('receipts.new.customer')}/, add_customer_link
-  end
 end

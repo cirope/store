@@ -14,7 +14,7 @@ Autocomplete =
     content.append $('<span class="title"></span>').text item.label
     content.append $('<small></small>').text item.informal if item.informal
 
-    { label: content.html(), value: item.label, item: item }
+    label: content.html(), value: item.label, item: item
 
   selected: (input, event, ui) ->
     selected = ui.item
@@ -23,12 +23,12 @@ Autocomplete =
     input.data 'item', selected.item
     $(input.data('autocompleteIdTarget')).val selected.item.id
 
-    input.trigger 'autocomplete:update', input
+    input.trigger type: 'autocomplete:update', input: input, item: selected.item
 
     false
 
   renderItem: (ul, item) ->
-    $('<li></li>').data('item.autocomplete', item).append($('<a></a>').html(item.label)).appendTo ul
+    $('<li></li>').append($('<a></a>').html(item.label)).appendTo ul
 
 
 jQuery ($) ->
@@ -49,5 +49,3 @@ jQuery ($) ->
     input.data('ui-autocomplete')._renderItem = Autocomplete.renderItem
 
     input.attr 'data-observed', true
-
-  $('[autofocus]:first').focus()

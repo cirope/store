@@ -21,9 +21,12 @@ class InvoicesControllerTest < ActionController::TestCase
   end
 
   test 'should create invoice' do
-    assert_difference('Invoice.count') do
+    assert_difference ['Invoice.count', 'InvoiceItem.count'] do
       post :create, book_id: @book, invoice: {
-        customer_id: customers(:havanna).id
+        customer_id: customers(:havanna).id,
+        invoice_items_attributes: [
+          { item_id: items(:candy).id, quantity: '5', price: '12.11' }
+        ]
       }
     end
 

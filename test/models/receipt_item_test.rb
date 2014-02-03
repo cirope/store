@@ -19,5 +19,10 @@ class ReceiptItemTest < ActiveSupport::TestCase
 
     assert @receipt_item.invalid?
     assert_error @receipt_item, :quantity, :greater_than, count: 0
+
+    @receipt_item.quantity = 100_000_000.00
+
+    assert @receipt_item.invalid?
+    assert_error @receipt_item, :quantity, :less_than, count: 99_999_999.99
   end
 end
