@@ -37,7 +37,7 @@ class AutocompleteInput < SimpleForm::Inputs::Base
 
       original_data_options.reverse_merge(
         autocomplete_url: url,
-        autocomplete_id_target: "##{id_field}"
+        autocomplete_target: "##{id_field}"
       )
     end
 end
