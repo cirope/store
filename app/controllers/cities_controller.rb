@@ -61,12 +61,4 @@ class CitiesController < ApplicationController
     def resource
       @city
     end
-    alias_method :after_create_url, :resource
-    alias_method :after_update_url, :resource
-
-    def edit_resource_url
-      edit_city_url @city
-    end
-
-    alias_method :after_destroy_url, :cities_url
 end

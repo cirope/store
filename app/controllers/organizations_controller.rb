@@ -45,29 +45,24 @@ class OrganizationsController < ApplicationController
 
   private
 
-  def set_organization
-    @organization = Organization.find params[:id]
-  end
+    def set_organization
+      @organization = Organization.find params[:id]
+    end
 
-  def set_title
-    @title = t '.title'
-  end
+    def set_title
+      @title = t '.title'
+    end
 
-  def organization_params
-    params.require(:organization).permit :lock_version,
-      entity_attributes: [:id, :tax_id, :tax_condition, :name, :address, :city_id]
-  end
-  alias_method :resource_params, :organization_params
+    def organization_params
+      params.require(:organization).permit :lock_version,
+        entity_attributes: [:id, :tax_id, :tax_condition, :name, :address, :city_id]
+    end
+    alias_method :resource_params, :organization_params
 
-  def resource
-    @organization
-  end
-  alias_method :after_create_url, :launchpad_url
-  alias_method :after_update_url, :launchpad_url
-
-  def edit_resource_url
-    edit_organization_url @organization
-  end
-
-  alias_method :after_destroy_url, :launchpad_url
+    def resource
+      @organization
+    end
+    alias_method :after_create_url,  :launchpad_url
+    alias_method :after_update_url,  :launchpad_url
+    alias_method :after_destroy_url, :launchpad_url
 end

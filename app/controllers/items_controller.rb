@@ -45,28 +45,20 @@ class ItemsController < ApplicationController
 
   private
 
-  def set_item
-    @item = Item.find params[:id]
-  end
+    def set_item
+      @item = Item.find params[:id]
+    end
 
-  def set_title
-    @title = t '.title'
-  end
+    def set_title
+      @title = t '.title'
+    end
 
-  def item_params
-    params.require(:item).permit :code, :name, :price, :unit, :lock_version
-  end
-  alias_method :resource_params, :item_params
+    def item_params
+      params.require(:item).permit :code, :name, :price, :unit, :lock_version
+    end
+    alias_method :resource_params, :item_params
 
-  def resource
-    @item
-  end
-  alias_method :after_create_url, :resource
-  alias_method :after_update_url, :resource
-
-  def edit_resource_url
-    edit_item_url @item
-  end
-
-  alias_method :after_destroy_url, :items_url
+    def resource
+      @item
+    end
 end

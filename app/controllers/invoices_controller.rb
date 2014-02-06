@@ -46,35 +46,29 @@ class InvoicesController < ApplicationController
 
   private
 
-  def set_invoice
-    @invoice = Invoice.find params[:id]
-  end
+    def set_invoice
+      @invoice = Invoice.find params[:id]
+    end
 
-  def set_book
-    @book = @invoice ? @invoice.book : Book.find(params[:book_id])
-  end
+    def set_book
+      @book = @invoice ? @invoice.book : Book.find(params[:book_id])
+    end
 
-  def set_title
-    @title = t '.title'
-  end
+    def set_title
+      @title = t '.title'
+    end
 
-  def invoice_params
-    params.require(:invoice).permit :customer_id, :lock_version,
-      invoice_items_attributes: [:id, :item_id, :quantity, :price, :_destroy]
-  end
-  alias_method :resource_params, :invoice_params
+    def invoice_params
+      params.require(:invoice).permit :customer_id, :lock_version,
+        invoice_items_attributes: [:id, :item_id, :quantity, :price, :_destroy]
+    end
+    alias_method :resource_params, :invoice_params
 
-  def resource
-    @invoice
-  end
-  alias_method :after_create_url, :resource
-  alias_method :after_update_url, :resource
+    def resource
+      @invoice
+    end
 
-  def edit_resource_url
-    edit_invoice_url @invoice
-  end
-
-  def after_destroy_url
-    book_invoices_url @book
-  end
+    def after_destroy_url
+      book_invoices_url @book
+    end
 end

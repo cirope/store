@@ -45,23 +45,23 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find params[:id]
-  end
+    def set_user
+      @user = User.find params[:id]
+    end
 
-  def set_title
-    @title = t '.title'
-  end
+    def set_title
+      @title = t '.title'
+    end
 
-  def user_params
-    params.require(:user).permit(
-      :name, :lastname, :email, :password, :password_confirmation, :lock_version,
-      relations_attributes: [:id, :organization_id, :_destroy]
-    )
-  end
-  alias_method :resource_params, :user_params
+    def user_params
+      params.require(:user).permit(
+        :name, :lastname, :email, :password, :password_confirmation, :lock_version,
+        relations_attributes: [:id, :organization_id, :_destroy]
+      )
+    end
+    alias_method :resource_params, :user_params
 
-  def resource
-    @user
-  end
+    def resource
+      @user
+    end
 end
