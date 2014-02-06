@@ -38,11 +38,11 @@ class PasswordResetsController < ApplicationController
 
   private
 
-  def scope
-    User.unscoped
-  end
+    def scope
+      User.unscoped
+    end
 
-  def user_params
-    params.require(:user).permit :password, :password_confirmation
-  end
+    def user_params
+      params.require(:user).permit :password, :password_confirmation
+    end
 end
