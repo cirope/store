@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  include Responder
+  respond_to :html, :json
 
   before_action :authorize
   before_action :set_book, only: [:show, :edit, :update, :destroy]
@@ -9,15 +9,19 @@ class BooksController < ApplicationController
   # GET /books
   def index
     @books = @organization.books
+
+    respond_with @books
   end
 
   # GET /books/1
   def show
+    respond_with @book
   end
 
   # GET /books/new
   def new
     @book = @organization.books.new
+    respond_with @book
   end
 
   # GET /books/1/edit
@@ -29,19 +33,22 @@ class BooksController < ApplicationController
     @title = t 'books.new.title'
     @book = @organization.books.new book_params
 
-    create_and_respond
+    @book.save
+    respond_with @book, location: launchpad_url
   end
 
   # PUT/PATCH /books/1
   def update
     @title = t 'books.edit.title'
 
-    update_and_respond
+    @book.update book_params
+    respond_with @book, location: launchpad_url
   end
 
   # DELETE /books/1
   def destroy
-    destroy_and_respond
+    @book.destroy
+    respond_with @book, location: launchpad_url
   end
 
   private
@@ -61,12 +68,4 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit :kind, :last_used_number, :lock_version
     end
-    alias_method :resource_params, :book_params
-
-    def resource
-      @book
-    end
-    alias_method :after_create_url, :launchpad_url
-    alias_method :after_update_url, :launchpad_url
-    alias_method :after_destroy_url, :launchpad_url
 end

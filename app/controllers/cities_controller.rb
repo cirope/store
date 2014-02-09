@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-  include Responder
+  respond_to :html, :json, :js
 
   before_action :authorize
   before_action :set_city, only: [:show, :edit, :update, :destroy]
@@ -8,15 +8,19 @@ class CitiesController < ApplicationController
   # GET /cities
   def index
     @cities = City.all
+
+    respond_with @cities
   end
 
   # GET /cities/1
   def show
+    respond_with @city
   end
 
   # GET /cities/new
   def new
     @city = City.new
+    respond_with @city
   end
 
   # GET /cities/1/edit
@@ -28,19 +32,22 @@ class CitiesController < ApplicationController
     @title = t 'cities.new.title'
     @city = City.new city_params
 
-    create_and_respond
+    @city.save
+    respond_with @city
   end
 
   # PUT/PATCH /cities/1
   def update
     @title = t 'cities.edit.title'
 
-    update_and_respond
+    @city.update city_params
+    respond_with @city
   end
 
   # DELETE /cities/1
   def destroy
-    destroy_and_respond
+    @city.destroy
+    respond_with @city
   end
 
   private
@@ -55,10 +62,5 @@ class CitiesController < ApplicationController
 
     def city_params
       params.require(:city).permit :name, :zip_code, :state_id, :lock_version
-    end
-    alias_method :resource_params, :city_params
-
-    def resource
-      @city
     end
 end

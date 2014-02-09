@@ -20,7 +20,7 @@ class CitiesControllerTest < ActionController::TestCase
   end
 
   test 'should get new as js' do
-    xhr :get, :new, format: :js
+    xhr :get, :new
     assert_response :success
     assert_template layout: nil
   end
@@ -35,15 +35,20 @@ class CitiesControllerTest < ActionController::TestCase
     assert_redirected_to city_url(assigns(:city))
   end
 
+  test 'should create city via js' do
+    assert_difference('City.count') do
+      xhr :post, :create, city: {
+        name: 'Guaymallén', zip_code: '5519', state_id: @state.id
+      }
+    end
+
+    assert_response :success
+    assert_template 'cities/create'
+  end
+
   test 'should show city' do
     get :show, id: @city
     assert_response :success
-  end
-
-  test 'should show city as js' do
-    xhr :get, :show, id: @city, format: :js
-    assert_response :success
-    assert_template layout: nil
   end
 
   test 'should get edit' do

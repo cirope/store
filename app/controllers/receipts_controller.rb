@@ -1,5 +1,5 @@
 class ReceiptsController < ApplicationController
-  include Responder
+  respond_to :html, :json
 
   before_action :authorize
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
@@ -9,15 +9,19 @@ class ReceiptsController < ApplicationController
   # GET /receipts
   def index
     @receipts = @book.receipts
+
+    respond_with @book, @receipts
   end
 
   # GET /receipts/1
   def show
+    respond_with @receipt
   end
 
   # GET /receipts/new
   def new
     @receipt = @book.receipts.new
+    respond_with @book, @receipt
   end
 
   # GET /receipts/1/edit
@@ -29,19 +33,22 @@ class ReceiptsController < ApplicationController
     @title = t 'receipts.new.title'
     @receipt = @book.receipts.new receipt_params
 
-    create_and_respond
+    @receipt.save
+    respond_with @receipt
   end
 
   # PUT/PATCH /receipts/1
   def update
     @title = t 'receipts.edit.title'
 
-    update_and_respond
+    @receipt.update receipt_params
+    respond_with @receipt
   end
 
   # DELETE /receipts/1
   def destroy
-    destroy_and_respond
+    @receipt.destroy
+    respond_with @receipt, location: book_receipts_url(@book)
   end
 
   private
@@ -61,14 +68,5 @@ class ReceiptsController < ApplicationController
     def receipt_params
       params.require(:receipt).permit :customer_id, :lock_version,
         receipt_items_attributes: [:id, :item_id, :quantity, :_destroy]
-    end
-    alias_method :resource_params, :receipt_params
-
-    def resource
-      @receipt
-    end
-
-    def after_destroy_url
-      book_receipts_url @book
     end
 end

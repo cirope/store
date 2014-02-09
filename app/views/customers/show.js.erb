@@ -1,6 +1,0 @@
-$('#modal').on('hidden.bs.modal', function(e) {
-  $('#modal').remove();
-}).modal('hide');
-
-$('input[name$="[customer]"]').val('<%= j @customer.to_s %>');
-$('input[name$="[customer_id]"]').val('<%= j @customer.id.to_s %>');

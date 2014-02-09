@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  include Responder
+  respond_to :html, :json, :js
 
   before_action :authorize
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
@@ -8,15 +8,19 @@ class CustomersController < ApplicationController
   # GET /customers
   def index
     @customers = Customer.search query: params[:q], limit: request.xhr?
+
+    respond_with @customers
   end
 
   # GET /customers/1
   def show
+    respond_with @customer
   end
 
   # GET /customers/new
   def new
     @customer = Customer.new
+    respond_with @customer
   end
 
   # GET /customers/1/edit
@@ -28,19 +32,22 @@ class CustomersController < ApplicationController
     @title = t 'customers.new.title'
     @customer = Customer.new customer_params
 
-    create_and_respond
+    @customer.save
+    respond_with @customer
   end
 
   # PUT/PATCH /customers/1
   def update
     @title = t 'customers.edit.title'
 
-    update_and_respond
+    @customer.update customer_params
+    respond_with @customer
   end
 
   # DELETE /customers/1
   def destroy
-    destroy_and_respond
+    @customer.destroy
+    respond_with @customer
   end
 
   private
@@ -56,10 +63,5 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit :lock_version,
         entity_attributes: [:id, :tax_id, :tax_condition, :name, :address, :city_id]
-    end
-    alias_method :resource_params, :customer_params
-
-    def resource
-      @customer
     end
 end

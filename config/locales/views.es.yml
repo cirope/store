@@ -4,6 +4,18 @@ es:
   menu:
     admin: 'Administración'
 
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} creado'
+        alert:  ''
+      update:
+        notice: '%{resource_name} actualizado'
+        alert:  ''
+      destroy:
+        notice: '%{resource_name} eliminado'
+        alert:  '%{resource_name} no pudo ser eliminado'
+
   messages:
     confirmation: '¿Está seguro?'
     not_authorized: 'Debe ingresar para ver el contenido'
@@ -251,10 +263,6 @@ es:
       stale_object_error: 'No se pudo actualizar la provincia, revise los datos e inténtelo nuevamente'
 
   users:
-    create:
-      success: 'Usuario creado correctamente'
-    destroy:
-      success: 'Usuario eliminado'
     edit:
       title: 'Editar usuario'
     index:
@@ -267,5 +275,4 @@ es:
     show:
       title: 'Ver usuario'
     update:
-      success: 'Usuario actualizado correctamente'
-      stale_object_error: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'
+      stale: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'

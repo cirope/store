@@ -18,6 +18,12 @@ class StatesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should get new as js' do
+    xhr :get, :new
+    assert_response :success
+    assert_template layout: nil
+  end
+
   test 'should create state' do
     assert_difference('State.count') do
       post :create, state: {
@@ -26,6 +32,17 @@ class StatesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to state_url(assigns(:state))
+  end
+
+  test 'should create state via js' do
+    assert_difference('State.count') do
+      xhr :post, :create, state: {
+        name: 'San Juan'
+      }
+    end
+
+    assert_response :success
+    assert_template 'states/create'
   end
 
   test 'should show state' do

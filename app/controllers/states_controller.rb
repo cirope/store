@@ -1,5 +1,5 @@
 class StatesController < ApplicationController
-  include Responder
+  respond_to :html, :json, :js
 
   before_action :authorize
   before_action :set_state, only: [:show, :edit, :update, :destroy]
@@ -8,15 +8,19 @@ class StatesController < ApplicationController
   # GET /states
   def index
     @states = State.all
+
+    respond_with @states
   end
 
   # GET /states/1
   def show
+    respond_with @state
   end
 
   # GET /states/new
   def new
     @state = State.new
+    respond_with @state
   end
 
   # GET /states/1/edit
@@ -28,19 +32,22 @@ class StatesController < ApplicationController
     @title = t 'states.new.title'
     @state = State.new state_params
 
-    create_and_respond
+    @state.save
+    respond_with @state
   end
 
   # PUT/PATCH /states/1
   def update
     @title = t 'states.edit.title'
 
-    update_and_respond
+    @state.update state_params
+    respond_with @state
   end
 
   # DELETE /states/1
   def destroy
-    destroy_and_respond
+    @state.destroy
+    respond_with @state
   end
 
   private
@@ -55,10 +62,5 @@ class StatesController < ApplicationController
 
     def state_params
       params.require(:state).permit :name, :lock_version
-    end
-    alias_method :resource_params, :state_params
-
-    def resource
-      @state
     end
 end

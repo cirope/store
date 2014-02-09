@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  include Responder
+  respond_to :html, :json
 
   before_action :authorize
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
@@ -8,15 +8,19 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   def index
     @organizations = Organization.search query: params[:q], limit: request.xhr?
+
+    respond_with @organizations
   end
 
   # GET /organizations/1
   def show
+    respond_with @organization
   end
 
   # GET /organizations/new
   def new
     @organization = Organization.new
+    respond_with @organization
   end
 
   # GET /organizations/1/edit
@@ -26,21 +30,24 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   def create
     @title = t 'organizations.new.title'
-    @organization = Organization.new(organization_params)
+    @organization = Organization.new organization_params
 
-    create_and_respond
+    @organization.save
+    respond_with @organization, location: launchpad_url
   end
 
   # PUT/PATCH /organizations/1
   def update
     @title = t 'organizations.edit.title'
 
-    update_and_respond
+    @organization.update organization_params
+    respond_with @organization, location: launchpad_url
   end
 
   # DELETE /organizations/1
   def destroy
-    destroy_and_respond
+    @organization.destroy
+    respond_with @organization, location: launchpad_url
   end
 
   private
@@ -57,12 +64,4 @@ class OrganizationsController < ApplicationController
       params.require(:organization).permit :lock_version,
         entity_attributes: [:id, :tax_id, :tax_condition, :name, :address, :city_id]
     end
-    alias_method :resource_params, :organization_params
-
-    def resource
-      @organization
-    end
-    alias_method :after_create_url,  :launchpad_url
-    alias_method :after_update_url,  :launchpad_url
-    alias_method :after_destroy_url, :launchpad_url
 end

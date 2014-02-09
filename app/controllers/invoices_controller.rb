@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  include Responder
+  respond_to :html, :json
 
   before_action :authorize
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
@@ -9,15 +9,19 @@ class InvoicesController < ApplicationController
   # GET /invoices
   def index
     @invoices = @book.invoices
+
+    respond_with @invoices
   end
 
   # GET /invoices/1
   def show
+    respond_with @invoice
   end
 
   # GET /invoices/new
   def new
     @invoice = @book.invoices.new
+    respond_with @invoice
   end
 
   # GET /invoices/1/edit
@@ -29,19 +33,22 @@ class InvoicesController < ApplicationController
     @title = t 'invoices.new.title'
     @invoice = @book.invoices.new invoice_params
 
-    create_and_respond
+    @invoice.save
+    respond_with @invoice
   end
 
   # PUT/PATCH /invoices/1
   def update
     @title = t 'invoices.edit.title'
 
-    update_and_respond
+    @invoice.update invoice_params
+    respond_with @invoice
   end
 
   # DELETE /invoices/1
   def destroy
-    destroy_and_respond
+    @invoice.destroy
+    respond_with @invoice, location: book_invoices_url(@book)
   end
 
   private
@@ -61,14 +68,5 @@ class InvoicesController < ApplicationController
     def invoice_params
       params.require(:invoice).permit :customer_id, :lock_version,
         invoice_items_attributes: [:id, :item_id, :quantity, :price, :_destroy]
-    end
-    alias_method :resource_params, :invoice_params
-
-    def resource
-      @invoice
-    end
-
-    def after_destroy_url
-      book_invoices_url @book
     end
 end

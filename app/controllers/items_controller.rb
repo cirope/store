@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  include Responder
+  respond_to :html, :json
 
   before_action :authorize
   before_action :set_item, only: [:show, :edit, :update, :destroy]
@@ -8,15 +8,19 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.search query: params[:q], limit: request.xhr?
+
+    respond_with @items
   end
 
   # GET /items/1
   def show
+    respond_with @item
   end
 
   # GET /items/new
   def new
     @item = Item.new
+    respond_with @item
   end
 
   # GET /items/1/edit
@@ -28,19 +32,22 @@ class ItemsController < ApplicationController
     @title = t 'items.new.title'
     @item = Item.new item_params
 
-    create_and_respond
+    @item.save
+    respond_with @item
   end
 
   # PUT/PATCH /items/1
   def update
     @title = t 'items.edit.title'
 
-    update_and_respond
+    @item.update item_params
+    respond_with @item
   end
 
   # DELETE /items/1
   def destroy
-    destroy_and_respond
+    @item.destroy
+    respond_with @item
   end
 
   private
@@ -55,10 +62,5 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit :code, :name, :price, :unit, :lock_version
-    end
-    alias_method :resource_params, :item_params
-
-    def resource
-      @item
     end
 end

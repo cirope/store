@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  include Responder
+  respond_to :html, :json
 
   before_action :authorize
   before_action :set_account, only: [:show, :edit, :update, :destroy]
@@ -8,15 +8,19 @@ class AccountsController < ApplicationController
   # GET /accounts
   def index
     @accounts = Account.all
+
+    respond_with @accounts
   end
 
   # GET /accounts/1
   def show
+    respond_with @account
   end
 
   # GET /accounts/new
   def new
     @account = Account.new
+    respond_with @account
   end
 
   # GET /accounts/1/edit
@@ -28,19 +32,22 @@ class AccountsController < ApplicationController
     @title = t 'accounts.new.title'
     @account = Account.new account_params
 
-    create_and_respond
+    @account.save
+    respond_with @account
   end
 
   # PUT/PATCH /accounts/1
   def update
     @title = t 'accounts.edit.title'
 
-    update_and_respond
+    @account.update account_params
+    respond_with @account
   end
 
   # DELETE /accounts/1
   def destroy
-    destroy_and_respond
+    @account.destroy
+    respond_with @account
   end
 
   private
@@ -56,17 +63,4 @@ class AccountsController < ApplicationController
   def account_params
     params.require(:account).permit :name, :subdomain, :lock_version
   end
-  alias_method :resource_params, :account_params
-
-  def resource
-    @account
-  end
-  alias_method :after_create_url, :resource
-  alias_method :after_update_url, :resource
-
-  def edit_resource_url
-    edit_account_url @account
-  end
-
-  alias_method :after_destroy_url, :accounts_url
 end

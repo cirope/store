@@ -29,12 +29,27 @@ class CustomersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should get new as js' do
+    xhr :get, :new
+    assert_response :success
+    assert_template layout: nil
+  end
+
   test 'should create customer' do
     assert_difference('Customer.count') do
       post :create, customer: { entity_attributes: generic_entity_attributes }
     end
 
     assert_redirected_to customer_url(assigns(:customer))
+  end
+
+  test 'should create customer via js' do
+    assert_difference('Customer.count') do
+      xhr :post, :create, customer: { entity_attributes: generic_entity_attributes }
+    end
+
+    assert_response :success
+    assert_template 'customers/create'
   end
 
   test 'should show customer' do
