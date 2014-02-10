@@ -3,6 +3,10 @@ class AutocompleteInput < SimpleForm::Inputs::Base
     autocomplete_field << hidden_field
   end
 
+  def input_html_classes
+    super << 'form-control'
+  end
+
   private
 
     def autocomplete_field
