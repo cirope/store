@@ -2,7 +2,19 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @user = users(:franco)
+    @user = users :franco
+  end
+
+  test 'should generate token on create' do
+    @user = User.create!(
+      name: @user.name,
+      lastname: @user.lastname,
+      email: 'new@user.com',
+      password: '123',
+      password_confirmation: '123'
+    )
+
+    assert @user.reload.auth_token.present?
   end
 
   test 'blank attributes' do
@@ -51,5 +63,15 @@ class UserTest < ActiveSupport::TestCase
   test 'by auth token' do
     assert_nil User.by_auth_token('wrong')
     assert_equal @user, User.by_auth_token(@user.auth_token)
+  end
+
+  test 'password expired' do
+    @user.password_reset_sent_at = Time.zone.now
+
+    assert !@user.password_expired?
+
+    @user.password_reset_sent_at = 3.hours.ago
+
+    assert @user.password_expired?
   end
 end
