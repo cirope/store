@@ -18,7 +18,7 @@
           <td><%= city.zip_code %></td>
           <td><%= city.state %></td>
           <td><%= link_to_show city %></td>
-          <td><%= link_to_edit edit_city_path(city) %></td>
+          <td><%= link_to_edit [:edit, city] %></td>
           <td><%= link_to_destroy city %></td>
         </tr>
       <% end %>

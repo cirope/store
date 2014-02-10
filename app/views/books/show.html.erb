@@ -5,5 +5,5 @@
   <%= @book.last_used_number %>
 </p>
 
-<%= link_to_edit edit_book_path(@book) %> |
+<%= link_to_edit [:edit, @book] %> |
 <%= link_to_index organization_books_path(@organization) %>

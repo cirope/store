@@ -9,5 +9,5 @@
   <%= number_to_currency @item.price %>
 </p>
 
-<%= link_to_edit edit_item_path(@item) %> |
+<%= link_to_edit [:edit, @item] %> |
 <%= link_to_index items_path %>

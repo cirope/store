@@ -16,7 +16,7 @@
           <td><%= account.name %></td>
           <td><%= account.subdomain %></td>
           <td><%= link_to_show account %></td>
-          <td><%= link_to_edit edit_account_path(account) %></td>
+          <td><%= link_to_edit [:edit, account] %></td>
           <td><%= link_to_destroy account %></td>
         </tr>
       <% end %>

@@ -16,7 +16,7 @@
           <td><%= receipt.number %></td>
           <td><%= receipt.customer %></td>
           <td><%= link_to_show receipt %></td>
-          <td><%= link_to_edit edit_receipt_path(receipt) %></td>
+          <td><%= link_to_edit [:edit, receipt] %></td>
           <td><%= link_to_destroy receipt %></td>
         </tr>
       <% end %>

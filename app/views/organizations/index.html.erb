@@ -14,7 +14,7 @@
         <tr>
           <td><%= organization.name %></td>
           <td><%= link_to_show organization %></td>
-          <td><%= link_to_edit edit_organization_path(organization) %></td>
+          <td><%= link_to_edit [:edit, organization] %></td>
           <td><%= link_to_destroy organization %></td>
         </tr>
       <% end %>

@@ -16,7 +16,7 @@
           <td><%= invoice.number %></td>
           <td><%= invoice.customer %></td>
           <td><%= link_to_show invoice %></td>
-          <td><%= link_to_edit edit_invoice_path(invoice) %></td>
+          <td><%= link_to_edit [:edit, invoice] %></td>
           <td><%= link_to_destroy invoice %></td>
         </tr>
       <% end %>

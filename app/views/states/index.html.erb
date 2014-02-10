@@ -14,7 +14,7 @@
         <tr>
           <td><%= state.name %></td>
           <td><%= link_to_show state %></td>
-          <td><%= link_to_edit edit_state_path(state) %></td>
+          <td><%= link_to_edit [:edit, state] %></td>
           <td><%= link_to_destroy state %></td>
         </tr>
       <% end %>

@@ -16,7 +16,7 @@
           <td><%= book.kind %></td>
           <td><%= book.last_used_number %></td>
           <td><%= link_to_show book %></td>
-          <td><%= link_to_edit edit_book_path(book) %></td>
+          <td><%= link_to_edit [:edit, book] %></td>
           <td><%= link_to_destroy book %></td>
         </tr>
       <% end %>

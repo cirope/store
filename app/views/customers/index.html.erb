@@ -16,7 +16,7 @@
           <td><%= customer.tax_id %></td>
           <td><%= customer.name %></td>
           <td><%= link_to_show customer %></td>
-          <td><%= link_to_edit edit_customer_path(customer) %></td>
+          <td><%= link_to_edit [:edit, customer] %></td>
           <td><%= link_to_destroy customer %></td>
         </tr>
       <% end %>

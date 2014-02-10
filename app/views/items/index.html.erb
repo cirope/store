@@ -20,7 +20,7 @@
           <td class="visible-lg"><%= item.unit %></td>
           <td class="visible-lg"><%= number_to_currency item.price %></td>
           <td><%= link_to_show item %></td>
-          <td><%= link_to_edit edit_item_path(item) %></td>
+          <td><%= link_to_edit [:edit, item] %></td>
           <td><%= link_to_destroy item %></td>
         </tr>
       <% end %>

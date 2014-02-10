@@ -6,5 +6,5 @@
   <%= link_to t('organizations.new.book'), new_organization_book_path(@organization), class: 'btn btn-default' %>
 </p>
 
-<%= link_to_edit edit_organization_path(@organization) %> |
+<%= link_to_edit [:edit, @organization] %> |
 <%= link_to_index organizations_path %>
