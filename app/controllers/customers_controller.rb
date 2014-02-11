@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
 
   before_action :authorize
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /customers
   def index
@@ -29,7 +29,6 @@ class CustomersController < ApplicationController
 
   # POST /customers
   def create
-    @title = t 'customers.new.title'
     @customer = Customer.new customer_params
 
     @customer.save
@@ -38,8 +37,6 @@ class CustomersController < ApplicationController
 
   # PUT/PATCH /customers/1
   def update
-    @title = t 'customers.edit.title'
-
     @customer.update customer_params
     respond_with @customer
   end
@@ -54,10 +51,6 @@ class CustomersController < ApplicationController
 
     def set_customer
       @customer = Customer.find params[:id]
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def customer_params

@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :authorize
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :set_organization
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /books
   def index
@@ -30,7 +30,6 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    @title = t 'books.new.title'
     @book = @organization.books.new book_params
 
     @book.save
@@ -39,8 +38,6 @@ class BooksController < ApplicationController
 
   # PUT/PATCH /books/1
   def update
-    @title = t 'books.edit.title'
-
     @book.update book_params
     respond_with @book, location: launchpad_url
   end
@@ -59,10 +56,6 @@ class BooksController < ApplicationController
 
     def set_book
       @book = Book.find params[:id]
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def book_params

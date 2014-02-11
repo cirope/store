@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
 
   before_action :authorize
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /accounts
   def index
@@ -29,7 +29,6 @@ class AccountsController < ApplicationController
 
   # POST /accounts
   def create
-    @title = t 'accounts.new.title'
     @account = Account.new account_params
 
     @account.save
@@ -38,8 +37,6 @@ class AccountsController < ApplicationController
 
   # PUT/PATCH /accounts/1
   def update
-    @title = t 'accounts.edit.title'
-
     @account.update account_params
     respond_with @account
   end
@@ -52,15 +49,11 @@ class AccountsController < ApplicationController
 
   private
 
-  def set_account
-    @account = Account.find params[:id]
-  end
+    def set_account
+      @account = Account.find params[:id]
+    end
 
-  def set_title
-    @title = t '.title'
-  end
-
-  def account_params
-    params.require(:account).permit :name, :subdomain, :lock_version
-  end
+    def account_params
+      params.require(:account).permit :name, :subdomain, :lock_version
+    end
 end

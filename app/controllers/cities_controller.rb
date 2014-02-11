@@ -3,7 +3,7 @@ class CitiesController < ApplicationController
 
   before_action :authorize
   before_action :set_city, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /cities
   def index
@@ -29,7 +29,6 @@ class CitiesController < ApplicationController
 
   # POST /cities
   def create
-    @title = t 'cities.new.title'
     @city = City.new city_params
 
     @city.save
@@ -38,8 +37,6 @@ class CitiesController < ApplicationController
 
   # PUT/PATCH /cities/1
   def update
-    @title = t 'cities.edit.title'
-
     @city.update city_params
     respond_with @city
   end
@@ -54,10 +51,6 @@ class CitiesController < ApplicationController
 
     def set_city
       @city = City.find params[:id]
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def city_params

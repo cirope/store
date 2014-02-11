@@ -4,7 +4,7 @@ class ReceiptsController < ApplicationController
   before_action :authorize
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
   before_action :set_book
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /receipts
   def index
@@ -30,7 +30,6 @@ class ReceiptsController < ApplicationController
 
   # POST /receipts
   def create
-    @title = t 'receipts.new.title'
     @receipt = @book.receipts.new receipt_params
 
     @receipt.save
@@ -39,8 +38,6 @@ class ReceiptsController < ApplicationController
 
   # PUT/PATCH /receipts/1
   def update
-    @title = t 'receipts.edit.title'
-
     @receipt.update receipt_params
     respond_with @receipt
   end
@@ -59,10 +56,6 @@ class ReceiptsController < ApplicationController
 
     def set_book
       @book = @receipt ? @receipt.book : Book.find(params[:book_id])
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def receipt_params

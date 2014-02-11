@@ -3,7 +3,7 @@ class StatesController < ApplicationController
 
   before_action :authorize
   before_action :set_state, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /states
   def index
@@ -29,7 +29,6 @@ class StatesController < ApplicationController
 
   # POST /states
   def create
-    @title = t 'states.new.title'
     @state = State.new state_params
 
     @state.save
@@ -38,8 +37,6 @@ class StatesController < ApplicationController
 
   # PUT/PATCH /states/1
   def update
-    @title = t 'states.edit.title'
-
     @state.update state_params
     respond_with @state
   end
@@ -54,10 +51,6 @@ class StatesController < ApplicationController
 
     def set_state
       @state = State.find params[:id]
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def state_params

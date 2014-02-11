@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
 
   before_action :authorize
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /organizations
   def index
@@ -29,7 +29,6 @@ class OrganizationsController < ApplicationController
 
   # POST /organizations
   def create
-    @title = t 'organizations.new.title'
     @organization = Organization.new organization_params
 
     @organization.save
@@ -38,8 +37,6 @@ class OrganizationsController < ApplicationController
 
   # PUT/PATCH /organizations/1
   def update
-    @title = t 'organizations.edit.title'
-
     @organization.update organization_params
     respond_with @organization, location: launchpad_url
   end
@@ -54,10 +51,6 @@ class OrganizationsController < ApplicationController
 
     def set_organization
       @organization = Organization.find params[:id]
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def organization_params

@@ -1,8 +1,7 @@
 class LaunchpadController < ApplicationController
-  before_action :authorize
+  before_action :authorize, :set_title
 
   def index
-    @title = t '.title'
     @organizations = Organization.all
   end
 end

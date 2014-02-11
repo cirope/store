@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   before_action :authorize
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_title, only: [:index, :show, :new, :edit]
+  before_action :set_title, except: [:destroy]
 
   # GET /items
   def index
@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
-    @title = t 'items.new.title'
     @item = Item.new item_params
 
     @item.save
@@ -38,8 +37,6 @@ class ItemsController < ApplicationController
 
   # PUT/PATCH /items/1
   def update
-    @title = t 'items.edit.title'
-
     @item.update item_params
     respond_with @item
   end
@@ -54,10 +51,6 @@ class ItemsController < ApplicationController
 
     def set_item
       @item = Item.find params[:id]
-    end
-
-    def set_title
-      @title = t '.title'
     end
 
     def item_params
