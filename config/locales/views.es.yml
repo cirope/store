@@ -31,9 +31,9 @@ es:
 
   accounts:
     create:
-      success: 'Cuenta creada correctamente'
+      notice: 'Cuenta creada correctamente'
     destroy:
-      success: 'Cuenta eliminada'
+      notice: 'Cuenta eliminada'
     edit:
       title: 'Editar cuenta'
     index:
@@ -45,14 +45,10 @@ es:
     show:
       title: 'Ver cuenta'
     update:
-      success: 'Cuenta actualizada correctamente'
-      stale_object_error: 'No se pudo actualizar la cuenta, revise los datos e inténtelo nuevamente'
+      notice: 'Cuenta actualizada correctamente'
+      stale: 'No se pudo actualizar la cuenta, revise los datos e inténtelo nuevamente'
 
   books:
-    create:
-      success: 'Talonario creado correctamente'
-    destroy:
-      success: 'Talonario eliminado'
     edit:
       title: 'Editar talonario'
     index:
@@ -64,14 +60,13 @@ es:
     show:
       title: 'Ver talonario'
     update:
-      success: 'Talonario actualizado correctamente'
-      stale_object_error: 'No se pudo actualizar el talonario, revise los datos e inténtelo nuevamente'
+      stale: 'No se pudo actualizar el talonario, revise los datos e inténtelo nuevamente'
 
   cities:
     create:
-      success: 'Ciudad creada correctamente'
+      notice: 'Ciudad creada correctamente'
     destroy:
-      success: 'Ciudad eliminada'
+      notice: 'Ciudad eliminada'
     edit:
       title: 'Editar ciudad'
     index:
@@ -84,14 +79,10 @@ es:
     show:
       title: 'Ver ciudad'
     update:
-      success: 'Ciudad actualizada correctamente'
-      stale_object_error: 'No se pudo actualizar la ciudad, revise los datos e inténtelo nuevamente'
+      notice: 'Ciudad actualizada correctamente'
+      stale: 'No se pudo actualizar la ciudad, revise los datos e inténtelo nuevamente'
 
   customers:
-    create:
-      success: 'Cliente creado correctamente'
-    destroy:
-      success: 'Cliente eliminado'
     edit:
       title: 'Editar cliente'
     index:
@@ -104,8 +95,7 @@ es:
     show:
       title: 'Ver cliente'
     update:
-      success: 'Cliente actualizado correctamente'
-      stale_object_error: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
+      stale: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
 
   entities:
     new:
@@ -119,9 +109,9 @@ es:
 
   invoices:
     create:
-      success: 'Factura creada correctamente'
+      notice: 'Factura creada correctamente'
     destroy:
-      success: 'Factura eliminada'
+      notice: 'Factura eliminada'
     edit:
       title: 'Editar factura'
     index:
@@ -134,15 +124,11 @@ es:
     show:
       title: 'Ver factura'
     update:
-      success: 'Factura actualizada correctamente'
-      stale_object_error: 'No se pudo actualizar la factura, revise los datos e inténtelo nuevamente'
+      notice: 'Factura actualizada correctamente'
+      stale: 'No se pudo actualizar la factura, revise los datos e inténtelo nuevamente'
     header: 'Factura'
 
   items:
-    create:
-      success: 'Artículo creado correctamente'
-    destroy:
-      success: 'Artículo eliminado'
     edit:
       title: 'Editar artículo'
     index:
@@ -154,8 +140,7 @@ es:
     show:
       title: 'Ver artículo'
     update:
-      success: 'Artículo actualizado correctamente'
-      stale_object_error: 'No se pudo actualizar el artículo, revise los datos e inténtelo nuevamente'
+      stale: 'No se pudo actualizar el artículo, revise los datos e inténtelo nuevamente'
 
   launchpad:
     index:
@@ -166,9 +151,9 @@ es:
 
   organizations:
     create:
-      success: 'Organización creada correctamente'
+      notice: 'Organización creada correctamente'
     destroy:
-      success: 'Organización eliminada'
+      notice: 'Organización eliminada'
     edit:
       title: 'Editar organización'
     index:
@@ -181,15 +166,15 @@ es:
     show:
       title: 'Ver organización'
     update:
-      success: 'Organización actualizada correctamente'
-      stale_object_error: 'No se pudo actualizar la organización, revise los datos e inténtelo nuevamente'
+      notice: 'Organización actualizada correctamente'
+      stale: 'No se pudo actualizar la organización, revise los datos e inténtelo nuevamente'
 
   password_resets:
     edit:
       title: 'Cambiar contraseña'
       update: 'Actualizar contraseña'
     update:
-      success: 'Contraseña cambiada correctamente'
+      notice: 'Contraseña cambiada correctamente'
       expired: 'El enlace ha expirado, pida de nuevo las instrucciones'
     new:
       title: 'Restablecer contraseña'
@@ -197,7 +182,7 @@ es:
       send_instructions: 'Enviar instrucciones'
       back: 'Volver'
     create:
-      success: 'Se enviaron instrucciones a tu correo para restablecer la contraseña'
+      notice: 'Se enviaron instrucciones a tu correo para restablecer la contraseña'
       not_found: 'El correo que ingresaste no está registrado, verifica que no esté mal escrito'
 
   profiles:
@@ -205,13 +190,9 @@ es:
       title: 'Mis datos'
       submit: 'Actualizar mis datos'
     update:
-      success: 'Tus datos se actualizaron correctamente'
+      notice: 'Tus datos se actualizaron correctamente'
 
   receipts:
-    create:
-      success: 'Remito creado correctamente'
-    destroy:
-      success: 'Remito eliminado'
     edit:
       title: 'Editar remito'
     index:
@@ -224,8 +205,7 @@ es:
     show:
       title: 'Ver remito'
     update:
-      success: 'Remito actualizado correctamente'
-      stale_object_error: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'
+      stale: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'
     header: 'Documento no válido como factura'
 
   sessions:
@@ -244,9 +224,9 @@ es:
 
   states:
     create:
-      success: 'Provincia creada correctamente'
+      notice: 'Provincia creada correctamente'
     destroy:
-      success: 'Provincia eliminada'
+      notice: 'Provincia eliminada'
     edit:
       title: 'Editar provincia'
     index:
@@ -259,8 +239,8 @@ es:
     show:
       title: 'Ver provincia'
     update:
-      success: 'Provincia actualizada correctamente'
-      stale_object_error: 'No se pudo actualizar la provincia, revise los datos e inténtelo nuevamente'
+      notice: 'Provincia actualizada correctamente'
+      stale: 'No se pudo actualizar la provincia, revise los datos e inténtelo nuevamente'
 
   users:
     edit:

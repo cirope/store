@@ -40,6 +40,9 @@ class ReceiptsController < ApplicationController
   def update
     @receipt.update receipt_params
     respond_with @receipt
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @receipt], alert: t('.stale')
   end
 
   # DELETE /receipts/1

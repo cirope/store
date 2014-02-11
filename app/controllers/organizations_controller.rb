@@ -39,6 +39,9 @@ class OrganizationsController < ApplicationController
   def update
     @organization.update organization_params
     respond_with @organization, location: launchpad_url
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @organization], alert: t('.stale')
   end
 
   # DELETE /organizations/1

@@ -39,6 +39,9 @@ class StatesController < ApplicationController
   def update
     @state.update state_params
     respond_with @state
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @state], alert: t('.stale')
   end
 
   # DELETE /states/1

@@ -39,6 +39,9 @@ class CustomersController < ApplicationController
   def update
     @customer.update customer_params
     respond_with @customer
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @customer], alert: t('.stale')
   end
 
   # DELETE /customers/1

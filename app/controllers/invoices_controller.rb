@@ -40,6 +40,9 @@ class InvoicesController < ApplicationController
   def update
     @invoice.update invoice_params
     respond_with @invoice
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @invoice], alert: t('.stale')
   end
 
   # DELETE /invoices/1

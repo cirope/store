@@ -39,6 +39,9 @@ class ItemsController < ApplicationController
   def update
     @item.update item_params
     respond_with @item
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @item], alert: t('.stale')
   end
 
   # DELETE /items/1

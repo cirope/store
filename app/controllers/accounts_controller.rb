@@ -39,6 +39,9 @@ class AccountsController < ApplicationController
   def update
     @account.update account_params
     respond_with @account
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @account], alert: t('.stale')
   end
 
   # DELETE /accounts/1

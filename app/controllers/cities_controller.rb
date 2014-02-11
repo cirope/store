@@ -39,6 +39,9 @@ class CitiesController < ApplicationController
   def update
     @city.update city_params
     respond_with @city
+
+  rescue ActiveRecord::StaleObjectError
+    redirect_to [:edit, @city], alert: t('.stale')
   end
 
   # DELETE /cities/1

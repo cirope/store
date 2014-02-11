@@ -4,10 +4,10 @@ class Account < ActiveRecord::Base
   include Auditable
   include Accounts::Current
   include Accounts::Overrides
+  include Accounts::Relations
   include Accounts::Scopes
   include Accounts::Validation
 
   strip_fields :name, :subdomain
   downcase_fields :subdomain
-  include Accounts::Relations
 end
