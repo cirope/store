@@ -1,15 +1,9 @@
 class ApplicationController < ActionController::Base
+  include ActionTitle
+
   protect_from_forgery with: :exception
 
   before_action :scope_current_account
-
-  def user_for_paper_trail
-    current_user.try :id
-  end
-
-  def set_title
-    @title = t action_title
-  end
 
   def current_user
     @current_user ||= user_by_auth_token if cookies[:auth_token]
@@ -27,6 +21,10 @@ class ApplicationController < ActionController::Base
     redirect_to login_url, alert: t('messages.not_authorized') unless current_user
   end
 
+  def user_for_paper_trail
+    current_user.try :id
+  end
+
   private
 
     def user_by_auth_token
@@ -39,12 +37,5 @@ class ApplicationController < ActionController::Base
 
     def scope_current_account
       Account.current_id = current_account.try(:id)
-    end
-
-    def action_title
-      alias_action = 'new'  if action_name == 'create'
-      alias_action = 'edit' if action_name == 'update'
-
-      [controller_name, alias_action || action_name, 'title'].join '.'
     end
 end
