@@ -42,7 +42,7 @@ class ReceiptsController < ApplicationController
     respond_with @receipt
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @receipt], alert: t('.stale')
+    redirect_to [:edit, @receipt], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /receipts/1

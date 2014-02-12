@@ -4,18 +4,6 @@ es:
   menu:
     admin: 'Administración'
 
-  flash:
-    actions:
-      create:
-        notice: '%{resource_name} creado'
-        alert:  ''
-      update:
-        notice: '%{resource_name} actualizado'
-        alert:  ''
-      destroy:
-        notice: '%{resource_name} eliminado'
-        alert:  '%{resource_name} no pudo ser eliminado'
-
   messages:
     confirmation: '¿Está seguro?'
     not_authorized: 'Debe ingresar para ver el contenido'
@@ -30,10 +18,6 @@ es:
     show: 'Ver'
 
   accounts:
-    create:
-      notice: 'Cuenta creada correctamente'
-    destroy:
-      notice: 'Cuenta eliminada'
     edit:
       title: 'Editar cuenta'
     index:
@@ -44,9 +28,6 @@ es:
       title: 'Crear cuenta'
     show:
       title: 'Ver cuenta'
-    update:
-      notice: 'Cuenta actualizada correctamente'
-      stale: 'No se pudo actualizar la cuenta, revise los datos e inténtelo nuevamente'
 
   books:
     edit:
@@ -59,14 +40,8 @@ es:
       title: 'Crear talonario'
     show:
       title: 'Ver talonario'
-    update:
-      stale: 'No se pudo actualizar el talonario, revise los datos e inténtelo nuevamente'
 
   cities:
-    create:
-      notice: 'Ciudad creada correctamente'
-    destroy:
-      notice: 'Ciudad eliminada'
     edit:
       title: 'Editar ciudad'
     index:
@@ -78,9 +53,6 @@ es:
       state: 'Agregar nueva provincia'
     show:
       title: 'Ver ciudad'
-    update:
-      notice: 'Ciudad actualizada correctamente'
-      stale: 'No se pudo actualizar la ciudad, revise los datos e inténtelo nuevamente'
 
   customers:
     edit:
@@ -94,8 +66,6 @@ es:
       customer: 'Agregar nuevo cliente'
     show:
       title: 'Ver cliente'
-    update:
-      stale: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
 
   entities:
     new:
@@ -108,10 +78,6 @@ es:
       final_consumer: 'Consumidor final'
 
   invoices:
-    create:
-      notice: 'Factura creada correctamente'
-    destroy:
-      notice: 'Factura eliminada'
     edit:
       title: 'Editar factura'
     index:
@@ -123,9 +89,6 @@ es:
       item: 'Agregar artículo'
     show:
       title: 'Ver factura'
-    update:
-      notice: 'Factura actualizada correctamente'
-      stale: 'No se pudo actualizar la factura, revise los datos e inténtelo nuevamente'
     header: 'Factura'
 
   items:
@@ -139,8 +102,6 @@ es:
       title: 'Crear artículo'
     show:
       title: 'Ver artículo'
-    update:
-      stale: 'No se pudo actualizar el artículo, revise los datos e inténtelo nuevamente'
 
   launchpad:
     index:
@@ -150,10 +111,6 @@ es:
       empty_books_html: 'No hay talonarios para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario</span>'
 
   organizations:
-    create:
-      notice: 'Organización creada correctamente'
-    destroy:
-      notice: 'Organización eliminada'
     edit:
       title: 'Editar organización'
     index:
@@ -165,32 +122,21 @@ es:
       book: 'Crear talonario'
     show:
       title: 'Ver organización'
-    update:
-      notice: 'Organización actualizada correctamente'
-      stale: 'No se pudo actualizar la organización, revise los datos e inténtelo nuevamente'
 
   password_resets:
     edit:
       title: 'Cambiar contraseña'
       update: 'Actualizar contraseña'
-    update:
-      notice: 'Contraseña cambiada correctamente'
-      expired: 'El enlace ha expirado, pida de nuevo las instrucciones'
     new:
       title: 'Restablecer contraseña'
       email: 'Correo'
       send_instructions: 'Enviar instrucciones'
       back: 'Volver'
-    create:
-      notice: 'Se enviaron instrucciones a tu correo para restablecer la contraseña'
-      not_found: 'El correo que ingresaste no está registrado, verifica que no esté mal escrito'
 
   profiles:
     edit:
       title: 'Mis datos'
       submit: 'Actualizar mis datos'
-    update:
-      notice: 'Tus datos se actualizaron correctamente'
 
   receipts:
     edit:
@@ -204,8 +150,6 @@ es:
       item: 'Agregar artículo'
     show:
       title: 'Ver remito'
-    update:
-      stale: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'
     header: 'Documento no válido como factura'
 
   sessions:
@@ -216,17 +160,8 @@ es:
       password: 'Contraseña'
       remember_me: 'Recordarme'
       forgot_password: '¿Olvidaste tu contraseña?'
-    create:
-      invalid: 'Tu correo y/o contraseña no están bien =('
-      logged_in: 'Bienvenido'
-    destroy:
-      logged_out: 'Hasta la próxima'
 
   states:
-    create:
-      notice: 'Provincia creada correctamente'
-    destroy:
-      notice: 'Provincia eliminada'
     edit:
       title: 'Editar provincia'
     index:
@@ -238,9 +173,6 @@ es:
       state: 'Agregar nueva provincia'
     show:
       title: 'Ver provincia'
-    update:
-      notice: 'Provincia actualizada correctamente'
-      stale: 'No se pudo actualizar la provincia, revise los datos e inténtelo nuevamente'
 
   users:
     edit:
@@ -254,5 +186,3 @@ es:
       relation: 'Agregar asociación'
     show:
       title: 'Ver usuario'
-    update:
-      stale: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'

@@ -42,7 +42,7 @@ class BooksController < ApplicationController
     respond_with @book, location: launchpad_url
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @book], alert: t('.stale')
+    redirect_to [:edit, @book], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /books/1

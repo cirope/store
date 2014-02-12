@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
     respond_with @customer
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @customer], alert: t('.stale')
+    redirect_to [:edit, @customer], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /customers/1

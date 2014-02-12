@@ -41,7 +41,7 @@ class AccountsController < ApplicationController
     respond_with @account
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @account], alert: t('.stale')
+    redirect_to [:edit, @account], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /accounts/1

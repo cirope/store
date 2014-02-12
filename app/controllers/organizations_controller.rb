@@ -41,7 +41,7 @@ class OrganizationsController < ApplicationController
     respond_with @organization, location: launchpad_url
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @organization], alert: t('.stale')
+    redirect_to [:edit, @organization], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /organizations/1

@@ -42,7 +42,7 @@ class InvoicesController < ApplicationController
     respond_with @invoice
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @invoice], alert: t('.stale')
+    redirect_to [:edit, @invoice], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /invoices/1

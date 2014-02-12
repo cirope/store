@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     respond_with @item
 
   rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @item], alert: t('.stale')
+    redirect_to [:edit, @item], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /items/1
