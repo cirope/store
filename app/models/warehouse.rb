@@ -6,6 +6,8 @@ class Warehouse < ActiveRecord::Base
 
   strip_fields :name
 
+  has_many :supplies, dependent: :destroy
+
   def to_s
     name
   end

@@ -44,6 +44,9 @@ es:
       state:
         one: 'Provincia'
         other: 'Provincias'
+      supply:
+        one: 'Suministro'
+        other: 'Suministros'
       user:
         one: 'Usuario'
         other: 'Usuarios'
@@ -85,6 +88,8 @@ es:
         name: 'Nombre'
       state:
         name: 'Nombre'
+      supply:
+        quantity: 'Cantidad'
       receipt:
         number: 'Número'
         created_at: 'Fecha'

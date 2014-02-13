@@ -7,6 +7,8 @@ class Item < ActiveRecord::Base
 
   strip_fields :code, :name
 
+  has_many :supplies, dependent: :destroy
+
   def to_s
     "[#{code}] #{name}"
   end
