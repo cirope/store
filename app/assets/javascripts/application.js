@@ -33,3 +33,4 @@
 //= require receipts
 //= require states
 //= require users
+//= require warehouses

@@ -95,3 +95,7 @@ es:
     users:
       update:
         stale: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'
+
+    warehouse:
+      update:
+        stale: 'No se pudo actualizar el almacén, revise los datos e inténtelo nuevamente'

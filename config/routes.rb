@@ -24,6 +24,7 @@ Store::Application.routes.draw do
     resources :items
     resources :states
     resources :users
+    resources :warehouses
 
     resources :books, only: [] do
       resources :invoices, shallow: true

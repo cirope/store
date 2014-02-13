@@ -186,3 +186,15 @@ es:
       relation: 'Agregar asociación'
     show:
       title: 'Ver usuario'
+
+  warehouses:
+    edit:
+      title: 'Editar almacén'
+    index:
+      new: 'Nuevo almacén'
+      title: 'Listado de almacenes'
+      empty_html: 'No hay almacenes, puede crear uno con el botón <span class="label label-info">Nuevo almacén</span>'
+    new:
+      title: 'Crear almacén'
+    show:
+      title: 'Ver almacén'

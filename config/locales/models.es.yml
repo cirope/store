@@ -47,6 +47,9 @@ es:
       user:
         one: 'Usuario'
         other: 'Usuarios'
+      warehouse:
+        one: 'Almacén'
+        other: 'Almacenes'
 
     attributes:
       account:
@@ -98,3 +101,5 @@ es:
         email: 'Correo'
         password: 'Contraseña'
         password_confirmation: 'Confirmación'
+      warehouse:
+        name: 'Nombre'
