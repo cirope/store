@@ -35,11 +35,8 @@ class WarehousesController < ApplicationController
 
   # PATCH/PUT /warehouses/1
   def update
-    @warehouse.update warehouse_params
+    update_resource @warehouse, warehouse_params
     respond_with @warehouse
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @warehouse], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /warehouses/1

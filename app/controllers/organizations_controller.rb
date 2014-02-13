@@ -37,11 +37,8 @@ class OrganizationsController < ApplicationController
 
   # PUT/PATCH /organizations/1
   def update
-    @organization.update organization_params
+    update_resource @organization, organization_params
     respond_with @organization, location: launchpad_url
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @organization], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /organizations/1

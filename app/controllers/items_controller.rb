@@ -37,11 +37,8 @@ class ItemsController < ApplicationController
 
   # PUT/PATCH /items/1
   def update
-    @item.update item_params
+    update_resource @item, item_params
     respond_with @item
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @item], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /items/1

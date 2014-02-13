@@ -37,11 +37,8 @@ class CustomersController < ApplicationController
 
   # PUT/PATCH /customers/1
   def update
-    @customer.update customer_params
+    update_resource @customer, customer_params
     respond_with @customer
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @customer], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /customers/1

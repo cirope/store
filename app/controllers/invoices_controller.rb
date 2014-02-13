@@ -38,11 +38,8 @@ class InvoicesController < ApplicationController
 
   # PUT/PATCH /invoices/1
   def update
-    @invoice.update invoice_params
+    update_resource @invoice, invoice_params
     respond_with @invoice
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @invoice], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /invoices/1

@@ -37,11 +37,8 @@ class AccountsController < ApplicationController
 
   # PUT/PATCH /accounts/1
   def update
-    @account.update account_params
+    update_resource @account, account_params
     respond_with @account
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @account], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /accounts/1

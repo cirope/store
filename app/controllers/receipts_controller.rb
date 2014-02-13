@@ -38,11 +38,8 @@ class ReceiptsController < ApplicationController
 
   # PUT/PATCH /receipts/1
   def update
-    @receipt.update receipt_params
+    update_resource @receipt, receipt_params
     respond_with @receipt
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @receipt], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /receipts/1

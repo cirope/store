@@ -38,11 +38,8 @@ class BooksController < ApplicationController
 
   # PUT/PATCH /books/1
   def update
-    @book.update book_params
+    update_resource @book, book_params
     respond_with @book, location: launchpad_url
-
-  rescue ActiveRecord::StaleObjectError
-    redirect_to [:edit, @book], alert: t('.stale', scope: :flash)
   end
 
   # DELETE /books/1
