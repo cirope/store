@@ -90,6 +90,7 @@ es:
         name: 'Nombre'
       supply:
         quantity: 'Cantidad'
+        item: 'Artículo'
       receipt:
         number: 'Número'
         created_at: 'Fecha'
