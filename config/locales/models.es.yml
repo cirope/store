@@ -32,6 +32,9 @@ es:
       organization:
         one: 'Organización'
         other: 'Organizaciones'
+      provider:
+        one: 'Proveedor'
+        other: 'Proveedores'
       receipt:
         one: 'Remito'
         other: 'Remitos'
@@ -87,6 +90,7 @@ es:
         unit: 'Unidad'
       organization:
         name: 'Nombre'
+      provider:
       state:
         name: 'Nombre'
       supply:

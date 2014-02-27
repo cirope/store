@@ -1,0 +1,27 @@
+<% if @providers.empty? %>
+  <%= render 'shared/empty_index', message: t('.empty_html') %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Entity.human_attribute_name 'tax_id' %></th>
+        <th><%= Entity.human_attribute_name 'name' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @providers.each do |provider| %>
+        <tr>
+          <td><%= provider.tax_id %></td>
+          <td><%= provider.name %></td>
+          <td><%= link_to_show provider %></td>
+          <td><%= link_to_edit [:edit, provider] %></td>
+          <td><%= link_to_destroy provider %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<%= link_to_new new_provider_path, class: 'btn btn-primary' %>

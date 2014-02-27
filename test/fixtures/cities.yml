@@ -1,7 +1,7 @@
-rivadavia:
-  name: Rivadavia
-  zip_code: 5577
-  state: mendoza
+arroyito:
+  name: Arroyito
+  zip_code: 2434
+  state: cordoba
   account: cirope
 
 godoy_cruz:
@@ -14,4 +14,10 @@ mar_del_plata:
   name: Mar del Plata
   zip_code: 7600
   state: buenos_aires
+  account: cirope
+
+rivadavia:
+  name: Rivadavia
+  zip_code: 5577
+  state: mendoza
   account: cirope

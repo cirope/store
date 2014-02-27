@@ -27,3 +27,13 @@ havanna:
   city: mar_del_plata
   invoiceable: havanna (Customer)
   account: cirope
+
+arcor:
+  name: Arcor S.A.I.C.
+  email: contact@arcor.com
+  tax_id: 30-50279317-5
+  tax_condition: <%= Entity::TAX_CONDITIONS.first %>
+  address: Av Fulvio Pagani 487
+  city: arroyito
+  invoiceable: arcor (Provider)
+  account: cirope

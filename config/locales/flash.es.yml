@@ -72,6 +72,10 @@ es:
         notice: 'Tus datos se actualizaron correctamente'
         stale: 'No pudimos actualizar los datos, revise e inténtelo nuevamente'
 
+    providers:
+      update:
+        stale: 'No se pudo actualizar el proveedor, revise los datos e inténtelo nuevamente'
+
     receipts:
       update:
         stale: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'

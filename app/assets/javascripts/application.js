@@ -30,6 +30,7 @@
 //= require organizations
 //= require password_resets
 //= require profiles
+//= require providers
 //= require receipts
 //= require states
 //= require users

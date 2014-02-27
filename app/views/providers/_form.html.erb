@@ -1,0 +1,12 @@
+<%= simple_form_for(@provider) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= render 'entities/form', f: f %>
+    <%= f.input :lock_version, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>
