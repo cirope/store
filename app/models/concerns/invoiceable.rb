@@ -5,6 +5,7 @@ module Invoiceable
     delegate :tax_id,        :tax_id=,
              :tax_condition, :tax_condition=,
              :name,          :name=,
+             :email,         :email=,
              :address,       :address=,
              :city,          :city=,
              :city_id,       :city_id=,

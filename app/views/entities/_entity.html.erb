@@ -1,7 +1,9 @@
-<h4><%= entity %></h4>
 
-<table class="table table-condensed table-bordered small text-muted">
-  <tbody>
+<table class="table table-condensed small">
+  <caption class="text-left">
+    <h4><%= entity %> <small><%= mail_to entity.email if entity.email %></small></h4>
+  </caption>
+  <tbody class="text-muted">
     <tr>
       <td>
         <strong><%= Entity.human_attribute_name 'tax_id' %></strong>:

@@ -1,2 +1,3 @@
-COOKIES_DOMAIN=".#{APPLICATION['host'].sub(/:.*/, '')}"
+COOKIES_DOMAIN = ".#{APPLICATION['host'].sub /:.*/, ''}"
 RESERVED_SUBDOMAINS = ['admin', 'avatars', 'www']
+EMAIL_REGEX = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i

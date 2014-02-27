@@ -2,6 +2,7 @@ module EntitiesTestHelper
   def generic_entity_attributes
     {
       name: 'new',
+      email: 'new@email.com',
       tax_id: '123',
       tax_condition: Entity::TAX_CONDITIONS.first,
       address: 'San Martín 324',

@@ -1,5 +1,6 @@
 cirope_sa:
   name: Cirope S.A.
+  email: contact@cirope.com
   tax_id: 30-71171887-3
   tax_condition: <%= Entity::TAX_CONDITIONS.first %>
   address: Alem 2920
@@ -9,6 +10,7 @@ cirope_sa:
 
 cirope_inc:
   name: Cirope Inc.
+  email: contact@ciropeinc.com
   tax_id: 30-71171887-4
   tax_condition: <%= Entity::TAX_CONDITIONS.first %>
   address: Alem 2920
@@ -18,6 +20,7 @@ cirope_inc:
 
 havanna:
   name: Havanna S.A.
+  email: contact@havanna.com
   tax_id: 33-69723504-9
   tax_condition: <%= Entity::TAX_CONDITIONS.first %>
   address: Alverti 1701

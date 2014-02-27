@@ -1,4 +1,4 @@
-<%= simple_form_for(@city, data: ({ remote: true } if request.xhr?)) do |f| %>
+<%= simple_form_for @city, data: remote_if_xhr do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

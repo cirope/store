@@ -51,8 +51,8 @@ es:
         one: 'Usuario'
         other: 'Usuarios'
       warehouse:
-        one: 'Almacén'
-        other: 'Almacenes'
+        one: 'Depósito'
+        other: 'Depósitos'
 
     attributes:
       account:
@@ -70,6 +70,7 @@ es:
         tax_id: 'CUIT'
         tax_condition: 'Condición respecto al IVA'
         name: 'Nombre'
+        email: 'Correo'
         address: 'Dirección'
         city: 'Ciudad'
       invoice:

@@ -48,4 +48,11 @@ class EntityTest < ActiveSupport::TestCase
     assert_equal Entity::ISSUABLE_RECEIPTS[@entity.tax_condition],
       @entity.issuable_receipts
   end
+
+  test 'email format' do
+    @entity.email = 'wrong@format'
+
+    assert @entity.invalid?
+    assert_error @entity, :email, :invalid
+  end
 end

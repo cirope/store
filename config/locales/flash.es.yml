@@ -98,4 +98,4 @@ es:
 
     warehouse:
       update:
-        stale: 'No se pudo actualizar el almacén, revise los datos e inténtelo nuevamente'
+        stale: 'No se pudo actualizar el depósito, revise los datos e inténtelo nuevamente'
