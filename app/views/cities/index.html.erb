@@ -7,7 +7,9 @@
         <th><%= City.human_attribute_name 'name' %></th>
         <th><%= City.human_attribute_name 'zip_code' %></th>
         <th><%= City.human_attribute_name 'state' %></th>
-        <th colspan="3"></th>
+        <th colspan="3">
+          <%= link_to_new new_city_path, class: 'btn btn-default btn-xs pull-right' %>
+        </th>
       </tr>
     </thead>
 
