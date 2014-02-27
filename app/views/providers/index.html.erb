@@ -6,7 +6,9 @@
       <tr>
         <th><%= Entity.human_attribute_name 'tax_id' %></th>
         <th><%= Entity.human_attribute_name 'name' %></th>
-        <th colspan="3"></th>
+        <th colspan="3">
+          <%= link_to_new new_provider_path, class: 'btn btn-default btn-xs pull-right' %>
+        </th>
       </tr>
     </thead>
 
