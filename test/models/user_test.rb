@@ -74,4 +74,12 @@ class UserTest < ActiveSupport::TestCase
 
     assert @user.password_expired?
   end
+
+  test 'current' do
+    User.current_id = @user.id
+
+    assert_equal @user.id, User.current_id
+
+    Thread.new { assert_nil User.current_id }
+  end
 end

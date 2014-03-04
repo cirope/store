@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   include Attributes::Downcase
   include Auditable
   include Users::Authentication
+  include Users::Current
   include Users::Overrides
   include Users::PasswordReset
   include Users::Relations
