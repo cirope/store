@@ -59,6 +59,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit :kind, :last_used_number, :lock_version
+      params.require(:book).permit :kind, :flow, :last_used_number, :lock_version
     end
 end

@@ -24,6 +24,12 @@ class BookTest < ActiveSupport::TestCase
 
     assert @book.invalid?
     assert_error @book, :kind, :inclusion
+
+    @book.reload
+    @book.flow = 'wrong'
+
+    assert @book.invalid?
+    assert_error @book, :flow, :inclusion
   end
 
   test 'numeric attributes' do

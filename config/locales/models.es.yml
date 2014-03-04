@@ -63,6 +63,7 @@ es:
         subdomain: 'Subdominio'
       book:
         kind: 'Tipo'
+        flow: 'Dirección'
         last_used_number: 'Último número utilizado'
       city:
         name: 'Nombre'

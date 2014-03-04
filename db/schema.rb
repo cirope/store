@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140227195615) do
 
   create_table "books", force: true do |t|
     t.string   "kind",                         null: false
+    t.string   "flow",                         null: false
     t.integer  "last_used_number", default: 0, null: false
     t.integer  "organization_id",              null: false
     t.integer  "account_id",                   null: false

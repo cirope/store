@@ -2,8 +2,9 @@ module Books::Validation
   extend ActiveSupport::Concern
 
   included do
-    validates :kind, presence: true, length: { maximum: 255 }
+    validates :kind, :flow, presence: true, length: { maximum: 255 }
     validates :last_used_number, numericality: { only_integer: true }
+    validates :flow, inclusion: { in: %w{income outcome} }
 
     validate :accepted_kind
   end
@@ -11,8 +12,10 @@ module Books::Validation
   private
 
     def accepted_kind
-      unless organization.issuable_receipts.include?(kind)
-        errors.add :kind, :inclusion
-      end
+      errors.add :kind, :inclusion unless valid_kinds.include?(kind)
+    end
+
+    def valid_kinds
+      income? ? organization.issuable_receipts : []
     end
 end
