@@ -2,7 +2,7 @@ module CurrentUser
   extend ActiveSupport::Concern
 
   included do
-    before_action :store_current_user
+    before_action :remember_current_user
 
     helper_method :current_user
   end
@@ -17,7 +17,7 @@ module CurrentUser
       User.by_auth_token cookies.encrypted[:auth_token]
     end
 
-    def store_current_user
+    def remember_current_user
       User.current_id = current_user.try :id
     end
 end

@@ -1,16 +1,11 @@
 class ApplicationController < ActionController::Base
   include ActionTitle
+  include CurrentAccount
   include CurrentUser
   include UpdateResource
 
   protect_from_forgery with: :exception
 
-  before_action :scope_current_account
-
-  def current_account
-    @current_account ||= Account.by_subdomain request.subdomains.first
-  end
-  helper_method :current_account
 
   def authorize
     plug_mini_profiler
@@ -26,9 +21,5 @@ class ApplicationController < ActionController::Base
 
     def plug_mini_profiler
       Rack::MiniProfiler.authorize_request if current_user.try :is_admin?
-    end
-
-    def scope_current_account
-      Account.current_id = current_account.try(:id)
     end
 end
