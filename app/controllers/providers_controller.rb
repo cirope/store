@@ -7,7 +7,8 @@ class ProvidersController < ApplicationController
 
   # GET /providers
   def index
-    @providers = Provider.all
+    @providers = Provider.search query: params[:q], limit: request.xhr?
+
     respond_with @providers
   end
 

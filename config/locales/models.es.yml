@@ -102,6 +102,7 @@ es:
         delivered_at: 'Fecha de entrega'
         maker: 'Realizó'
         receiver: 'Recibió'
+        created_at: 'Fecha de emisión'
       state:
         name: 'Nombre'
       supply:

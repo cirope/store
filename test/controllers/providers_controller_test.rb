@@ -15,6 +15,15 @@ class ProvidersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:providers)
   end
 
+  test 'should filtered index' do
+    xhr :get, :index, q: @provider.name, format: :json
+    assert_response :success
+
+    providers = JSON.parse(@response.body)
+    assert_equal 1, providers.size
+    assert_equal @provider.name, providers.first['name']
+  end
+
   test 'should get new' do
     get :new
     assert_response :success

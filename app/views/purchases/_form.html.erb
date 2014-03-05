@@ -2,13 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :provider, prompt: true %>
-    <div class="row">
-      <div class="col-md-6">
-        <%= f.input :requested_at, as: :string %>
-      </div>
-      <div class="col-md-6">
-        <%= f.input :delivered_at, as: :string %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= f.input :provider, as: :autocomplete, url: providers_path, input_html: { autofocus: true } %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :requested_at, as: :date_picker %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :delivered_at, as: :date_picker %>
+          </div>
+        </div>
       </div>
     </div>
     <%= f.input :lock_version, as: :hidden %>

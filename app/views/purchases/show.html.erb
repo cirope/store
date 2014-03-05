@@ -1,17 +1,23 @@
-<h2><%= @purchase %></h2>
+<%= render 'header' %>
 
-<p>
-  <strong><%= Purchase.human_attribute_name 'provider' %></strong>:
-  <%= @purchase.provider %>
-</p>
-<p>
-  <strong><%= Purchase.human_attribute_name 'requested_at' %></strong>:
-  <%= l @purchase.requested_at %>
-</p>
-<p>
-  <strong><%= Purchase.human_attribute_name 'delivered_at' %></strong>:
-  <%= l @purchase.delivered_at if @purchase.delivered_at %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-md-5">
+      <%= render @purchase.provider_entity %>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+      <br />
+      <p>
+        <strong><%= Purchase.human_attribute_name 'requested_at' %></strong>:
+        <%= l @purchase.requested_at %>
+      </p>
+      <p>
+        <strong><%= Purchase.human_attribute_name 'delivered_at' %></strong>:
+        <%= l @purchase.delivered_at if @purchase.delivered_at %>
+      </p>
+    </div>
+  </div>
+</div>
 
 <%= link_to_edit [:edit, @purchase] %> |
 <%= link_to_index book_purchases_path(@book) %>

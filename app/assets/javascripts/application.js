@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-es
 //= require turbolinks
 //= require turbolinks_events
 //= require bootstrap
@@ -20,6 +22,7 @@
 //= require dynamic_form
 //= require autocomplete
 //= require ajax
+//= require date_picker
 //= require accounts
 //= require books
 //= require cities

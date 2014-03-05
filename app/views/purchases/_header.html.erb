@@ -1,0 +1,27 @@
+<header>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center"><%= t 'purchases.header' %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-5">
+          <%= render @book.organization_entity %>
+        </div>
+        <div class="col-md-5 col-md-offset-2 text-right">
+          <p class="lead">
+            <%= Purchase.human_attribute_name 'number' %>
+            <span class="label label-default">
+              <%= '%012d' % purchase_number %>
+            </span>
+          </p>
+
+          <p>
+            <strong><%= Purchase.human_attribute_name 'created_at' %></strong>:
+            <%= l purchase_date %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

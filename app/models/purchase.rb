@@ -6,8 +6,7 @@ class Purchase < ActiveRecord::Base
   include Purchases::Receiver
   include Purchases::Validation
 
-  belongs_to :provider
-
+  include Purchases::Provider
   def to_s
     number.to_s
   end
