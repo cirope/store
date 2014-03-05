@@ -40,6 +40,12 @@ es:
       title: 'Crear talonario'
     show:
       title: 'Ver talonario'
+    kinds:
+      A: 'A'
+      B: 'B'
+      C: 'C'
+      X: 'X'
+      P: 'OC'
 
   cities:
     edit:

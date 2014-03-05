@@ -13,6 +13,6 @@ class Book < ActiveRecord::Base
   has_many :receipts, dependent: :destroy
 
   def to_s
-    kind
+    I18n.t "books.kinds.#{kind}"
   end
 end
