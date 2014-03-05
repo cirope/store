@@ -1,0 +1,18 @@
+<fieldset class="row purchase_item">
+  <%= f.input :id, as: :hidden %>
+  <div class="col-md-7">
+    <%= f.input :item, as: :autocomplete, label: false, url: items_path, input_html: { data: { autocomplete_update_after: true } } %>
+  </div>
+  <div class="col-md-2">
+    <%= f.input :unit, as: :string, label: false, input_html: { placeholder: PurchaseItem.human_attribute_name('unit') } %>
+  </div>
+  <div class="col-md-1">
+    <%= f.input :quantity, as: :string, label: false, input_html: { placeholder: PurchaseItem.human_attribute_name('quantity') } %>
+  </div>
+  <div class="col-md-2">
+    <%= f.input :price, as: :string, label: false, input_html: { placeholder: PurchaseItem.human_attribute_name('price') } %>
+    <div class="row-controls">
+      <%= link_to_remove_nested_item f %>
+    </div>
+  </div>
+</fieldset>

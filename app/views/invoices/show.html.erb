@@ -28,7 +28,7 @@
             <tr>
               <td><%= invoice_item.item %></td>
               <td><%= invoice_item.quantity %></td>
-              <td><%= invoice_item.price %></td>
+              <td><%= number_to_currency invoice_item.price %></td>
             </tr>
           <% end %>
         </tbody>

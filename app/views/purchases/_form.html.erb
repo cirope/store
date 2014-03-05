@@ -15,6 +15,20 @@
         </div>
       </div>
     </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= Item.model_name.human count: 0 %></h3>
+      </div>
+      <div id="purchase_items" class="panel-body">
+        <%= f.simple_fields_for :purchase_items, purchase_items do |rif| %>
+          <%= render 'purchase_items/purchase_item', f: rif %>
+        <% end %>
+
+        <%= link_to_add_fields t('purchases.new.item'), f, :purchase_items %>
+      </div>
+    </div>
+
     <%= f.input :lock_version, as: :hidden %>
   </div>
 

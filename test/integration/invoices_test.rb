@@ -22,7 +22,7 @@ class InvoicesTest < ActionDispatch::IntegrationTest
   end
 
   test 'should remove invoice relations' do
-    invoice = invoices(:first_sale)
+    invoice = invoices :first_sale
 
     login
 

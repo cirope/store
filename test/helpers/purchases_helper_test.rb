@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class PurchasesHelperTest < ActionView::TestCase
+  test 'purchase items' do
+    @purchase = purchases :first_purchase
+
+    assert_equal @purchase.purchase_items, purchase_items
+
+    @purchase = Purchase.new
+
+    assert_equal 1, purchase_items.size
+    assert purchase_items.all?(&:new_record?)
+  end
+
   test 'purchase number' do
     @purchase = Purchase.new
     @book = books :cirope_sa_p

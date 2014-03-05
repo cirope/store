@@ -1,3 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+selector = '#purchase_items [data-autocomplete-update-after]'
+
+$(document).on 'update.autocomplete', selector, (event) ->
+  line = $(event.element).closest 'fieldset'
+
+  line.find('input[name$="[unit]"]').val event.item.unit

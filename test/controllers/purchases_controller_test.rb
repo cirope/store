@@ -21,10 +21,20 @@ class PurchasesControllerTest < ActionController::TestCase
   end
 
   test 'should create purchase' do
-    assert_difference('Purchase.count') do
+    item = items :candy
+
+    assert_difference ['Purchase.count', 'PurchaseItem.count'] do
       post :create, book_id: @book, purchase: {
         provider_id: @purchase.provider_id,
-        requested_at: I18n.l(Time.zone.today)
+        requested_at: I18n.l(Time.zone.today),
+        purchase_items_attributes: [
+          {
+            item_id: item.id,
+            unit: item.unit,
+            quantity: '5',
+            price: (item.price * 0.8).to_s
+          }
+        ]
       }
     end
 

@@ -58,6 +58,9 @@ class PurchasesController < ApplicationController
     end
 
     def purchase_params
-      params.require(:purchase).permit :provider_id, :requested_at, :delivered_at, :lock_version
+      params.require(:purchase).permit :provider_id, :requested_at,
+        :delivered_at, :lock_version, purchase_items_attributes: [
+          :id, :item_id, :unit, :quantity, :price, :_destroy
+        ]
     end
 end

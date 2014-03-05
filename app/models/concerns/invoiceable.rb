@@ -15,7 +15,6 @@ module Invoiceable
     validates :entity, presence: true
 
     has_one :entity, as: :invoiceable, validate: true, dependent: :destroy
-
     accepts_nested_attributes_for :entity
   end
 

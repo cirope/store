@@ -38,6 +38,9 @@ es:
       purchase:
         one: 'Orden de compra'
         other: 'Órdenes de compra'
+      purchase_item:
+        one: 'Línea de orden de compra'
+        other: 'Líneas de orden de compra'
       receipt:
         one: 'Remito'
         other: 'Remitos'
@@ -103,6 +106,11 @@ es:
         maker: 'Realizó'
         receiver: 'Recibió'
         created_at: 'Fecha de emisión'
+      purchase_item:
+        item: 'Artículo'
+        unit: 'Unidad'
+        quantity: 'Cantidad'
+        price: 'Precio'
       state:
         name: 'Nombre'
       supply:

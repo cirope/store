@@ -161,6 +161,7 @@ es:
       empty_html: 'No hay órdenes de compra, puede crear una con el botón <span class="label label-info">Nueva orden de compra</span>'
     new:
       title: 'Crear orden de compra'
+      item: 'Agregar artículo'
       provider: 'Agregar nuevo proveedor'
     show:
       title: 'Ver orden de compra'

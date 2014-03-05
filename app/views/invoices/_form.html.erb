@@ -26,9 +26,9 @@
         <%= link_to_add_fields t('invoices.new.item'), f, :invoice_items %>
       </div>
     </div>
-  </div>
 
-  <%= f.input :lock_version, as: :hidden %>
+    <%= f.input :lock_version, as: :hidden %>
+  </div>
 
   <div class="form-actions">
     <%= f.button :submit, class: 'btn-primary' %>
