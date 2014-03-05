@@ -1,0 +1,17 @@
+<% if books.empty? %>
+  <div class="alert alert-warning">
+    <p><%= t ".empty_#{flow}_books_html" %></p>
+  </div>
+<% else %>
+  <% books.each_slice(3) do |books| %>
+    <div class="row">
+      <%= render partial: 'book', collection: books %>
+    </div>
+  <% end %>
+
+  <hr />
+<% end %>
+
+<div class="pull-right">
+  <%= render 'new_book_button', organization: organization, flow: flow %>
+</div>

@@ -107,8 +107,9 @@ es:
     index:
       empty: 'Hola, para empezar cree una organización'
       title: 'Tablero'
-    organization:
-      empty_books_html: 'No hay talonarios para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario</span>'
+    organization_books:
+      empty_income_books_html: 'No hay talonarios de venta para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario de venta</span>'
+      empty_outcome_books_html: 'No hay talonarios de compra para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario de compra</span>'
 
   organizations:
     edit:
@@ -119,7 +120,8 @@ es:
       empty_html: 'No hay organizaciones, puede crear una con el botón <span class="label label-info">Nueva organización</span>'
     new:
       title: 'Crear organización'
-      book: 'Crear talonario'
+      income_book: 'Crear talonario de venta'
+      outcome_book: 'Crear talonario de compra'
     show:
       title: 'Ver organización'
 
@@ -150,6 +152,19 @@ es:
       provider: 'Agregar nuevo proveedor'
     show:
       title: 'Ver proveedor'
+
+  purchases:
+    edit:
+      title: 'Editar orden de compra'
+    index:
+      new: 'Nueva orden de compra'
+      title: 'Listado de órdenes de compra'
+      empty_html: 'No hay órdenes de compra, puede crear una con el botón <span class="label label-info">Nueva orden de compra</span>'
+    new:
+      title: 'Crear orden de compra'
+    show:
+      title: 'Ver orden de compra'
+    header: 'Orden de compra'
 
   receipts:
     edit:

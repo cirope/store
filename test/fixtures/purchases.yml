@@ -1,0 +1,7 @@
+first_purchase:
+  number: 1
+  requested_at: <%= Time.zone.today.to_s :db %>
+  book: cirope_sa_p
+  provider: arcor
+  maker: franco
+  account: cirope

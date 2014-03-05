@@ -30,11 +30,16 @@ Store::Application.routes.draw do
 
     resources :books, only: [] do
       resources :invoices, shallow: true
+      resources :purchases, shallow: true
       resources :receipts, shallow: true
     end
 
     resources :organizations do
-      resources :books, shallow: true
+      resources :books, except: [:new], shallow: true do
+        constraints flow: /income|outcome/ do
+          get ':flow', to: 'books#new', as: '', on: :new, defaults: { flow: 'income' }
+        end
+      end
     end
   end
 

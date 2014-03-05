@@ -14,8 +14,4 @@ module Books::Validation
     def accepted_kind
       errors.add :kind, :inclusion unless valid_kinds.include?(kind)
     end
-
-    def valid_kinds
-      income? ? organization.issuable_receipts : []
-    end
 end

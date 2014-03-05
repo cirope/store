@@ -4,6 +4,7 @@
   <div class="form-inputs">
     <%= f.input :kind, collection: kinds, prompt: true, input_html: { autofocus: true } %>
     <%= f.input :last_used_number %>
+    <%= f.input :flow, as: :hidden %>
     <%= f.input :lock_version, as: :hidden %>
   </div>
 

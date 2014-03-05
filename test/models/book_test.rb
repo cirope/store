@@ -32,6 +32,16 @@ class BookTest < ActiveSupport::TestCase
     assert_error @book, :flow, :inclusion
   end
 
+  test 'validates inclusion by flow' do
+    @book.kind = 'P'
+
+    assert @book.invalid?
+    assert_error @book, :kind, :inclusion
+
+    @book.flow = 'outcome'
+    assert @book.valid?
+  end
+
   test 'numeric attributes' do
     @book.last_used_number = '12x'
 
@@ -73,5 +83,17 @@ class BookTest < ActiveSupport::TestCase
     @book = books :cirope_sa_x
 
     assert_equal Receipt, @book.kind_class
+
+    @book = books :cirope_sa_p
+
+    assert_equal Purchase, @book.kind_class
+  end
+
+  test 'valid kinds' do
+    assert_equal @book.organization.issuable_receipts, @book.valid_kinds
+
+    @book = books :cirope_sa_p
+
+    assert_equal ['P'], @book.valid_kinds
   end
 end

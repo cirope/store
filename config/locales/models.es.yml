@@ -35,6 +35,9 @@ es:
       provider:
         one: 'Proveedor'
         other: 'Proveedores'
+      purchase:
+        one: 'Orden de compra'
+        other: 'Órdenes de compra'
       receipt:
         one: 'Remito'
         other: 'Remitos'
@@ -92,6 +95,13 @@ es:
       organization:
         name: 'Nombre'
       provider:
+      purchase:
+        number: 'Número'
+        provider: 'Proveedor'
+        requested_at: 'Fecha de pedido'
+        delivered_at: 'Fecha de entrega'
+        maker: 'Realizó'
+        receiver: 'Recibió'
       state:
         name: 'Nombre'
       supply:

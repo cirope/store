@@ -1,0 +1,17 @@
+<h2><%= @purchase %></h2>
+
+<p>
+  <strong><%= Purchase.human_attribute_name 'provider' %></strong>:
+  <%= @purchase.provider %>
+</p>
+<p>
+  <strong><%= Purchase.human_attribute_name 'requested_at' %></strong>:
+  <%= l @purchase.requested_at %>
+</p>
+<p>
+  <strong><%= Purchase.human_attribute_name 'delivered_at' %></strong>:
+  <%= l @purchase.delivered_at if @purchase.delivered_at %>
+</p>
+
+<%= link_to_edit [:edit, @purchase] %> |
+<%= link_to_index book_purchases_path(@book) %>

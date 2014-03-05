@@ -11,3 +11,10 @@ cirope_sa_x:
   last_used_number: 1
   organization: cirope_sa
   account: cirope
+
+cirope_sa_p:
+  kind: P
+  flow: outcome
+  last_used_number: 1
+  organization: cirope_sa
+  account: cirope

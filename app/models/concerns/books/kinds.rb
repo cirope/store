@@ -1,4 +1,4 @@
-module Books::KindClass
+module Books::Kinds
   extend ActiveSupport::Concern
 
   def kind_class
@@ -7,6 +7,12 @@ module Books::KindClass
       Invoice
     when 'X'
       Receipt
+    when 'P'
+      Purchase
     end
+  end
+
+  def valid_kinds
+    income? ? organization.issuable_receipts : ['P']
   end
 end

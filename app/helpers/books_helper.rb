@@ -1,5 +1,5 @@
 module BooksHelper
   def kinds
-    @organization.issuable_receipts
+    @book.valid_kinds
   end
 end

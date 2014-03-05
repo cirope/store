@@ -20,7 +20,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = @organization.books.new
+    @book = @organization.books.new flow: params[:flow]
     respond_with @book
   end
 

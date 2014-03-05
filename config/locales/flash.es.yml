@@ -76,6 +76,15 @@ es:
       update:
         stale: 'No se pudo actualizar el proveedor, revise los datos e inténtelo nuevamente'
 
+    purchases:
+      create:
+        notice: 'Orden de compra creada correctamente'
+      destroy:
+        notice: 'Orden de compra eliminada'
+      update:
+        notice: 'Orden de compra actualizada correctamente'
+        stale: 'No se pudo actualizar la orden de compra, revise los datos e inténtelo nuevamente'
+
     receipts:
       update:
         stale: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'

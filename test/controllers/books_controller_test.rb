@@ -15,8 +15,13 @@ class BooksControllerTest < ActionController::TestCase
     assert_not_nil assigns(:books)
   end
 
-  test 'should get new' do
-    get :new, organization_id: @organization
+  test 'should get new income action' do
+    get :new, organization_id: @organization, flow: 'income'
+    assert_response :success
+  end
+
+  test 'should get new outcome action' do
+    get :new, organization_id: @organization, flow: 'outcome'
     assert_response :success
   end
 

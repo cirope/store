@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227195615) do
+ActiveRecord::Schema.define(version: 20140228025342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,28 @@ ActiveRecord::Schema.define(version: 20140227195615) do
   end
 
   add_index "providers", ["account_id"], name: "index_providers_on_account_id", using: :btree
+
+  create_table "purchases", force: true do |t|
+    t.integer  "number",                   null: false
+    t.date     "requested_at",             null: false
+    t.date     "delivered_at"
+    t.integer  "book_id",                  null: false
+    t.integer  "provider_id",              null: false
+    t.integer  "maker_id",                 null: false
+    t.integer  "receiver_id"
+    t.integer  "account_id",               null: false
+    t.integer  "lock_version", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "purchases", ["account_id"], name: "index_purchases_on_account_id", using: :btree
+  add_index "purchases", ["book_id"], name: "index_purchases_on_book_id", using: :btree
+  add_index "purchases", ["delivered_at"], name: "index_purchases_on_delivered_at", using: :btree
+  add_index "purchases", ["maker_id"], name: "index_purchases_on_maker_id", using: :btree
+  add_index "purchases", ["number"], name: "index_purchases_on_number", using: :btree
+  add_index "purchases", ["provider_id"], name: "index_purchases_on_provider_id", using: :btree
+  add_index "purchases", ["receiver_id"], name: "index_purchases_on_receiver_id", using: :btree
 
   create_table "receipt_items", force: true do |t|
     t.integer  "item_id",                             null: false

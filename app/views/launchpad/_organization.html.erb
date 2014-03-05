@@ -5,21 +5,21 @@
     </div>
 
     <div class="panel-body">
-      <% if organization.books.empty? %>
-        <p><%= t '.empty_books_html' %></p>
-      <% else %>
-        <% organization.books.each_slice(3) do |books| %>
-          <div class="row">
-            <%= render partial: 'book', collection: books %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="panel-footer clearfix">
-      <%= link_to new_organization_book_path(organization), class: 'btn btn-sm btn-default pull-right' do %>
-        <span class="glyphicon glyphicon-book"></span>
-        <%= t 'organizations.new.book' %>
-      <% end %>
+      <ul class="nav nav-pills nav-justified">
+        <li class="active"><%= link_to 'Ventas', '#income', data: { toggle: 'tab' } %></li>
+        <li><%= link_to 'Compras', '#outcome', data: { toggle: 'tab' } %></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="income">
+          <br />
+          <%= render 'organization_books', organization: organization, books: organization.books.income, flow: 'income' %>
+        </div>
+        <div class="tab-pane" id="outcome">
+          <br />
+          <%= render 'organization_books', organization: organization, books: organization.books.outcome, flow: 'outcome' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
