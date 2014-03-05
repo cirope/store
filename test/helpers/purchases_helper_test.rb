@@ -21,4 +21,11 @@ class PurchasesHelperTest < ActionView::TestCase
 
     assert_equal @purchase.created_at.to_date, purchase_date
   end
+
+  test 'provider label' do
+    label = provider_label
+
+    assert_kind_of String, label
+    assert_match /<a .*>/, label
+  end
 end

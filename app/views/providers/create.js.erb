@@ -1,0 +1,10 @@
+<% if @provider.persisted? %>
+  $('#modal').on('hidden.bs.modal', function(e) {
+    $('#modal').remove();
+  }).modal('hide');
+
+  $('input[name$="[provider]"]').val('<%= j @provider.to_s %>');
+  $('input[name$="[provider_id]"]').val('<%= j @provider.id.to_s %>');
+<% else %>
+  <%= render template: 'providers/new' %>
+<% end %>

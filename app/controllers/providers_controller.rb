@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :json, :js
 
   before_action :authorize
   before_action :set_provider, only: [:show, :edit, :update, :destroy]

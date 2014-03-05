@@ -29,12 +29,27 @@ class ProvidersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should get new as js' do
+    xhr :get, :new
+    assert_response :success
+    assert_template layout: nil
+  end
+
   test 'should create provider' do
     assert_difference('Provider.count') do
       post :create, provider: { entity_attributes: generic_entity_attributes }
     end
 
     assert_redirected_to provider_url(assigns(:provider))
+  end
+
+  test 'should create provider via js' do
+    assert_difference('Provider.count') do
+      xhr :post, :create, provider: { entity_attributes: generic_entity_attributes }
+    end
+
+    assert_response :success
+    assert_template 'providers/create'
   end
 
   test 'should show provider' do

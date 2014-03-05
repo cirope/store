@@ -149,7 +149,6 @@ es:
       empty_html: 'No hay proveedores, puede crear uno con el botón <span class="label label-info">Nuevo proveedor</span>'
     new:
       title: 'Crear proveedor'
-      provider: 'Agregar nuevo proveedor'
     show:
       title: 'Ver proveedor'
 
@@ -162,6 +161,7 @@ es:
       empty_html: 'No hay órdenes de compra, puede crear una con el botón <span class="label label-info">Nueva orden de compra</span>'
     new:
       title: 'Crear orden de compra'
+      provider: 'Agregar nuevo proveedor'
     show:
       title: 'Ver orden de compra'
     header: 'Orden de compra'

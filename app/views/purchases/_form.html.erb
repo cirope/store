@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <div class="panel panel-default">
       <div class="panel-body">
-        <%= f.input :provider, as: :autocomplete, url: providers_path, input_html: { autofocus: true } %>
+        <%= f.input :provider, as: :autocomplete, label: provider_label, url: providers_path, input_html: { autofocus: true } %>
         <div class="row">
           <div class="col-md-6">
             <%= f.input :requested_at, as: :date_picker %>

@@ -33,6 +33,7 @@ class ActionView::TestCase
 end
 
 # Custom extensions
-require_relative 'support/integration_test'
+require_relative 'support/city_test_helper'
 require_relative 'support/entities_test_helper'
+require_relative 'support/integration_test'
 require_relative 'support/shared_db_connection'
