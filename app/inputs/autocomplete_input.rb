@@ -32,6 +32,7 @@ class AutocompleteInput < SimpleForm::Inputs::Base
     def input_options
       input_html_options.reverse_merge(
         placeholder: model.model_name.human,
+        title: model.model_name.human,
         value: object.send(attribute_name),
       ).merge(data: data_options)
     end
