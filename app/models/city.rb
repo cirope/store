@@ -9,6 +9,6 @@ class City < ActiveRecord::Base
   belongs_to :state
 
   def to_s
-    name
+    [ "#{name} (#{zip_code})", state ].join ', '
   end
 end

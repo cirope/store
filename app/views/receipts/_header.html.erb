@@ -9,19 +9,18 @@
           <%= render @book.organization_entity %>
         </div>
         <div class="col-md-2">
-          <h1 class="text-center well well-sm"><%= @book %></h1>
+          <h4 class="text-center well well-sm"><%= @book %></h4>
         </div>
         <div class="col-md-5 text-right">
-          <p class="lead">
-            <%= Receipt.model_name.human %> <%= Receipt.human_attribute_name 'number' %>
+          <p>
+            <%= Receipt.human_attribute_name 'number' %>
             <span class="label label-default">
               <%= '%012d' % receipt_number %>
             </span>
           </p>
 
-          <p>
-            <strong><%= Receipt.human_attribute_name 'created_at' %></strong>:
-            <%= l receipt_date %>
+          <p class="small">
+            <%= Receipt.human_attribute_name 'created_at' %>: <%= l receipt_date %>
           </p>
         </div>
       </div>

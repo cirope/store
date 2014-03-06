@@ -1,20 +1,28 @@
 <%= render 'header' %>
 
 <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= Purchase.human_attribute_name 'provider' %>
+    </h3>
+  </div>
   <div class="panel-body">
-    <div class="col-md-5">
-      <%= render @purchase.provider_entity %>
-    </div>
-    <div class="col-md-5 col-md-offset-2">
-      <br />
-      <p>
-        <strong><%= Purchase.human_attribute_name 'requested_at' %></strong>:
-        <%= l @purchase.requested_at %>
-      </p>
-      <p>
-        <strong><%= Purchase.human_attribute_name 'delivered_at' %></strong>:
-        <%= l @purchase.delivered_at if @purchase.delivered_at %>
-      </p>
+    <div class="row">
+      <div class="col-md-5">
+        <%= render @purchase.provider_entity %>
+      </div>
+      <div class="col-md-5 col-md-offset-2 text-right">
+        <p>
+          <strong><%= Purchase.human_attribute_name 'requested_at' %></strong>:
+          <%= l @purchase.requested_at %>
+        </p>
+        <% if @purchase.delivered_at %>
+          <p>
+            <strong><%= Purchase.human_attribute_name 'delivered_at' %></strong>:
+            <%= l @purchase.delivered_at %>
+          </p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -9,16 +9,15 @@
           <%= render @book.organization_entity %>
         </div>
         <div class="col-md-5 col-md-offset-2 text-right">
-          <p class="lead">
+          <p>
             <%= Purchase.human_attribute_name 'number' %>
             <span class="label label-default">
               <%= '%012d' % purchase_number %>
             </span>
           </p>
 
-          <p>
-            <strong><%= Purchase.human_attribute_name 'created_at' %></strong>:
-            <%= l purchase_date %>
+          <p class="small">
+            <%= Purchase.human_attribute_name 'created_at' %>: <%= l purchase_date %>
           </p>
         </div>
       </div>
