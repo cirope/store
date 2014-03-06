@@ -4,7 +4,7 @@
     <%= f.input :item, as: :autocomplete, label: false, url: items_path %>
   </div>
   <div class="col-md-3">
-    <%= f.input :quantity, as: :string, label: false, input_html: { placeholder: ReceiptItem.human_attribute_name('quantity') } %>
+    <%= f.input :quantity, as: :slim %>
     <div class="row-controls">
       <%= link_to_remove_nested_item f %>
     </div>
