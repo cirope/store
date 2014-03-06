@@ -3,16 +3,14 @@
 
   <div class="form-inputs">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= Purchase.human_attribute_name 'provider' %>
+          <small><%= add_provider_link %></small>
+        </h3>
+      </div>
       <div class="panel-body">
-        <%= f.input :provider, as: :autocomplete, label: provider_label, url: providers_path, input_html: { autofocus: true } %>
-        <div class="row">
-          <div class="col-md-6">
-            <%= f.input :requested_at, as: :date_picker %>
-          </div>
-          <div class="col-md-6">
-            <%= f.input :delivered_at, as: :date_picker %>
-          </div>
-        </div>
+        <%= f.input :provider, as: :autocomplete, label: false, url: providers_path, input_html: { autofocus: true } %>
       </div>
     </div>
 
@@ -26,6 +24,19 @@
         <% end %>
 
         <%= link_to_add_fields t('purchases.new.item'), f, :purchase_items %>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :requested_at, as: :date_picker, label_html: { class: 'small text-muted' } %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :delivered_at, as: :date_picker, label_html: { class: 'small text-muted' } %>
+          </div>
+        </div>
       </div>
     </div>
 
