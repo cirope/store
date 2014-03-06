@@ -1,8 +1,8 @@
 set :stage, :production
 set :rails_env, 'production'
 
-role :web, %w{deployer@store.com}
-role :app, %w{deployer@store.com}
-role :db,  %w{deployer@store.com}
+role :web, %w{deployer@login.cirope.com}
+role :app, %w{deployer@login.cirope.com}
+role :db,  %w{deployer@login.cirope.com}
 
-server 'store.com', user: 'deployer', roles: %w{web app db}
+server 'login.cirope.com', user: 'deployer', roles: %w{web app db}

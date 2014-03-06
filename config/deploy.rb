@@ -1,4 +1,4 @@
-set :application, 'store.com'
+set :application, 'login.cirope.com'
 set :user, 'deployer'
 set :repo_url, 'git://github.com/cirope/store.git'
 
