@@ -15,7 +15,7 @@
     <tbody>
       <% @books.each do |book| %>
         <tr>
-          <td><%= book.kind %></td>
+          <td><%= book %></td>
           <td><%= book.last_used_number %></td>
           <td><%= link_to_show book %></td>
           <td><%= link_to_edit [:edit, book] %></td>
