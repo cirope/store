@@ -1,3 +1,10 @@
+<h4>
+  <%= t ".#{flow}_books_title" %>
+  <small>
+    <%= add_book_link organization: organization, flow: flow %>
+  </small>
+</h4>
+
 <% if books.empty? %>
   <div class="alert alert-warning">
     <p><%= t ".empty_#{flow}_books_html" %></p>
@@ -5,13 +12,8 @@
 <% else %>
   <% books.each_slice(3) do |books| %>
     <div class="row">
-      <%= render partial: 'book', collection: books %>
+      <%= render partial: 'launchpad/book', collection: books %>
     </div>
   <% end %>
-
-  <hr />
+  <br />
 <% end %>
-
-<div class="pull-right">
-  <%= render 'new_book_button', organization: organization, flow: flow %>
-</div>

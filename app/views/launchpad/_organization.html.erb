@@ -1,24 +1,15 @@
-<div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= link_to organization, organization %></h3>
-    </div>
+<div class="panel panel-default" data-organization-id="<%= organization.id %>">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= link_to organization, organization %></h3>
+  </div>
 
-    <div class="panel-body">
-      <ul class="nav nav-pills nav-justified">
-        <li class="active"><%= link_to 'Ventas', '#income', data: { toggle: 'tab' } %></li>
-        <li><%= link_to 'Compras', '#outcome', data: { toggle: 'tab' } %></li>
-      </ul>
-
-      <div class="tab-content">
-        <div class="tab-pane active" id="income">
-          <br />
-          <%= render 'organization_books', organization: organization, books: organization.books.income, flow: 'income' %>
-        </div>
-        <div class="tab-pane" id="outcome">
-          <br />
-          <%= render 'organization_books', organization: organization, books: organization.books.outcome, flow: 'outcome' %>
-        </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6" data-income-books>
+        <%= render_organization_books organization: organization, flow: 'income' %>
+      </div>
+      <div class="col-md-6" data-outcome-books>
+        <%= render_organization_books organization: organization, flow: 'outcome' %>
       </div>
     </div>
   </div>

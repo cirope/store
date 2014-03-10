@@ -9,6 +9,7 @@ es:
     not_authorized: 'Debe ingresar para ver el contenido'
 
   navigation:
+    back: 'Volver'
     close: 'Cerrar'
     destroy: 'Eliminar'
     edit: 'Editar'
@@ -114,6 +115,8 @@ es:
       empty: 'Hola, para empezar cree una organización'
       title: 'Tablero'
     organization_books:
+      income_books_title: 'Ventas'
+      outcome_books_title: 'Compras'
       empty_income_books_html: 'No hay talonarios de venta para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario de venta</span>'
       empty_outcome_books_html: 'No hay talonarios de compra para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario de compra</span>'
 

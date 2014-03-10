@@ -25,6 +25,12 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should get new as js' do
+    xhr :get, :new, organization_id: @organization, flow: 'income'
+    assert_response :success
+    assert_template layout: nil
+  end
+
   test 'should create book' do
     assert_difference('Book.count') do
       post :create, organization_id: @organization, book: {
@@ -34,6 +40,18 @@ class BooksControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to launchpad_url
+  end
+
+  test 'should create book via js' do
+    assert_difference('Book.count') do
+      xhr :post, :create, organization_id: @organization, book: {
+        kind: 'A',
+        last_used_number: '123'
+      }
+    end
+
+    assert_response :success
+    assert_template 'books/create'
   end
 
   test 'should show book' do

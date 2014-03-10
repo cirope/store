@@ -1,4 +1,4 @@
-<%= simple_form_for(@receipt.new_record? ? [@book, @receipt] : @receipt) do |f| %>
+<%= simple_form_for shallow_args(@book, @receipt) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

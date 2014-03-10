@@ -19,6 +19,8 @@ gem 'rack-mini-profiler'
 
 gem 'unicorn'
 
+gem 'sass', '~> 3.2.0' # TODO: remove when sass 3.3 works well
+
 group :development do
   gem 'capistrano'
   gem 'capistrano-bundler'

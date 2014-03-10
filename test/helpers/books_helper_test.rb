@@ -6,4 +6,11 @@ class BooksHelperTest < ActionView::TestCase
 
     assert_respond_to kinds, :each
   end
+
+  test 'render organization books' do
+    @organization = organizations :cirope_sa
+    @book = @organization.books.first
+
+    assert_match /#{@book.to_s}/, render_organization_books
+  end
 end

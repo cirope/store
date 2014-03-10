@@ -25,6 +25,10 @@ module LinksHelper
     link_with_icon({ action: 'show', icon: 'glyphicon-search' }, *args)
   end
 
+  def link_to_home *args
+    link_to t('navigation.back'), launchpad_path, *args
+  end
+
   private
 
     def link_with_icon(options = {}, *args)

@@ -1,0 +1,11 @@
+<% if @book.persisted? %>
+  $('#modal').on('hidden.bs.modal', function(e) {
+    $('#modal').remove();
+
+    $('[data-organization-id="<%= @organization.id %>"] [data-<%= @book.flow %>-books]').html(
+      '<%= j render_organization_books %>'
+    );
+  }).modal('hide');
+<% else %>
+  <%= render template: 'books/new' %>
+<% end %>

@@ -8,5 +8,8 @@
 
   <div class="form-actions">
     <%= f.button :submit, class: 'btn-primary' %>
+    <div class="pull-right">
+      <%= yield :alt_actions %>
+    </div>
   </div>
 <% end %>

@@ -22,6 +22,18 @@ class ApplicationHelperTest < ActionView::TestCase
     assert request.verify
   end
 
+  test 'shallow args' do
+    child = MiniTest::Mock.new
+
+    child.expect :new_record?, false
+
+    assert_equal child.object_id, shallow_args('Parent', child).object_id
+
+    child.expect :new_record?, true
+
+    assert_equal ['Parent', child], shallow_args('Parent', child)
+  end
+
   private
 
     def request

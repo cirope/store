@@ -10,4 +10,10 @@ class LaunchpadHelperTest < ActionView::TestCase
 
     assert_equal new_book_receipt_path(book), new_ticket_path(book)
   end
+
+  test 'add book link' do
+    link = add_book_link organization: organizations(:cirope_sa), flow: 'income'
+
+    assert_match /#{I18n.t('organizations.new.income_book')}/, link
+  end
 end

@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  respond_to :html, :json
+  respond_to :html, :json, :js
 
   before_action :authorize
   before_action :set_book, only: [:show, :edit, :update, :destroy]
