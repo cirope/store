@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ReceiptsTest < ActionDispatch::IntegrationTest
   include EntitiesTestHelper
+  include ItemTestHelper
 
   test 'should create a receipt' do
     book = books :cirope_sa_x
@@ -44,6 +45,16 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     visit new_book_receipt_path(books(:cirope_sa_x))
 
     add_customer
+  end
+
+  test 'should add new item' do
+    book = books :cirope_sa_p
+    login
+
+    visit new_book_receipt_path(book)
+    fill_in_new_receipt
+
+    add_new_item prefix: 'receipt_receipt_items'
   end
 
   private

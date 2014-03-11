@@ -9,10 +9,10 @@ es:
     not_authorized: 'Debe ingresar para ver el contenido'
 
   navigation:
-    back: 'Volver'
     close: 'Cerrar'
     destroy: 'Eliminar'
     edit: 'Editar'
+    home: 'Volver al inicio'
     index: 'Listado'
     loading: 'Cargando...'
     logout: 'Salir'
@@ -107,6 +107,7 @@ es:
       empty_html: 'No hay artículos, puede crear uno con el botón <span class="label label-info">Nuevo artículo</span>'
     new:
       title: 'Crear artículo'
+      item: 'Agregar nuevo artículo'
     show:
       title: 'Ver artículo'
 
@@ -117,8 +118,8 @@ es:
     organization_books:
       income_books_title: 'Ventas'
       outcome_books_title: 'Compras'
-      empty_income_books_html: 'No hay talonarios de venta para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario de venta</span>'
-      empty_outcome_books_html: 'No hay talonarios de compra para esta organización, puede crear uno con el botón <span class="label label-info">Crear talonario de compra</span>'
+      empty_income_books_html: 'No hay talonarios de venta, puede crear uno desde el enlace <span class="glyphicon glyphicon-plus-sign"></span>'
+      empty_outcome_books_html: 'No hay talonarios de compra, puede crear uno desde el enlace <span class="glyphicon glyphicon-plus-sign"></span>'
 
   organizations:
     edit:

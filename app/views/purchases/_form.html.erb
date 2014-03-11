@@ -16,7 +16,10 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= Item.model_name.human count: 0 %></h3>
+        <h3 class="panel-title">
+          <%= Item.model_name.human count: 0 %>
+          <small><%= add_item_link %></small>
+        </h3>
       </div>
       <div id="purchase_items" class="panel-body">
         <%= f.simple_fields_for :purchase_items, purchase_items do |rif| %>

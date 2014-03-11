@@ -1,16 +1,11 @@
-<div class="panel panel-default" data-organization-id="<%= organization.id %>">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= link_to organization, organization %></h3>
-  </div>
+<h3><%= organization %></h3>
+<hr />
 
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-6" data-income-books>
-        <%= render_organization_books organization: organization, flow: 'income' %>
-      </div>
-      <div class="col-md-6" data-outcome-books>
-        <%= render_organization_books organization: organization, flow: 'outcome' %>
-      </div>
-    </div>
+<div class="row" data-organization-id="<%= organization.id %>">
+  <div class="col-md-6" data-income-books>
+    <%= render_organization_books organization: organization, flow: 'income' %>
+  </div>
+  <div class="col-md-6" data-outcome-books>
+    <%= render_organization_books organization: organization, flow: 'outcome' %>
   </div>
 </div>

@@ -26,7 +26,7 @@ module LinksHelper
   end
 
   def link_to_home *args
-    link_to t('navigation.back'), launchpad_path, *args
+    link_to t('navigation.home'), launchpad_path, *args
   end
 
   private

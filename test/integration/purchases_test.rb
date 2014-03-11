@@ -2,6 +2,7 @@ require 'test_helper'
 
 class PurchasesTest < ActionDispatch::IntegrationTest
   include EntitiesTestHelper
+  include ItemTestHelper
   include CityTestHelper
 
   test 'should create a purchase' do
@@ -45,6 +46,19 @@ class PurchasesTest < ActionDispatch::IntegrationTest
     visit new_book_purchase_path(books(:cirope_sa_a))
 
     add_provider
+  end
+
+  test 'should add new item' do
+    book = books :cirope_sa_p
+    login
+
+    visit new_book_purchase_path(book)
+    fill_in_new_purchase
+
+    add_new_item prefix: 'purchase_purchase_items'
+
+    # Must also autocomplete the unit field
+    assert find_field('purchase_purchase_items_attributes_0_unit').value.present?
   end
 
   private

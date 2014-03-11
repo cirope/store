@@ -1,0 +1,13 @@
+<% if @item.persisted? %>
+  $('#modal').on('hidden.bs.modal', function(e) {
+    $('#modal').remove();
+  }).modal('hide');
+
+  $('input[name$="[item]"]:last').val('<%= j @item.to_s %>');
+  $('input[name$="[item_id]"]:last').val('<%= j @item.id.to_s %>');
+  $('input[name$="[item]"][data-autocomplete-update-after]').attr(
+    'data-item', '<%= j render(template: 'items/show.json').html_safe %>'
+  ).trigger({ type: 'update.autocomplete' });
+<% else %>
+  <%= render template: 'items/new' %>
+<% end %>

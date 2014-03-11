@@ -28,6 +28,12 @@ class ItemsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should get new as js' do
+    xhr :get, :new
+    assert_response :success
+    assert_template layout: nil
+  end
+
   test 'should create item' do
     assert_difference('Item.count') do
       post :create, item: {
@@ -39,6 +45,20 @@ class ItemsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to item_url(assigns(:item))
+  end
+
+  test 'should create item via js' do
+    assert_difference('Item.count') do
+      xhr :post, :create, item: {
+        code: '321',
+        name: 'Chocolate',
+        price: '12,34',
+        unit: 'piece'
+      }
+    end
+
+    assert_response :success
+    assert_template 'items/create'
   end
 
   test 'should show item' do

@@ -2,6 +2,7 @@ require 'test_helper'
 
 class InvoicesTest < ActionDispatch::IntegrationTest
   include EntitiesTestHelper
+  include ItemTestHelper
   include CityTestHelper
 
   test 'should create a invoice' do
@@ -45,6 +46,19 @@ class InvoicesTest < ActionDispatch::IntegrationTest
     visit new_book_invoice_path(books(:cirope_sa_a))
 
     add_customer
+  end
+
+  test 'should add new item' do
+    book = books :cirope_sa_p
+    login
+
+    visit new_book_invoice_path(book)
+    fill_in_new_invoice
+
+    add_new_item prefix: 'invoice_invoice_items'
+
+    # Must also autocomplete the price field
+    assert find_field('invoice_invoice_items_attributes_0_price').value.present?
   end
 
   private

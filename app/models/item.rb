@@ -10,6 +10,6 @@ class Item < ActiveRecord::Base
   has_many :supplies, dependent: :destroy
 
   def to_s
-    "[#{code}] #{name}"
+    name
   end
 end
