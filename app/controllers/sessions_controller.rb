@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete :auth_token, domain: COOKIES_DOMAIN
-    redirect_to root_url(subdomain: 'www'), notice: t('.logged_out', scope: :flash)
+    redirect_to root_url(subdomain: 'login'), notice: t('.logged_out', scope: :flash)
   end
 
   private
