@@ -2,7 +2,23 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, input_html: { autofocus: true } %>
+    <%= f.input :name, input_html: { autofocus: true, class: 'input-lg' } %>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= City.model_name.human count: 0 %>
+        </h3>
+      </div>
+      <div id="cities" class="panel-body">
+        <%= f.simple_fields_for :cities, state_cities do |rif| %>
+          <%= render 'cities/city', f: rif %>
+        <% end %>
+
+        <%= link_to_add_fields t('states.new.city'), f, :cities %>
+      </div>
+    </div>
+
     <%= f.input :lock_version, as: :hidden %>
   </div>
 

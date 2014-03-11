@@ -54,6 +54,8 @@ class StatesController < ApplicationController
     end
 
     def state_params
-      params.require(:state).permit :name, :lock_version
+      params.require(:state).permit :name, :lock_version, cities_attributes: [
+        :id, :name, :zip_code, :_destroy
+      ]
     end
 end

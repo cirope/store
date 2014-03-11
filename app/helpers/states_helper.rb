@@ -11,7 +11,13 @@ module StatesHelper
     render(
       'shared/unordered_list',
       title: City.model_name.human(count: 0),
-      collection: @state.cities
+      collection: @state.cities.map { |c| "#{c.name} (#{c.zip_code})" }
     )
+  end
+
+  def state_cities
+    @state.cities.new if @state.cities.empty?
+
+    @state.cities
   end
 end

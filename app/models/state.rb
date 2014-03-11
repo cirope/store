@@ -8,6 +8,7 @@ class State < ActiveRecord::Base
   strip_fields :name
 
   has_many :cities, -> { order('name') }, dependent: :destroy
+  accepts_nested_attributes_for :cities, allow_destroy: true, reject_if: :all_blank
 
   def to_s
     name

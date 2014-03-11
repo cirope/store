@@ -1,0 +1,12 @@
+<fieldset class="row city">
+  <%= f.input :id, as: :hidden %>
+  <div class="col-md-9">
+    <%= f.input :name, as: :slim %>
+  </div>
+  <div class="col-md-3">
+    <%= f.input :zip_code, as: :slim %>
+    <div class="row-controls">
+      <%= link_to_remove_nested_item f %>
+    </div>
+  </div>
+</fieldset>
