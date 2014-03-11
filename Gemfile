@@ -16,6 +16,7 @@ gem 'validates_timeliness'
 gem 'irreverent'
 gem 'paper_trail'
 gem 'rack-mini-profiler'
+gem 'newrelic_rpm'
 
 gem 'unicorn'
 
