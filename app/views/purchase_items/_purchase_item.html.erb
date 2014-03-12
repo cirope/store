@@ -1,7 +1,9 @@
 <fieldset class="row purchase_item">
   <%= f.input :id, as: :hidden %>
   <div class="col-md-7">
-    <%= f.input :item, as: :autocomplete, label: false, url: items_path, input_html: { data: { autocomplete_update_after: true } } %>
+    <%= f.input :item, as: :autocomplete, label: false, url: items_path, input_html: {
+      data: { autocomplete_update_after: true, empty_result_label: t('.empty') }
+    } %>
   </div>
   <div class="col-md-2">
     <%= f.input :unit, as: :slim %>

@@ -96,7 +96,13 @@ es:
       item: 'Agregar artículo'
     show:
       title: 'Ver factura'
+    customer:
+      empty: 'No se encontraron clientes, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
     header: 'Factura'
+
+  invoice_items:
+    invoice_item:
+      empty: 'No se encontraron artículos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
 
   items:
     edit:
@@ -175,7 +181,13 @@ es:
       item: 'Agregar artículo'
     show:
       title: 'Ver orden de compra'
+    provider:
+      empty: 'No se encontraron proveedores, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
     header: 'Orden de compra'
+
+  purchase_items:
+    purchase_item:
+      empty: 'No se encontraron artículos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
 
   receipts:
     edit:
@@ -190,6 +202,14 @@ es:
     show:
       title: 'Ver remito'
     header: 'Documento no válido como factura'
+
+  receipt_items:
+    receipt_item:
+      empty: 'No se encontraron artículos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
+
+  relations:
+    relation:
+      empty: 'No se encontraron organizaciones con ese criterio'
 
   sessions:
     new:

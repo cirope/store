@@ -10,7 +10,9 @@
         </h3>
       </div>
       <div class="panel-body">
-        <%= f.input :provider, as: :autocomplete, label: false, url: providers_path, input_html: { autofocus: true } %>
+        <%= f.input :provider, as: :autocomplete, label: false, url: providers_path, input_html: {
+          autofocus: true, data: { empty_result_label: t('purchases.provider.empty') }
+        } %>
       </div>
     </div>
 

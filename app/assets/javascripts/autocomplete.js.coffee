@@ -30,7 +30,12 @@ class Autocomplete
     label: content.html(), value: item.label, item: item
 
   _renderResponse: (data, response) ->
-    response jQuery.map data, (item) => @_renderItem item
+    if data.length
+      response jQuery.map data, (item) => @_renderItem item
+    else
+      emptyResultLabel = @element.data('emptyResultLabel') || '---'
+
+      response [ label: emptyResultLabel, value: '', item: {} ]
 
   _rewriteDefaultRenderItem: ->
     @element.data('ui-autocomplete')._renderItem = (ul, item) ->

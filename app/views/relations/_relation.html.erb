@@ -1,6 +1,8 @@
 <fieldset class="relation">
   <%= f.input :id, as: :hidden %>
-  <%= f.input :organization, as: :autocomplete, label: false, url: organizations_path %>
+  <%= f.input :organization, as: :autocomplete, label: false, url: organizations_path, input_html: {
+    data: { empty_result_label: t('.empty') }
+  } %>
   <div class="row-controls">
     <%= link_to_remove_nested_item f %>
   </div>
