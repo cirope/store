@@ -45,7 +45,7 @@ class SessionsControllerTest < ActionController::TestCase
 
     delete :destroy
 
-    assert_redirected_to root_url(subdomain: 'www')
+    assert_redirected_to root_url(subdomain: 'login')
     assert_nil current_user
   end
 
