@@ -18,6 +18,18 @@ class EntityTest < ActiveSupport::TestCase
     assert_error @entity, :city_id, :blank
   end
 
+  test 'tax id presence' do
+    @entity.tax_id = ''
+    @entity.tax_condition = 'mono_tax'
+
+    assert @entity.invalid?
+    assert_error @entity, :tax_id, :blank
+
+    @entity.tax_condition = 'final_consumer'
+
+    assert @entity.valid?
+  end
+
   test 'unique attributes' do
     entity = @entity.dup
 

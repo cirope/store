@@ -20,4 +20,8 @@ module Entities::TaxCondition
   def issuable_receipts
     ISSUABLE_RECEIPTS.fetch tax_condition
   end
+
+  def validate_tax_id_presence?
+    tax_condition != 'final_consumer'
+  end
 end
