@@ -1,4 +1,30 @@
 <h2><%= @warehouse %></h2>
 
+<% unless @warehouse.supplies.empty? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= Item.model_name.human count: 0 %></h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th><%= Supply.human_attribute_name 'item' %></th>
+            <th><%= Supply.human_attribute_name 'quantity' %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @warehouse.supplies.each do |supply| %>
+            <tr>
+              <td><%= supply.item %></td>
+              <td><%= supply.quantity %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
+
 <%= link_to_edit edit_warehouse_path(@warehouse) %> |
 <%= link_to_index warehouses_path %>

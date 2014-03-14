@@ -7,6 +7,7 @@ class Warehouse < ActiveRecord::Base
   strip_fields :name
 
   has_many :supplies, dependent: :destroy
+  accepts_nested_attributes_for :supplies, allow_destroy: true, reject_if: :all_blank
 
   def to_s
     name

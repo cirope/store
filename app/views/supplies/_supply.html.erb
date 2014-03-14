@@ -1,0 +1,14 @@
+<fieldset class="row supply">
+  <%= f.input :id, as: :hidden %>
+  <div class="col-md-10">
+    <%= f.input :item, as: :autocomplete, label: false, url: items_path, input_html: {
+      data: { autocomplete_update_after: true, empty_result_label: t('.empty') }
+    } %>
+  </div>
+  <div class="col-md-2">
+    <%= f.input :quantity, as: :slim %>
+    <div class="row-controls">
+      <%= link_to_remove_nested_item f %>
+    </div>
+  </div>
+</fieldset>

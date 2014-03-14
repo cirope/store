@@ -7,5 +7,7 @@ class CreateSupplies < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :supplies, :quantity
   end
 end

@@ -231,6 +231,7 @@ ActiveRecord::Schema.define(version: 20140305181654) do
   end
 
   add_index "supplies", ["item_id"], name: "index_supplies_on_item_id", using: :btree
+  add_index "supplies", ["quantity"], name: "index_supplies_on_quantity", using: :btree
   add_index "supplies", ["warehouse_id"], name: "index_supplies_on_warehouse_id", using: :btree
 
   create_table "users", force: true do |t|

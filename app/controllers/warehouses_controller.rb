@@ -52,6 +52,8 @@ class WarehousesController < ApplicationController
     end
 
     def warehouse_params
-      params.require(:warehouse).permit :name, :lock_version
+      params.require(:warehouse).permit :name, :lock_version, supplies_attributes: [
+        :id, :item_id, :quantity, :_destroy
+      ]
     end
 end
