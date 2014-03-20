@@ -2,8 +2,11 @@
   <strong><%= entity %></strong> <%= mail_to entity.email, nil, class: 'small' if entity.email %><br />
 
   <div class="small">
-    <%= entity.tax_id %>
-    <span class="text-muted"> / <%= t "entities.conditions.#{entity.tax_condition}" %></span>
+    <% if entity.tax_id.present? %>
+      <%= entity.tax_id %>
+      <span class="text-muted"> / </span>
+    <% end %>
+    <span class="text-muted"><%= t "entities.conditions.#{entity.tax_condition}" %></span>
     <br />
 
     <%= entity.address %>
