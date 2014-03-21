@@ -4,6 +4,8 @@ module Warehouses::Supplies
   included do
     before_destroy :check_supplies
 
+    delegate :active, to: :supplies, prefix: true
+
     has_many :supplies, dependent: :destroy
     accepts_nested_attributes_for :supplies, allow_destroy: true, reject_if: :all_blank
   end

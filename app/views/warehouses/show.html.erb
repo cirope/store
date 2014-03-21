@@ -1,6 +1,6 @@
 <h2><%= @warehouse %></h2>
 
-<% unless @warehouse.supplies.empty? %>
+<% unless @warehouse.supplies_active.empty? %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title"><%= Supply.model_name.human count: 0 %></h3>
@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @warehouse.supplies.each do |supply| %>
+          <% @warehouse.supplies_active.each do |supply| %>
             <tr>
               <td><%= supply.item %></td>
               <td><%= supply.quantity %></td>
