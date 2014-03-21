@@ -29,4 +29,16 @@ class WarehouseTest < ActiveSupport::TestCase
   test 'default' do
     assert_kind_of Warehouse, Warehouse.default
   end
+
+  test 'destroy' do
+    assert_no_difference 'Warehouse.count' do
+      @warehouse.destroy
+    end
+
+    @warehouse.supplies.update_all quantity: 0
+
+    assert_difference 'Warehouse.count', -1 do
+      @warehouse.destroy
+    end
+  end
 end

@@ -109,6 +109,8 @@ es:
       update:
         stale: 'No se pudo actualizar el usuario, revise los datos e inténtelo nuevamente'
 
-    warehouse:
+    warehouses:
       update:
         stale: 'No se pudo actualizar el depósito, revise los datos e inténtelo nuevamente'
+      destroy:
+        alert: 'El depósito no pudo ser eliminado, todavía tiene suministros'

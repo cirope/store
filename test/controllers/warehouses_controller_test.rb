@@ -42,6 +42,8 @@ class WarehousesControllerTest < ActionController::TestCase
   end
 
   test 'should destroy warehouse' do
+    @warehouse.supplies.update_all quantity: 0
+
     assert_difference('Warehouse.count', -1) do
       delete :destroy, id: @warehouse
     end
