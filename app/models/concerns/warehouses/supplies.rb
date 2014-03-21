@@ -11,7 +11,7 @@ module Warehouses::Supplies
   private
 
     def check_supplies
-      unless supplies.sum('quantity') == 0
+      unless supplies.active_quantity == 0
         errors.add :base, :with_stock; false
       end
     end
