@@ -2,6 +2,7 @@ class Warehouse < ActiveRecord::Base
   include Accounts::Scoped
   include Attributes::Strip
   include Auditable
+  include Warehouses::Default
   include Warehouses::Validation
 
   strip_fields :name

@@ -8,7 +8,7 @@ module CurrentAccount
   end
 
   def current_account
-    @current_account ||= Account.by_subdomain request.subdomains.first
+    @_current_account ||= Account.by_subdomain request.subdomains.first
   end
 
   private

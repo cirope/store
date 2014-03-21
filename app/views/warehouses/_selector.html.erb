@@ -1,0 +1,26 @@
+<% if multiple_warehouses? %>
+  <div class="form-group text-muted">
+    <p class="form-control-static">
+      <%= Warehouse.model_name.human %>
+      <span id="warehouse-label" class="label label-default"><%= default_warehouse %></span>
+      <%= link_to '#warehouse', title: t('.change'), data: { toggle: 'collapse' } do %>
+        <span class="glyphicon glyphicon-cog"></span>
+      <% end %>
+    </p>
+  </div>
+  <div id="warehouse" class="form-group collapse">
+    <%= label_tag 'warehouse_id', Warehouse.model_name.human, class: 'sr-only' %>
+    <%= select_tag(
+      'warehouse_id',
+      options_from_collection_for_select(available_warehouses, 'id', 'name', default_warehouse.id),
+      class: 'form-control'
+    ) %>
+  </div>
+<% elsif default_warehouse %>
+  <%= hidden_field_tag 'warehouse_id', default_warehouse %>
+<% else %>
+  <div class="alert alert-warning">
+    <%= t '.empty' %>
+    <%= link_to t('.new'), new_warehouse_path, class: 'btn btn-warning btn-xs' %>
+  </div>
+<% end %>

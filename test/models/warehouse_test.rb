@@ -25,4 +25,8 @@ class WarehouseTest < ActiveSupport::TestCase
     assert @warehouse.invalid?
     assert_error @warehouse, :name, :too_long, count: 255
   end
+
+  test 'default' do
+    assert_kind_of Warehouse, Warehouse.default
+  end
 end

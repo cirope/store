@@ -263,3 +263,7 @@ es:
       supply: 'Agregar suministro'
     show:
       title: 'Ver depósito'
+    selector:
+      change: 'Cambiar depósito'
+      new: 'Crear depósito'
+      empty: 'No se ha creado un depósito'

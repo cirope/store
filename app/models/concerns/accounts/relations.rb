@@ -8,5 +8,6 @@ module Accounts::Relations
     has_many :organizations, dependent: :destroy
     has_many :states, dependent: :destroy
     has_many :users, dependent: :destroy
+    has_many :warehouses, dependent: :destroy
   end
 end
