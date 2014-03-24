@@ -67,4 +67,18 @@ class ItemTest < ActiveSupport::TestCase
 
     assert items.empty?
   end
+
+  test 'consume less than available' do
+    warehouse = @item.supplies.first.warehouse
+    total_quantity = @item.supplies.active_quantity_from warehouse
+    use_quantity = total_quantity - 1
+
+    assert use_quantity > 0
+
+    assert_difference '@item.supplies.reload.active_quantity_from(warehouse)', -use_quantity do
+      @item.use count: use_quantity, warehouse: warehouse
+
+      @item.save!
+    end
+  end
 end
