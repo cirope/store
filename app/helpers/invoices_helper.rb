@@ -9,7 +9,7 @@ module InvoicesHelper
     @invoice.persisted? ? @invoice.number : @book.next_available_number
   end
 
-  def invoice_date
-    @invoice.persisted? ? @invoice.created_at.to_date : Date.today
+  def invoice_date invoice = @invoice
+    invoice.persisted? ? invoice.created_at.to_date : Date.today
   end
 end

@@ -6,7 +6,7 @@
       <%= book.next_available_number %>
     </span>
   <% end %>
-  <%= link_to polymorphic_path([book, book.kind_class]), class: 'btn btn-default btn-block btn-sm' do %>
+  <%= link_to polymorphic_path([book, book.kind_class]), title: t('navigation.index'), class: 'btn btn-default btn-block btn-sm' do %>
     <div class="text-muted">
       <span class="glyphicon glyphicon-list"></span>
       <%= t 'navigation.index' %>

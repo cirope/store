@@ -8,7 +8,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices
   def index
-    @invoices = @book.invoices
+    @invoices = @book.invoices.ordered.page params[:page]
 
     respond_with @invoices
   end
