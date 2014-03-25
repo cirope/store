@@ -18,8 +18,13 @@
         <div class="row">
           <%= render partial: 'launchpad/book', collection: books %>
         </div>
+        <div class="row">
+          <% books.each do |book| %>
+            <div class="col-md-4">
+            </div>
+          <% end %>
+        </div>
       <% end %>
-      <br />
     <% end %>
   </div>
 </div>

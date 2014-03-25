@@ -3,6 +3,10 @@ module LaunchpadHelper
     polymorphic_path [book, book.kind_class], action: :new
   end
 
+  def new_ticket_label book
+    t 'helpers.submit.create', model: book.kind_class.model_name.human
+  end
+
   def add_book_link organization: nil, flow: nil
     title = t "organizations.new.#{flow}_book"
     path = new_organization_book_path organization, flow: flow
