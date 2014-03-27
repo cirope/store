@@ -8,7 +8,8 @@ class PurchasesController < ApplicationController
 
   # GET /purchases
   def index
-    @purchases = @book.purchases
+    @purchases = @book.purchases.ordered.page params[:page]
+
     respond_with @purchases
   end
 

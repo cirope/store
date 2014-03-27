@@ -3,6 +3,7 @@ class Receipt < ActiveRecord::Base
   include Auditable
   include Books::Numerable
   include Receipts::Customer
+  include Receipts::Scopes
   include Receipts::Validation
 
   has_many :receipt_items, dependent: :destroy

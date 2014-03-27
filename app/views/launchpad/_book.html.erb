@@ -1,11 +1,15 @@
 <div class="col-sm-4">
-  <%= link_to new_ticket_path(book), class: 'btn btn-default btn-block' do %>
-    <h4>
-      <span class="glyphicon glyphicon-file"></span>
-      <%= book %>
-      <small>
-        <%= book.next_available_number %>
-      </small>
-    </h4>
+  <%= link_to new_ticket_path(book), title: new_ticket_label(book), class: 'btn btn-default btn-block btn-lg' do %>
+    <span class="glyphicon glyphicon-file"></span>
+    <%= book %>
+    <span class="small text-muted">
+      <%= book.next_available_number %>
+    </span>
+  <% end %>
+  <%= link_to polymorphic_path([book, book.kind_class]), title: t('navigation.index'), class: 'btn btn-default btn-block btn-sm' do %>
+    <div class="text-muted">
+      <span class="glyphicon glyphicon-list"></span>
+      <%= t 'navigation.index' %>
+    </div>
   <% end %>
 </div>

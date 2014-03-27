@@ -5,6 +5,7 @@ class Purchase < ActiveRecord::Base
   include Purchases::Maker
   include Purchases::Provider
   include Purchases::Receiver
+  include Purchases::Scopes
   include Purchases::Validation
 
   has_many :purchase_items, dependent: :destroy

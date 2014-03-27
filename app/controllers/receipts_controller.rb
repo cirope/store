@@ -8,7 +8,7 @@ class ReceiptsController < ApplicationController
 
   # GET /receipts
   def index
-    @receipts = @book.receipts
+    @receipts = @book.receipts.ordered.page params[:page]
 
     respond_with @book, @receipts
   end
