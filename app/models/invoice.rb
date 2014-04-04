@@ -6,8 +6,8 @@ class Invoice < ActiveRecord::Base
   include Invoices::Scopes
   include Invoices::Validation
 
-  has_many :invoice_items, dependent: :destroy
-  accepts_nested_attributes_for :invoice_items, allow_destroy: true, reject_if: :all_blank
+  has_many :invoice_commodities, dependent: :destroy
+  accepts_nested_attributes_for :invoice_commodities, allow_destroy: true, reject_if: :all_blank
 
   def to_s
     number.to_s

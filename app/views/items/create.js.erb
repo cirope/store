@@ -3,10 +3,10 @@
     $('#modal').remove();
   }).modal('hide');
 
-  $('input[name$="[item]"]:last').val('<%= j @item.to_s %>');
-  $('input[name$="[item_id]"]:last').val('<%= j @item.id.to_s %>');
-  $('input[name$="[item]"][data-autocomplete-update-after]').attr(
-    'data-item', '<%= j render(template: 'items/show.json').html_safe %>'
+  $('input[name$="[commodity]"]:last').val('<%= j @item.to_s %>');
+  $('input[name$="[commodity_id]"]:last').val('<%= j @item.id.to_s %>');
+  $('input[name$="[commodity]"][data-autocomplete-update-after]:last').attr(
+    'data-commodity', '<%= j render(template: 'items/show.json').html_safe %>'
   ).trigger({ type: 'update.autocomplete' });
 <% else %>
   <%= render template: 'items/new' %>

@@ -1,6 +1,6 @@
-selector = '#invoice_items [data-autocomplete-update-after]'
+selector = '#invoice_commodities [data-autocomplete-update-after]'
 
 $(document).on 'update.autocomplete', selector, (event) ->
-  item = event.item || $(this).data('item')
+  commodity = event.item || $(this).data('commodity')
 
-  $(this).closest('fieldset').find('input[name$="[price]"]').val item.price
+  $(this).closest('fieldset').find('input[name$="[price]"]').val commodity.price

@@ -21,18 +21,18 @@ class PurchasesControllerTest < ActionController::TestCase
   end
 
   test 'should create purchase' do
-    item = items :candy
+    commodity = commodities :candy
 
-    assert_difference ['Purchase.count', 'PurchaseItem.count'] do
+    assert_difference ['Purchase.count', 'PurchaseCommodity.count'] do
       post :create, book_id: @book, purchase: {
         provider_id: @purchase.provider_id,
         requested_at: I18n.l(Time.zone.today),
-        purchase_items_attributes: [
+        purchase_commodities_attributes: [
           {
-            item_id: item.id,
-            unit: item.unit,
+            commodity_id: commodity.id,
+            unit: commodity.classification.unit,
             quantity: '5',
-            price: (item.price * 0.8).to_s
+            price: (commodity.price * 0.8).to_s
           }
         ]
       }

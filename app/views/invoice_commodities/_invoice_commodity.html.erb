@@ -1,0 +1,17 @@
+<fieldset class="row invoice_commodity">
+  <%= f.input :id, as: :hidden %>
+  <div class="col-md-9">
+    <%= f.input :commodity, as: :autocomplete, label: false, url: commodities_path, input_html: {
+      data: { autocomplete_update_after: true, empty_result_label: t('.empty') }
+    } %>
+  </div>
+  <div class="col-md-1">
+    <%= f.input :quantity, as: :slim %>
+  </div>
+  <div class="col-md-2">
+    <%= f.input :price, as: :slim %>
+    <div class="row-controls">
+      <%= link_to_remove_nested_item f %>
+    </div>
+  </div>
+</fieldset>

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class InvoicesTest < ActionDispatch::IntegrationTest
   include EntitiesTestHelper
-  include ItemTestHelper
+  include CommodityTestHelper
   include CityTestHelper
 
   test 'should create a invoice' do
@@ -12,11 +12,11 @@ class InvoicesTest < ActionDispatch::IntegrationTest
     visit new_book_invoice_path(book)
     fill_in_new_invoice
 
-    add_item items(:candy), 1
-    add_item items(:chocolate), 2
+    add_commodity commodities(:candy), 1
+    add_commodity commodities(:chocolate), 2
 
     assert_difference 'book.invoices.count' do
-      assert_difference 'InvoiceItem.count', 2 do
+      assert_difference 'InvoiceCommodity.count', 2 do
         find('.btn.btn-primary').click
       end
     end
@@ -29,13 +29,13 @@ class InvoicesTest < ActionDispatch::IntegrationTest
 
     visit edit_invoice_path(invoice)
 
-    page.find('#invoice_items fieldset:nth-child(1)').hover
+    page.find('#invoice_commodities fieldset:nth-child(1)').hover
 
-    within '#invoice_items fieldset:nth-child(1)' do
+    within '#invoice_commodities fieldset:nth-child(1)' do
       find('a[data-dynamic-form-event="hideItem"]').click
     end
 
-    assert_difference 'invoice.invoice_items.count', -1 do
+    assert_difference 'invoice.invoice_commodities.count', -1 do
       find('.btn.btn-primary').click
     end
   end
@@ -48,17 +48,17 @@ class InvoicesTest < ActionDispatch::IntegrationTest
     add_customer
   end
 
-  test 'should add new item' do
+  test 'should add new commodity' do
     book = books :cirope_sa_p
     login
 
     visit new_book_invoice_path(book)
     fill_in_new_invoice
 
-    add_new_item prefix: 'invoice_invoice_items'
+    add_new_commodity prefix: 'invoice_invoice_commodities'
 
     # Must also autocomplete the price field
-    assert find_field('invoice_invoice_items_attributes_0_price').value.present?
+    assert find_field('invoice_invoice_commodities_attributes_0_price').value.present?
   end
 
   private
@@ -71,12 +71,12 @@ class InvoicesTest < ActionDispatch::IntegrationTest
       find('.ui-autocomplete li.ui-menu-item').click
     end
 
-    def add_item item, index
-      click_link I18n.t('invoices.new.item') if index > 1
+    def add_commodity commodity, index
+      click_link I18n.t('invoices.new.commodity') if index > 1
 
-      within "#invoice_items fieldset:nth-child(#{index})" do
-        input_id = find('input[name$="[item]"]')[:id]
-        page.execute_script "$('##{input_id}').focus().val('#{item.name}').keydown()"
+      within "#invoice_commodities fieldset:nth-child(#{index})" do
+        input_id = find('input[name$="[commodity]"]')[:id]
+        page.execute_script "$('##{input_id}').focus().val('#{commodity.name}').keydown()"
 
         fill_in find('input[name$="[quantity]"]')[:id], with: '1'
         # Price MUST be filled automatically

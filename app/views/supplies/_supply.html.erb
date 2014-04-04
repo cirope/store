@@ -1,7 +1,7 @@
 <fieldset class="row supply">
   <%= f.input :id, as: :hidden %>
   <div class="col-md-10">
-    <%= f.input :item, as: :autocomplete, label: false, url: items_path, input_html: {
+    <%= f.input :commodity, as: :autocomplete, label: false, url: commodities_path, input_html: {
       data: { autocomplete_update_after: true, empty_result_label: t('.empty') }
     } %>
   </div>

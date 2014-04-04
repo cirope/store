@@ -61,6 +61,19 @@ es:
     show:
       title: 'Ver ciudad'
 
+  commodities:
+    edit:
+      title: 'Editar mercancía'
+    index:
+      new: 'Nueva mercancía'
+      title: 'Listado de mercancías'
+      empty_html: 'No hay mercancías'
+    new:
+      title: 'Crear mercancía'
+      commodity: 'Agregar nueva mercancía'
+    show:
+      title: 'Ver mercancía'
+
   customers:
     edit:
       title: 'Editar cliente'
@@ -93,16 +106,16 @@ es:
       empty_html: 'No hay facturas, puede crear una con el botón <span class="label label-info">Nueva factura</span>'
     new:
       title: 'Crear factura'
-      item: 'Agregar artículo'
+      commodity: 'Agregar mercancía'
     show:
       title: 'Ver factura'
     customer:
       empty: 'No se encontraron clientes, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
     header: 'Factura'
 
-  invoice_items:
-    invoice_item:
-      empty: 'No se encontraron artículos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
+  invoice_commodities:
+    invoice_commodity:
+      empty: 'No se encontraron mercancías, puede agregar una desde <span class="glyphicon glyphicon-plus-sign"></span>'
 
   items:
     edit:
@@ -178,16 +191,16 @@ es:
       empty_html: 'No hay órdenes de compra, puede crear una con el botón <span class="label label-info">Nueva orden de compra</span>'
     new:
       title: 'Crear orden de compra'
-      item: 'Agregar artículo'
+      commodity: 'Agregar mercancía'
     show:
       title: 'Ver orden de compra'
     provider:
       empty: 'No se encontraron proveedores, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
     header: 'Orden de compra'
 
-  purchase_items:
-    purchase_item:
-      empty: 'No se encontraron artículos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
+  purchase_commodities:
+    purchase_commodity:
+      empty: 'No se encontraron mercancías, puede agregar una desde <span class="glyphicon glyphicon-plus-sign"></span>'
 
   receipts:
     edit:
@@ -198,14 +211,14 @@ es:
       empty_html: 'No hay remitos, puede crear uno con el botón <span class="label label-info">Nuevo remito</span>'
     new:
       title: 'Crear remito'
-      item: 'Agregar artículo'
+      commodity: 'Agregar mercancía'
     show:
       title: 'Ver remito'
     header: 'Documento no válido como factura'
 
-  receipt_items:
-    receipt_item:
-      empty: 'No se encontraron artículos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
+  receipt_commodities:
+    receipt_commodity:
+      empty: 'No se encontraron mercancías, puede agregar una desde <span class="glyphicon glyphicon-plus-sign"></span>'
 
   relations:
     relation:

@@ -19,16 +19,16 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <%= Item.model_name.human count: 0 %>
-          <small><%= add_item_link %></small>
+          <%= Commodity.model_name.human count: 0 %>
+          <small><%= add_commodity_link %></small>
         </h3>
       </div>
-      <div id="invoice_items" class="panel-body">
-        <%= f.simple_fields_for :invoice_items, invoice_items do |rif| %>
-          <%= render 'invoice_items/invoice_item', f: rif %>
+      <div id="invoice_commodities" class="panel-body">
+        <%= f.simple_fields_for :invoice_commodities, invoice_commodities do |rif| %>
+          <%= render 'invoice_commodities/invoice_commodity', f: rif %>
         <% end %>
 
-        <%= link_to_add_fields t('invoices.new.item'), f, :invoice_items %>
+        <%= link_to_add_fields t('invoices.new.commodity'), f, :invoice_commodities %>
       </div>
     </div>
 

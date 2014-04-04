@@ -1,0 +1,27 @@
+<% if @commodities.empty? %>
+  <%= render 'shared/empty_index', message: t('.empty_html') %>
+<% else %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th><%= Commodity.human_attribute_name 'name' %></th>
+        <th class="visible-lg"><%= Commodity.human_attribute_name 'price' %></th>
+        <th colspan="3">
+          <%= link_to_new new_commodity_path, class: 'btn btn-default btn-xs pull-right' %>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @commodities.each do |commodity| %>
+        <tr>
+          <td><%= commodity.name %></td>
+          <td class="visible-lg"><%= number_to_currency commodity.price %></td>
+          <td><%= link_to_show commodity %></td>
+          <td><%= link_to_edit [:edit, commodity] %></td>
+          <td><%= link_to_destroy commodity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

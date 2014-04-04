@@ -51,6 +51,21 @@ ActiveRecord::Schema.define(version: 20140305181654) do
   add_index "cities", ["account_id"], name: "index_cities_on_account_id", using: :btree
   add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
+  create_table "commodities", force: true do |t|
+    t.string   "name",                                                     null: false
+    t.decimal  "price",               precision: 15, scale: 2,             null: false
+    t.integer  "classification_id",                                        null: false
+    t.string   "classification_type",                                      null: false
+    t.integer  "account_id",                                               null: false
+    t.integer  "lock_version",                                 default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "commodities", ["account_id"], name: "index_commodities_on_account_id", using: :btree
+  add_index "commodities", ["classification_id", "classification_type"], name: "index_commodities_on_classification_id_and_classification_type", using: :btree
+  add_index "commodities", ["name"], name: "index_commodities_on_name", using: :btree
+
   create_table "customers", force: true do |t|
     t.integer  "account_id",               null: false
     t.integer  "lock_version", default: 0, null: false
@@ -80,17 +95,17 @@ ActiveRecord::Schema.define(version: 20140305181654) do
   add_index "entities", ["name"], name: "index_entities_on_name", using: :btree
   add_index "entities", ["tax_id"], name: "index_entities_on_tax_id", using: :btree
 
-  create_table "invoice_items", force: true do |t|
-    t.integer  "item_id"
-    t.decimal  "quantity",   precision: 10, scale: 2, null: false
-    t.decimal  "price",      precision: 15, scale: 2, null: false
-    t.integer  "invoice_id",                          null: false
+  create_table "invoice_commodities", force: true do |t|
+    t.integer  "commodity_id"
+    t.decimal  "quantity",     precision: 10, scale: 2, null: false
+    t.decimal  "price",        precision: 15, scale: 2, null: false
+    t.integer  "invoice_id",                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "invoice_items", ["invoice_id"], name: "index_invoice_items_on_invoice_id", using: :btree
-  add_index "invoice_items", ["item_id"], name: "index_invoice_items_on_item_id", using: :btree
+  add_index "invoice_commodities", ["commodity_id"], name: "index_invoice_commodities_on_commodity_id", using: :btree
+  add_index "invoice_commodities", ["invoice_id"], name: "index_invoice_commodities_on_invoice_id", using: :btree
 
   create_table "invoices", force: true do |t|
     t.integer  "number",                   null: false
@@ -108,19 +123,13 @@ ActiveRecord::Schema.define(version: 20140305181654) do
   add_index "invoices", ["number"], name: "index_invoices_on_number", using: :btree
 
   create_table "items", force: true do |t|
-    t.string   "code"
-    t.string   "name",                                              null: false
-    t.decimal  "price",        precision: 15, scale: 2,             null: false
-    t.string   "unit",                                              null: false
-    t.integer  "account_id",                                        null: false
-    t.integer  "lock_version",                          default: 0, null: false
+    t.string   "code",       null: false
+    t.string   "unit",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "items", ["account_id"], name: "index_items_on_account_id", using: :btree
   add_index "items", ["code"], name: "index_items_on_code", using: :btree
-  add_index "items", ["name"], name: "index_items_on_name", using: :btree
 
   create_table "organizations", force: true do |t|
     t.integer  "account_id",               null: false
@@ -140,18 +149,18 @@ ActiveRecord::Schema.define(version: 20140305181654) do
 
   add_index "providers", ["account_id"], name: "index_providers_on_account_id", using: :btree
 
-  create_table "purchase_items", force: true do |t|
-    t.integer  "item_id",                              null: false
-    t.string   "unit",                                 null: false
-    t.decimal  "quantity",    precision: 10, scale: 2, null: false
-    t.decimal  "price",       precision: 15, scale: 2
-    t.integer  "purchase_id",                          null: false
+  create_table "purchase_commodities", force: true do |t|
+    t.integer  "commodity_id",                          null: false
+    t.string   "unit",                                  null: false
+    t.decimal  "quantity",     precision: 10, scale: 2, null: false
+    t.decimal  "price",        precision: 15, scale: 2
+    t.integer  "purchase_id",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "purchase_items", ["item_id"], name: "index_purchase_items_on_item_id", using: :btree
-  add_index "purchase_items", ["purchase_id"], name: "index_purchase_items_on_purchase_id", using: :btree
+  add_index "purchase_commodities", ["commodity_id"], name: "index_purchase_commodities_on_commodity_id", using: :btree
+  add_index "purchase_commodities", ["purchase_id"], name: "index_purchase_commodities_on_purchase_id", using: :btree
 
   create_table "purchases", force: true do |t|
     t.integer  "number",                   null: false
@@ -175,16 +184,16 @@ ActiveRecord::Schema.define(version: 20140305181654) do
   add_index "purchases", ["provider_id"], name: "index_purchases_on_provider_id", using: :btree
   add_index "purchases", ["receiver_id"], name: "index_purchases_on_receiver_id", using: :btree
 
-  create_table "receipt_items", force: true do |t|
-    t.integer  "item_id",                             null: false
-    t.decimal  "quantity",   precision: 10, scale: 2, null: false
-    t.integer  "receipt_id",                          null: false
+  create_table "receipt_commodities", force: true do |t|
+    t.integer  "commodity_id",                          null: false
+    t.decimal  "quantity",     precision: 10, scale: 2, null: false
+    t.integer  "receipt_id",                            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "receipt_items", ["item_id"], name: "index_receipt_items_on_item_id", using: :btree
-  add_index "receipt_items", ["receipt_id"], name: "index_receipt_items_on_receipt_id", using: :btree
+  add_index "receipt_commodities", ["commodity_id"], name: "index_receipt_commodities_on_commodity_id", using: :btree
+  add_index "receipt_commodities", ["receipt_id"], name: "index_receipt_commodities_on_receipt_id", using: :btree
 
   create_table "receipts", force: true do |t|
     t.integer  "number",                   null: false
@@ -224,13 +233,13 @@ ActiveRecord::Schema.define(version: 20140305181654) do
 
   create_table "supplies", force: true do |t|
     t.decimal  "quantity",     precision: 10, scale: 2, null: false
-    t.integer  "item_id",                               null: false
+    t.integer  "commodity_id",                          null: false
     t.integer  "warehouse_id",                          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "supplies", ["item_id"], name: "index_supplies_on_item_id", using: :btree
+  add_index "supplies", ["commodity_id"], name: "index_supplies_on_commodity_id", using: :btree
   add_index "supplies", ["quantity"], name: "index_supplies_on_quantity", using: :btree
   add_index "supplies", ["warehouse_id"], name: "index_supplies_on_warehouse_id", using: :btree
 

@@ -1,6 +1,7 @@
 class WarehousesController < ApplicationController
   respond_to :html, :json
 
+  before_action :authorize
   before_action :set_warehouse, only: [:show, :edit, :update, :destroy]
   before_action :set_title, except: [:destroy]
 
@@ -53,7 +54,7 @@ class WarehousesController < ApplicationController
 
     def warehouse_params
       params.require(:warehouse).permit :name, :lock_version, supplies_attributes: [
-        :id, :item_id, :quantity, :_destroy
+        :id, :commodity_id, :quantity, :_destroy
       ]
     end
 end

@@ -1,15 +1,15 @@
 require 'test_helper'
 
 class InvoicesHelperTest < ActionView::TestCase
-  test 'invoice items' do
+  test 'invoice commodities' do
     @invoice = invoices :first_sale
 
-    assert_equal @invoice.invoice_items, invoice_items
+    assert_equal @invoice.invoice_commodities, invoice_commodities
 
     @invoice = Invoice.new
 
-    assert_equal 1, invoice_items.size
-    assert invoice_items.all?(&:new_record?)
+    assert_equal 1, invoice_commodities.size
+    assert invoice_commodities.all?(&:new_record?)
   end
 
   test 'invoice number' do

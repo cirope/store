@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.search query: params[:q], limit: request.xhr?
+    @items = Item.all
 
     respond_with @items
   end
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
     respond_with @item
   end
 
-  # PUT/PATCH /items/1
+  # PATCH/PUT /items/1
   def update
     update_resource @item, item_params
     respond_with @item
@@ -54,6 +54,8 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit :code, :name, :price, :unit, :lock_version
+      params.require(:item).permit :code, :unit, commodity_attributes: [
+        :id, :code, :name, :price, :unit, :lock_version
+      ]
     end
 end

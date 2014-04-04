@@ -2,6 +2,6 @@ module Supplies::Validation
   extend ActiveSupport::Concern
 
   included do
-    validates :quantity, :item, presence: true
+    validates :quantity, :commodity, presence: true
   end
 end

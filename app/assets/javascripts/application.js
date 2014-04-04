@@ -28,7 +28,7 @@
 //= require cities
 //= require customers
 //= require invoices
-//= require items
+//= require commodities
 //= require launchpad
 //= require organizations
 //= require password_resets

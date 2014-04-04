@@ -46,9 +46,14 @@ es:
         notice: 'Factura actualizada correctamente'
         stale: 'No se pudo actualizar la factura, revise los datos e inténtelo nuevamente'
 
-    items:
+    commodities:
+      create:
+        notice: 'Mercancía creada correctamente'
+      destroy:
+        notice: 'Mercancía eliminada'
       update:
-        stale: 'No se pudo actualizar el artículo, revise los datos e inténtelo nuevamente'
+        notice: 'Mercancía actualizada correctamente'
+        stale: 'No se pudo actualizar la mercancía, revise los datos e inténtelo nuevamente'
 
     organizations:
       create:

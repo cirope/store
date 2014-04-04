@@ -1,8 +1,8 @@
 module ReceiptsHelper
-  def receipt_items
-    @receipt.receipt_items.new if @receipt.receipt_items.empty?
+  def receipt_commodities
+    @receipt.receipt_commodities.new if @receipt.receipt_commodities.empty?
 
-    @receipt.receipt_items
+    @receipt.receipt_commodities
   end
 
   def receipt_number

@@ -27,28 +27,28 @@
   </div>
 </div>
 
-<% unless @purchase.purchase_items.empty? %>
+<% unless @purchase.purchase_commodities.empty? %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= Item.model_name.human count: 0 %></h3>
+      <h3 class="panel-title"><%= Commodity.model_name.human count: 0 %></h3>
     </div>
     <div class="panel-body">
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
-            <th><%= PurchaseItem.human_attribute_name 'item' %></th>
-            <th><%= PurchaseItem.human_attribute_name 'unit' %></th>
-            <th><%= PurchaseItem.human_attribute_name 'quantity' %></th>
-            <th><%= PurchaseItem.human_attribute_name 'price' %></th>
+            <th><%= PurchaseCommodity.human_attribute_name 'commodity' %></th>
+            <th><%= PurchaseCommodity.human_attribute_name 'unit' %></th>
+            <th><%= PurchaseCommodity.human_attribute_name 'quantity' %></th>
+            <th><%= PurchaseCommodity.human_attribute_name 'price' %></th>
           </tr>
         </thead>
         <tbody>
-          <% @purchase.purchase_items.each do |purchase_item| %>
+          <% @purchase.purchase_commodities.each do |purchase_commodity| %>
             <tr>
-              <td><%= purchase_item.item %></td>
-              <td><%= purchase_item.unit %></td>
-              <td><%= purchase_item.quantity %></td>
-              <td><%= number_to_currency purchase_item.price %></td>
+              <td><%= purchase_commodity.commodity %></td>
+              <td><%= purchase_commodity.unit %></td>
+              <td><%= purchase_commodity.quantity %></td>
+              <td><%= number_to_currency purchase_commodity.price %></td>
             </tr>
           <% end %>
         </tbody>

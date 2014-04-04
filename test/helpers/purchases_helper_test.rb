@@ -1,15 +1,15 @@
 require 'test_helper'
 
 class PurchasesHelperTest < ActionView::TestCase
-  test 'purchase items' do
+  test 'purchase commodities' do
     @purchase = purchases :first_purchase
 
-    assert_equal @purchase.purchase_items, purchase_items
+    assert_equal @purchase.purchase_commodities, purchase_commodities
 
     @purchase = Purchase.new
 
-    assert_equal 1, purchase_items.size
-    assert purchase_items.all?(&:new_record?)
+    assert_equal 1, purchase_commodities.size
+    assert purchase_commodities.all?(&:new_record?)
   end
 
   test 'purchase number' do

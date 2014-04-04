@@ -9,26 +9,26 @@
   </div>
 </div>
 
-<% unless @invoice.invoice_items.empty? %>
+<% unless @invoice.invoice_commodities.empty? %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= Item.model_name.human count: 0 %></h3>
+      <h3 class="panel-title"><%= Commodity.model_name.human count: 0 %></h3>
     </div>
     <div class="panel-body">
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
-            <th><%= InvoiceItem.human_attribute_name 'item' %></th>
-            <th><%= InvoiceItem.human_attribute_name 'quantity' %></th>
-            <th><%= InvoiceItem.human_attribute_name 'price' %></th>
+            <th><%= InvoiceCommodity.human_attribute_name 'commodity' %></th>
+            <th><%= InvoiceCommodity.human_attribute_name 'quantity' %></th>
+            <th><%= InvoiceCommodity.human_attribute_name 'price' %></th>
           </tr>
         </thead>
         <tbody>
-          <% @invoice.invoice_items.each do |invoice_item| %>
+          <% @invoice.invoice_commodities.each do |invoice_commodity| %>
             <tr>
-              <td><%= invoice_item.item %></td>
-              <td><%= invoice_item.quantity %></td>
-              <td><%= number_to_currency invoice_item.price %></td>
+              <td><%= invoice_commodity.commodity %></td>
+              <td><%= invoice_commodity.quantity %></td>
+              <td><%= number_to_currency invoice_commodity.price %></td>
             </tr>
           <% end %>
         </tbody>

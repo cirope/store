@@ -9,24 +9,24 @@
   </div>
 </div>
 
-<% unless @receipt.receipt_items.empty? %>
+<% unless @receipt.receipt_commodities.empty? %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title"><%= Item.model_name.human count: 0 %></h3>
+      <h3 class="panel-title"><%= Commodity.model_name.human count: 0 %></h3>
     </div>
     <div class="panel-body">
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
-            <th><%= ReceiptItem.human_attribute_name 'item' %></th>
-            <th><%= ReceiptItem.human_attribute_name 'quantity' %></th>
+            <th><%= ReceiptCommodity.human_attribute_name 'commodity' %></th>
+            <th><%= ReceiptCommodity.human_attribute_name 'quantity' %></th>
           </tr>
         </thead>
         <tbody>
-          <% @receipt.receipt_items.each do |receipt_item| %>
+          <% @receipt.receipt_commodities.each do |receipt_commodity| %>
             <tr>
-              <td><%= receipt_item.item %></td>
-              <td><%= receipt_item.quantity %></td>
+              <td><%= receipt_commodity.commodity %></td>
+              <td><%= receipt_commodity.quantity %></td>
             </tr>
           <% end %>
         </tbody>

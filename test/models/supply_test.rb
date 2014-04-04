@@ -7,10 +7,10 @@ class SupplyTest < ActiveSupport::TestCase
 
   test 'blank attributes' do
     @supply.quantity = ''
-    @supply.item = nil
+    @supply.commodity = nil
 
     assert @supply.invalid?
     assert_error @supply, :quantity, :blank
-    assert_error @supply, :item, :blank
+    assert_error @supply, :commodity, :blank
   end
 end

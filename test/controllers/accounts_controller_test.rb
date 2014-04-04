@@ -3,7 +3,7 @@ require 'test_helper'
 class AccountsControllerTest < ActionController::TestCase
 
   setup do
-    @account = accounts(:cirope)
+    @account = accounts :cirope
 
     login
   end

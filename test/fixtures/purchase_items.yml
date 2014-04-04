@@ -1,6 +1,0 @@
-candy_purchase:
-  item: candy
-  unit: piece
-  quantity: 20
-  price: 0.49
-  purchase: first_purchase

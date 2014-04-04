@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ItemsControllerTest < ActionController::TestCase
-
   setup do
     @item = items :candy
 
@@ -12,15 +11,6 @@ class ItemsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:items)
-  end
-
-  test 'should filtered index' do
-    xhr :get, :index, q: @item.name, format: :json
-    assert_response :success
-
-    items = JSON.parse(@response.body)
-    assert_equal 1, items.size
-    assert_equal @item.name, items.first['name']
   end
 
   test 'should get new' do
@@ -38,9 +28,11 @@ class ItemsControllerTest < ActionController::TestCase
     assert_difference('Item.count') do
       post :create, item: {
         code: '321',
-        name: 'Chocolate',
-        price: '12,34',
-        unit: 'piece'
+        unit: 'piece',
+        commodity_attributes: {
+          name: 'Chocolate',
+          price: '12,34'
+        }
       }
     end
 
@@ -51,9 +43,11 @@ class ItemsControllerTest < ActionController::TestCase
     assert_difference('Item.count') do
       xhr :post, :create, item: {
         code: '321',
-        name: 'Chocolate',
-        price: '12,34',
-        unit: 'piece'
+        unit: 'piece',
+        commodity_attributes: {
+          name: 'Chocolate',
+          price: '12,34'
+        }
       }
     end
 
@@ -72,7 +66,7 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test 'should update item' do
-    patch :update, id: @item, item: { name: 'Updated' }
+    patch :update, id: @item, item: { code: 'Updated' }
     assert_redirected_to item_url(assigns(:item))
   end
 

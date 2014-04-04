@@ -11,6 +11,9 @@ es:
       book:
         one: 'Talonario'
         other: 'Talonarios'
+      commodity:
+        one: 'Mercancía'
+        other: 'Mercancías'
       city:
         one: 'Ciudad'
         other: 'Ciudades'
@@ -23,7 +26,7 @@ es:
       invoice:
         one: 'Factura'
         other: 'Facturas'
-      invoice_item:
+      invoice_commodity:
         one: 'Línea de factura'
         other: 'Líneas de factura'
       item:
@@ -38,13 +41,13 @@ es:
       purchase:
         one: 'Orden de compra'
         other: 'Órdenes de compra'
-      purchase_item:
+      purchase_commodity:
         one: 'Línea de orden de compra'
         other: 'Líneas de orden de compra'
       receipt:
         one: 'Remito'
         other: 'Remitos'
-      receipt_item:
+      receipt_commodity:
         one: 'Línea de remito'
         other: 'Líneas de remito'
       relation:
@@ -75,6 +78,9 @@ es:
         name: 'Nombre'
         zip_code: 'Código postal'
         state: 'Provincia'
+      commodity:
+        name: 'Nombre'
+        price: 'Precio'
       customer:
       entity:
         tax_id: 'CUIT'
@@ -87,14 +93,12 @@ es:
         number: 'Número'
         customer: 'Cliente'
         created_at: 'Fecha'
-      invoice_item:
-        item: 'Artículo'
+      invoice_commodity:
+        commodity: 'Mercancía'
         quantity: 'Cantidad'
         price: 'Precio'
       item:
         code: 'Código'
-        name: 'Nombre'
-        price: 'Precio'
         unit: 'Unidad'
       organization:
         name: 'Nombre'
@@ -107,8 +111,8 @@ es:
         maker: 'Realizó'
         receiver: 'Recibió'
         created_at: 'Fecha de emisión'
-      purchase_item:
-        item: 'Artículo'
+      purchase_commodity:
+        commodity: 'Mercancía'
         unit: 'Unidad'
         quantity: 'Cantidad'
         price: 'Precio'
@@ -116,13 +120,13 @@ es:
         name: 'Nombre'
       supply:
         quantity: 'Cantidad'
-        item: 'Artículo'
+        commodity: 'Mercancía'
       receipt:
         number: 'Número'
         customer: 'Cliente'
         created_at: 'Fecha'
-      receipt_item:
-        item: 'Artículo'
+      receipt_commodity:
+        commodity: 'Mercancía'
         quantity: 'Cantidad'
       relation:
         account_id: 'Cuenta'

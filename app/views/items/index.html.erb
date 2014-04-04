@@ -5,9 +5,9 @@
     <thead>
       <tr>
         <th><%= Item.human_attribute_name 'code' %></th>
-        <th><%= Item.human_attribute_name 'name' %></th>
+        <th><%= Commodity.human_attribute_name 'name' %></th>
         <th class="visible-lg"><%= Item.human_attribute_name 'unit' %></th>
-        <th class="visible-lg"><%= Item.human_attribute_name 'price' %></th>
+        <th class="visible-lg"><%= Commodity.human_attribute_name 'price' %></th>
         <th colspan="3">
           <%= link_to_new new_item_path, class: 'btn btn-default btn-xs pull-right' %>
         </th>

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class WarehousesTest < ActionDispatch::IntegrationTest
-  include ItemTestHelper
+  include CommodityTestHelper
 
   test 'should create a warehouse' do
     login
@@ -9,8 +9,8 @@ class WarehousesTest < ActionDispatch::IntegrationTest
     visit new_warehouse_path
     fill_in_new_warehouse
 
-    add_item items(:candy), 10, 1
-    add_item items(:chocolate), 10, 2
+    add_commodity items(:candy), 10, 1
+    add_commodity items(:chocolate), 10, 2
 
     assert_difference 'Warehouse.count' do
       assert_difference 'Supply.count', 2 do
@@ -37,13 +37,13 @@ class WarehousesTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test 'should add new item' do
+  test 'should add new commodity' do
     login
 
     visit new_warehouse_path
     fill_in_new_warehouse
 
-    add_new_item prefix: 'warehouse_supplies'
+    add_new_commodity prefix: 'warehouse_supplies'
   end
 
   private
@@ -52,12 +52,12 @@ class WarehousesTest < ActionDispatch::IntegrationTest
       fill_in 'warehouse_name', with: 'Alternative warehouse'
     end
 
-    def add_item item, quantity, index
+    def add_commodity commodity, quantity, index
       click_link I18n.t('warehouses.new.supply') if index > 1
 
       within "#supplies fieldset:nth-child(#{index})" do
-        input_id = find('input[name$="[item]"]')[:id]
-        page.execute_script "$('##{input_id}').focus().val('#{item.name}').keydown()"
+        input_id = find('input[name$="[commodity]"]')[:id]
+        page.execute_script "$('##{input_id}').focus().val('#{commodity.name}').keydown()"
 
         fill_in find('input[name$="[quantity]"]')[:id], with: quantity
       end

@@ -1,0 +1,11 @@
+candy:
+  name: Candy
+  price: 0.59
+  account: cirope
+  classification: candy (Item)
+
+chocolate:
+  name: Chocolate
+  price: 1.29
+  account: cirope
+  classification: chocolate (Item)

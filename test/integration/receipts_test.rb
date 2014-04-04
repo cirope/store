@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ReceiptsTest < ActionDispatch::IntegrationTest
   include EntitiesTestHelper
-  include ItemTestHelper
+  include CommodityTestHelper
 
   test 'should create a receipt' do
     book = books :cirope_sa_x
@@ -11,11 +11,11 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     visit new_book_receipt_path(book)
     fill_in_new_receipt
 
-    add_item items(:candy), 1
-    add_item items(:chocolate), 2
+    add_commodity commodities(:candy), 1
+    add_commodity commodities(:chocolate), 2
 
     assert_difference 'book.receipts.count' do
-      assert_difference 'ReceiptItem.count', 2 do
+      assert_difference 'ReceiptCommodity.count', 2 do
         find('.btn.btn-primary').click
       end
     end
@@ -28,13 +28,13 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
 
     visit edit_receipt_path(receipt)
 
-    page.find('#receipt_items fieldset:nth-child(1)').hover
+    page.find('#receipt_commodities fieldset:nth-child(1)').hover
 
-    within '#receipt_items fieldset:nth-child(1)' do
+    within '#receipt_commodities fieldset:nth-child(1)' do
       find('a[data-dynamic-form-event="hideItem"]').click
     end
 
-    assert_difference 'receipt.receipt_items.count', -1 do
+    assert_difference 'receipt.receipt_commodities.count', -1 do
       find('.btn.btn-primary').click
     end
   end
@@ -47,14 +47,14 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     add_customer
   end
 
-  test 'should add new item' do
+  test 'should add new commodity' do
     book = books :cirope_sa_p
     login
 
     visit new_book_receipt_path(book)
     fill_in_new_receipt
 
-    add_new_item prefix: 'receipt_receipt_items'
+    add_new_commodity prefix: 'receipt_receipt_commodities'
   end
 
   private
@@ -67,12 +67,12 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
       find('.ui-autocomplete li.ui-menu-item').click
     end
 
-    def add_item item, index
-      click_link I18n.t('receipts.new.item') if index > 1
+    def add_commodity commodity, index
+      click_link I18n.t('receipts.new.commodity') if index > 1
 
-      within "#receipt_items fieldset:nth-child(#{index})" do
-        input_id = find('input[name$="[item]"]')[:id]
-        page.execute_script "$('##{input_id}').focus().val('#{item.name}').keydown()"
+      within "#receipt_commodities fieldset:nth-child(#{index})" do
+        input_id = find('input[name$="[commodity]"]')[:id]
+        page.execute_script "$('##{input_id}').focus().val('#{commodity.name}').keydown()"
 
         fill_in find('input[name$="[quantity]"]')[:id], with: '1'
       end

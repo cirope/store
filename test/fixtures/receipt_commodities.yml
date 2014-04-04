@@ -1,0 +1,9 @@
+one_candy:
+  commodity: candy
+  quantity: 1
+  receipt: first_receipt
+
+one_chocolate:
+  commodity: chocolate
+  quantity: 1
+  receipt: first_receipt

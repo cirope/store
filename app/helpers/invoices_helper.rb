@@ -1,8 +1,8 @@
 module InvoicesHelper
-  def invoice_items
-    @invoice.invoice_items.new if @invoice.invoice_items.empty?
+  def invoice_commodities
+    @invoice.invoice_commodities.new if @invoice.invoice_commodities.empty?
 
-    @invoice.invoice_items
+    @invoice.invoice_commodities
   end
 
   def invoice_number

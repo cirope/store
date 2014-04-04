@@ -6,8 +6,8 @@ class Receipt < ActiveRecord::Base
   include Receipts::Scopes
   include Receipts::Validation
 
-  has_many :receipt_items, dependent: :destroy
-  accepts_nested_attributes_for :receipt_items, allow_destroy: true, reject_if: :all_blank
+  has_many :receipt_commodities, dependent: :destroy
+  accepts_nested_attributes_for :receipt_commodities, allow_destroy: true, reject_if: :all_blank
 
   def to_s
     number.to_s

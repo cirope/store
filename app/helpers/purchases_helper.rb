@@ -1,8 +1,8 @@
 module PurchasesHelper
-  def purchase_items
-    @purchase.purchase_items.new if @purchase.purchase_items.empty?
+  def purchase_commodities
+    @purchase.purchase_commodities.new if @purchase.purchase_commodities.empty?
 
-    @purchase.purchase_items
+    @purchase.purchase_commodities
   end
 
   def purchase_number

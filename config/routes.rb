@@ -21,6 +21,8 @@ Store::Application.routes.draw do
 
     # Resorces
     resources :cities
+    resources :commodities, controller: :items, except: :index
+    resources :commodities, only: :index
     resources :customers
     resources :items
     resources :providers
