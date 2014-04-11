@@ -5,7 +5,7 @@
     <thead>
       <tr>
         <th><%= Receipt.human_attribute_name 'number' %></th>
-        <th class="visible-lg"><%= Receipt.human_attribute_name 'created_at' %></th>
+        <th class="visible-lg"><%= Receipt.human_attribute_name 'issued_at' %></th>
         <th><%= Receipt.human_attribute_name 'customer' %></th>
         <th colspan="3">
           <%= link_to_new new_book_receipt_path(@book), class: 'btn btn-default btn-xs pull-right' %>
@@ -17,7 +17,7 @@
       <% @receipts.each do |receipt| %>
         <tr>
           <td><%= receipt.number %></td>
-          <td class="visible-lg"><%= l receipt_date(receipt) %></td>
+          <td class="visible-lg"><%= l receipt.issued_at %></td>
           <td><%= receipt.customer %></td>
           <td><%= link_to_show receipt %></td>
           <td><%= link_to_edit [:edit, receipt] %></td>

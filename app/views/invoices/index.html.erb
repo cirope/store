@@ -5,7 +5,7 @@
     <thead>
       <tr>
         <th><%= Invoice.human_attribute_name 'number' %></th>
-        <th class="visible-lg"><%= Invoice.human_attribute_name 'created_at' %></th>
+        <th class="visible-lg"><%= Invoice.human_attribute_name 'issued_at' %></th>
         <th><%= Invoice.human_attribute_name 'customer' %></th>
         <th colspan="3">
           <%= link_to_new new_book_invoice_path(@book), class: 'btn btn-default btn-xs pull-right' %>
@@ -17,7 +17,7 @@
       <% @invoices.each do |invoice| %>
         <tr>
           <td><%= invoice.number %></td>
-          <td class="visible-lg"><%= l invoice_date(invoice) %></td>
+          <td class="visible-lg"><%= l invoice.issued_at %></td>
           <td><%= invoice.customer %></td>
           <td><%= link_to_show invoice %></td>
           <td><%= link_to_edit [:edit, invoice] %></td>

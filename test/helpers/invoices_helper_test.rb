@@ -22,14 +22,4 @@ class InvoicesHelperTest < ActionView::TestCase
 
     assert_equal @invoice.number, invoice_number
   end
-
-  test 'invoice date' do
-    @invoice = Invoice.new
-
-    assert_equal Date.today, invoice_date
-
-    @invoice = invoices :first_sale
-
-    assert_equal @invoice.created_at.to_date, invoice_date
-  end
 end

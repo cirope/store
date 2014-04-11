@@ -8,8 +8,4 @@ module ReceiptsHelper
   def receipt_number
     @receipt.persisted? ? @receipt.number : @book.next_available_number
   end
-
-  def receipt_date receipt = @receipt
-    receipt.persisted? ? receipt.created_at.to_date : Date.today
-  end
 end
