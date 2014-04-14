@@ -1,5 +1,6 @@
 first_receipt:
   number: 1
+  issued_at: <%= Time.zone.today.to_s :db %>
   customer: havanna
   book: cirope_sa_x
   account: cirope

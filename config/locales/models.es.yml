@@ -91,8 +91,8 @@ es:
         city: 'Ciudad'
       invoice:
         number: 'Número'
+        issued_at: 'Fecha'
         customer: 'Cliente'
-        created_at: 'Fecha'
       invoice_commodity:
         commodity: 'Mercancía'
         quantity: 'Cantidad'
@@ -123,8 +123,8 @@ es:
         commodity: 'Mercancía'
       receipt:
         number: 'Número'
+        issued_at: 'Fecha'
         customer: 'Cliente'
-        created_at: 'Fecha'
       receipt_commodity:
         commodity: 'Mercancía'
         quantity: 'Cantidad'

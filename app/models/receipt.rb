@@ -3,6 +3,7 @@ class Receipt < ActiveRecord::Base
   include Auditable
   include Books::Numerable
   include Receipts::Customer
+  include Receipts::DefaultValues
   include Receipts::Scopes
   include Receipts::Validation
 

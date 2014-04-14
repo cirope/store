@@ -8,10 +8,12 @@ class InvoiceTest < ActiveSupport::TestCase
   test 'blank attributes' do
     @invoice.number = ''
     @invoice.customer = nil
+    @invoice.issued_at = nil
 
     assert @invoice.invalid?
     assert_error @invoice, :number, :blank
     assert_error @invoice, :customer, :blank
+    assert_error @invoice, :issued_at, :blank
   end
 
   test 'unique attributes' do
@@ -20,6 +22,21 @@ class InvoiceTest < ActiveSupport::TestCase
 
     assert invoice.invalid?
     assert_error invoice, :number, :taken
+  end
+
+  test 'date validations' do
+    @invoice.issued_at = '13/13/13'
+
+    assert @invoice.invalid?
+    assert_error @invoice, :issued_at, :invalid_date
+  end
+
+  test 'issued in sequence' do
+    invoice = @invoice.dup
+    invoice.issued_at -= 1.day
+
+    assert invoice.invalid?
+    assert_error invoice, :issued_at, :invalid
   end
 
   test 'assign number after validate' do

@@ -8,10 +8,12 @@ class ReceiptTest < ActiveSupport::TestCase
   test 'blank attributes' do
     @receipt.number = ''
     @receipt.customer = nil
+    @receipt.issued_at = nil
 
     assert @receipt.invalid?
     assert_error @receipt, :number, :blank
     assert_error @receipt, :customer, :blank
+    assert_error @receipt, :issued_at, :blank
   end
 
   test 'unique attributes' do
@@ -20,6 +22,13 @@ class ReceiptTest < ActiveSupport::TestCase
 
     assert receipt.invalid?
     assert_error receipt, :number, :taken
+  end
+
+  test 'date validations' do
+    @receipt.issued_at = '13/13/13'
+
+    assert @receipt.invalid?
+    assert_error @receipt, :issued_at, :invalid_date
   end
 
   test 'assign number after validate' do

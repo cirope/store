@@ -1,1 +1,1 @@
-ActionDispatch::Http::URL.tld_length = APPLICATION['host'].count('.')
+ActionDispatch::Http::URL.tld_length = ENV['APP_HOST'].count('.')

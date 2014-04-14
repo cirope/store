@@ -24,6 +24,7 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_difference ['Receipt.count', 'ReceiptCommodity.count'] do
       post :create, book_id: @book, receipt: {
         customer_id: customers(:havanna).id,
+        issued_at: I18n.l(Time.zone.today),
         receipt_commodities_attributes: [
           { commodity_id: commodities(:candy).id, quantity: '5' }
         ]
