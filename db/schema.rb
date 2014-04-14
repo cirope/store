@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140410232537) do
     t.integer  "lock_version", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "issued_at"
+    t.date     "issued_at",                null: false
   end
 
   add_index "invoices", ["account_id"], name: "index_invoices_on_account_id", using: :btree
@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20140410232537) do
     t.integer  "lock_version", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "issued_at"
+    t.date     "issued_at",                null: false
   end
 
   add_index "receipts", ["account_id"], name: "index_receipts_on_account_id", using: :btree
