@@ -17,6 +17,7 @@ gem 'will_paginate-bootstrap'
 gem 'validates_timeliness'
 gem 'irreverent'
 gem 'paper_trail'
+gem 'figaro'
 gem 'rack-mini-profiler'
 gem 'newrelic_rpm'
 
