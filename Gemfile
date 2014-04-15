@@ -19,6 +19,7 @@ gem 'irreverent'
 gem 'paper_trail'
 gem 'figaro'
 gem 'rack-mini-profiler'
+gem 'sidekiq'
 gem 'newrelic_rpm'
 
 gem 'unicorn'
@@ -29,6 +30,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano-sidekiq'
   gem 'unicorn-rails'
 end
 
