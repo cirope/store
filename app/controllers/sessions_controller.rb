@@ -2,11 +2,7 @@ class SessionsController < ApplicationController
   before_action :set_title, except: [:destroy]
 
   def new
-    if current_user
-      redirect_to default_url
-    else
-      session.clear
-    end
+    redirect_to default_url if current_user
   end
 
   def create
