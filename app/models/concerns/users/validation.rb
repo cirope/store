@@ -7,6 +7,6 @@ module Users::Validation
     validates :email,
       uniqueness: { case_sensitive: false },
       presence: true,
-      format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+      format: { with: EMAIL_REGEX }
   end
 end
