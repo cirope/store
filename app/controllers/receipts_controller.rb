@@ -3,8 +3,9 @@ class ReceiptsController < ApplicationController
 
   before_action :authorize
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
-  before_action :set_book
   before_action :set_title, except: [:destroy]
+
+  include BookScoped
 
   # GET /receipts
   def index
@@ -51,11 +52,7 @@ class ReceiptsController < ApplicationController
   private
 
     def set_receipt
-      @receipt = Receipt.find params[:id]
-    end
-
-    def set_book
-      @book = @receipt ? @receipt.book : Book.find(params[:book_id])
+      @receipt = @resource = Receipt.find params[:id]
     end
 
     def receipt_params

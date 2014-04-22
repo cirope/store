@@ -3,8 +3,9 @@ class InvoicesController < ApplicationController
 
   before_action :authorize
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
-  before_action :set_book
   before_action :set_title, except: [:destroy]
+
+  include BookScoped
 
   # GET /invoices
   def index
@@ -51,11 +52,7 @@ class InvoicesController < ApplicationController
   private
 
     def set_invoice
-      @invoice = Invoice.find params[:id]
-    end
-
-    def set_book
-      @book = @invoice ? @invoice.book : Book.find(params[:book_id])
+      @invoice = @resource = Invoice.find params[:id]
     end
 
     def invoice_params
