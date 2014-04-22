@@ -9,3 +9,9 @@ chocolate:
   price: 1.29
   account: cirope
   classification: chocolate (Item)
+
+delivery:
+  name: Delivery
+  price: 0.29
+  account: cirope
+  classification: delivery (Service)
