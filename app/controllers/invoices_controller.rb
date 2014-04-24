@@ -9,7 +9,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices
   def index
-    @invoices = @book.invoices.ordered.page params[:page]
+    @invoices = invoices.ordered.page params[:page]
 
     respond_with @invoices
   end
@@ -21,7 +21,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/new
   def new
-    @invoice = @book.invoices.new
+    @invoice = @book.invoices.new customer_id: params[:customer_id]
     respond_with @invoice
   end
 
@@ -53,6 +53,14 @@ class InvoicesController < ApplicationController
 
     def set_invoice
       @invoice = @resource = Invoice.find params[:id]
+    end
+
+    def invoices
+      customer ? @book.invoices.by_customer(customer) : @book.invoices
+    end
+
+    def customer
+      @customer ||= Customer.find params[:customer_id] if params[:customer_id]
     end
 
     def invoice_params

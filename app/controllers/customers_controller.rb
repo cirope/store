@@ -14,6 +14,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1
   def show
+    @organizations = Organization.all
     respond_with @customer
   end
 

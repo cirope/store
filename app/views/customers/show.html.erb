@@ -1,4 +1,34 @@
 <%= render @customer.entity %>
 
+<% @organizations.each_slice(2) do |organizations| %>
+  <div class="row">
+    <% organizations.each do |organization| %>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading"><%= organization %></div>
+          <div class="panel-body">
+            <% if organization.books.income.empty? %>
+              <div class="alert alert-warning">
+                <%= t '.empty_books' %>
+              </div>
+            <% else %>
+              <ul class="list-unstyled">
+                <% organization.books.income.each do |book|  %>
+                  <li>
+                    <span class="label label-default"><%= book %></span>
+                    <%= customer_vouchers_link book, @customer %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<hr />
+
 <%= link_to_edit [:edit, @customer] %> |
 <%= link_to_index customers_path %>

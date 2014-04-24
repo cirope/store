@@ -3,7 +3,7 @@ require 'test_helper'
 class InvoicesControllerTest < ActionController::TestCase
 
   setup do
-    @invoice = invoices(:first_sale)
+    @invoice = invoices :first_sale
     @book = @invoice.book
 
     login
@@ -13,6 +13,15 @@ class InvoicesControllerTest < ActionController::TestCase
     get :index, book_id: @book
     assert_response :success
     assert_not_nil assigns(:invoices)
+  end
+
+  test 'should get index filtered by customer' do
+    customer = @invoice.customer
+
+    get :index, book_id: @book, customer_id: customer
+    assert_response :success
+    assert_not_nil assigns(:invoices)
+    assert assigns(:invoices).all? { |i| i.customer == customer }
   end
 
   test 'should get new' do

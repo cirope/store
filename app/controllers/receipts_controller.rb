@@ -9,7 +9,7 @@ class ReceiptsController < ApplicationController
 
   # GET /receipts
   def index
-    @receipts = @book.receipts.ordered.page params[:page]
+    @receipts = receipts.ordered.page params[:page]
 
     respond_with @book, @receipts
   end
@@ -21,7 +21,7 @@ class ReceiptsController < ApplicationController
 
   # GET /receipts/new
   def new
-    @receipt = @book.receipts.new
+    @receipt = @book.receipts.new customer_id: params[:customer_id]
     respond_with @book, @receipt
   end
 
@@ -53,6 +53,14 @@ class ReceiptsController < ApplicationController
 
     def set_receipt
       @receipt = @resource = Receipt.find params[:id]
+    end
+
+    def receipts
+      customer ? @book.receipts.by_customer(customer) : @book.receipts
+    end
+
+    def customer
+      @customer ||= Customer.find params[:customer_id] if params[:customer_id]
     end
 
     def receipt_params
