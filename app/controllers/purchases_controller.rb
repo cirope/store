@@ -3,8 +3,9 @@ class PurchasesController < ApplicationController
 
   before_action :authorize
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
-  before_action :set_book
   before_action :set_title, except: [:destroy]
+
+  include BookScoped
 
   # GET /purchases
   def index
@@ -51,11 +52,7 @@ class PurchasesController < ApplicationController
   private
 
     def set_purchase
-      @purchase = Purchase.find params[:id]
-    end
-
-    def set_book
-      @book = @purchase ? @purchase.book : Book.find(params[:book_id])
+      @purchase = @resource = Purchase.find params[:id]
     end
 
     def purchase_params

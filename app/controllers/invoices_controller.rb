@@ -3,12 +3,13 @@ class InvoicesController < ApplicationController
 
   before_action :authorize
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
-  before_action :set_book
   before_action :set_title, except: [:destroy]
+
+  include BookScoped
 
   # GET /invoices
   def index
-    @invoices = @book.invoices.ordered.page params[:page]
+    @invoices = invoices.ordered.page params[:page]
 
     respond_with @invoices
   end
@@ -20,7 +21,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/new
   def new
-    @invoice = @book.invoices.new
+    @invoice = @book.invoices.new customer_id: params[:customer_id]
     respond_with @invoice
   end
 
@@ -51,11 +52,15 @@ class InvoicesController < ApplicationController
   private
 
     def set_invoice
-      @invoice = Invoice.find params[:id]
+      @invoice = @resource = Invoice.find params[:id]
     end
 
-    def set_book
-      @book = @invoice ? @invoice.book : Book.find(params[:book_id])
+    def invoices
+      customer ? @book.invoices.by_customer(customer) : @book.invoices
+    end
+
+    def customer
+      @customer ||= Customer.find params[:customer_id] if params[:customer_id]
     end
 
     def invoice_params
