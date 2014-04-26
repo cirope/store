@@ -5,7 +5,9 @@
     <% organizations.each do |organization| %>
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading"><%= organization %></div>
+          <div class="panel-heading">
+            <%= t '.vouchers_header', organization: organization %>
+          </div>
           <div class="panel-body">
             <% if organization.books.income.empty? %>
               <div class="alert alert-warning">

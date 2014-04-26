@@ -74,6 +74,7 @@ es:
     show:
       title: 'Ver cliente'
       empty_books: 'No hay talonarios en esta organización'
+      vouchers_header: 'Comprobantes en %{organization}'
     invoices:
       zero: 'Sin facturas'
       one: 'Una factura'
