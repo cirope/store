@@ -16,6 +16,15 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test 'should filtered index' do
+    get :index, q: @customer.name
+    assert_response :success
+
+    customers = assigns :customers
+    assert_equal 1, customers.size
+    assert_equal @customer.name, customers.first.name
+  end
+
+  test 'should filtered index in JSON' do
     xhr :get, :index, q: @customer.name, format: :json
     assert_response :success
 

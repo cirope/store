@@ -3,6 +3,7 @@ es:
 
   menu:
     admin: 'Administración'
+    search: 'Buscar...'
 
   messages:
     confirmation: '¿Está seguro?'
@@ -17,6 +18,12 @@ es:
     loading: 'Cargando...'
     logout: 'Salir'
     show: 'Ver'
+
+  views:
+    generic:
+      empty_index: 'Sin elementos que listar'
+      empty_search:
+        title_html: 'La búsqueda de <span class="label label-default">%{search}</span> no obtuvo ningún resultado'
 
   accounts:
     edit:

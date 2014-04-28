@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
   # GET /customers
   def index
     @customers = Customer.search query: params[:q], limit: request.xhr?
+    @searchable = true
 
     respond_with @customers
   end
