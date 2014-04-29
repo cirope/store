@@ -6,7 +6,7 @@ module CustomersHelper
   end
 
   def customer_vouchers_link book, customer
-    count = book.sheets.where(customer_id: customer.id).count
+    count = book.sheets_count_by_customer(customer)
     kind = book.kind_class.to_s.tableize
     link_label = t "customers.#{kind}", count: count
 

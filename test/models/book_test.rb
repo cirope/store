@@ -108,4 +108,11 @@ class BookTest < ActiveSupport::TestCase
 
     assert_equal ['P'], @book.valid_kinds
   end
+
+  test 'sheets count by customer' do
+    customer = customers :havanna
+    expected_count = @book.sheets.where(customer_id: customer.id).count
+
+    assert_equal expected_count, @book.sheets_count_by_customer(customer)
+  end
 end
