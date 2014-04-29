@@ -38,4 +38,4 @@
 <% end %>
 
 <%= link_to_edit [:edit, @invoice] %> |
-<%= link_to_index book_invoices_path(@book) %>
+<%= link_to_index book_invoices_path(@book, customer_id: params[:customer_id]) %>

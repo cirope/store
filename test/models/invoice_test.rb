@@ -46,4 +46,10 @@ class InvoiceTest < ActiveSupport::TestCase
     assert invoice.valid?
     assert_not_nil invoice.number
   end
+
+  test 'by customer' do
+    customer = @invoice.customer
+
+    assert Invoice.by_customer(customer).all? { |i| i.customer == customer }
+  end
 end

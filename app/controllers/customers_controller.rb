@@ -8,12 +8,15 @@ class CustomersController < ApplicationController
   # GET /customers
   def index
     @customers = Customer.search query: params[:q], limit: request.xhr?
+    @customers = @customers.page params[:page] if request.format == Mime::HTML
+    @searchable = true
 
     respond_with @customers
   end
 
   # GET /customers/1
   def show
+    @organizations = Organization.all
     respond_with @customer
   end
 

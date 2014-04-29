@@ -24,6 +24,8 @@
       <% end %>
     </tbody>
   </table>
+
+  <%= paginate @customers %>
 <% end %>
 
 <%= link_to_new new_customer_path, class: 'btn btn-primary' %>

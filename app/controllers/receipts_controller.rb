@@ -3,12 +3,13 @@ class ReceiptsController < ApplicationController
 
   before_action :authorize
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
-  before_action :set_book
   before_action :set_title, except: [:destroy]
+
+  include BookScoped
 
   # GET /receipts
   def index
-    @receipts = @book.receipts.ordered.page params[:page]
+    @receipts = receipts.ordered.page params[:page]
 
     respond_with @book, @receipts
   end
@@ -20,7 +21,7 @@ class ReceiptsController < ApplicationController
 
   # GET /receipts/new
   def new
-    @receipt = @book.receipts.new
+    @receipt = @book.receipts.new customer_id: params[:customer_id]
     respond_with @book, @receipt
   end
 
@@ -51,11 +52,15 @@ class ReceiptsController < ApplicationController
   private
 
     def set_receipt
-      @receipt = Receipt.find params[:id]
+      @receipt = @resource = Receipt.find params[:id]
     end
 
-    def set_book
-      @book = @receipt ? @receipt.book : Book.find(params[:book_id])
+    def receipts
+      customer ? @book.receipts.by_customer(customer) : @book.receipts
+    end
+
+    def customer
+      @customer ||= Customer.find params[:customer_id] if params[:customer_id]
     end
 
     def receipt_params

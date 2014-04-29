@@ -2,6 +2,7 @@ class Invoice < ActiveRecord::Base
   include Accounts::Scoped
   include Auditable
   include Books::Numerable
+  include CustomerScoped
   include Invoices::Customer
   include Invoices::DefaultValues
   include Invoices::Scopes

@@ -38,4 +38,10 @@ class ReceiptTest < ActiveSupport::TestCase
     assert receipt.valid?
     assert_not_nil receipt.number
   end
+
+  test 'by customer' do
+    customer = @receipt.customer
+
+    assert Receipt.by_customer(customer).all? { |i| i.customer == customer }
+  end
 end

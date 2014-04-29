@@ -2,13 +2,18 @@
   <%= render 'shared/empty_index', message: t('.empty_html') %>
 <% else %>
   <table class="table table-striped table-hover">
+    <% if @customer %>
+      <caption>
+        <h4><%= t ".caption_html", customer: link_to(@customer, @customer) %></h4>
+      </caption>
+    <% end %>
     <thead>
       <tr>
         <th><%= Invoice.human_attribute_name 'number' %></th>
         <th class="visible-lg"><%= Invoice.human_attribute_name 'issued_at' %></th>
         <th><%= Invoice.human_attribute_name 'customer' %></th>
         <th colspan="3">
-          <%= link_to_new new_book_invoice_path(@book), class: 'btn btn-default btn-xs pull-right' %>
+          <%= new_invoice_link class: 'btn btn-default btn-xs pull-right' %>
         </th>
       </tr>
     </thead>
@@ -19,7 +24,7 @@
           <td><%= invoice.number %></td>
           <td class="visible-lg"><%= l invoice.issued_at %></td>
           <td><%= invoice.customer %></td>
-          <td><%= link_to_show invoice %></td>
+          <td><%= link_to_show [invoice, customer_id: params[:customer_id]] %></td>
           <td><%= link_to_edit [:edit, invoice] %></td>
           <td><%= link_to_destroy invoice %></td>
         </tr>
@@ -30,4 +35,4 @@
   <%= paginate @invoices %>
 <% end %>
 
-<%= link_to_new new_book_invoice_path(@book), class: 'btn btn-primary' %>
+<%= new_invoice_link class: 'btn btn-primary' %>

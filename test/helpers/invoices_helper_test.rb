@@ -22,4 +22,8 @@ class InvoicesHelperTest < ActionView::TestCase
 
     assert_equal @invoice.number, invoice_number
   end
+
+  test 'new invoice link' do
+    skip
+  end
 end

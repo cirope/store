@@ -1,0 +1,7 @@
+<% if @searchable %>
+  <%= form_for :search, method: :get, html: { class: 'navbar-form navbar-left' } do %>
+    <div class="form-group">
+      <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: t('menu.search') %>
+    </div>
+  <% end %>
+<% end %>

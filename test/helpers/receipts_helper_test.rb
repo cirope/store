@@ -22,4 +22,8 @@ class ReceiptsHelperTest < ActionView::TestCase
 
     assert_equal @receipt.number, receipt_number
   end
+
+  test 'new receipt link' do
+    skip
+  end
 end

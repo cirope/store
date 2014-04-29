@@ -36,4 +36,4 @@
 <% end %>
 
 <%= link_to_edit [:edit, @receipt] %> |
-<%= link_to_index book_receipts_path(@book) %>
+<%= link_to_index book_receipts_path(@book, customer_id: params[:customer_id]) %>

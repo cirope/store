@@ -89,11 +89,30 @@ class BookTest < ActiveSupport::TestCase
     assert_equal Purchase, @book.kind_class
   end
 
+  test 'sheets' do
+    assert_equal @book.invoices, @book.sheets
+
+    @book = books :cirope_sa_x
+
+    assert_equal @book.receipts, @book.sheets
+
+    @book = books :cirope_sa_p
+
+    assert_equal @book.purchases, @book.sheets
+  end
+
   test 'valid kinds' do
     assert_equal @book.organization.issuable_receipts, @book.valid_kinds
 
     @book = books :cirope_sa_p
 
     assert_equal ['P'], @book.valid_kinds
+  end
+
+  test 'sheets count by customer' do
+    customer = customers :havanna
+    expected_count = @book.sheets.where(customer_id: customer.id).count
+
+    assert_equal expected_count, @book.sheets_count_by_customer(customer)
   end
 end

@@ -15,6 +15,15 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:receipts)
   end
 
+  test 'should get index filtered by customer' do
+    customer = @receipt.customer
+
+    get :index, book_id: @book, customer_id: customer
+    assert_response :success
+    assert_not_nil assigns(:receipts)
+    assert assigns(:receipts).all? { |i| i.customer == customer }
+  end
+
   test 'should get new' do
     get :new, book_id: @book
     assert_response :success
