@@ -9,5 +9,9 @@ class LinksHelperTest < ActionView::TestCase
     assert_match t('navigation.index'), link_to_index('#')
     assert_match t('navigation.show'), link_to_show('#')
     assert_match t('navigation.home'), link_to_home
+
+    @virtual_path = 'users.index'
+
+    assert_match t('.new'), link_to_new('#')
   end
 end
