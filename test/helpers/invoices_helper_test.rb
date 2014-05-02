@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class InvoicesHelperTest < ActionView::TestCase
+  include LinksHelper
+
   test 'invoice commodities' do
     @invoice = invoices :first_sale
 
@@ -14,7 +16,7 @@ class InvoicesHelperTest < ActionView::TestCase
 
   test 'invoice number' do
     @invoice = Invoice.new
-    @book = books :cirope_sa_x
+    @book = books :cirope_sa_a
 
     assert_equal @book.next_available_number, invoice_number
 
@@ -24,6 +26,9 @@ class InvoicesHelperTest < ActionView::TestCase
   end
 
   test 'new invoice link' do
-    skip
+    @virtual_path = 'invoices.index'
+    @book = books :cirope_sa_a
+
+    assert_match new_book_invoice_path(@book), new_invoice_link
   end
 end

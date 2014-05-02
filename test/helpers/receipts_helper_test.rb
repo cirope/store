@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ReceiptsHelperTest < ActionView::TestCase
+  include LinksHelper
+
   test 'receipt commodities' do
     @receipt = receipts :first_receipt
 
@@ -24,6 +26,9 @@ class ReceiptsHelperTest < ActionView::TestCase
   end
 
   test 'new receipt link' do
-    skip
+    @virtual_path = 'receipts.index'
+    @book = books :cirope_sa_x
+
+    assert_match new_book_receipt_path(@book), new_receipt_link
   end
 end
