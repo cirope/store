@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.all
-
     respond_with @items
   end
 
@@ -55,7 +54,7 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit :code, :unit, commodity_attributes: [
-        :id, :code, :name, :price, :unit, :lock_version
+        :id, :name, :price, :lock_version
       ]
     end
 end

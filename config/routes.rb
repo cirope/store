@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :customers
     resources :items
     resources :providers
+    resources :services
     resources :states
     resources :users
     resources :warehouses

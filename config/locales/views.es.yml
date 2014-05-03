@@ -69,8 +69,6 @@ es:
       title: 'Ver ciudad'
 
   commodities:
-    edit:
-      title: 'Editar mercancía'
     index:
       new: 'Nueva mercancía'
       title: 'Listado de mercancías'
@@ -78,8 +76,6 @@ es:
     new:
       title: 'Crear mercancía'
       commodity: 'Agregar nueva mercancía'
-    show:
-      title: 'Ver mercancía'
 
   customers:
     edit:
@@ -242,6 +238,19 @@ es:
   relations:
     relation:
       empty: 'No se encontraron organizaciones con ese criterio'
+
+  services:
+    edit:
+      title: 'Editar servicio'
+    index:
+      new: 'Nuevo servicio'
+      title: 'Listado de servicios'
+      empty_html: 'No hay servicios, puede crear uno con el botón <span class="label label-info">Nuevo servicio</span>'
+    new:
+      title: 'Crear servicio'
+      service: 'Agregar nuevo servicio'
+    show:
+      title: 'Ver servicio'
 
   sessions:
     new:

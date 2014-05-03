@@ -1,0 +1,9 @@
+<h2><%= @service %></h2>
+
+<p>
+  <strong><%= Commodity.human_attribute_name 'price' %></strong>:
+  <%= number_to_currency @service.price %>
+</p>
+
+<%= link_to_edit [:edit, @service] %> |
+<%= link_to_index services_path %>

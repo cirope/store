@@ -1,0 +1,13 @@
+<% if @service.persisted? %>
+  $('#modal').on('hidden.bs.modal', function(e) {
+    $('#modal').remove();
+  }).modal('hide');
+
+  $('input[name$="[commodity]"]:last').val('<%= j @service.to_s %>');
+  $('input[name$="[commodity_id]"]:last').val('<%= j @service.id.to_s %>');
+  $('input[name$="[commodity]"][data-autocomplete-update-after]:last').attr(
+    'data-commodity', '<%= j render(template: 'services/show.json').html_safe %>'
+  ).trigger({ type: 'update.autocomplete' });
+<% else %>
+  <%= render template: 'services/new' %>
+<% end %>

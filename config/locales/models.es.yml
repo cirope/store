@@ -53,6 +53,9 @@ es:
       relation:
         one: 'Relación'
         other: 'Relaciones'
+      service:
+        one: 'Servicio'
+        other: 'Servicios'
       state:
         one: 'Provincia'
         other: 'Provincias'
@@ -116,6 +119,7 @@ es:
         unit: 'Unidad'
         quantity: 'Cantidad'
         price: 'Precio'
+      service:
       state:
         name: 'Nombre'
       supply:

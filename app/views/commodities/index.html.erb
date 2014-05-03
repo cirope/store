@@ -17,11 +17,13 @@
         <tr>
           <td><%= commodity.name %></td>
           <td class="visible-lg"><%= number_to_currency commodity.price %></td>
-          <td><%= link_to_show commodity %></td>
-          <td><%= link_to_edit [:edit, commodity] %></td>
-          <td><%= link_to_destroy commodity %></td>
+          <td><%= link_to_show commodity.classification %></td>
+          <td><%= link_to_edit [:edit, commodity.classification] %></td>
+          <td><%= link_to_destroy commodity.classification %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% end %>
+
+<%= link_to_new new_commodity_path, class: 'btn btn-primary' %>

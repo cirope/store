@@ -1,0 +1,15 @@
+<%= simple_form_for @service, data: remote_if_xhr do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :commodity, service_commodity do |cf| %>
+      <%= cf.input :name, input_html: { autofocus: true } %>
+      <%= cf.input :price, as: :string %>
+      <%= cf.input :lock_version, as: :hidden %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+  </div>
+<% end %>

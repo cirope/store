@@ -36,6 +36,7 @@
 //= require providers
 //= require purchases
 //= require receipts
+//= require services
 //= require states
 //= require users
 //= require warehouses
