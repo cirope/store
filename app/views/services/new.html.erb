@@ -1,5 +1,20 @@
-<%= render 'form' %>
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to Item.model_name.human(count: 1), new_item_path, data: remote_if_xhr %>
+  </li>
+  <li class="active">
+    <a href="#service" data-toggle="tab"><%= Service.model_name.human(count: 1) %></a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="service">
+    <br />
+    <%= render 'form' %>
+  </div>
+</div>
 
-<br />
+<% unless request.xhr? %>
+  <br />
 
-<%= link_to_index services_path %>
+  <%= link_to_index services_path %>
+<% end %>

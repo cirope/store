@@ -47,7 +47,7 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     add_customer
   end
 
-  test 'should add new commodity' do
+  test 'should add new item' do
     book = books :cirope_sa_p
     login
 
@@ -55,6 +55,16 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     fill_in_new_receipt
 
     add_new_commodity prefix: 'receipt_receipt_commodities'
+  end
+
+  test 'should add new service' do
+    book = books :cirope_sa_p
+    login
+
+    visit new_book_receipt_path(book)
+    fill_in_new_receipt
+
+    add_new_commodity type: Service, prefix: 'receipt_receipt_commodities'
   end
 
   private

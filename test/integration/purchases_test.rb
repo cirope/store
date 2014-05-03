@@ -48,7 +48,7 @@ class PurchasesTest < ActionDispatch::IntegrationTest
     add_provider
   end
 
-  test 'should add new commodity' do
+  test 'should add new item' do
     book = books :cirope_sa_p
     login
 
@@ -59,6 +59,16 @@ class PurchasesTest < ActionDispatch::IntegrationTest
 
     # Must also autocomplete the unit field
     assert find_field('purchase_purchase_commodities_attributes_0_unit').value.present?
+  end
+
+  test 'should add new service' do
+    book = books :cirope_sa_p
+    login
+
+    visit new_book_purchase_path(book)
+    fill_in_new_purchase
+
+    add_new_commodity type: Service, prefix: 'purchase_purchase_commodities'
   end
 
   private

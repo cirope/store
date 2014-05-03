@@ -48,7 +48,7 @@ class InvoicesTest < ActionDispatch::IntegrationTest
     add_customer
   end
 
-  test 'should add new commodity' do
+  test 'should add new item' do
     book = books :cirope_sa_p
     login
 
@@ -56,6 +56,19 @@ class InvoicesTest < ActionDispatch::IntegrationTest
     fill_in_new_invoice
 
     add_new_commodity prefix: 'invoice_invoice_commodities'
+
+    # Must also autocomplete the price field
+    assert find_field('invoice_invoice_commodities_attributes_0_price').value.present?
+  end
+
+  test 'should add new service' do
+    book = books :cirope_sa_p
+    login
+
+    visit new_book_invoice_path(book)
+    fill_in_new_invoice
+
+    add_new_commodity type: Service, prefix: 'invoice_invoice_commodities'
 
     # Must also autocomplete the price field
     assert find_field('invoice_invoice_commodities_attributes_0_price').value.present?
