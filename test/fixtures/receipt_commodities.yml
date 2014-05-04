@@ -7,3 +7,8 @@ one_chocolate:
   commodity: chocolate
   quantity: 1
   receipt: first_receipt
+
+one_delivery:
+  commodity: delivery
+  quantity: 1
+  receipt: first_receipt

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415134206) do
+ActiveRecord::Schema.define(version: 20140504215825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 20140415134206) do
 
   add_index "books", ["account_id"], name: "index_books_on_account_id", using: :btree
   add_index "books", ["organization_id"], name: "index_books_on_organization_id", using: :btree
+
+  create_table "bounds", force: true do |t|
+    t.integer  "user_id"
+    t.text     "notes"
+    t.integer  "bondable_id",   null: false
+    t.string   "bondable_type", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bounds", ["bondable_id", "bondable_type"], name: "index_bounds_on_bondable_id_and_bondable_type", using: :btree
+  add_index "bounds", ["user_id"], name: "index_bounds_on_user_id", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "name",                     null: false

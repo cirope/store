@@ -11,6 +11,9 @@ es:
       book:
         one: 'Talonario'
         other: 'Talonarios'
+      bound:
+        one: 'Asociación'
+        one: 'Asociaciones'
       commodity:
         one: 'Mercancía'
         other: 'Mercancías'
@@ -77,6 +80,9 @@ es:
         kind: 'Tipo'
         flow: 'Dirección'
         last_used_number: 'Último número utilizado'
+      bound:
+        user: 'Usuario'
+        notes: 'Notas'
       city:
         name: 'Nombre'
         zip_code: 'Código postal'
