@@ -7,5 +7,15 @@ module Users::Scopes
 
       scope.where(auth_token: token).includes(:organizations).take
     end
+
+    def search query: nil, limit: false
+      result = User.order 'name ASC'
+
+      if query.present?
+        result = result.where "#{table_name}.name ILIKE ?", "%#{query.strip}%"
+      end
+
+      limit ? result.limit(10) : result
+    end
   end
 end

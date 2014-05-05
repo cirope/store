@@ -14,6 +14,10 @@ body {
   z-index: 1100;
 }
 
+.nested {
+  margin: 0em 0em 1em 1em;
+}
+
 .panel .form-control {
   border-width: 0px 0px 2px 0px;
   border-style: dotted;

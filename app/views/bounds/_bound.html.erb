@@ -1,0 +1,14 @@
+<fieldset class="row bound">
+  <%= f.input :id, as: :hidden %>
+  <div class="col-md-6">
+    <%= f.input :user, as: :autocomplete, label: false, url: users_path, input_html: {
+      data: { empty_result_label: t('.empty') }
+    } %>
+  </div>
+  <div class="col-md-6">
+    <%= f.input :notes, as: :slim %>
+    <div class="row-controls">
+      <%= link_to_remove_nested_item f %>
+    </div>
+  </div>
+</fieldset>

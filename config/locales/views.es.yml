@@ -55,6 +55,10 @@ es:
       X: 'X'
       P: 'OC'
 
+  bounds:
+    bound:
+      empty: 'No se encontraron usuarios con ese criterio'
+
   cities:
     edit:
       title: 'Editar ciudad'
@@ -232,6 +236,8 @@ es:
     header: 'Documento no válido como factura'
 
   receipt_commodities:
+    new:
+      bound: 'Agregar asociación'
     receipt_commodity:
       empty: 'No se encontraron mercancías, puede agregar una desde <span class="glyphicon glyphicon-plus-sign"></span>'
 

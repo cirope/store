@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.search query: params[:q], limit: request.xhr?
 
     respond_with @users
   end
