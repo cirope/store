@@ -11,4 +11,8 @@ class CustomersHelperTest < ActionView::TestCase
 
     assert_match /href/, customer_vouchers_link(book, customer)
   end
+
+  test 'customer date picker options' do
+    assert_kind_of Hash, customer_date_picker_options
+  end
 end

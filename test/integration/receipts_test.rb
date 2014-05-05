@@ -102,6 +102,7 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
       assert_difference 'Customer.count' do
         find('#modal .btn.btn-primary').click
         assert page.has_no_css?('#modal')
+        page.save_screenshot '/tmp/ss1.png'
       end
 
       assert find_field('receipt_customer').value.present?
@@ -115,6 +116,7 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
       select I18n.t("entities.conditions.#{attributes[:tax_condition]}"),
         from: find('select[name$="[tax_condition]"]')[:id]
       fill_in find('input[name$="[address]"]')[:id], with: attributes[:address]
+      fill_in find('input[name$="[birth]"]')[:id], with: I18n.l(Time.zone.yesterday)
 
       add_city
     end

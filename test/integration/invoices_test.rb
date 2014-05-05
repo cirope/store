@@ -123,6 +123,7 @@ class InvoicesTest < ActionDispatch::IntegrationTest
       select I18n.t("entities.conditions.#{attributes[:tax_condition]}"),
         from: find('select[name$="[tax_condition]"]')[:id]
       fill_in find('input[name$="[address]"]')[:id], with: attributes[:address]
+      fill_in find('input[name$="[birth]"]')[:id], with: I18n.l(Time.zone.yesterday)
 
       add_city
     end

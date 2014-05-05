@@ -91,6 +91,7 @@ es:
         name: 'Nombre'
         price: 'Precio'
       customer:
+        birth: 'Fecha de nacimiento'
       entity:
         tax_id: 'CUIT'
         tax_condition: 'Condición respecto al IVA'

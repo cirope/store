@@ -46,7 +46,10 @@ class CustomersControllerTest < ActionController::TestCase
 
   test 'should create customer' do
     assert_difference('Customer.count') do
-      post :create, customer: { entity_attributes: generic_entity_attributes }
+      post :create, customer: {
+        birth: I18n.l(Time.zone.yesterday),
+        entity_attributes: generic_entity_attributes
+      }
     end
 
     assert_redirected_to customer_url(assigns(:customer))
@@ -54,7 +57,10 @@ class CustomersControllerTest < ActionController::TestCase
 
   test 'should create customer via js' do
     assert_difference('Customer.count') do
-      xhr :post, :create, customer: { entity_attributes: generic_entity_attributes }
+      xhr :post, :create, customer: {
+        birth: I18n.l(Time.zone.yesterday),
+        entity_attributes: generic_entity_attributes
+      }
     end
 
     assert_response :success

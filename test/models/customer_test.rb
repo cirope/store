@@ -5,6 +5,13 @@ class CustomerTest < ActiveSupport::TestCase
     @customer = customers :havanna
   end
 
+  test 'validate birth' do
+    @customer.birth = '13/13/13'
+
+    assert @customer.invalid?
+    assert_error @customer, :birth, :invalid_date
+  end
+
   test 'search' do
     customers = Customer.search query: @customer.name
 

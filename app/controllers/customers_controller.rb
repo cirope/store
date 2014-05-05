@@ -7,8 +7,7 @@ class CustomersController < ApplicationController
 
   # GET /customers
   def index
-    @customers = Customer.search query: params[:q], limit: request.xhr?
-    @customers = @customers.page params[:page] if request.format == Mime::HTML
+    @customers = Customer.page(params[:page]).search query: params[:q]
     @searchable = true
 
     respond_with @customers
@@ -57,8 +56,9 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit :lock_version, entity_attributes: [
-        :id, :tax_id, :tax_condition, :name, :email, :address, :city_id
-      ]
+      params.require(:customer).permit :birth, :lock_version,
+        entity_attributes: [
+          :id, :tax_id, :tax_condition, :name, :email, :address, :city_id
+        ]
     end
 end

@@ -1,23 +1,25 @@
-<fieldset class="row receipt_commodity">
-  <%= f.input :id, as: :hidden %>
-  <div class="col-md-9">
-    <%= f.input :commodity, as: :autocomplete, label: false, url: commodities_path, input_html: {
-      data: { empty_result_label: t('.empty') }
-    } %>
-  </div>
-  <div class="col-md-3">
-    <%= f.input :quantity, as: :slim %>
-    <div class="row-controls">
-      <%= link_to_bounds f %>
-      <%= link_to_remove_nested_item f %>
+<fieldset class="receipt_commodity">
+  <div class="row">
+    <%= f.input :id, as: :hidden %>
+    <div class="col-md-9">
+      <%= f.input :commodity, as: :autocomplete, label: false, url: commodities_path, input_html: {
+        data: { empty_result_label: t('.empty') }
+      } %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :quantity, as: :slim %>
+      <div class="row-controls">
+        <%= link_to_bounds f %>
+        <%= link_to_remove_nested_item f %>
+      </div>
     </div>
   </div>
+
+  <div class="nested hidden" data-toggle-id="<%= f.object.object_id %>">
+    <%= f.simple_fields_for :bounds, receipt_commodity_bounds(f) do |bf| %>
+      <%= render 'bounds/bound', f: bf %>
+    <% end %>
+
+    <%= link_to_add_fields t('receipt_commodities.new.bound'), f, :bounds %>
+  </div>
 </fieldset>
-
-<div class="nested hidden" data-toggle-id="<%= f.object.object_id %>">
-  <%= f.simple_fields_for :bounds, receipt_commodity_bounds(f) do |bf| %>
-    <%= render 'bounds/bound', f: bf %>
-  <% end %>
-
-  <%= link_to_add_fields t('receipt_commodities.new.bound'), f, :bounds %>
-</div>

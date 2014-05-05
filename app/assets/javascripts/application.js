@@ -20,6 +20,7 @@
 //= require bootstrap
 //= require effect_helper
 //= require dynamic_form
+//= require modal_fix
 //= require toggle
 //= require autocomplete
 //= require ajax

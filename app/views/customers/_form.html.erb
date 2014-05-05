@@ -3,6 +3,11 @@
 
   <div class="form-inputs">
     <%= render 'entities/form', f: f %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :birth, as: :date_picker, input_html: { data: customer_date_picker_options } %>
+      </div>
+    </div>
     <%= f.input :lock_version, as: :hidden %>
   </div>
 

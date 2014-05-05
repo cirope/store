@@ -12,4 +12,16 @@ module CustomersHelper
 
     link_to_if count > 0, link_label, [book, book.kind_class, customer_id: customer.id]
   end
+
+  def customer_date_picker_options
+    {
+      date_picker_options: {
+        minDate: '-100Y',
+        maxDate: '+0D',
+        yearRange: "#{Time.zone.today.year - 100}:#{Time.zone.today.year}",
+        changeMonth: true,
+        changeYear: true
+      }
+    }
+  end
 end
