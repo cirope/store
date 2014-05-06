@@ -18,6 +18,7 @@ module Invoices::Validation
     end
 
     def last_issued_at
-      @_last_issued_at ||= self.class.where.not(id: id).order('issued_at').last.try :issued_at
+      previous_invoices = self.class.where('number < ?', number).order 'issued_at'
+      @_last_issued_at ||= previous_invoices.last.try :issued_at
     end
 end
