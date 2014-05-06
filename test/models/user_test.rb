@@ -82,4 +82,17 @@ class UserTest < ActiveSupport::TestCase
 
     Thread.new { assert_nil User.current_id }
   end
+
+  test 'search' do
+    users = User.search query: @user.name
+
+    assert users.present?
+    assert users.all? { |o| o.name =~ /#{@user.name}/ }
+  end
+
+  test 'empty search' do
+    users = User.search query: 'empty search'
+
+    assert users.empty?
+  end
 end
