@@ -13,6 +13,15 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:users)
   end
 
+  test 'should filtered index' do
+    xhr :get, :index, q: @user.name, format: :json
+    assert_response :success
+
+    users = JSON.parse(@response.body)
+    assert_equal 1, users.size
+    assert_equal @user.to_s, users.first['label']
+  end
+
   test 'should get new' do
     get :new
     assert_response :success
