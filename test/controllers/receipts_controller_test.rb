@@ -30,12 +30,23 @@ class ReceiptsControllerTest < ActionController::TestCase
   end
 
   test 'should create receipt' do
-    assert_difference ['Receipt.count', 'ReceiptCommodity.count'] do
+    assert_difference ['Receipt.count', 'ReceiptCommodity.count', 'Bound.count'] do
       post :create, book_id: @book, receipt: {
         customer_id: customers(:havanna).id,
         issued_at: I18n.l(Time.zone.today),
         receipt_commodities_attributes: [
-          { commodity_id: commodities(:candy).id, quantity: '5' }
+          {
+            commodity_id: commodities(:candy).id,
+            quantity: '5',
+            bounds_attributes: [
+              {
+                user_id: users(:franco).id,
+                notes: 'note...',
+                start: '10:55',
+                finish: '11:15',
+              }
+            ]
+          }
         ]
       }
     end
