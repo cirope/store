@@ -53,7 +53,7 @@ class ServicesController < ApplicationController
     end
 
     def service_params
-      params.require(:service).permit commodity_attributes: [
+      params.require(:service).permit :duration, commodity_attributes: [
         :id, :name, :price, :lock_version
       ]
     end

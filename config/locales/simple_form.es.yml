@@ -1,7 +1,7 @@
 es:
   simple_form:
-    "yes": 'Si'
-    "no": 'No'
+    'yes': 'Si'
+    'no': 'No'
     required:
       text: 'requerido'
       mark: '*'
@@ -23,4 +23,6 @@ es:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
-
+    hints:
+      service:
+        duration: 'En minutos'

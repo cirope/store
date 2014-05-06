@@ -127,6 +127,7 @@ es:
         quantity: 'Cantidad'
         price: 'Precio'
       service:
+        duration: 'Duración'
       state:
         name: 'Nombre'
       supply:
