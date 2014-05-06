@@ -16,7 +16,9 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
 
     assert_difference 'book.receipts.count' do
       assert_difference 'ReceiptCommodity.count', 2 do
-        find('.btn.btn-primary').click
+        assert_difference 'Bound.count', 4 do
+          find('.btn.btn-primary').click
+        end
       end
     end
   end
@@ -80,11 +82,48 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     def add_commodity commodity, index
       click_link I18n.t('receipts.new.commodity') if index > 1
 
-      within "#receipt_commodities fieldset:nth-child(#{index})" do
+      within "fieldset.receipt_commodity:nth-child(#{index})" do
         input_id = find('input[name$="[commodity]"]')[:id]
         page.execute_script "$('##{input_id}').focus().val('#{commodity.name}').keydown()"
 
         fill_in find('input[name$="[quantity]"]')[:id], with: '1'
+      end
+
+      find('.ui-autocomplete li.ui-menu-item').click
+
+      add_bounds index
+    end
+
+    def add_bounds index
+      page.find("fieldset.receipt_commodity:nth-child(#{index})").hover
+
+      within "fieldset.receipt_commodity:nth-child(#{index})" do
+        find('.glyphicon-user').click
+        assert page.has_css?('.bound')
+      end
+
+      add_bound 1
+      add_bound 2
+
+      within "fieldset.receipt_commodity:nth-child(#{index})" do
+        find('.glyphicon-user').click
+        assert page.has_no_css?('.bound')
+      end
+    end
+
+    def add_bound index
+      click_link I18n.t('receipt_commodities.new.bound') if index > 1
+      user = users :franco
+
+      within "fieldset.bound:nth-child(#{index})" do
+        fill_in find('input[name$="[notes]"]')[:id], with: 'note...'
+        select '10', from: find('select[name$="[start(4i)]"]')[:id]
+        select '55', from: find('select[name$="[start(5i)]"]')[:id]
+        select '11', from: find('select[name$="[finish(4i)]"]')[:id]
+        select '15', from: find('select[name$="[finish(5i)]"]')[:id]
+
+        input_id = find('input[name$="[user]"]')[:id]
+        page.execute_script "$('##{input_id}').focus().val('#{user.name}').keydown()"
       end
 
       find('.ui-autocomplete li.ui-menu-item').click
