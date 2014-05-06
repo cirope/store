@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="nested hidden" data-toggle-id="<%= f.object.object_id %>">
+  <div class="nested collapse" id="bounds-<%= f.object.object_id %>">
     <%= f.simple_fields_for :bounds, receipt_commodity_bounds(f) do |bf| %>
       <%= render 'bounds/bound', f: bf %>
     <% end %>
