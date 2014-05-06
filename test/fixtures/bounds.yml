@@ -1,4 +1,6 @@
 delivery_boy:
   user: franco
   notes: 'Leave at 2:30'
+  start: '12:15'
+  finish: '12:45'
   bondable: one_delivery (ReceiptCommodity)

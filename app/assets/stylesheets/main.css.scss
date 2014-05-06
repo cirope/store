@@ -15,12 +15,21 @@ body {
 }
 
 .nested {
-  margin: 0em 0em 1em 1em;
+  padding-left: 1em;
+  margin-bottom: 1em;
+  border-left: 5px solid #eee;
 }
 
-.panel .form-control {
-  border-width: 0px 0px 2px 0px;
-  border-style: dotted;
-  box-shadow: none !important;
-  border-radius: 0px;
+.panel {
+  select.time {
+    width: 45%;
+    display: inline;
+  }
+
+  .form-control {
+    border-width: 0px 0px 2px 0px;
+    border-style: dotted;
+    box-shadow: none !important;
+    border-radius: 0px;
+  }
 }

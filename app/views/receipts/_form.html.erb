@@ -1,5 +1,6 @@
 <%= simple_form_for shallow_args(@book, @receipt) do |f| %>
   <%= f.error_notification %>
+  <%= @receipt.errors.full_messages.inspect %>
 
   <div class="form-inputs">
     <div class="row">
