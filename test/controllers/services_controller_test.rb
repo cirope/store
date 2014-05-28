@@ -69,6 +69,9 @@ class ServicesControllerTest < ActionController::TestCase
   end
 
   test 'should destroy service' do
+    @service.commodity.receipt_commodities.clear
+    @service.commodity.invoice_commodities.clear
+
     assert_difference('Service.count', -1) do
       delete :destroy, id: @service
     end

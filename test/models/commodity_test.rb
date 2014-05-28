@@ -67,4 +67,17 @@ class CommodityTest < ActiveSupport::TestCase
     assert_kind_of Hash, receipt_sales
     assert_equal ReceiptCommodity.sum('quantity'), receipt_sales.values.sum
   end
+
+  test 'cancel destruction' do
+    assert_no_difference 'Commodity.count' do
+      @commodity.destroy
+    end
+
+    @commodity.receipt_commodities.clear
+    @commodity.invoice_commodities.clear
+
+    assert_difference 'Commodity.count', -1 do
+      @commodity.destroy
+    end
+  end
 end

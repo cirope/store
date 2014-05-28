@@ -71,6 +71,9 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test 'should destroy item' do
+    @item.commodity.receipt_commodities.clear
+    @item.commodity.invoice_commodities.clear
+
     assert_difference('Item.count', -1) do
       delete :destroy, id: @item
     end

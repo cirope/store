@@ -37,6 +37,15 @@ es:
       update:
         stale: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
 
+    commodities:
+      create:
+        notice: 'Mercancía creada correctamente'
+      destroy:
+        notice: 'Mercancía eliminada'
+      update:
+        notice: 'Mercancía actualizada correctamente'
+        stale: 'No se pudo actualizar la mercancía, revise los datos e inténtelo nuevamente'
+
     invoices:
       create:
         notice: 'Factura creada correctamente'
@@ -46,14 +55,9 @@ es:
         notice: 'Factura actualizada correctamente'
         stale: 'No se pudo actualizar la factura, revise los datos e inténtelo nuevamente'
 
-    commodities:
-      create:
-        notice: 'Mercancía creada correctamente'
+    items:
       destroy:
-        notice: 'Mercancía eliminada'
-      update:
-        notice: 'Mercancía actualizada correctamente'
-        stale: 'No se pudo actualizar la mercancía, revise los datos e inténtelo nuevamente'
+        alert: 'El artículo no pudo ser eliminado, se ha utilizado en remitos y/o facturas'
 
     organizations:
       create:
@@ -93,6 +97,10 @@ es:
     receipts:
       update:
         stale: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'
+
+    services:
+      destroy:
+        alert: 'El servicio no pudo ser eliminado, se ha utilizado en remitos y/o facturas'
 
     sessions:
       create:
