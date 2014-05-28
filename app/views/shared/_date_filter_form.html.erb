@@ -1,23 +1,27 @@
 <%= form_tag url, method: :get do %>
   <div class="row">
     <div class="col-md-1">
-      <%= label_tag :start, t('date_filter.start') %>
+      <%= label_tag :start, t('date_filter.start'), class: 'text-muted' %>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= text_field_tag :start, l(@start.to_date), autocomplete: 'off', class: 'form-control', data: { date_picker: true } %>
+        <%= text_field_tag(
+          :start, l(@start.to_date), autocomplete: 'off', class: 'form-control input-sm', data: { date_picker: true }
+        ) %>
       </div>
     </div>
     <div class="col-md-1">
-      <%= label_tag :finish, t('date_filter.finish') %>
+      <%= label_tag :finish, t('date_filter.finish'), class: 'text-muted' %>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= text_field_tag :finish, l(@finish.to_date), autocomplete: 'off', class: 'form-control', data: { date_picker: true } %>
+        <%= text_field_tag(
+          :finish, l(@finish.to_date), autocomplete: 'off', class: 'form-control input-sm', data: { date_picker: true }
+        ) %>
       </div>
     </div>
     <div class="col-md-2">
-      <%= submit_tag t('date_filter.submit'), class: 'btn btn-default btn-block' %>
+      <%= submit_tag t('date_filter.submit'), class: 'btn btn-primary btn-sm btn-block' %>
     </div>
   </div>
 <% end %>

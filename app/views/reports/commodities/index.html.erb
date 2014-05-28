@@ -4,14 +4,14 @@
   <thead>
     <tr>
       <th><%= Commodity.model_name.human count: 1 %></th>
-      <th><%= ReceiptCommodity.human_attribute_name 'quantity' %></th>
+      <th class="text-right"><%= ReceiptCommodity.human_attribute_name 'quantity' %></th>
     </tr>
   </thead>
   <tbody>
-    <% @commodities_sales.each do |k, v| %>
+    <% @commodities_sales.each do |commodity_name, quantity| %>
       <tr>
-        <td><%= k %></td>
-        <td><%= v %></td>
+        <td><%= commodity_name %></td>
+        <td class="text-right"><%= '%.2f' % quantity %></td>
       </tr>
     <% end %>
   </tbody>
