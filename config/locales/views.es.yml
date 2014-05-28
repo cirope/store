@@ -104,6 +104,11 @@ es:
       one: 'Un recibo'
       other: '%{count} recibos'
 
+  date_filter:
+    start: 'Desde'
+    finish: 'Hasta'
+    submit: 'Aplicar'
+
   entities:
     new:
       city: 'Agregar nueva ciudad'

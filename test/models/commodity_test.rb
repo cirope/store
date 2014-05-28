@@ -44,12 +44,27 @@ class CommodityTest < ActiveSupport::TestCase
     commodities = Commodity.search query: @commodity.name
 
     assert commodities.present?
-    assert commodities.all? { |o| o.name =~ /#{@commodity.name}/ }
+    assert commodities.all? { |c| c.name =~ /#{@commodity.name}/ }
   end
 
   test 'empty search' do
     commodities = Commodity.search query: 'empty search'
 
     assert commodities.empty?
+  end
+
+  test 'with receipts between' do
+    start, finish = 1.day.ago, Time.zone.now
+    commodities = Commodity.with_receipts_between start, finish
+
+    assert commodities.present?
+    assert commodities.all? { |c| c.created_at.between?(start, finish) }
+  end
+
+  test 'receipt sales' do
+    receipt_sales = Commodity.receipt_sales
+
+    assert_kind_of Hash, receipt_sales
+    assert_equal ReceiptCommodity.sum('quantity'), receipt_sales.values.sum
   end
 end

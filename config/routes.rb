@@ -43,6 +43,10 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    namespace :reports do
+      get 'commodities', to: 'commodities#index'
+    end
   end
 
   root 'sessions#new'

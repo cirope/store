@@ -9,6 +9,7 @@ class Commodity < ActiveRecord::Base
 
   belongs_to :classification, polymorphic: true
   has_many :supplies, dependent: :destroy
+  has_many :receipt_commodities
 
   def to_s
     name
