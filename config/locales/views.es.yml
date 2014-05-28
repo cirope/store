@@ -3,6 +3,7 @@ es:
 
   menu:
     admin: 'Administración'
+    reports: 'Reportes'
     search: 'Buscar...'
 
   messages:
