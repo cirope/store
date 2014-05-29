@@ -16,18 +16,24 @@ module Commodities::Scopes
       limit ? result.limit(10) : result
     end
 
-    def with_receipts_between start, finish
-      joins(:receipt_commodities).references(:receipt_commodities).
-        where receipt_commodities: {
-          created_at: start.at_beginning_of_day..finish.at_end_of_day
-        }
+    def sales_report_by voucher, start: Time.zone.today, finish: Time.zone.today
+      sold_between_by(voucher, start, finish).
+        group('commodities.id, commodities.name').
+        order("sum_#{voucher}_commodities_quantity DESC").
+        sum("#{voucher}_commodities.quantity")
     end
 
-    def receipt_sales
-      joins(:receipt_commodities).references(:receipt_commodities).
-        group('commodities.id, commodities.name').
-        order('sum_receipt_commodities_quantity DESC').
-        sum('receipt_commodities.quantity')
-    end
+    private
+
+      def sold_between_by voucher, start, finish
+        relation = :"#{voucher}_commodities"
+
+        joins(relation).references(relation).
+          where(
+            relation => {
+              created_at: start.at_beginning_of_day..finish.at_end_of_day
+            }
+          )
+      end
   end
 end

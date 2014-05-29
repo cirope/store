@@ -251,6 +251,11 @@ es:
     relation:
       empty: 'No se encontraron organizaciones con ese criterio'
 
+  reports:
+    commodities:
+      by_receipt: 'Ventas por recibo'
+      by_invoice: 'Ventas por factura'
+
   services:
     edit:
       title: 'Editar servicio'

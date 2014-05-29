@@ -8,7 +8,7 @@ class Reports::CommoditiesController < ApplicationController
     @start  = parse_date_param(:start)  || Time.zone.today.at_beginning_of_month
     @finish = parse_date_param(:finish) || Time.zone.today
 
-    @commodities_sales = Commodity.with_receipts_between(@start, @finish).receipt_sales
+    @commodities_sales = Commodity.sales_report_by params[:voucher], start: @start, finish: @finish
 
     respond_with @commodities_sales
   end

@@ -45,7 +45,11 @@ Rails.application.routes.draw do
     end
 
     namespace :reports do
-      get 'commodities', to: 'commodities#index'
+      get 'commodities/:voucher',
+        to: 'commodities#index',
+        as: :commodities,
+        defaults: { voucher: 'receipt' },
+        constraints: { voucher: /receipt|invoice/ }
     end
   end
 

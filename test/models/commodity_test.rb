@@ -53,19 +53,22 @@ class CommodityTest < ActiveSupport::TestCase
     assert commodities.empty?
   end
 
-  test 'with receipts between' do
+  test 'sales report by receipt' do
     start, finish = 1.day.ago, Time.zone.now
-    commodities = Commodity.with_receipts_between start, finish
-
-    assert commodities.present?
-    assert commodities.all? { |c| c.created_at.between?(start, finish) }
-  end
-
-  test 'receipt sales' do
-    receipt_sales = Commodity.receipt_sales
+    receipt_sales = Commodity.sales_report_by 'receipt', start: start, finish: finish
+    expected = ReceiptCommodity.where(created_at: start..finish).sum('quantity')
 
     assert_kind_of Hash, receipt_sales
-    assert_equal ReceiptCommodity.sum('quantity'), receipt_sales.values.sum
+    assert_equal expected, receipt_sales.values.sum
+  end
+
+  test 'sales report by invoice' do
+    start, finish = 1.day.ago, Time.zone.now
+    invoice_sales = Commodity.sales_report_by 'invoice', start: start, finish: finish
+    expected = InvoiceCommodity.where(created_at: start..finish).sum('quantity')
+
+    assert_kind_of Hash, invoice_sales
+    assert_equal expected, invoice_sales.values.sum
   end
 
   test 'cancel destruction' do

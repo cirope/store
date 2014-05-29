@@ -1,4 +1,12 @@
-<%= render 'shared/date_filter_form', url: reports_commodities_path %>
+<ul class="nav nav-tabs">
+  <%= voucher_option_for 'receipt' %>
+  <%= voucher_option_for 'invoice' %>
+</ul>
+
+<br />
+
+<%= render 'shared/date_filter_form', url: reports_commodities_path(voucher: params[:voucher]) %>
+
 
 <table class="table table-hover">
   <thead>
