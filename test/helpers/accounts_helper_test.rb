@@ -2,23 +2,20 @@ require 'test_helper'
 
 class AccountsHelperTest < ActionView::TestCase
   test 'admin subdomain' do
-    request.subdomain = 'test'
-
     assert !admin_subdomain?
 
-    request.subdomain = RESERVED_SUBDOMAINS.first
+    env['HTTP_HOST'] = "#{RESERVED_SUBDOMAINS.first}.lvh.me"
 
     assert admin_subdomain?
   end
 
   private
 
-    # Stub request
     def request
-      @_request ||= Struct.new(:subdomain) do
-        def subdomains
-          [subdomain]
-        end
-      end.new
+      ActionDispatch::TestRequest.new env
+    end
+
+    def env
+      @_env ||= { 'HTTP_HOST' => 'test.lvh.me' }
     end
 end
