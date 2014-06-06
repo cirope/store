@@ -252,9 +252,14 @@ es:
       empty: 'No se encontraron organizaciones con ese criterio'
 
   reports:
+    birthdays:
+      index:
+        title: 'Cumpleaños'
     commodities:
       by_receipt: 'Ventas por recibo'
       by_invoice: 'Ventas por factura'
+      index:
+        title: 'Listado de mercancías'
 
   services:
     edit:

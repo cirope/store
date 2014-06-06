@@ -37,6 +37,7 @@
 //= require providers
 //= require purchases
 //= require receipts
+//= require reports/birthdays
 //= require reports/commodities
 //= require services
 //= require states

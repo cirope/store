@@ -1,0 +1,2 @@
+module Reports::BirthdaysHelper
+end

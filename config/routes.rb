@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # Sessions
   get 'login', to: 'sessions#new', as: 'login'
   post 'sessions', to: 'sessions#create', as: 'sessions'
@@ -45,10 +46,12 @@ Rails.application.routes.draw do
     end
 
     namespace :reports do
+      get 'birthdays', to: 'birthdays#index', as: :birthdays
+
       get 'commodities/:voucher',
-        to: 'commodities#index',
-        as: :commodities,
-        defaults: { voucher: 'receipt' },
+        to:          'commodities#index',
+        as:          :commodities,
+        defaults:    { voucher: 'receipt' },
         constraints: { voucher: /receipt|invoice/ }
     end
   end

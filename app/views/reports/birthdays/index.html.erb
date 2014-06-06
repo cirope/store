@@ -1,0 +1,18 @@
+<%= render 'shared/date_filter_form', url: reports_birthdays_path %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= Customer.model_name.human count: 1 %></th>
+      <th class="text-right"><%= Customer.human_attribute_name 'birth' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer %></td>
+        <td class="text-right"><%= l customer.birth %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
