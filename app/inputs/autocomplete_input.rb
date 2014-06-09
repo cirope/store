@@ -30,19 +30,14 @@ class AutocompleteInput < SimpleForm::Inputs::Base
     end
 
     def input_options
-      input_html_options.reverse_merge(
+      {
         placeholder: model.model_name.human,
         title: model.model_name.human,
         value: object.send(attribute_name),
-      ).merge(data: data_options)
-    end
-
-    def data_options
-      original_data_options = input_html_options[:data] || {}
-
-      original_data_options.reverse_merge(
-        autocomplete_url: url,
-        autocomplete_target: "##{id_field}"
-      )
+        data: {
+          autocomplete_url: url,
+          autocomplete_target: "##{id_field}"
+        }
+      }.deep_merge input_html_options
     end
 end
