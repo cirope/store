@@ -35,7 +35,7 @@ class EntityTest < ActiveSupport::TestCase
 
     assert entity.invalid?
     assert_error entity, :tax_id, :taken
-    assert_error entity, :name, :taken
+    assert_error entity, :email, :taken
   end
 
   test 'attributes length' do

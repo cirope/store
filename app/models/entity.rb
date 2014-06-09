@@ -6,7 +6,7 @@ class Entity < ActiveRecord::Base
   include Entities::TaxCondition
   include Entities::Validation
 
-  strip_fields :tax_id, :name
+  strip_fields :tax_id, :name, :email
 
   belongs_to :city
   belongs_to :invoiceable, polymorphic: true
