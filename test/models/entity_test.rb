@@ -67,4 +67,11 @@ class EntityTest < ActiveSupport::TestCase
     assert @entity.invalid?
     assert_error @entity, :email, :invalid
   end
+
+  test 'email downcase and strip' do
+    @entity.email = ' CONtactCased@havanna.com '
+
+    assert @entity.valid?
+    assert_equal 'contactcased@havanna.com', @entity.email
+  end
 end
