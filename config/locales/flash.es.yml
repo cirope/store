@@ -36,6 +36,8 @@ es:
     customers:
       update:
         stale: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
+      destroy:
+        alert: 'El cliente no pudo ser eliminado, tiene remitos y/o facturas asociadas'
 
     commodities:
       create:

@@ -24,4 +24,17 @@ class CustomerTest < ActiveSupport::TestCase
 
     assert customers.empty?
   end
+
+  test 'cancel destruction' do
+    assert_no_difference 'Customer.count' do
+      @customer.destroy
+    end
+
+    @customer.receipts.clear
+    @customer.invoices.clear
+
+    assert_difference 'Customer.count', -1 do
+      @customer.destroy
+    end
+  end
 end

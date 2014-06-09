@@ -6,6 +6,6 @@ module Commodities::DestroyValidation
   end
 
   def allow_destroy?
-    destroy = receipt_commodities.empty? && invoice_commodities.empty?
+    receipt_commodities.empty? && invoice_commodities.empty?
   end
 end

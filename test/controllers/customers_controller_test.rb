@@ -85,6 +85,9 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test 'should destroy customer' do
+    @customer.invoices.clear
+    @customer.receipts.clear
+
     assert_difference('Customer.count', -1) do
       delete :destroy, id: @customer
     end
