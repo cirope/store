@@ -4,8 +4,8 @@ module Reports::DateRange
   private
 
     def set_date_range
-      @start  = parse_date_param(:start)  || Time.zone.today.at_beginning_of_month
-      @finish = parse_date_param(:finish) || Time.zone.today
+      @start  = parse_date_param :start
+      @finish = parse_date_param :finish
     end
 
     def parse_date_param name

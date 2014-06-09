@@ -4,13 +4,15 @@
   <thead>
     <tr>
       <th><%= Customer.model_name.human count: 1 %></th>
+      <th class="visible-lg"><%= Entity.human_attribute_name 'email' %></th>
       <th class="text-right"><%= Customer.human_attribute_name 'birth' %></th>
     </tr>
   </thead>
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer %></td>
+        <td><%= link_to customer, customer %></td>
+        <td class="visible-lg"><%= mail_to customer.email %></td>
         <td class="text-right"><%= l customer.birth %></td>
       </tr>
     <% end %>
