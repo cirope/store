@@ -16,7 +16,7 @@ class SlimInput < SimpleForm::Inputs::Base
     def input_options
       {
         placeholder: raw_label_text,
-        title: raw_label_text,
+        title: raw_label_text
       }.deep_merge input_html_options
     end
 end
