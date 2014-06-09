@@ -2,6 +2,7 @@ class Entity < ActiveRecord::Base
   include Accounts::Scoped
   include Attributes::Strip
   include Auditable
+  include Entities::Phones
   include Entities::TaxCondition
   include Entities::Validation
 

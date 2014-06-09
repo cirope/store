@@ -58,7 +58,8 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit :birth, :lock_version,
         entity_attributes: [
-          :id, :tax_id, :tax_condition, :name, :email, :address, :city_id
+          :id, :tax_id, :tax_condition, :name, :email, :address, :city_id,
+          phones_attributes: [ :id, :phone ]
         ]
     end
 end

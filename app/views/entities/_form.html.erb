@@ -16,11 +16,18 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <%= ef.input :address, as: :string %>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-6">
       <%= city_select ef %>
     </div>
+    <%= ef.simple_fields_for :phones, entity_phones(ef.object) do |pf| %>
+      <div class="col-md-6">
+        <%= pf.input :phone %>
+      </div>
+    <% end %>
   </div>
 <% end %>

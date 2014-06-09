@@ -21,6 +21,17 @@ class EntitiesHelperTest < ActionView::TestCase
     end
   end
 
+  test 'entity phones' do
+    entity = entities :cirope_sa
+
+    assert_equal entity.phones, entity_phones(entity)
+
+    entity = Entity.new
+
+    assert_equal 1, entity_phones(entity).size
+    assert entity_phones(entity).all?(&:new_record?)
+  end
+
   private
 
     # Stub of state helper method

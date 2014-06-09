@@ -54,8 +54,10 @@ class OrganizationsController < ApplicationController
     end
 
     def organization_params
-      params.require(:organization).permit :lock_version, entity_attributes: [
-        :id, :tax_id, :tax_condition, :name, :email, :address, :city_id
-      ]
+      params.require(:organization).permit :lock_version,
+        entity_attributes: [
+          :id, :tax_id, :tax_condition, :name, :email, :address, :city_id,
+          phones_attributes: [ :id, :phone ]
+        ]
     end
 end

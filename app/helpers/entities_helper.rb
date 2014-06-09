@@ -19,6 +19,12 @@ module EntitiesHelper
     )
   end
 
+  def entity_phones entity
+    entity.phones.build if entity.phones.empty?
+
+    entity.phones
+  end
+
   private
 
     def city_text_label

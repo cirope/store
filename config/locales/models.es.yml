@@ -38,6 +38,9 @@ es:
       organization:
         one: 'Organización'
         other: 'Organizaciones'
+      phone:
+        one: 'Teléfono'
+        other: 'Teléfonos'
       provider:
         one: 'Proveedor'
         other: 'Proveedores'
@@ -114,6 +117,8 @@ es:
         unit: 'Unidad'
       organization:
         name: 'Nombre'
+      phone:
+        phone: 'Teléfono'
       provider:
       purchase:
         number: 'Número'
