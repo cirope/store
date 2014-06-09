@@ -15,7 +15,7 @@
     <% if entity.phones.any? %>
       <% entity.phones.each do |phone| %>
         <br />
-        <span class="text-muted"><%= Phone.human_attribute_name 'phone' %> / </span>
+        <span class="glyphicon glyphicon-phone-alt text-muted"></span>
         <%= phone %>
       <% end %>
     <% end %>
