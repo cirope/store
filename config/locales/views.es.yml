@@ -228,17 +228,18 @@ es:
 
   receipts:
     edit:
-      title: 'Editar remito'
+      title: 'Editar comanda'
     index:
-      new: 'Nuevo remito'
-      title: 'Listado de remitos'
-      caption_html: 'Remitos de %{customer}'
-      empty_html: 'No hay remitos, puede crear uno con el botón <span class="label label-info">Nuevo remito</span>'
+      new: 'Nueva comanda'
+      title: 'Listado de comandas'
+      caption_html: 'Comandas de %{customer}'
+      empty_html: 'No hay comandas, puede crear una con el botón <span class="label label-info">Nueva comanda</span>'
     new:
-      title: 'Crear remito'
+      new: 'Nueva comanda'
+      title: 'Crear comanda'
       commodity: 'Agregar mercancía'
     show:
-      title: 'Ver remito'
+      title: 'Ver comanda'
     header: 'Documento no válido como factura'
 
   receipt_commodities:

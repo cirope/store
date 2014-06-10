@@ -51,11 +51,11 @@ es:
         one: 'Línea de orden de compra'
         other: 'Líneas de orden de compra'
       receipt:
-        one: 'Remito'
-        other: 'Remitos'
+        one: 'Comanda'
+        other: 'Comandas'
       receipt_commodity:
-        one: 'Línea de remito'
-        other: 'Líneas de remito'
+        one: 'Línea de comanda'
+        other: 'Líneas de comanda'
       relation:
         one: 'Relación'
         other: 'Relaciones'

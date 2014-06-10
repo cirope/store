@@ -37,7 +37,7 @@ es:
       update:
         stale: 'No se pudo actualizar el cliente, revise los datos e inténtelo nuevamente'
       destroy:
-        alert: 'El cliente no pudo ser eliminado, tiene remitos y/o facturas asociadas'
+        alert: 'El cliente no pudo ser eliminado, tiene comandas y/o facturas asociadas'
 
     commodities:
       create:
@@ -59,7 +59,7 @@ es:
 
     items:
       destroy:
-        alert: 'El artículo no pudo ser eliminado, se ha utilizado en remitos y/o facturas'
+        alert: 'El artículo no pudo ser eliminado, se ha utilizado en comandas y/o facturas'
 
     organizations:
       create:
@@ -97,12 +97,17 @@ es:
         stale: 'No se pudo actualizar la orden de compra, revise los datos e inténtelo nuevamente'
 
     receipts:
+      create:
+        notice: 'Comanda creada correctamente'
+      destroy:
+        notice: 'Comanda eliminada'
       update:
-        stale: 'No se pudo actualizar el remito, revise los datos e inténtelo nuevamente'
+        notice: 'Comanda actualizada correctamente'
+        stale: 'No se pudo actualizar la comanda, revise los datos e inténtelo nuevamente'
 
     services:
       destroy:
-        alert: 'El servicio no pudo ser eliminado, se ha utilizado en remitos y/o facturas'
+        alert: 'El servicio no pudo ser eliminado, se ha utilizado en comandas y/o facturas'
 
     sessions:
       create:
