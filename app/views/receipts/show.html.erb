@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<% unless @receipt.receipt_commodities.empty? %>
+<% if @receipt.receipt_commodities.any? %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title"><%= Commodity.model_name.human count: 0 %></h3>
@@ -20,6 +20,7 @@
           <tr>
             <th><%= ReceiptCommodity.human_attribute_name 'commodity' %></th>
             <th><%= ReceiptCommodity.human_attribute_name 'quantity' %></th>
+            <th><%= ReceiptCommodity.human_attribute_name 'price' %></th>
           </tr>
         </thead>
         <tbody>
@@ -27,8 +28,16 @@
             <tr>
               <td><%= receipt_commodity.commodity %></td>
               <td><%= receipt_commodity.quantity %></td>
+              <td><%= number_to_currency receipt_commodity.price %></td>
             </tr>
           <% end %>
+
+          <tr>
+            <td class="text-right" colspan="2">
+              <strong><%= Receipt.human_attribute_name 'total' %></strong>
+            </td>
+            <td><%= number_to_currency @receipt.total %></td>
+          </tr>
         </tbody>
       </table>
     </div>

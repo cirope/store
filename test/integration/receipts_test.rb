@@ -69,6 +69,22 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     add_new_commodity type: Service, prefix: 'receipt_receipt_commodities'
   end
 
+  test 'should calculate receipt total' do
+    book = books :cirope_sa_x
+    login
+
+    visit new_book_receipt_path(book)
+    fill_in_new_receipt
+
+    add_commodity commodities(:candy), 1
+    add_commodity commodities(:chocolate), 2
+
+    expected_total = commodities(:candy).price + commodities(:chocolate).price
+    page.execute_script '$("[data-chargeable-changer]").keyup()'
+
+    assert page.has_css?('[data-chargeable-total]', text: '%.2f' % expected_total)
+  end
+
   private
 
     def fill_in_new_receipt

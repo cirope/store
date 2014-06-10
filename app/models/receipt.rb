@@ -14,4 +14,9 @@ class Receipt < ActiveRecord::Base
   def to_s
     number.to_s
   end
+
+  def total
+    # TODO: ensure BigDecimals instead of floats
+    receipt_commodities.to_a.sum { |rc| rc.quantity.to_f * rc.price.to_f }
+  end
 end

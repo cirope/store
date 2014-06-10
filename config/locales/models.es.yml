@@ -144,9 +144,11 @@ es:
         number: 'Número'
         issued_at: 'Fecha'
         customer: 'Cliente'
+        total: 'Total'
       receipt_commodity:
         commodity: 'Mercancía'
         quantity: 'Cantidad'
+        price: 'Precio'
       relation:
         account_id: 'Cuenta'
         user_id: 'Usuario'

@@ -1,3 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+selector = '#receipt_commodities [data-autocomplete-update-after]'
+
+$(document).on 'update.autocomplete', selector, (event) ->
+  commodity = event.item || $(this).data('commodity')
+
+  $(this).closest('fieldset').find('input[name$="[price]"]').val commodity.price

@@ -44,4 +44,10 @@ class ReceiptTest < ActiveSupport::TestCase
 
     assert Receipt.by_customer(customer).all? { |i| i.customer == customer }
   end
+
+  test 'total' do
+    total = @receipt.receipt_commodities.to_a.sum { |rc| rc.price * rc.quantity }
+
+    assert_equal total, @receipt.total
+  end
 end

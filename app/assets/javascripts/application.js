@@ -26,6 +26,7 @@
 //= require date_picker
 //= require accounts
 //= require books
+//= require chargeable
 //= require cities
 //= require customers
 //= require invoices
