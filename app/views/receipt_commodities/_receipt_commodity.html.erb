@@ -1,5 +1,5 @@
-<fieldset class="receipt_commodity" data-chargeable-row>
-  <div class="row">
+<fieldset class="receipt_commodity">
+  <div class="row" data-chargeable-row>
     <%= f.input :id, as: :hidden %>
     <div class="col-md-9">
       <%= f.input :commodity, as: :autocomplete, label: false, url: commodities_path, input_html: {
