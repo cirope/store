@@ -257,8 +257,8 @@ es:
       index:
         title: 'Cumpleaños'
     commodities:
-      by_receipt: 'Ventas por recibo'
-      by_invoice: 'Ventas por factura'
+      by_receipt: 'Operaciones por recibo'
+      by_invoice: 'Operaciones por factura'
       index:
         title: 'Listado de mercancías'
 
