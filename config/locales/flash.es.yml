@@ -59,7 +59,7 @@ es:
 
     items:
       destroy:
-        alert: 'El artículo no pudo ser eliminado, se ha utilizado en comandas y/o facturas'
+        alert: 'El insumo no pudo ser eliminado, se ha utilizado en comandas y/o facturas'
 
     organizations:
       create:

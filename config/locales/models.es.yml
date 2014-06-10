@@ -33,8 +33,8 @@ es:
         one: 'Línea de factura'
         other: 'Líneas de factura'
       item:
-        one: 'Artículo'
-        other: 'Artículos'
+        one: 'Insumo'
+        other: 'Insumos'
       organization:
         one: 'Organización'
         other: 'Organizaciones'

@@ -143,16 +143,16 @@ es:
 
   items:
     edit:
-      title: 'Editar artículo'
+      title: 'Editar insumo'
     index:
-      new: 'Nuevo artículo'
-      title: 'Listado de artículos'
-      empty_html: 'No hay artículos, puede crear uno con el botón <span class="label label-info">Nuevo artículo</span>'
+      new: 'Nuevo insumo'
+      title: 'Listado de insumos'
+      empty_html: 'No hay insumos, puede crear uno con el botón <span class="label label-info">Nuevo insumo</span>'
     new:
-      title: 'Crear artículo'
-      item: 'Agregar nuevo artículo'
+      title: 'Crear insumo'
+      item: 'Agregar nuevo insumo'
     show:
-      title: 'Ver artículo'
+      title: 'Ver insumo'
 
   launchpad:
     index:
@@ -300,7 +300,7 @@ es:
 
   supplies:
     supply:
-      empty: 'No se encontraron artículos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
+      empty: 'No se encontraron insumos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
 
   users:
     edit:
