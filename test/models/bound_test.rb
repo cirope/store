@@ -7,27 +7,27 @@ class BoundTest < ActiveSupport::TestCase
 
   test 'blank attributes' do
     @bound.user = nil
-    @bound.notes = ''
 
     assert @bound.invalid?
-    assert_error @bound, :base, :blank
+    assert_error @bound, :user, :blank
   end
 
-  test 'time attributes' do
-    @bound.start = 'xx'
-    @bound.finish = '16:30x'
+  test 'numeric attributes' do
+    @bound.duration = '12x'
 
     assert @bound.invalid?
-    assert_error @bound, :start, :invalid_time
-    assert_error @bound, :finish, :invalid_time
+    assert_error @bound, :duration, :not_a_number
   end
 
-  test 'nil times' do
-    @bound.start = @bound.finish = '00:00'
+  test 'attributes boundaries' do
+    @bound.duration = 0
 
-    @bound.save!
+    assert @bound.invalid?
+    assert_error @bound, :duration, :greater_than, count: 0
 
-    assert_nil @bound.start
-    assert_nil @bound.finish
+    @bound.duration = 2_147_483_648
+
+    assert @bound.invalid?
+    assert_error @bound, :duration, :less_than, count: 2_147_483_648
   end
 end

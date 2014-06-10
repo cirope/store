@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609132100) do
+ActiveRecord::Schema.define(version: 20140610160444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,8 +45,7 @@ ActiveRecord::Schema.define(version: 20140609132100) do
     t.string   "bondable_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.time     "start"
-    t.time     "finish"
+    t.integer  "duration"
   end
 
   add_index "bounds", ["bondable_id", "bondable_type"], name: "index_bounds_on_bondable_id_and_bondable_type", using: :btree

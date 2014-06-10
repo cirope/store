@@ -2,21 +2,9 @@ module Bounds::Validation
   extend ActiveSupport::Concern
 
   included do
-    before_save :check_times
-
-    validates :start, :finish, timeliness: { type: :time }, allow_blank: true
-    validate :not_all_blank
+    validates :user, presence: true
+    validates :duration, numericality: {
+      only_integer: true, greater_than: 0, less_than: 2_147_483_648
+    }, allow_blank: true
   end
-
-  private
-
-    def check_times
-      self.start = self.finish = nil if start.to_s(:time) == '00:00' && finish.to_s(:time) == '00:00'
-    end
-
-    def not_all_blank
-      if user.blank? && notes.blank?
-        errors.add :base, :blank
-      end
-    end
 end

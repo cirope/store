@@ -133,10 +133,7 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
 
       within "fieldset.bound:nth-child(#{index})" do
         fill_in find('input[name$="[notes]"]')[:id], with: 'note...'
-        select '10', from: find('select[name$="[start(4i)]"]')[:id]
-        select '55', from: find('select[name$="[start(5i)]"]')[:id]
-        select '11', from: find('select[name$="[finish(4i)]"]')[:id]
-        select '15', from: find('select[name$="[finish(5i)]"]')[:id]
+        fill_in find('input[name$="[duration]"]')[:id], with: '30'
 
         input_id = find('input[name$="[user]"]')[:id]
         page.execute_script "$('##{input_id}').focus().val('#{user.name}').keydown()"

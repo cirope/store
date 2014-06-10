@@ -86,8 +86,7 @@ es:
       bound:
         user: 'Usuario'
         notes: 'Notas'
-        start: 'Inicio'
-        finish: 'Fin'
+        duration: 'Duración'
       city:
         name: 'Nombre'
         zip_code: 'Código postal'

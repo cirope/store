@@ -24,5 +24,7 @@ es:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
     hints:
+      bound:
+        duration: 'En minutos'
       service:
         duration: 'En minutos'
