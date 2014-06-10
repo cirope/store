@@ -52,4 +52,10 @@ class InvoiceTest < ActiveSupport::TestCase
 
     assert Invoice.by_customer(customer).all? { |i| i.customer == customer }
   end
+
+  test 'total' do
+    total = @invoice.invoice_commodities.to_a.sum { |rc| rc.price * rc.quantity }
+
+    assert_equal total, @invoice.total
+  end
 end

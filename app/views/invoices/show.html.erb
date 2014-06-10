@@ -31,6 +31,13 @@
               <td><%= number_to_currency invoice_commodity.price %></td>
             </tr>
           <% end %>
+
+          <tr>
+            <td class="text-right" colspan="2">
+              <strong><%= Invoice.human_attribute_name 'total' %></strong>
+            </td>
+            <td><%= number_to_currency @invoice.total %></td>
+          </tr>
         </tbody>
       </table>
     </div>

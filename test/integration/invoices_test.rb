@@ -49,7 +49,7 @@ class InvoicesTest < ActionDispatch::IntegrationTest
   end
 
   test 'should add new item' do
-    book = books :cirope_sa_p
+    book = books :cirope_sa_a
     login
 
     visit new_book_invoice_path(book)
@@ -62,7 +62,7 @@ class InvoicesTest < ActionDispatch::IntegrationTest
   end
 
   test 'should add new service' do
-    book = books :cirope_sa_p
+    book = books :cirope_sa_a
     login
 
     visit new_book_invoice_path(book)
@@ -72,6 +72,22 @@ class InvoicesTest < ActionDispatch::IntegrationTest
 
     # Must also autocomplete the price field
     assert find_field('invoice_invoice_commodities_attributes_0_price').value.present?
+  end
+
+  test 'should calculate invoice total' do
+    book = books :cirope_sa_a
+    login
+
+    visit new_book_invoice_path(book)
+    fill_in_new_invoice
+
+    add_commodity commodities(:candy), 1
+    add_commodity commodities(:chocolate), 2
+
+    expected_total = commodities(:candy).price + commodities(:chocolate).price
+    page.execute_script '$("[data-chargeable-changer]:first").keyup()'
+
+    assert page.has_css?('[data-chargeable-total]', text: '%.2f' % expected_total)
   end
 
   private

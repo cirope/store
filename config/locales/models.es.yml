@@ -108,6 +108,7 @@ es:
         number: 'Número'
         issued_at: 'Fecha'
         customer: 'Cliente'
+        total: 'Total'
       invoice_commodity:
         commodity: 'Mercancía'
         quantity: 'Cantidad'

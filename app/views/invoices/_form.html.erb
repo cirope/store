@@ -46,6 +46,17 @@
         <% end %>
 
         <%= link_to_add_fields t('invoices.new.commodity'), f, :invoice_commodities %>
+
+        <div class="row">
+          <div class="col-md-1 col-md-offset-9">
+            <strong><%= Invoice.human_attribute_name 'total' %></strong>
+          </div>
+          <div class="col-md-2">
+            <span data-chargeable-total>
+              <%= '%.2f' % @invoice.total %>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 
