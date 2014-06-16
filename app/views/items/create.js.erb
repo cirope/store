@@ -5,7 +5,7 @@
 
   $('input[name$="[commodity]"]:last').val('<%= j @item.to_s %>');
   $('input[name$="[commodity_id]"]:last').val('<%= @item.commodity.id %>');
-  $('input[name$="[commodity]"][data-autocomplete-update-after]:last').attr(
+  $('input[name$="[commodity]"]:last').attr(
     'data-commodity', '<%= j render(template: 'items/show.json').html_safe %>'
   ).trigger({ type: 'update.autocomplete' });
 <% else %>
