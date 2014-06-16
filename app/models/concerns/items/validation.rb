@@ -10,6 +10,7 @@ module Items::Validation
 
     def code_uniqueness
       scope = self.class.includes :commodity
+      scope = scope.where.not id: id unless new_record?
       conditions = { code: code, commodities: { account_id: account_id } }
 
       if scope.where(conditions).exists?
