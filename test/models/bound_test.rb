@@ -20,10 +20,10 @@ class BoundTest < ActiveSupport::TestCase
   end
 
   test 'attributes boundaries' do
-    @bound.duration = 0
+    @bound.duration = -1
 
     assert @bound.invalid?
-    assert_error @bound, :duration, :greater_than, count: 0
+    assert_error @bound, :duration, :greater_than_or_equal_to, count: 0
 
     @bound.duration = 2_147_483_648
 

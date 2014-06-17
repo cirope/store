@@ -16,15 +16,17 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
 
     assert_difference 'book.receipts.count' do
       assert_difference 'ReceiptCommodity.count', 2 do
-        assert_difference 'Bound.count', 4 do
-          find('.btn.btn-primary').click
+        assert_difference 'Bound.count', 2 do
+          assert_difference 'Use.count', 2 do
+            find('.btn.btn-primary').click
+          end
         end
       end
     end
   end
 
   test 'should remove receipt relations' do
-    receipt = receipts(:first_receipt)
+    receipt = receipts :first_receipt
 
     login
 
@@ -107,7 +109,7 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
 
       find('.ui-autocomplete li.ui-menu-item').click
 
-      add_bounds index
+      add_bounds index if index > 1
     end
 
     def add_bounds index
@@ -140,6 +142,39 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
       end
 
       find('.ui-autocomplete li.ui-menu-item').click
+
+      add_uses index if index > 1
+    end
+
+    def add_uses index
+      page.find("fieldset.bound:nth-child(#{index})").hover
+
+      within "fieldset.bound:nth-child(#{index})" do
+        find('.glyphicon-shopping-cart').click
+        assert page.has_css?('.use')
+      end
+
+      add_use 1
+      add_use 2
+
+      within "fieldset.bound:nth-child(#{index})" do
+        find('.glyphicon-shopping-cart').click
+        assert page.has_no_css?('.use')
+      end
+    end
+
+    def add_use index
+      click_link I18n.t('bounds.new.use') if index > 1
+      item = items :chocolate
+
+      within "fieldset.use:nth-child(#{index})" do
+        fill_in find('input[name$="[quantity]"]')[:id], with: '3'
+
+        input_id = find('input[name$="[item]"]')[:id]
+        page.execute_script "$('##{input_id}').focus().val('#{item.name}').keydown()"
+      end
+
+      find('.ui-autocomplete li.ui-menu-item').click
     end
 
     def add_customer
@@ -154,7 +189,6 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
       assert_difference 'Customer.count' do
         find('#modal .btn.btn-primary').click
         assert page.has_no_css?('#modal')
-        page.save_screenshot '/tmp/ss1.png'
       end
 
       assert find_field('receipt_customer').value.present?

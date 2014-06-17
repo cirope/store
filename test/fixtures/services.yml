@@ -1,2 +1,5 @@
 delivery:
   duration: 30
+
+present:
+  duration: 0

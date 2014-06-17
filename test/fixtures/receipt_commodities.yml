@@ -12,3 +12,8 @@ one_delivery:
   commodity: delivery
   quantity: 1
   receipt: first_receipt
+
+one_present:
+  commodity: present
+  quantity: 1
+  receipt: first_receipt

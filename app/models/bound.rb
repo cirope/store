@@ -1,5 +1,6 @@
 class Bound < ActiveRecord::Base
   include Auditable
+  include Bounds::Uses
   include Bounds::Validation
 
   belongs_to :user

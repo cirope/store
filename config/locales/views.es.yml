@@ -57,6 +57,8 @@ es:
       P: 'OC'
 
   bounds:
+    new:
+      use: 'Agregar insumo'
     bound:
       empty: 'No se encontraron usuarios con ese criterio'
 
@@ -301,6 +303,10 @@ es:
   supplies:
     supply:
       empty: 'No se encontraron insumos, puede agregar uno desde <span class="glyphicon glyphicon-plus-sign"></span>'
+
+  uses:
+    use:
+      empty: 'No se encontraron insumos con ese criterio'
 
   users:
     edit:

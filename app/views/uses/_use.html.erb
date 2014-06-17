@@ -1,0 +1,17 @@
+<fieldset class="row use">
+  <%= f.input :id, as: :hidden %>
+  <div class="col-md-6">
+    <%= f.input :item, as: :autocomplete, label: false, url: items_path, input_html: {
+      data: { empty_result_label: t('.empty') }
+    } %>
+  </div>
+  <div class="col-md-3">
+    <%= f.input :quantity, as: :slim %>
+  </div>
+  <div class="col-md-3">
+    <%= f.input :unit, as: :slim, input_html: { readonly: true } %>
+    <div class="row-controls">
+      <%= link_to_remove_nested_item f %>
+    </div>
+  </div>
+</fieldset>

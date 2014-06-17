@@ -1,0 +1,4 @@
+chocolate_present:
+  bound: present_boy
+  item: chocolate
+  quantity: 2.0

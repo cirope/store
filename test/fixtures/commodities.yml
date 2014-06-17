@@ -15,3 +15,9 @@ delivery:
   price: 0.29
   account: cirope
   classification: delivery (Service)
+
+present:
+  name: Present
+  price: 0.00
+  account: cirope
+  classification: present (Service)

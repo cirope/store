@@ -11,7 +11,16 @@
   <div class="col-md-3">
     <%= f.input :duration, as: :slim %>
     <div class="row-controls">
+      <%= link_to_uses f %>
       <%= link_to_remove_nested_item f %>
     </div>
+  </div>
+
+  <div class="nested collapse" id="uses-<%= f.object.object_id %>">
+    <%= f.simple_fields_for :uses, bound_uses(f) do |bf| %>
+      <%= render 'uses/use', f: bf %>
+    <% end %>
+
+    <%= link_to_add_fields t('bounds.new.use'), f, :uses %>
   </div>
 </fieldset>

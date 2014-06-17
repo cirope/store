@@ -68,6 +68,9 @@ es:
       supply:
         one: 'Suministro'
         other: 'Suministros'
+      use:
+        one: 'Uso'
+        other: 'Usos'
       user:
         one: 'Usuario'
         other: 'Usuarios'
@@ -152,6 +155,10 @@ es:
       relation:
         account_id: 'Cuenta'
         user_id: 'Usuario'
+      use:
+        item: 'Insumo'
+        quantity: 'Cantidad'
+        unit: 'Unidad'
       user:
         name: 'Nombre'
         lastname: 'Apellido'

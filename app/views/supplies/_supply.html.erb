@@ -2,7 +2,7 @@
   <%= f.input :id, as: :hidden %>
   <div class="col-md-10">
     <%= f.input :commodity, as: :autocomplete, label: false, url: commodities_path, input_html: {
-      data: { autocomplete_update_after: true, empty_result_label: t('.empty') }
+      data: { empty_result_label: t('.empty') }
     } %>
   </div>
   <div class="col-md-2">

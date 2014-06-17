@@ -7,7 +7,7 @@ module Commodities::Scopes
 
   module ClassMethods
     def search query: nil, limit: false
-      result = Commodity.ordered
+      result = ordered
 
       if query.present?
         result = result.where "#{table_name}.name ILIKE ?", "%#{query.strip}%"

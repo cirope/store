@@ -67,7 +67,9 @@ class ReceiptsController < ApplicationController
       params.require(:receipt).permit :customer_id, :issued_at, :lock_version,
         receipt_commodities_attributes: [
           :id, :commodity_id, :quantity, :_destroy, bounds_attributes: [
-            :id, :user_id, :notes, :duration, :_destroy
+            :id, :user_id, :notes, :duration, :_destroy, uses_attributes: [
+              :id, :item_id, :quantity, :_destroy
+            ]
           ]
       ]
     end

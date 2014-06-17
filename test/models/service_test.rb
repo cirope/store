@@ -13,10 +13,10 @@ class ServiceTest < ActiveSupport::TestCase
   end
 
   test 'attributes boundaries' do
-    @service.duration = 0
+    @service.duration = -1
 
     assert @service.invalid?
-    assert_error @service, :duration, :greater_than, count: 0
+    assert_error @service, :duration, :greater_than_or_equal_to, count: 0
 
     @service.duration = 2_147_483_648
 

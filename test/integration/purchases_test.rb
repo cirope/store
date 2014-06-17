@@ -74,7 +74,7 @@ class PurchasesTest < ActionDispatch::IntegrationTest
   private
 
     def fill_in_new_purchase
-      provider = providers(:arcor)
+      provider = providers :arcor
 
       page.execute_script "$('#purchase_provider').focus().val('#{provider.name}').keydown()"
 
