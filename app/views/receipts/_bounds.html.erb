@@ -1,0 +1,39 @@
+<tr class="small collapse" id="bounds-<%= receipt_commodity.object_id %>">
+  <td colspan="4">
+    <div class="nested">
+      <div class="row">
+        <div class="col-md-6">
+          <strong><%= Bound.human_attribute_name 'user' %></strong>
+        </div>
+        <div class="col-md-3">
+          <strong><%= Bound.human_attribute_name 'notes' %></strong>
+        </div>
+        <div class="col-md-3">
+          <strong><%= Bound.human_attribute_name 'duration' %></strong>
+        </div>
+      </div>
+      <% receipt_commodity.bounds.each do |bound| %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= bound.user %>
+          </div>
+          <div class="col-md-3">
+            <%= bound.notes %>
+          </div>
+          <div class="col-md-3">
+            <%= bound.duration %>
+          </div>
+        </div>
+
+        <% if bound.uses.any? %>
+          <p class="text-muted"><%= Use.model_name.human count: bound.uses.size %></p>
+          <ul class="text-muted">
+            <% bound.uses.each do |use| %>
+              <li><%= use.item %> (<%= [use.quantity, use.unit].join ' ' %>)</li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
+  </td>
+</tr>

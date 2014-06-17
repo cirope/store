@@ -12,6 +12,8 @@
     e.before DynamicFormHelper.replaceIds(template, regexp)
 
     e.trigger 'dynamic-item.added', e
+    # Add one new element of each (sub)nested element
+    e.prev().find('[data-dynamic-form-event="addNestedItem"]').trigger 'click'
 
   hideItem: (e) ->
     EffectHelper.hide e.closest('fieldset')

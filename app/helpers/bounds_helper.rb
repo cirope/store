@@ -1,12 +1,4 @@
 module BoundsHelper
-  def bound_uses form
-    bound = form.object
-
-    bound.uses.new if bound.uses.empty?
-
-    bound.uses
-  end
-
   def link_to_uses form
     cart_icon = content_tag :span, nil, class: 'glyphicon glyphicon-shopping-cart'
 

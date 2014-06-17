@@ -18,6 +18,7 @@
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
+            <th></th>
             <th><%= ReceiptCommodity.human_attribute_name 'commodity' %></th>
             <th><%= ReceiptCommodity.human_attribute_name 'quantity' %></th>
             <th><%= ReceiptCommodity.human_attribute_name 'price' %></th>
@@ -26,14 +27,17 @@
         <tbody>
           <% @receipt.receipt_commodities.each do |receipt_commodity| %>
             <tr>
+              <td><%= receipt_commodity_info_link(receipt_commodity) if receipt_commodity.bounds.any? %></td>
               <td><%= receipt_commodity.commodity %></td>
               <td><%= receipt_commodity.quantity %></td>
               <td><%= number_to_currency receipt_commodity.price %></td>
             </tr>
+
+            <%= render 'bounds', receipt_commodity: receipt_commodity if receipt_commodity.bounds.any? %>
           <% end %>
 
           <tr>
-            <td class="text-right" colspan="2">
+            <td class="text-right" colspan="3">
               <strong><%= Receipt.human_attribute_name 'total' %></strong>
             </td>
             <td><%= number_to_currency @receipt.total %></td>

@@ -2,6 +2,11 @@ body {
   padding-top: 70px;
 }
 
+// TODO: Remove when BS 3.2 is ready
+tr.collapse.in {
+  display: table-row;
+}
+
 .loading-caption {
   position: fixed;
   top: 0%;

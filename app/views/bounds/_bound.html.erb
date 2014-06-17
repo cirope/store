@@ -17,7 +17,7 @@
   </div>
 
   <div class="nested collapse" id="uses-<%= f.object.object_id %>">
-    <%= f.simple_fields_for :uses, bound_uses(f) do |bf| %>
+    <%= f.simple_fields_for :uses do |bf| %>
       <%= render 'uses/use', f: bf %>
     <% end %>
 
