@@ -8,7 +8,5 @@ class CommoditiesController < ApplicationController
   # GET /commodities
   def index
     @commodities = Commodity.search query: params[:q], limit: request.xhr?
-
-    respond_with @commodities
   end
 end

@@ -8,19 +8,15 @@ class AccountsController < ApplicationController
   # GET /accounts
   def index
     @accounts = Account.all
-
-    respond_with @accounts
   end
 
   # GET /accounts/1
   def show
-    respond_with @account
   end
 
   # GET /accounts/new
   def new
     @account = Account.new
-    respond_with @account
   end
 
   # GET /accounts/1/edit

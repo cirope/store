@@ -9,20 +9,16 @@ class CustomersController < ApplicationController
   def index
     @customers = Customer.page(params[:page]).search query: params[:q]
     @searchable = true
-
-    respond_with @customers
   end
 
   # GET /customers/1
   def show
     @organizations = Organization.all
-    respond_with @customer
   end
 
   # GET /customers/new
   def new
     @customer = Customer.new
-    respond_with @customer
   end
 
   # GET /customers/1/edit

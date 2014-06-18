@@ -8,18 +8,15 @@ class WarehousesController < ApplicationController
   # GET /warehouses
   def index
     @warehouses = Warehouse.all
-    respond_with @warehouses
   end
 
   # GET /warehouses/1
   def show
-    respond_with @warehouse
   end
 
   # GET /warehouses/new
   def new
     @warehouse = Warehouse.new
-    respond_with @warehouse
   end
 
   # GET /warehouses/1/edit

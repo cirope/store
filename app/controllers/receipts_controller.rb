@@ -10,19 +10,15 @@ class ReceiptsController < ApplicationController
   # GET /receipts
   def index
     @receipts = receipts.ordered.page params[:page]
-
-    respond_with @book, @receipts
   end
 
   # GET /receipts/1
   def show
-    respond_with @receipt
   end
 
   # GET /receipts/new
   def new
     @receipt = @book.receipts.new customer_id: params[:customer_id]
-    respond_with @book, @receipt
   end
 
   # GET /receipts/1/edit

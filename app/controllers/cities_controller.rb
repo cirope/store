@@ -8,19 +8,15 @@ class CitiesController < ApplicationController
   # GET /cities
   def index
     @cities = City.all
-
-    respond_with @cities
   end
 
   # GET /cities/1
   def show
-    respond_with @city
   end
 
   # GET /cities/new
   def new
     @city = City.new
-    respond_with @city
   end
 
   # GET /cities/1/edit

@@ -8,19 +8,15 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   def index
     @organizations = Organization.search query: params[:q], limit: request.xhr?
-
-    respond_with @organizations
   end
 
   # GET /organizations/1
   def show
-    respond_with @organization
   end
 
   # GET /organizations/new
   def new
     @organization = Organization.new
-    respond_with @organization
   end
 
   # GET /organizations/1/edit

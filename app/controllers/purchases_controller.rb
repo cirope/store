@@ -10,19 +10,15 @@ class PurchasesController < ApplicationController
   # GET /purchases
   def index
     @purchases = @book.purchases.ordered.page params[:page]
-
-    respond_with @purchases
   end
 
   # GET /purchases/1
   def show
-    respond_with @purchase
   end
 
   # GET /purchases/new
   def new
     @purchase = @book.purchases.new
-    respond_with @purchase
   end
 
   # GET /purchases/1/edit

@@ -8,19 +8,15 @@ class ProvidersController < ApplicationController
   # GET /providers
   def index
     @providers = Provider.search query: params[:q], limit: request.xhr?
-
-    respond_with @providers
   end
 
   # GET /providers/1
   def show
-    respond_with @provider
   end
 
   # GET /providers/new
   def new
     @provider = Provider.new
-    respond_with @provider
   end
 
   # GET /providers/1/edit

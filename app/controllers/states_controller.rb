@@ -8,19 +8,15 @@ class StatesController < ApplicationController
   # GET /states
   def index
     @states = State.all
-
-    respond_with @states
   end
 
   # GET /states/1
   def show
-    respond_with @state
   end
 
   # GET /states/new
   def new
     @state = State.new
-    respond_with @state
   end
 
   # GET /states/1/edit

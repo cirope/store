@@ -8,18 +8,15 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.search query: params[:q], limit: request.xhr?
-    respond_with @items
   end
 
   # GET /items/1
   def show
-    respond_with @item
   end
 
   # GET /items/new
   def new
     @item = Item.new
-    respond_with @item
   end
 
   # GET /items/1/edit

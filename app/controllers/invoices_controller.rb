@@ -10,19 +10,15 @@ class InvoicesController < ApplicationController
   # GET /invoices
   def index
     @invoices = invoices.ordered.page params[:page]
-
-    respond_with @invoices
   end
 
   # GET /invoices/1
   def show
-    respond_with @invoice
   end
 
   # GET /invoices/new
   def new
     @invoice = @book.invoices.new customer_id: params[:customer_id]
-    respond_with @invoice
   end
 
   # GET /invoices/1/edit

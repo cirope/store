@@ -8,18 +8,15 @@ class ServicesController < ApplicationController
   # GET /services
   def index
     @services = Service.all
-    respond_with @services
   end
 
   # GET /services/1
   def show
-    respond_with @service
   end
 
   # GET /services/new
   def new
     @service = Service.new
-    respond_with @service
   end
 
   # GET /services/1/edit

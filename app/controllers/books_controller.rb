@@ -9,19 +9,15 @@ class BooksController < ApplicationController
   # GET /books
   def index
     @books = @organization.books
-
-    respond_with @books
   end
 
   # GET /books/1
   def show
-    respond_with @book
   end
 
   # GET /books/new
   def new
     @book = @organization.books.new flow: params[:flow]
-    respond_with @book
   end
 
   # GET /books/1/edit
