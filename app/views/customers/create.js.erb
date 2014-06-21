@@ -7,7 +7,7 @@
   $('input[name$="[customer_id]"]').val('<%= j @customer.id.to_s %>');
   $('input[name$="[customer]"]').trigger({
     type: 'update.autocomplete',
-    item: <%== render(template: 'customers/show.json') %>
+    item: <%== render template: 'customers/show.json' %>
   });
 <% else %>
   <%= render template: 'customers/new' %>

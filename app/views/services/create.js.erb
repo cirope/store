@@ -5,9 +5,10 @@
 
   $('input[name$="[commodity]"]:last').val('<%= j @service.to_s %>');
   $('input[name$="[commodity_id]"]:last').val('<%= @service.commodity.id %>');
-  $('input[name$="[commodity]"]:last').attr(
-    'data-commodity', '<%= j render(template: 'services/show.json').html_safe %>'
-  ).trigger({ type: 'update.autocomplete' });
+  $('input[name$="[commodity]"]:last').trigger({
+    type: 'update.autocomplete',
+    item: <%== render template: 'services/show.json' %>
+  });
 <% else %>
   <%= render template: 'services/new' %>
 <% end %>
