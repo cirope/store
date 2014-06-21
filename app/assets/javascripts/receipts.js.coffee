@@ -7,3 +7,6 @@ $(document).on 'update.autocomplete', '.use input[name$="[item]"]', (event) ->
   item = event.item
 
   $(this).closest('.use').find('input[name$="[unit]"]').val item.unit
+
+$(document).on 'update.autocomplete', '#receipt_customer', (event) ->
+  $('#ask_for_feedback').attr('disabled', !event.item.email)

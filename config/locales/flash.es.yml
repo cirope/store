@@ -48,6 +48,11 @@ es:
         notice: 'Mercancía actualizada correctamente'
         stale: 'No se pudo actualizar la mercancía, revise los datos e inténtelo nuevamente'
 
+    feedbacks:
+      update:
+        notice: ''
+        stale: 'No se pudo actualizar la calificación, revise los datos e inténtelo nuevamente'
+
     invoices:
       create:
         notice: 'Factura creada correctamente'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616135809) do
+ActiveRecord::Schema.define(version: 20140618153233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,22 @@ ActiveRecord::Schema.define(version: 20140616135809) do
   add_index "entities", ["invoiceable_id", "invoiceable_type"], name: "index_entities_on_invoiceable_id_and_invoiceable_type", using: :btree
   add_index "entities", ["name"], name: "index_entities_on_name", using: :btree
   add_index "entities", ["tax_id"], name: "index_entities_on_tax_id", using: :btree
+
+  create_table "feedbacks", force: true do |t|
+    t.string   "score"
+    t.text     "notes"
+    t.string   "token",       null: false
+    t.integer  "customer_id", null: false
+    t.integer  "owner_id",    null: false
+    t.string   "owner_type",  null: false
+    t.integer  "account_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feedbacks", ["account_id"], name: "index_feedbacks_on_account_id", using: :btree
+  add_index "feedbacks", ["customer_id"], name: "index_feedbacks_on_customer_id", using: :btree
+  add_index "feedbacks", ["owner_id", "owner_type"], name: "index_feedbacks_on_owner_id_and_owner_type", using: :btree
 
   create_table "invoice_commodities", force: true do |t|
     t.integer  "commodity_id"

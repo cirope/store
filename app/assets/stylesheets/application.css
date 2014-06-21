@@ -21,6 +21,7 @@
  *= require books
  *= require cities
  *= require customers
+ *= require feedbacks
  *= require invoices
  *= require commodities
  *= require launchpad

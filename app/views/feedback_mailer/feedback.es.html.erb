@@ -1,0 +1,47 @@
+<h2>Hola <%= @feedback.customer_name %>,</h2>
+
+<p>Muchas gracias por visitarnos, esperamos vuelvas pronto.</p>
+
+<hr />
+
+<h4>Por favor, tómate un segundo para calificar nuestra atención haciendo clic sobre la imagen</h4>
+<table class="feedback">
+  <tr>
+    <td>
+      <%= link_to edit_feedback_url(@feedback, subdomain: @account.subdomain) do %>
+        <%= image_tag attachments['face-smile.png'].url, alt: t('image.face_smile'), size: '39x41' %>
+        <p>Fue excelente</p>
+      <% end %>
+      <p>
+        <small>
+          Rápido, amigable, útil,<br />
+          agradable ¡Buen trabajo!
+        </small>
+      </p>
+    </td>
+    <td>
+      <%= link_to edit_feedback_url(@feedback, subdomain: @account.subdomain) do %>
+        <%= image_tag attachments['face-plain.png'].url, alt: t('image.face_plain'), size: '39x41' %>
+        <p>Fue buena</p>
+      <% end %>
+      <p>
+        <small>
+          Pero definitivamente<br />
+          pudo ser mejor
+        </small>
+      </p>
+    </td>
+    <td>
+      <%= link_to edit_feedback_url(@feedback, subdomain: @account.subdomain) do %>
+        <%= image_tag attachments['face-sad.png'].url, alt: t('image.face_sad'), size: '39x41' %>
+        <p>No fue buena</p>
+      <% end %>
+      <p>
+        <small>
+          Definitivamente<br />
+          no estoy feliz
+        </small>
+      </p>
+    </td>
+  </tr>
+</table>

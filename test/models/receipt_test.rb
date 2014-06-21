@@ -39,15 +39,23 @@ class ReceiptTest < ActiveSupport::TestCase
     assert_not_nil receipt.number
   end
 
-  test 'by customer' do
-    customer = @receipt.customer
+  test 'customer has email' do
+    assert @receipt.customer_has_email?
 
-    assert Receipt.by_customer(customer).all? { |i| i.customer == customer }
+    @receipt.customer.email = ''
+
+    assert !@receipt.customer_has_email?
   end
 
   test 'total' do
     total = @receipt.receipt_commodities.to_a.sum { |rc| rc.price * rc.quantity }
 
     assert_equal total, @receipt.total
+  end
+
+  test 'by customer' do
+    customer = @receipt.customer
+
+    assert Receipt.by_customer(customer).all? { |i| i.customer == customer }
   end
 end

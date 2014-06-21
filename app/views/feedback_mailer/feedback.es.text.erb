@@ -1,0 +1,8 @@
+Hola <%= @feedback.customer_name %>,
+
+Muchas gracias por visitarnos, esperamos vuelvas pronto.
+
+--------------------------------------------------------------------------------
+Por favor, tómate un segundo para calificar mi respuesta visitando:
+
+<%= edit_feedback_url @feedback, subdomain: @account.subdomain %>

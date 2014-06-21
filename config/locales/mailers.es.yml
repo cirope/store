@@ -2,3 +2,6 @@ es:
   user_mailer:
     password_reset:
       subject: 'Restablecer contraseña'
+  feedback_mailer:
+    feedback:
+      subject: 'Gracias por tu visita'

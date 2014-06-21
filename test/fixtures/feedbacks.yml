@@ -1,0 +1,7 @@
+positive:
+  score: <%= Feedback::SCORES.first %>
+  notes: Some great feedback
+  token: <%= SecureRandom.urlsafe_base64 %>
+  customer: havanna
+  owner: first_receipt (Receipt)
+  account: cirope

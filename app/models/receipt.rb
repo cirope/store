@@ -9,6 +9,8 @@ class Receipt < ActiveRecord::Base
   include Receipts::Scopes
   include Receipts::Validation
 
+  has_many :feedbacks, as: :owner, dependent: :destroy
+
   def to_s
     number.to_s
   end

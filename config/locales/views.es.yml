@@ -122,6 +122,23 @@ es:
       not_responsible: 'No alcanzado o no responsable'
       final_consumer: 'Consumidor final'
 
+  feedbacks:
+    edit:
+      title: 'Calificación de la atención'
+    index:
+      title: 'Calificaciones'
+      empty_html: 'No hay calificaciones'
+    show:
+      title: 'Ver calificación'
+    score:
+      question: '¿Cómo calificarías la atención que recibiste?'
+    notes:
+      submit: 'Enviar comentarios'
+    scores:
+      great: 'Excelente'
+      good: 'Bueno'
+      poor: 'Malo'
+
   invoices:
     edit:
       title: 'Editar factura'
@@ -242,6 +259,8 @@ es:
       commodity: 'Agregar mercancía'
     show:
       title: 'Ver comanda'
+    form:
+      ask_for_feedback: 'Enviar encuesta de atención'
     header: 'Documento no válido como factura'
 
   receipt_commodities:

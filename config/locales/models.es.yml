@@ -26,6 +26,9 @@ es:
       entity:
         one: 'Entidad'
         other: 'Entidades'
+      feedback:
+        one: 'Calificación'
+        other: 'Calificaciones'
       invoice:
         one: 'Factura'
         other: 'Facturas'
@@ -99,6 +102,10 @@ es:
         price: 'Precio'
       customer:
         birth: 'Fecha de nacimiento'
+      feedback:
+        score: 'Calificación'
+        notes: 'Comentarios'
+        customer: 'Cliente'
       entity:
         tax_id: 'CUIT'
         tax_condition: 'Condición respecto al IVA'

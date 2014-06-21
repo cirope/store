@@ -52,7 +52,7 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
   end
 
   test 'should add new item' do
-    book = books :cirope_sa_p
+    book = books :cirope_sa_x
     login
 
     visit new_book_receipt_path(book)
@@ -62,7 +62,7 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
   end
 
   test 'should add new service' do
-    book = books :cirope_sa_p
+    book = books :cirope_sa_x
     login
 
     visit new_book_receipt_path(book)
@@ -87,10 +87,29 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
     assert page.has_css?('[data-chargeable-total]', text: '%.2f' % expected_total)
   end
 
+  test 'should disable ask for feedback if customer has no email' do
+    book = books :cirope_sa_x
+    customer = customers :havanna
+
+    login
+
+    customer.update email: nil
+
+    visit new_book_receipt_path(book)
+
+    assert !find('#ask_for_feedback').disabled?
+
+    page.execute_script "$('#receipt_customer').focus().val('#{customer.name}').keydown()"
+
+    find('.ui-autocomplete li.ui-menu-item').click
+
+    assert find('#ask_for_feedback').disabled?
+  end
+
   private
 
     def fill_in_new_receipt
-      customer = customers(:havanna)
+      customer = customers :havanna
 
       page.execute_script "$('#receipt_customer').focus().val('#{customer.name}').keydown()"
 

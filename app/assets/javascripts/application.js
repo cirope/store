@@ -29,6 +29,7 @@
 //= require chargeable
 //= require cities
 //= require customers
+//= require feedbacks
 //= require invoices
 //= require commodities
 //= require launchpad

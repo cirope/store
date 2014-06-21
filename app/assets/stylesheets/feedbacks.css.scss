@@ -1,0 +1,19 @@
+a.feedback-score:hover {
+  text-decoration: none;
+
+  .alert {
+    color: #fff;
+  }
+
+  .alert.alert-danger {
+    background: #d9534f;
+  }
+
+  .alert.alert-warning {
+    background: #f0ad4e;
+  }
+
+  .alert.alert-success {
+    background: #5cb85c;
+  }
+}

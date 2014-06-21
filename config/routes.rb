@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :commodities, controller: :items, except: :index
     resources :commodities, only: :index
     resources :customers
+    resources :feedbacks, only: [:index, :show, :edit, :update]
     resources :items
     resources :providers
     resources :services

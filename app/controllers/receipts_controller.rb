@@ -29,7 +29,7 @@ class ReceiptsController < ApplicationController
   def create
     @receipt = @book.receipts.new receipt_params
 
-    @receipt.save
+    ask_for_feedback if @receipt.save && @receipt.customer_has_email?
     respond_with @receipt
   end
 
@@ -68,5 +68,13 @@ class ReceiptsController < ApplicationController
             ]
           ]
       ]
+    end
+
+    def ask_for_feedback
+      if params[:ask_for_feedback]
+        feedback = Feedback.create! customer: @receipt.customer, owner: @receipt
+
+        FeedbackMailer.delay.feedback feedback
+      end
     end
 end
