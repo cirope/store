@@ -10,5 +10,7 @@ class CreateFeedbacks < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :feedbacks, :token, unique: true
   end
 end
