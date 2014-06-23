@@ -3,7 +3,7 @@ module Feedbacks::Scopes
 
   module ClassMethods
     def from_token token
-      where(token: token).take
+      where(token: token).take!
     end
   end
 end
