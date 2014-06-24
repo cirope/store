@@ -282,6 +282,11 @@ es:
       by_invoice: 'Operaciones por factura'
       index:
         title: 'Listado de mercancías'
+    feedbacks:
+      index:
+        title: 'Resumen de calificaciones'
+        count: 'Cantidad'
+        total: 'Total'
 
   services:
     edit:

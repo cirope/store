@@ -30,7 +30,11 @@ class FeedbackTest < ActiveSupport::TestCase
 
   test 'from token' do
     assert_equal @feedback, Feedback.from_token(@feedback.token)
-    assert_nil Feedback.from_token('no way')
+    assert_raise(ActiveRecord::RecordNotFound) { Feedback.from_token 'no way' }
+  end
+
+  test 'stats' do
+    assert Feedback.stats(start: 1.month.ago.to_date).values.sum > 0
   end
 
   test 'current step' do

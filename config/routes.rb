@@ -48,6 +48,7 @@ Rails.application.routes.draw do
 
     namespace :reports do
       get 'birthdays', to: 'birthdays#index', as: :birthdays
+      get 'feedbacks', to: 'feedbacks#index', as: :feedbacks
 
       get 'commodities/:voucher',
         to:          'commodities#index',

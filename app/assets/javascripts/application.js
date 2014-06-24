@@ -41,6 +41,7 @@
 //= require receipts
 //= require reports/birthdays
 //= require reports/commodities
+//= require reports/feedbacks
 //= require services
 //= require states
 //= require users

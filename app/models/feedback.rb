@@ -11,6 +11,7 @@ class Feedback < ActiveRecord::Base
   delegate :name, :email, to: :customer, prefix: true
 
   belongs_to :owner, polymorphic: true
+  belongs_to :receipt, -> { where feedbacks: { owner_type: 'Receipt' } }, foreign_key: 'owner_id'
   belongs_to :customer
 
   def to_param
