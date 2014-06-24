@@ -16,7 +16,7 @@
         <% feedback_scores.each do |score| %>
           <tr>
             <td data-label-column><%= feedback_score score %></td>
-            <td data-value-column><%= @feedback_stats[score] || 0 %></td>
+            <td data-value-column><%= feedback_count score %></td>
           </tr>
         <% end %>
 
