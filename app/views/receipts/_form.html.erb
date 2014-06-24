@@ -60,12 +60,14 @@
       </div>
     </div>
 
-    <div class="checkbox">
-      <label>
-        <%= check_box_tag :ask_for_feedback, 1, params[:ask_for_feedback] %>
-        <strong><%= t('.ask_for_feedback') %></strong>
-      </label>
-    </div>
+    <% if @receipt.new_record? %>
+      <div class="checkbox">
+        <label>
+          <%= check_box_tag :ask_for_feedback, 1, params[:ask_for_feedback] %>
+          <strong><%= t '.ask_for_feedback' %></strong>
+        </label>
+      </div>
+    <% end %>
   </div>
 
   <%= f.input :lock_version, as: :hidden %>
