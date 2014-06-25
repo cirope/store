@@ -128,8 +128,10 @@ es:
     index:
       title: 'Calificaciones'
       empty_html: 'No hay calificaciones'
+      filter: 'Calificaciones entre %{start} y %{finish}'
     show:
       title: 'Ver calificación'
+      empty_notes: 'No hizo comentarios'
     score:
       question: '¿Cómo calificarías la atención que recibiste?'
     notes:
@@ -287,6 +289,8 @@ es:
         title: 'Resumen de calificaciones'
         count: 'Cantidad'
         total: 'Total'
+        empty_graph: 'Sin calificaciones'
+        others_label: 'Otros'
 
   services:
     edit:

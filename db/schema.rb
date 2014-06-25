@@ -124,7 +124,9 @@ ActiveRecord::Schema.define(version: 20140618153233) do
   add_index "feedbacks", ["account_id"], name: "index_feedbacks_on_account_id", using: :btree
   add_index "feedbacks", ["customer_id"], name: "index_feedbacks_on_customer_id", using: :btree
   add_index "feedbacks", ["owner_id", "owner_type"], name: "index_feedbacks_on_owner_id_and_owner_type", using: :btree
+  add_index "feedbacks", ["score"], name: "index_feedbacks_on_score", using: :btree
   add_index "feedbacks", ["token"], name: "index_feedbacks_on_token", unique: true, using: :btree
+  add_index "feedbacks", ["updated_at"], name: "index_feedbacks_on_updated_at", using: :btree
 
   create_table "invoice_commodities", force: true do |t|
     t.integer  "commodity_id"

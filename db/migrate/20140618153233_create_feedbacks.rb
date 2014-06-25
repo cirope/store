@@ -12,5 +12,7 @@ class CreateFeedbacks < ActiveRecord::Migration
     end
 
     add_index :feedbacks, :token, unique: true
+    add_index :feedbacks, :score
+    add_index :feedbacks, :updated_at
   end
 end

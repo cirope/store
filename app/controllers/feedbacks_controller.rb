@@ -1,13 +1,19 @@
 class FeedbacksController < ApplicationController
+  include Reports::DateRange
+
   respond_to :html, :json
 
   before_action :authorize, only: [:index, :show]
+  before_action :set_date_range, only: [:index]
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
   before_action :set_title
 
   # GET /feedbacks
   def index
-    @feedbacks = Feedback.all
+    @start  ||= Time.zone.today.at_beginning_of_month
+    @finish ||= Time.zone.today
+
+    @feedbacks = Feedback.with_receipts_between(@start, @finish).by_score(params[:score]).ordered.page params[:page]
   end
 
   # GET /feedbacks/1

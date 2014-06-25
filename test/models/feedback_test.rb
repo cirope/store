@@ -33,8 +33,25 @@ class FeedbackTest < ActiveSupport::TestCase
     assert_raise(ActiveRecord::RecordNotFound) { Feedback.from_token 'no way' }
   end
 
+  test 'by score' do
+    score = Feedback::SCORES.first
+
+    assert_equal Feedback.where(score: score), Feedback.by_score(score)
+  end
+
   test 'stats' do
     assert Feedback.stats(start: 1.month.ago.to_date).values.sum > 0
+  end
+
+  test 'with receipts between' do
+    feedbacks = Feedback.with_receipts_between 1.day.ago, Time.now
+
+    assert feedbacks.any?
+    assert feedbacks.map(&:owner).all? { |o| o.issued_at.between?(1.day.ago, Time.now) }
+
+    feedbacks.map(&:owner).each { |o| o.update! issued_at: 5.day.ago }
+
+    assert feedbacks.reload.empty?
   end
 
   test 'current step' do

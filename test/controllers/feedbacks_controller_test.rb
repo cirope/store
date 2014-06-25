@@ -11,9 +11,21 @@ class FeedbacksControllerTest < ActionController::TestCase
   test 'should get index' do
     login
 
-    get :index
+    get :index, score: Feedback::SCORES.first
     assert_response :success
     assert_not_nil assigns(:feedbacks)
+    assert assigns(:feedbacks).any?
+  end
+
+  test 'should get filtered index' do
+    login
+
+    get :index, score: Feedback::SCORES.first,
+      start:  I18n.l(2.days.from_now.to_date),
+      finish: I18n.l(4.days.from_now.to_date)
+    assert_response :success
+    assert_not_nil assigns(:feedbacks)
+    assert assigns(:feedbacks).empty?
   end
 
   test 'should show feedback' do

@@ -1,17 +1,14 @@
-<h2><%= @feedback %></h2>
+<h1>
+  <%= @feedback.customer %>
+  <small><%= feedback_score @feedback.score %></small>
+</h1>
 
-<p>
-  <strong><%= Feedback.human_attribute_name 'score' %></strong>:
-  <%= @feedback.score %>
-</p>
-<p>
-  <strong><%= Feedback.human_attribute_name 'notes' %></strong>:
-  <%= @feedback.notes %>
-</p>
-<p>
-  <strong><%= Feedback.human_attribute_name 'customer' %></strong>:
-  <%= @feedback.owner %>
-</p>
+<% if @feedback.notes.present? %>
+  <blockquote>
+    <%= simple_format @feedback.notes %>
+  </blockquote>
+<% else %>
+    <div class="alert alert-warning"><%= t '.empty_notes' %></div>
+<% end %>
 
-<%= link_to_edit [:edit, @feedback] %> |
-<%= link_to_index feedbacks_path %>
+<%= link_to_index feedbacks_path_with_params(score: @feedback.score) %>

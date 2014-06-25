@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-md-6">
-    <table class="table" data-graph-grid>
+    <table class="table" data-graph-grid data-graph-others="<%= t '.others_label' %>">
       <thead>
         <tr>
           <th><%= Feedback.human_attribute_name 'score' %></th>
@@ -14,10 +14,17 @@
 
       <tbody>
         <% feedback_scores.each do |score| %>
-          <tr>
-            <td data-label-column><%= feedback_score score %></td>
-            <td data-value-column><%= feedback_count score %></td>
-          </tr>
+          <% if @feedback_stats[score] %>
+            <tr data-graph-color="<%= feedback_color score %>" data-graph-href="<%= feedbacks_path_with_params score: score %>">
+              <td data-graph-label><%= feedback_score score %></td>
+              <td data-graph-value><%= link_to @feedback_stats[score], feedbacks_path_with_params(score: score) %></td>
+            </tr>
+          <% else %>
+            <tr>
+              <td><%= feedback_score score %></td>
+              <td>0</td>
+            </tr>
+          <% end %>
         <% end %>
 
         <tr class="text-muted">
@@ -28,7 +35,15 @@
     </table>
   </div>
   <div class="col-md-6">
-    <div data-graph-container></div>
+    <div data-graph-container>
+      <br>
+      <br>
+      <div class="alert alert-warning text-center">
+        <br>
+        <%= t '.empty_graph' %>
+        <br>
+        <br>
+      </div>
+    </div>
   </div>
 </div>
-

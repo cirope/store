@@ -1,3 +1,7 @@
+<div class="alert alert-warning">
+  <%= t '.filter', start: l(@start, format: :short), finish: l(@finish, format: :short) %>
+</div>
+
 <% if @feedbacks.empty? %>
   <%= render 'shared/empty_index', message: t('.empty_html') %>
 <% else %>
@@ -6,6 +10,7 @@
       <tr>
         <th><%= Feedback.human_attribute_name 'customer' %></th>
         <th><%= Feedback.human_attribute_name 'score' %></th>
+        <th><%= Feedback.human_attribute_name 'updated_at' %></th>
         <th></th>
       </tr>
     </thead>
@@ -14,10 +19,15 @@
       <% @feedbacks.each do |feedback| %>
         <tr>
           <td><%= feedback.customer %></td>
-          <td><%= feedback.score %></td>
-          <td><%= link_to_show feedback %></td>
+          <td><%= feedback_score feedback.score if feedback.score %></td>
+          <td><%= l feedback.updated_at, format: :short %></td>
+          <td><%= link_to_show [feedback, request.query_parameters] %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= paginate @feedbacks %>
 <% end %>
+
+<%= link_to t('reports.feedbacks.index.title'), reports_feedbacks_path(request.query_parameters) %>

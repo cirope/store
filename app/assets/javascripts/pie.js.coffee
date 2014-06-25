@@ -1,25 +1,29 @@
 jQuery ($) ->
+  Container =
+    _container: -> $ '[data-graph-container]'
+    raw:        -> @_container().get 0
+    width:      -> @_container().outerWidth()
+    present:    -> @_container().length
+    empty:      -> @_container().empty()
+
   Data =
-    container:    -> $ '[data-graph-container]'
-    rawContainer: -> @container().get 0
-    width:        -> @container().outerWidth()
-    values:       -> $('[data-value-column]').map -> +$(this).text()
-    labels:       -> $('[data-label-column]').map -> "%%.%% #{$(this).text()}"
-    present:      -> @values().filter(-> +this).length
+    values:     -> $('[data-graph-value]').map -> +$(this).text()
+    labels:     -> $('[data-graph-label]').map -> "%%.%% #{$(this).text()}"
+    colors:     -> $('[data-graph-color]').map -> $(this).data('graphColor')
+    hrefs:      -> $('[data-graph-href]').map  -> $(this).data('graphHref')
+    others:     -> $('[data-graph-grid][data-graph-others]').data 'graphOthers'
+    present:    -> @values().length
+    pieOptions: -> legend: @labels(), legendothers: @others(), colors: @colors(), href: @hrefs()
 
   Graph =
-    drawPie: -> @_pie().hover @_hoverIn, @_hoverOut
+    pie: -> @_pie().hover @_hoverIn, @_hoverOut
     _pie: ->
-      @_chart().piechart Data.width() / 3.5, 100, 75, Data.values(), @_options()
-    _chart: -> Raphael Data.rawContainer(), Data.width(), 200
-    _options: ->
-      legend: Data.labels(), legendpos: 'east', stroke: '#eee', strokewidth: 2
+      @_raphael().piechart Container.width() / 3.5, 100, 75, Data.values(), Data.pieOptions()
+    _raphael: -> Raphael Container.raw(), Container.width(), 200
     _hoverIn: ->
-      @sector.stop()
       @sector.scale 1.1, 1.1, @cx, @cy
 
       if @label
-        @label[0].stop()
         @label[0].attr r: 7.5
         @label[1].attr 'font-weight': 800
     _hoverOut: ->
@@ -29,4 +33,4 @@ jQuery ($) ->
         @label[0].animate r: 5, 500, 'bounce'
         @label[1].attr 'font-weight': 400
 
-  Graph.drawPie() if Data.container().length && Data.present()
+  Container.empty() && Graph.pie() if Container.present() && Data.present()
