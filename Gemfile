@@ -22,7 +22,7 @@ gem 'figaro'
 gem 'birthday'
 gem 'rack-mini-profiler'
 gem 'sidekiq'
-gem 'roadie'
+gem 'roadie-rails'
 gem 'newrelic_rpm'
 
 gem 'unicorn'

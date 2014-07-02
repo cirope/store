@@ -1,5 +1,6 @@
 class FeedbackMailer < ActionMailer::Base
   include MandrillHeaders
+  include Roadie::Rails::Automatic
 
   layout 'mailer'
 
