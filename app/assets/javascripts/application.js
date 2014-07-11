@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.autocomplete
-//= require jquery.ui.datepicker
-//= require jquery.ui.datepicker-es
+//= require jquery-ui/autocomplete
+//= require jquery-ui/datepicker
+//= require jquery-ui/datepicker-es
 //= require turbolinks
 //= require turbolinks_events
 //= require bootstrap
