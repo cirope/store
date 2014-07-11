@@ -65,6 +65,6 @@ class StatesControllerTest < ActionController::TestCase
       delete :destroy, id: @state
     end
 
-    assert_redirected_to states_path
+    assert_redirected_to states_url
   end
 end

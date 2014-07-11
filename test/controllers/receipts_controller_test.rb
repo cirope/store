@@ -70,7 +70,7 @@ class ReceiptsControllerTest < ActionController::TestCase
       delete :destroy, id: @receipt
     end
 
-    assert_redirected_to book_receipts_path(@book)
+    assert_redirected_to book_receipts_url(@book)
   end
 
   private

@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   def destroy
     @item.destroy
-    respond_with @item
+    respond_with @item, location: commodities_url
   end
 
   private

@@ -87,6 +87,6 @@ class ItemsControllerTest < ActionController::TestCase
       delete :destroy, id: @item
     end
 
-    assert_redirected_to items_path
+    assert_redirected_to commodities_url
   end
 end

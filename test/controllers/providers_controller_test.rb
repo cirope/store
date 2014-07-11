@@ -74,6 +74,6 @@ class ProvidersControllerTest < ActionController::TestCase
       delete :destroy, id: @provider
     end
 
-    assert_redirected_to providers_path
+    assert_redirected_to providers_url
   end
 end

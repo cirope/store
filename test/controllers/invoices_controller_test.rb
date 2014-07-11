@@ -63,6 +63,6 @@ class InvoicesControllerTest < ActionController::TestCase
       delete :destroy, id: @invoice
     end
 
-    assert_redirected_to book_invoices_path(@book)
+    assert_redirected_to book_invoices_url(@book)
   end
 end

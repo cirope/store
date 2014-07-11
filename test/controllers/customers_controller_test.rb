@@ -92,6 +92,6 @@ class CustomersControllerTest < ActionController::TestCase
       delete :destroy, id: @customer
     end
 
-    assert_redirected_to customers_path
+    assert_redirected_to customers_url
   end
 end

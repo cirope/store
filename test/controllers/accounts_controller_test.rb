@@ -50,6 +50,6 @@ class AccountsControllerTest < ActionController::TestCase
       delete :destroy, id: @account
     end
 
-    assert_redirected_to accounts_path
+    assert_redirected_to accounts_url
   end
 end

@@ -76,6 +76,6 @@ class ServicesControllerTest < ActionController::TestCase
       delete :destroy, id: @service
     end
 
-    assert_redirected_to services_path
+    assert_redirected_to commodities_url
   end
 end

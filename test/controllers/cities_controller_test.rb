@@ -66,6 +66,6 @@ class CitiesControllerTest < ActionController::TestCase
       delete :destroy, id: @city
     end
 
-    assert_redirected_to cities_path
+    assert_redirected_to cities_url
   end
 end
