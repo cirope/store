@@ -8,6 +8,6 @@ module Customers::LastReceipt
   private
 
     def last_receipt
-      receipts.ordered.last
+      receipts.ordered.first
     end
 end
