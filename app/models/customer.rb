@@ -3,6 +3,7 @@ class Customer < ActiveRecord::Base
   include Auditable
   include Customers::Birthdays
   include Customers::DestroyValidation
+  include Customers::LastReceipt
   include Customers::Validation
   include Entities::Searchable
   include Invoiceable

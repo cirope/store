@@ -15,4 +15,12 @@ class CustomersHelperTest < ActionView::TestCase
   test 'customer date picker options' do
     assert_kind_of Hash, customer_date_picker_options
   end
+
+  test 'customer time ago to last receipt' do
+    customer = customers :havanna
+    last_receipt_date = customer.last_receipt_date
+
+    assert_match time_ago_in_words(last_receipt_date), customer_time_ago_to_last_receipt(customer)
+    assert_equal t('customers.receipts.zero'), customer_time_ago_to_last_receipt(Customer.new)
+  end
 end

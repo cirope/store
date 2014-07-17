@@ -37,4 +37,8 @@ class CustomerTest < ActiveSupport::TestCase
       @customer.destroy
     end
   end
+
+  test 'last receipt date' do
+    assert_equal @customer.receipts.ordered.last.issued_at, @customer.last_receipt_date
+  end
 end

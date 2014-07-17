@@ -103,9 +103,10 @@ es:
       one: 'Una factura'
       other: '%{count} facturas'
     receipts:
-      zero: 'Sin recibos'
-      one: 'Un recibo'
-      other: '%{count} recibos'
+      zero: 'Sin comandas'
+      one: 'Una comanda'
+      other: '%{count} comandas'
+      last_date: 'Última comanda hace %{time_ago}'
 
   date_filter:
     start: 'Desde'
@@ -280,7 +281,7 @@ es:
       index:
         title: 'Cumpleaños'
     commodities:
-      by_receipt: 'Operaciones por recibo'
+      by_receipt: 'Operaciones por comanda'
       by_invoice: 'Operaciones por factura'
       index:
         title: 'Listado de mercancías'

@@ -65,6 +65,7 @@
         <label>
           <%= check_box_tag :ask_for_feedback, 1, params[:ask_for_feedback] %>
           <strong><%= t '.ask_for_feedback' %></strong>
+          <span class="text-muted" data-distance-time-to-last-receipt></span>
         </label>
       </div>
     <% end %>

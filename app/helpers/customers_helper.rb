@@ -24,4 +24,14 @@ module CustomersHelper
       }
     }
   end
+
+  def customer_time_ago_to_last_receipt customer
+    last_receipt_date = customer.last_receipt_date
+
+    if last_receipt_date
+      t 'customers.receipts.last_date', time_ago: time_ago_in_words(last_receipt_date)
+    else
+      t 'customers.receipts.zero'
+    end
+  end
 end

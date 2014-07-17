@@ -6,3 +6,4 @@ $(document).on 'update.autocomplete', '.use input[name$="[item]"]', (event) ->
 
 $(document).on 'update.autocomplete', '#receipt_customer', (event) ->
   $('#ask_for_feedback').attr('disabled', !event.item.email)
+  $('[data-distance-time-to-last-receipt]').html(event.item.distance_time_to_last_receipt)
