@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908133957) do
+ActiveRecord::Schema.define(version: 20140908135030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -294,6 +294,17 @@ ActiveRecord::Schema.define(version: 20140908133957) do
   add_index "supplies", ["commodity_id"], name: "index_supplies_on_commodity_id", using: :btree
   add_index "supplies", ["quantity"], name: "index_supplies_on_quantity", using: :btree
   add_index "supplies", ["warehouse_id"], name: "index_supplies_on_warehouse_id", using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type"], name: "index_taggings_on_taggable_id_and_taggable_type", using: :btree
 
   create_table "tags", force: true do |t|
     t.string   "name"

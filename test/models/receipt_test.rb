@@ -58,4 +58,12 @@ class ReceiptTest < ActiveSupport::TestCase
 
     assert Receipt.by_customer(customer).all? { |i| i.customer == customer }
   end
+
+  test 'taggable' do
+    assert_equal @receipt.tags.map(&:name).join(', '), @receipt.tag_list
+
+    assert_difference 'Tag.count' do
+      @receipt.tag_list = [@receipt.tag_list, 'new tag'].join ', '
+    end
+  end
 end

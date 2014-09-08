@@ -8,6 +8,7 @@ class Receipt < ActiveRecord::Base
   include Receipts::DefaultValues
   include Receipts::Scopes
   include Receipts::Validation
+  include Taggable
 
   has_many :feedbacks, as: :owner, dependent: :destroy
 

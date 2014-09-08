@@ -18,4 +18,9 @@ class TagTest < ActiveSupport::TestCase
     assert tag.invalid?
     assert_error tag, :name, :taken
   end
+
+  test 'by name' do
+    assert Tag.by_name(@tag.name.upcase).any?
+    assert Tag.by_name('no way').empty?
+  end
 end
