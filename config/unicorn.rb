@@ -15,12 +15,12 @@ preload_app true
 # "current" directory that Capistrano sets up.
 working_directory app_path
 
-listen '/tmp/unicorn.sock', backlog: 1024
+listen '/tmp/unicorn.login.sock', backlog: 1024
 
 # nuke workers after 60 seconds
 timeout 60
 
-pid '/tmp/unicorn.pid'
+pid '/tmp/unicorn.login.pid'
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
