@@ -36,4 +36,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.after_initialize do
+    Timecop.travel Time.local(2014, 12, 12, 10, 5, 0)
+  end
 end
