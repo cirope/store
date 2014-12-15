@@ -1,6 +1,6 @@
 class AutocompleteInput < SimpleForm::Inputs::Base
-  def input
-    autocomplete_field << hidden_field
+  def input wrapper_options
+    autocomplete_field(wrapper_options) << hidden_field
   end
 
   def input_html_classes
@@ -9,8 +9,8 @@ class AutocompleteInput < SimpleForm::Inputs::Base
 
   private
 
-    def autocomplete_field
-      @builder.text_field attribute_name, input_options
+    def autocomplete_field wrapper_options
+      @builder.text_field attribute_name, input_options(wrapper_options)
     end
 
     def hidden_field
@@ -29,7 +29,7 @@ class AutocompleteInput < SimpleForm::Inputs::Base
       "#{attribute_name}_id_#{object.object_id}"
     end
 
-    def input_options
+    def input_options wrapper_options
       {
         placeholder: model.model_name.human,
         title: model.model_name.human,
@@ -38,6 +38,6 @@ class AutocompleteInput < SimpleForm::Inputs::Base
           autocomplete_url: url,
           autocomplete_target: "##{id_field}"
         }
-      }.deep_merge input_html_options
+      }.deep_merge merge_wrapper_options(input_html_options, wrapper_options)
     end
 end

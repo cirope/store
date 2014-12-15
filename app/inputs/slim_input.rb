@@ -1,9 +1,9 @@
 class SlimInput < SimpleForm::Inputs::Base
-  def input
-    @builder.text_field attribute_name, input_options
+  def input wrapper_options
+    @builder.text_field attribute_name, input_options(wrapper_options)
   end
 
-  def label
+  def label wrapper_options
     false
   end
 
@@ -13,10 +13,10 @@ class SlimInput < SimpleForm::Inputs::Base
 
   private
 
-    def input_options
+    def input_options wrapper_options
       {
         placeholder: raw_label_text,
         title: raw_label_text,
-      }.deep_merge input_html_options
+      }.deep_merge merge_wrapper_options(input_html_options, wrapper_options)
     end
 end
