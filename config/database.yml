@@ -1,4 +1,4 @@
-common: &common
+default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
@@ -6,17 +6,17 @@ common: &common
   password: <%= ENV['TRAVIS'] ? '' : 'store' %>
 
 development:
+  <<: *default
   database: store_development
-  <<: *common
 
 test:
+  <<: *default
   database: store_test
-  <<: *common
 
 production:
+  <<: *default
   database: store_production
-  <<: *common
 
 sandbox:
+  <<: *default
   database: store_production
-  <<: *common
