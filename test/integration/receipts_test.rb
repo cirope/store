@@ -176,6 +176,8 @@ class ReceiptsTest < ActionDispatch::IntegrationTest
       add_use 1
       add_use 2
 
+      page.find("fieldset.bound:nth-child(#{index})").hover
+
       within "fieldset.bound:nth-child(#{index})" do
         find('.glyphicon-shopping-cart').click
         assert page.has_no_css?('.use')

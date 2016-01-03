@@ -74,7 +74,7 @@ class ReceiptsController < ApplicationController
       if params[:ask_for_feedback]
         feedback = Feedback.create! customer: @receipt.customer, owner: @receipt
 
-        FeedbackMailer.delay.feedback feedback
+        FeedbackMailer.feedback(feedback).deliver_later
       end
     end
 end

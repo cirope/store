@@ -7,7 +7,7 @@ module Reports::CommoditiesHelper
 
     def link_for type
       link_to t("reports.commodities.by_#{type}"),
-        reports_commodities_path(request.params.merge(voucher: type))
+        reports_commodities_path(request.params.symbolize_keys.merge(voucher: type))
     end
 
     def options_for type
